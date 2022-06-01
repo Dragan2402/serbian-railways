@@ -6,7 +6,27 @@ using System.Threading.Tasks;
 
 namespace SerbianRailways.model
 {
-    internal class Station
+    public class Station
     {
+        public int Id { get; set; }
+
+        public string Name { get; set; }
+
+        public Location Location { get; set; }
+
+        public Station() { }
+
+        public Station(int id, string name, Location location)
+        {
+            Id = id;
+            Name = name;
+            Location = location;
+        }
+
+        public override string ToString()
+        {
+            return "Station:" + " " + Id + " " + Name + " " + Location;
+        }
+
     }
 }

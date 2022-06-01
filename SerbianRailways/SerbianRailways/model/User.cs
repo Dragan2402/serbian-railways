@@ -27,7 +27,7 @@ namespace SerbianRailways.model
 
         public override string ToString()
         {
-            return "Client: " + UserName + " " + Password + " " + Name + " " + Surname + " " + Address + " " + Role;
+            return "User: " + UserName + " " + Password + " " + Name + " " + Surname + " " + Address + " " + Role;
         }
 
     }

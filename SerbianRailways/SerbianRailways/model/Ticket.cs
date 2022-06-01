@@ -23,6 +23,15 @@ namespace SerbianRailways.model
             Seat = seat;
             Ride = ride;
             Client = client;
+
+            Ride.SeatsStatus[Seat] = true;
+            Client.Tickets.Add(this);
+            Ride.Tickets.Add(this);
+        }
+
+        public override string ToString()
+        {
+            return "Ticket:" + " " + Id + " " + Price + "din Seat:" + Seat + " " + Ride + " " + Client;
         }
 
     }

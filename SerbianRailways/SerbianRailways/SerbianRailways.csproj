@@ -55,6 +55,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="controller\MockController.cs" />
+    <Compile Include="repository\MockRepository.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -69,6 +71,17 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="model\Address.cs" />
+    <Compile Include="model\Client.cs" />
+    <Compile Include="model\Line.cs" />
+    <Compile Include="model\Location.cs" />
+    <Compile Include="model\Manager.cs" />
+    <Compile Include="model\Ride.cs" />
+    <Compile Include="model\RideStop.cs" />
+    <Compile Include="model\Station.cs" />
+    <Compile Include="model\Ticket.cs" />
+    <Compile Include="model\Train.cs" />
+    <Compile Include="model\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

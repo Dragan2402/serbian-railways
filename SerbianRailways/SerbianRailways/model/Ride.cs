@@ -10,9 +10,9 @@ namespace SerbianRailways.model
     {
         public int Id { get; set; }
 
-        public DateTime DepartureTime { get; set; }
+        public TimeSpan DepartureTime { get; set; }
 
-        public DateTime ArrivalTime { get; set; }
+        public TimeSpan ArrivalTime { get; set; }
 
         public TimeSpan Duration { get; set; }
 
@@ -33,20 +33,28 @@ namespace SerbianRailways.model
             SeatsStatus = new Dictionary<int,Boolean>();
         }
 
-        public Ride(int id,DateTime departureTime,DateTime arrivalTime,Train train,Line line)
+        public Ride(int id,TimeSpan departureTime,TimeSpan arrivalTime,Train train,Line line)
         {
             Id = id;
             DepartureTime = departureTime;
             ArrivalTime = arrivalTime;
-            Duration = arrivalTime - departureTime;
+            if (arrivalTime < departureTime)
+                Duration = (arrivalTime + new TimeSpan(24, 0, 0)) - departureTime;
+            else
+                Duration = arrivalTime - departureTime;
             Train = train;
             Line = line;
             Tickets = new List<Ticket>();
             RideStops = new List<RideStop>();
+            SeatsStatus = new Dictionary<int, bool>();
             for(int i = 0; i < Train.NumberOfSeats; i++)
             {
                 SeatsStatus[i] = false;
             }
+
+            Line.Rides.Add(this);
+            Train.Rides.Add(this);
+
         }
 
         public override string ToString()

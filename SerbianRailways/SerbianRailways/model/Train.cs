@@ -11,7 +11,6 @@ namespace SerbianRailways.model
         public int SerialNumber { get; set; }
         public string Name { get; set; }
         public int NumberOfSeats { get; set; }
-
         public List<Ride> Rides { get; set; }
 
         public Train() { }
@@ -24,5 +23,9 @@ namespace SerbianRailways.model
             Rides=new List<Ride>();
         }
 
+        public override string ToString()
+        {
+            return "Train:" + " " + SerialNumber + " " + Name + " Seats: " + NumberOfSeats;
+        }
     }
 }
