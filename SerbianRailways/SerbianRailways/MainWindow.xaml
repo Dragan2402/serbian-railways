@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SerbianRailways"
         mc:Ignorable="d"
-        Title="Železnice Srbije" Height="450" Width="800" Icon="/AppLogo.png">
+        Title="Srbija Voz" Height="450" Width="800" Icon="/AppLogo.png">
     <Grid>
         <Frame x:Name="Main" NavigationUIVisibility="Hidden"/>
     </Grid>

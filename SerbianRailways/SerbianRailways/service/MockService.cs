@@ -43,6 +43,12 @@ namespace SerbianRailways.service
             }
             return managers;
         }
+
+        public User getLoggedUser()
+        {
+            return mockRepository.LoggedUser;
+        }
+
         public List<Station> getAllStations()
         {
             return mockRepository.Stations.Values.ToList();

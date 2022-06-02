@@ -14,6 +14,45 @@
             <ColumnDefinition Width="4*"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <TextBlock>DOBRODOSAO Klijente</TextBlock>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Image Grid.Column="0" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,0,5" Source="../AppLogo.png"></Image>
+        <DockPanel Grid.Row="1" Grid.RowSpan="3" Grid.Column="0" Margin="50,0,50,0">
+            <Border Background="White" BorderThickness="1,1,1,1" BorderBrush="AntiqueWhite" CornerRadius="2"
+            HorizontalAlignment="Center" VerticalAlignment="Center" Padding="20">
+                <StackPanel VerticalAlignment="Stretch" HorizontalAlignment="Stretch" MinWidth="100">
+                    <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5,0,5">Lični Podaci</Label>
+                    <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,10,0,5" Content="{Binding Path=LoggedUserUsername, UpdateSourceTrigger=PropertyChanged}"/>
+                    <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5,0,5" Content="{Binding Path=LoggedUserName, UpdateSourceTrigger=PropertyChanged}"/>
+                    <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5,0,5" Content="{Binding Path=LoggedUserAddress, UpdateSourceTrigger=PropertyChanged}"/>
+                </StackPanel>
+            </Border>
+        </DockPanel>
+        <Button x:Name="buyBookTicketsBtn" Grid.Column="1" Grid.Row="0" VerticalAlignment="Bottom" HorizontalAlignment="Center" MinWidth="120" Padding="5" Background="White">
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect> Kupi/Rezerviši kartu</Button>
+        <Button x:Name="showMyTicektsBtn" Grid.Column="1" Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Center" MinWidth="120" Padding="5" Background="White">
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect> Pregled mojih karti</Button>
+        <Button x:Name="showLinesRidesBtn" Grid.Column="1" Grid.Row="2" VerticalAlignment="Bottom" HorizontalAlignment="Center" MinWidth="120" Padding="5" Background="White">
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect> Pregled linija i vožnji</Button>
+        <Button x:Name="showLinesGrid" Grid.Column="1" Grid.Row="3" VerticalAlignment="Bottom" HorizontalAlignment="Center" MinWidth="120" Padding="5" Background="White">
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect> Mreža linija</Button>
+        <Button x:Name="logOutBtn" Grid.Column="2" Grid.Row="4" VerticalAlignment="Center" Padding="2.5" HorizontalAlignment="Center" Click="log_out" Background="White" >
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect> Odjavi se</Button>
+
     </Grid>
 </Page>

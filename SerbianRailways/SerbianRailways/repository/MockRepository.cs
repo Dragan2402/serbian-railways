@@ -46,7 +46,7 @@ namespace SerbianRailways.repository
             Client clientTemp1 = new Client("asiKavasaki", "akiaki", "Andrej", "Culjak", addressAki);
 
             Address addressDmitar = new Address("Telep Gang", "Novi Sad", "21000", "Srbija");
-            Client clientTemp2 = new Client("dmitar", "dimpet96", "Dimitrije", "Petrov", addressDmitar);
+            Client clientTemp2 = new Client("dmitar", "dmitar", "Dimitrije", "Petrov", addressDmitar);
 
             Users.Add(clientTemp1.UserName,clientTemp1);
             Users.Add(clientTemp2.UserName,clientTemp2);
@@ -55,7 +55,7 @@ namespace SerbianRailways.repository
             Manager managerDanica = new Manager("danica81", "danicaDanica", "Danica", "Joksic", addressDanica);
 
             Address addressGage = new Address("Hopovska 4", "Novi Sad", "21000", "Srbija");
-            Manager managerGage = new Manager("gage2402", "gageGage", "Dragan", "Mirkovic", addressGage);
+            Manager managerGage = new Manager("gage", "gage", "Dragan", "Mirkovic", addressGage);
 
             Users.Add(managerDanica.UserName,managerDanica);
             Users.Add(managerGage.UserName,managerGage);

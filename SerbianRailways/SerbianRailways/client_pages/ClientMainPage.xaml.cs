@@ -1,4 +1,5 @@
-﻿using SerbianRailways.service;
+﻿using SerbianRailways.authorization_pages;
+using SerbianRailways.service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +22,10 @@ namespace SerbianRailways.client_pages
     /// </summary>
     public partial class ClientMainPage : Page
     {
+        public string LoggedUserUsername { get; set; }
+        public string LoggedUserName { get; set; }
+        public string LoggedUserAddress { get; set; }
+
         private MockService MockService { get; set; }
         Frame main_frame;
         public ClientMainPage(MockService mockService, Frame mainFrame)
@@ -28,7 +33,22 @@ namespace SerbianRailways.client_pages
             InitializeComponent();
             this.DataContext = this;
             MockService = mockService;
+            LoggedUserUsername ="Korisničko ime: "+ MockService.getLoggedUser().UserName;
+            LoggedUserAddress = "Adresa: " + MockService.getLoggedUser().Address.ToString();
+            LoggedUserName = "Ime: " + MockService.getLoggedUser().Name+" "+mockService.getLoggedUser().Surname;
             main_frame = mainFrame;
+        }
+
+        public void log_out(object sender, RoutedEventArgs e)
+        {
+            if (MessageBox.Show("Da li ste sigurni da želite da se odjavite?",
+                    "Odjava",
+                    MessageBoxButton.YesNo,
+                    MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                main_frame.Content = new Login(MockService, main_frame);
+            }
+            
         }
     }
 }

@@ -16,20 +16,20 @@
 
 
                 <TextBlock Margin="10,0,0,50" HorizontalAlignment="Stretch" >
-                    <Run  Text="Dobrodošli,"/>
+                    <Run Text="Dobrodošli,"/>
                     <LineBreak/>
-                    <Run Text="putujte sa osmehom"/>
+                    <Run Text="putujte sa najboljim..."/>
                 </TextBlock>
 
                 <Label >Korisničko ime:</Label>
                 <TextBox  x:Name="username_tb" Text="{Binding Path=Username, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" ></TextBox>
 
-                <Label >Lozinka:</Label>
+                <Label Margin="0,5,0,0" >Lozinka:</Label>
                 
                 <PasswordBox w:PasswordHelper.Attach="True" 
                                 w:PasswordHelper.Password="{Binding Path=Password, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"/>
              
-                <Button Content="Prijavi se" x:Name="sign_in_btn" Background="Crimson" Margin="10,10,0,0" Click="sign_in_btn_Click"></Button>
+                <Button Content="Prijavi se" x:Name="sign_in_btn" Background="White" Margin="10,20,0,0" Click="sign_in_btn_Click" BorderBrush="#FF3E3E3E"/>
 
             </StackPanel>
         </Border>
