@@ -51,8 +51,8 @@ namespace SerbianRailways.repository
             Users.Add(clientTemp1.UserName,clientTemp1);
             Users.Add(clientTemp2.UserName,clientTemp2);
 
-            Address addressDanica = new Address("Grbavica 10", "Beograd", "11000", "Srbija");
-            Manager managerDanica = new Manager("danica81", "danicaDanica", "Danica", "Joksic", addressDanica);
+            Address addressDanica = new Address("Konjarnik 10", "Beograd", "11000", "Srbija");
+            Manager managerDanica = new Manager("danica", "danica", "Danica", "Joksic", addressDanica);
 
             Address addressGage = new Address("Hopovska 4", "Novi Sad", "21000", "Srbija");
             Manager managerGage = new Manager("gage", "gage", "Dragan", "Mirkovic", addressGage);
