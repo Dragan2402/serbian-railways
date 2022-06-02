@@ -8,7 +8,12 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Klijent">
 
-    <Grid>
+    <Grid Name="client_grid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
         <TextBlock>DOBRODOSAO Klijente</TextBlock>
     </Grid>
 </Page>
