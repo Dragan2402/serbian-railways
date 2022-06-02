@@ -47,8 +47,14 @@ namespace SerbianRailways.client_pages
                     MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
                 main_frame.Content = new Login(MockService, main_frame);
+                
             }
             
+        }
+
+        private void showMyTickets(object sender, RoutedEventArgs e)
+        {
+            main_frame.Content = new ClientShowTicketsPage(MockService, main_frame);
         }
     }
 }

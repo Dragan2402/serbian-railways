@@ -61,9 +61,13 @@
     <Compile Include="client_pages\ClientMainPage.xaml.cs">
       <DependentUpon>ClientMainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="client_pages\ClientShowTicketsPage.xaml.cs">
+      <DependentUpon>ClientShowTicketsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="manager_pages\ManagerMainPage.xaml.cs">
       <DependentUpon>ManagerMainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="model\tableModels\TicketTable.cs" />
     <Compile Include="service\MockService.cs" />
     <Compile Include="repository\MockRepository.cs" />
     <Compile Include="utility\PasswordHelper.cs" />
@@ -72,6 +76,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="client_pages\ClientMainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="client_pages\ClientShowTicketsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

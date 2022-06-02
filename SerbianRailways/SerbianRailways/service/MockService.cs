@@ -1,7 +1,9 @@
 ﻿using SerbianRailways.model;
+using SerbianRailways.model.tableModels;
 using SerbianRailways.repository;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -42,6 +44,23 @@ namespace SerbianRailways.service
                     managers.Add((Manager)user);
             }
             return managers;
+        }
+
+        internal ObservableCollection<TicketTable> getLoggedClientTicketsTable()
+        {
+            ObservableCollection<TicketTable> ticketTables = new ObservableCollection<TicketTable>();
+            foreach(Ticket ticket in getLoggedClientTickets())
+            {
+                TicketTable ticketTable = new TicketTable(ticket);
+                ticketTables.Add(ticketTable);
+            }
+            return ticketTables;
+        }
+
+        public List<Ticket> getLoggedClientTickets()
+        {
+            Client clientLogged = (Client)mockRepository.LoggedUser;
+            return clientLogged.Tickets;
         }
 
         public User getLoggedUser()
