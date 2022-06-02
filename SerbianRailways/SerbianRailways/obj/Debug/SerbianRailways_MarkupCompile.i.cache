@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\draga\OneDrive\Dokumenti\HCI\Projekat\serbian-railways\SerbianRailways\SerbianRailways\App.xaml
-1219584333
+4-795167383
 
-191418463950
+23-1324223375
 13-1310406943
-MainWindow.xaml;
+authorization_pages\LoginPage.xaml;client_pages\ClientMainPage.xaml;MainWindow.xaml;manager_pages\ManagerMainPage.xaml;
 
-False
+True
 

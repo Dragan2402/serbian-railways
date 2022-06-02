@@ -1,0 +1,37 @@
+﻿<Page x:Class="SerbianRailways.authorization_pages.Login"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:w="clr-namespace:SerbianRailways.utility"
+      xmlns:local="clr-namespace:SerbianRailways.authorization_pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Login">
+
+    <Grid>
+        <Border Background="White" BorderThickness="1,1,1,1" BorderBrush="AntiqueWhite" CornerRadius="2"
+            HorizontalAlignment="Center" VerticalAlignment="Center" Padding="20">
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" >
+
+
+                <TextBlock Margin="10,0,0,50" HorizontalAlignment="Stretch" >
+                    <Run  Text="Dobrodošli,"/>
+                    <LineBreak/>
+                    <Run Text="putujte sa osmehom"/>
+                </TextBlock>
+
+                <Label >Korisničko ime:</Label>
+                <TextBox  x:Name="username_tb" Text="{Binding Path=Username, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" ></TextBox>
+
+                <Label >Lozinka:</Label>
+                
+                <PasswordBox w:PasswordHelper.Attach="True" 
+                                w:PasswordHelper.Password="{Binding Path=Password, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"/>
+             
+                <Button Content="Prijavi se" x:Name="sign_in_btn" Background="Crimson" Margin="10,10,0,0" Click="sign_in_btn_Click"></Button>
+
+            </StackPanel>
+        </Border>
+    </Grid>
+</Page>

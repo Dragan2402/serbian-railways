@@ -1,4 +1,5 @@
-﻿using SerbianRailways.controller;
+﻿using SerbianRailways.authorization_pages;
+using SerbianRailways.service;
 using SerbianRailways.model;
 using System;
 using System.Collections.Generic;
@@ -22,40 +23,41 @@ namespace SerbianRailways
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MockController MockController=null;
+        public MockService MockService=null;
         public MainWindow()
         {
             InitializeComponent();
-            MockController = new MockController();
-            foreach(Client client in MockController.getAllClients())
+            MockService = new MockService();
+            foreach(Client client in MockService.getAllClients())
             {
                 Console.WriteLine(client);
             }
-            foreach (Manager manager in MockController.getAllManagers())
+            foreach (Manager manager in MockService.getAllManagers())
             {
                 Console.WriteLine(manager);
             }
-            foreach (model.Line line in MockController.getAllLines())
+            foreach (model.Line line in MockService.getAllLines())
             {
                 Console.WriteLine(line);
             }
-            foreach (Ride ride in MockController.getAllRides())
+            foreach (Ride ride in MockService.getAllRides())
             {
                 Console.WriteLine(ride);
             }
-            foreach (Station station in MockController.getAllStations())
+            foreach (Station station in MockService.getAllStations())
             {
                 Console.WriteLine(station);
             }
-            foreach (Train train in MockController.getAllTrains())
+            foreach (Train train in MockService.getAllTrains())
             {
                 Console.WriteLine(train);
             }
-            foreach (Ticket ticket in MockController.getAllTickets())
+            foreach (Ticket ticket in MockService.getAllTickets())
             {
                 Console.WriteLine(ticket);
             }
 
+            Main.Content = new Login(MockService,Main);
         }
     }
 }
