@@ -64,6 +64,9 @@
     <Compile Include="client_pages\ClientMainPage.xaml.cs">
       <DependentUpon>ClientMainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="manager_pages\AddTrainWindow.xaml.cs">
+      <DependentUpon>AddTrainWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="manager_pages\LinesPage.xaml.cs">
       <DependentUpon>LinesPage.xaml</DependentUpon>
     </Compile>
@@ -82,6 +85,7 @@
     <Compile Include="manager_pages\TrainsPage.xaml.cs">
       <DependentUpon>TrainsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="model\tableModels\TicketTable.cs" />
     <Compile Include="service\MockService.cs" />
     <Compile Include="repository\MockRepository.cs" />
     <Compile Include="utility\Commands.cs" />
@@ -110,6 +114,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="manager_pages\AddTrainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="manager_pages\LinesPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

@@ -8,6 +8,7 @@ namespace SerbianRailways.model.tableModels
 {
     public class TicketTable
     {
+            
         public int Id { get; set; }
         public Double Price { get; set; }
         public int Seat { get; set; }
@@ -17,9 +18,9 @@ namespace SerbianRailways.model.tableModels
 
         public TicketTable(Ticket ticket)
         {
-            Id= ticket.Id;
-            Price=ticket.Price;
-            Seat=ticket.Seat;
+            Id = ticket.Id;
+            Price = ticket.Price;
+            Seat = ticket.Seat;
             From = ticket.Ride.Line.DepartureStation.Name;
             To = ticket.Ride.Line.ArrivalStation.Name;
             if (ticket.TicketType == Ticket.TicketsType.RESERVED)
@@ -28,4 +29,5 @@ namespace SerbianRailways.model.tableModels
                 TicketType = "Kup";
         }
     }
+
 }

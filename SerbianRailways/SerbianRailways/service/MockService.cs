@@ -80,6 +80,15 @@ namespace SerbianRailways.service
         {
             return mockRepository.Trains.Values.ToList();
         }
+        public ObservableCollection<Train> getAllTrainsTable()
+        {
+            ObservableCollection<Train> trainTable = new ObservableCollection<Train>();
+            foreach (Train train in getAllTrains())
+            {
+                trainTable.Add(train);
+            }
+            return trainTable;
+        }
         public List<Ride> getAllRides()
         {
             return mockRepository.Rides.Values.ToList();

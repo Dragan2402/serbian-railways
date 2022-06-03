@@ -1,0 +1,22 @@
+﻿<Window x:Class="SerbianRailways.manager_pages.AddTrainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Srbija Voz-Dodavanje voza" Icon="/AppLogo.png" Height="400" Width="300" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Label Margin="10">Serijski broj voza:</Label>
+            <TextBox Margin="10" x:Name="SerialNumber_tb" Text="{Binding Path=SerialNumber, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" ></TextBox>
+            <Label Margin="10">Naziv voza:</Label>
+            <TextBox  Margin="10" x:Name="name_tb" Text="{Binding Path=TrainName, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" ></TextBox>
+            <Label Margin="10">Broj mesta:</Label>
+            <TextBox  Margin="10" x:Name="seats_tb" Text="{Binding Path=Seats, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" ></TextBox>
+            <WrapPanel HorizontalAlignment="Center" >
+                <Button HorizontalAlignment="Left" Margin="0,0,5,0" MinHeight="30" MinWidth="70"  BorderBrush="#FF3E3E3E" Background="White" Click="Add_train_btn" >Dodaj</Button>
+                <Button HorizontalAlignment="Right"  MinHeight="30" MinWidth="70"  BorderBrush="#FF3E3E3E" Background="White">Odustani</Button>
+            </WrapPanel>
+        </StackPanel>
+    </Grid>
+</Window>

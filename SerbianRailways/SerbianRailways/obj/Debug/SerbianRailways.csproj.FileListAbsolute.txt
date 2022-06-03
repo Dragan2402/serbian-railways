@@ -33,3 +33,5 @@ C:\Users\draga\OneDrive\Dokumenti\HCI\Projekat\serbian-railways\SerbianRailways\
 C:\Users\draga\OneDrive\Dokumenti\HCI\Projekat\serbian-railways\SerbianRailways\SerbianRailways\obj\Debug\manager_pages\StationsPage.baml
 C:\Users\draga\OneDrive\Dokumenti\HCI\Projekat\serbian-railways\SerbianRailways\SerbianRailways\obj\Debug\authorization_pages\RegistrationPage.g.cs
 C:\Users\draga\OneDrive\Dokumenti\HCI\Projekat\serbian-railways\SerbianRailways\SerbianRailways\obj\Debug\authorization_pages\RegistrationPage.baml
+C:\Users\draga\OneDrive\Dokumenti\HCI\Projekat\serbian-railways\SerbianRailways\SerbianRailways\obj\Debug\manager_pages\AddTrainWindow.g.cs
+C:\Users\draga\OneDrive\Dokumenti\HCI\Projekat\serbian-railways\SerbianRailways\SerbianRailways\obj\Debug\manager_pages\AddTrainWindow.baml

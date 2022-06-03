@@ -1,6 +1,8 @@
-﻿using SerbianRailways.service;
+﻿using SerbianRailways.model;
+using SerbianRailways.service;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,6 +23,8 @@ namespace SerbianRailways.manager_pages
     /// </summary>
     public partial class TrainsPage : Page
     {
+        public ObservableCollection<Train> trains = new ObservableCollection<Train>();
+
         private MockService MockService { get; set; }
         Frame main_frame;
         Window main_window { get; set; }
@@ -35,7 +39,14 @@ namespace SerbianRailways.manager_pages
             RoutedCommand newCmd = new RoutedCommand();
             newCmd.InputGestures.Add(new KeyGesture(Key.Back, ModifierKeys.Control));
             window.CommandBindings.Add(new CommandBinding(newCmd, ReturnManagerPageSC));
-            
+            trains = MockService.getAllTrainsTable();
+            dgTrains.DataContext = trains;
+
+
+            RoutedCommand addTrainCMD = new RoutedCommand();
+            addTrainCMD.InputGestures.Add(new KeyGesture(Key.A, ModifierKeys.Control));
+            window.CommandBindings.Add(new CommandBinding(addTrainCMD, AddTrainSC));
+
         }
 
         private void ReturnManagerPage(object sender, RoutedEventArgs e)
@@ -45,6 +56,21 @@ namespace SerbianRailways.manager_pages
         private void ReturnManagerPageSC(object sender, ExecutedRoutedEventArgs e)
         {
             main_frame.Content = new ManagerMainPage(MockService, main_frame, main_window);
+        }
+
+        private void AddTrainSC(object sender, ExecutedRoutedEventArgs e)
+        {
+            
+            Window addTrainWindow = new AddTrainWindow(MockService, trains);
+            addTrainWindow.ShowDialog();
+            addTrainWindow.Focus();
+        }
+
+        private void AddTrainBtn(object sender, RoutedEventArgs e)
+        {
+            Window addTrainWindow = new AddTrainWindow(MockService,trains);
+            addTrainWindow.ShowDialog();
+            addTrainWindow.Focus();
         }
     }
 }

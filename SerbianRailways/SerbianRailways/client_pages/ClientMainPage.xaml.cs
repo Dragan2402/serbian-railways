@@ -54,5 +54,9 @@ namespace SerbianRailways.client_pages
             }
             
         }
+        public void showMyTickets(object sender,RoutedEventArgs e)
+        {
+            MessageBox.Show("Dosad");
+        }
     }
 }
