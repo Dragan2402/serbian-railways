@@ -46,17 +46,17 @@ namespace SerbianRailways.authorization_pages
             window.CommandBindings.Clear();
             RoutedCommand newCmd = new RoutedCommand();
             newCmd.InputGestures.Add(new KeyGesture(Key.Back, ModifierKeys.Control));
-            window.CommandBindings.Add(new CommandBinding(newCmd, ReturnManagerPageSC));
+            window.CommandBindings.Add(new CommandBinding(newCmd, ReturnLoginPageSC));
 
         }
 
-        private void ReturnManagerPage(object sender, RoutedEventArgs e)
+        private void ReturnLoginPage(object sender, RoutedEventArgs e)
         {
             main_window.Height = OldHeight;
             main_window.Width = OldWidth;
             main_frame.Content = new Login(MockService, main_frame, main_window);
         }
-        private void ReturnManagerPageSC(object sender, ExecutedRoutedEventArgs e)
+        private void ReturnLoginPageSC(object sender, ExecutedRoutedEventArgs e)
         {
             main_window.Height = OldHeight;
             main_window.Width   =OldWidth;

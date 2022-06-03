@@ -9,7 +9,16 @@
       Title="TrainsPage">
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
         <TextBox>VOZOVI</TextBox>
-        <Button Content="Povratak" Width="50" Height="50" Click="ReturnManagerPage" />
+        <Button Content="Povratak" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,20,20" MinWidth="70" BorderBrush="#FF3E3E3E" Background="White" MinHeight="30" Click="ReturnManagerPage" />
+
     </Grid>
 </Page>
