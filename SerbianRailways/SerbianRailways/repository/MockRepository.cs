@@ -116,13 +116,13 @@ namespace SerbianRailways.repository
 
             //u konstruktoru Ticket se dodaje karta klijentu i voznji i zauzima se mjesto automatski, validaciju postojanja mjesta odraditi ranije
             TicketID++;
-            Ticket ticketNSBG = new Ticket(TicketID, 600.0, 30, rideNSBG, clientTemp1);
+            Ticket ticketNSBG = new Ticket(TicketID, 600.0, 30, rideNSBG, clientTemp1,Ticket.TicketsType.BOUGHT);
             TicketID++;
-            Ticket ticketBGNS = new Ticket(TicketID, 560.0, 35, rideNSBG, clientTemp1);
+            Ticket ticketBGNS = new Ticket(TicketID, 560.0, 35, rideNSBG, clientTemp1,Ticket.TicketsType.BOUGHT);
             TicketID++;
-            Ticket ticketNSNIS = new Ticket(TicketID, 800.0, 5, rideNSNIS, clientTemp2);
+            Ticket ticketNSNIS = new Ticket(TicketID, 800.0, 5, rideNSNIS, clientTemp2,Ticket.TicketsType.RESERVED);
             TicketID++;
-            Ticket ticketNISNS = new Ticket(TicketID, 770.0, 3, rideNISNS, clientTemp2);
+            Ticket ticketNISNS = new Ticket(TicketID, 770.0, 3, rideNISNS, clientTemp2,Ticket.TicketsType.RESERVED);
 
             Tickets.Add(ticketNSBG.Id, ticketNSBG);
             Tickets.Add(ticketBGNS.Id, ticketBGNS);

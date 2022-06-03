@@ -1,0 +1,28 @@
+﻿<Page x:Class="SerbianRailways.client_pages.ClientShowTicketsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SerbianRailways.client_pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Klijent pregled karata">
+
+    <Grid x:Name="showTicketsGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="5*" />
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center">Moje karte:</Label>
+        <DataGrid Grid.Row="1" Margin="20,20,20,20" Name="dgTickets" AutoGenerateColumns="False" IsReadOnly="True" CanUserResizeColumns="True" CanUserAddRows="False" CanUserSortColumns="True" ItemsSource="{Binding}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Broj karte" Binding="{Binding Id}" />
+                <DataGridTextColumn Header="Cena" Binding="{Binding Price}" />
+                <DataGridTextColumn Header="Mesto" Binding="{Binding Seat}" />
+                <DataGridTextColumn Header="Polazište" Binding="{Binding From}" />
+                <DataGridTextColumn Header="Dolazište" Binding="{Binding To}" />
+                <DataGridTextColumn Header="Tip karte" Binding="{Binding TicketType}" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>

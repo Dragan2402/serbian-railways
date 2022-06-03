@@ -37,7 +37,7 @@
             <Button.Effect>
                 <DropShadowEffect/>
             </Button.Effect> Kupi/Rezerviši kartu</Button>
-        <Button x:Name="showMyTicektsBtn" Grid.Column="1" Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Center" MinWidth="120" Padding="5" Background="White">
+        <Button x:Name="showMyTicektsBtn" Grid.Column="1" Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Center" MinWidth="120" Padding="5" Background="White" Click="showMyTickets">
             <Button.Effect>
                 <DropShadowEffect/>
             </Button.Effect> Pregled mojih karti</Button>
