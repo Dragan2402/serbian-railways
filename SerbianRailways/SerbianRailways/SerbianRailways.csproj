@@ -64,8 +64,12 @@
     <Compile Include="manager_pages\ManagerMainPage.xaml.cs">
       <DependentUpon>ManagerMainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="manager_pages\TrainsPage.xaml.cs">
+      <DependentUpon>TrainsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="service\MockService.cs" />
     <Compile Include="repository\MockRepository.cs" />
+    <Compile Include="utility\Commands.cs" />
     <Compile Include="utility\PasswordHelper.cs" />
     <Page Include="authorization_pages\LoginPage.xaml">
       <SubType>Designer</SubType>
@@ -88,6 +92,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="manager_pages\ManagerMainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="manager_pages\TrainsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

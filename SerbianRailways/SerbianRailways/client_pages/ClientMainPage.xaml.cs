@@ -28,7 +28,8 @@ namespace SerbianRailways.client_pages
 
         private MockService MockService { get; set; }
         Frame main_frame;
-        public ClientMainPage(MockService mockService, Frame mainFrame)
+        Window main_window { get; set; }
+        public ClientMainPage(MockService mockService, Frame mainFrame , Window window)
         {
             InitializeComponent();
             this.DataContext = this;
@@ -37,6 +38,8 @@ namespace SerbianRailways.client_pages
             LoggedUserAddress = "Adresa: " + MockService.getLoggedUser().Address.ToString();
             LoggedUserName = "Ime: " + MockService.getLoggedUser().Name+" "+mockService.getLoggedUser().Surname;
             main_frame = mainFrame;
+            main_window= window;
+            window.CommandBindings.Clear();
         }
 
         public void log_out(object sender, RoutedEventArgs e)
@@ -46,7 +49,7 @@ namespace SerbianRailways.client_pages
                     MessageBoxButton.YesNo,
                     MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
-                main_frame.Content = new Login(MockService, main_frame);
+                main_frame.Content = new Login(MockService, main_frame,main_window);
             }
             
         }

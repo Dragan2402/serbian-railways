@@ -21,3 +21,5 @@ C:\Users\draga\OneDrive\Dokumenti\HCI\Projekat\serbian-railways\SerbianRailways\
 C:\Users\draga\OneDrive\Dokumenti\HCI\Projekat\serbian-railways\SerbianRailways\SerbianRailways\obj\Debug\manager_pages\ManagerMainPage.g.cs
 C:\Users\draga\OneDrive\Dokumenti\HCI\Projekat\serbian-railways\SerbianRailways\SerbianRailways\obj\Debug\client_pages\ClientMainPage.baml
 C:\Users\draga\OneDrive\Dokumenti\HCI\Projekat\serbian-railways\SerbianRailways\SerbianRailways\obj\Debug\manager_pages\ManagerMainPage.baml
+C:\Users\draga\OneDrive\Dokumenti\HCI\Projekat\serbian-railways\SerbianRailways\SerbianRailways\obj\Debug\manager_pages\TrainsPage.g.cs
+C:\Users\draga\OneDrive\Dokumenti\HCI\Projekat\serbian-railways\SerbianRailways\SerbianRailways\obj\Debug\manager_pages\TrainsPage.baml

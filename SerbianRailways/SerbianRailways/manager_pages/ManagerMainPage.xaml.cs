@@ -26,30 +26,54 @@ namespace SerbianRailways.manager_pages
         public string LoggedUserName { get; set; }
         public string LoggedUserAddress { get; set; }
 
+
+
+
         private MockService MockService { get; set; }
         Frame main_frame;
-        public ManagerMainPage(MockService mockService, Frame mainFrame)
+        Window main_window { get; set; }
+        public ManagerMainPage(MockService mockService, Frame mainFrame,Window window)
         {
             InitializeComponent();
+
             this.DataContext = this;
             MockService = mockService;
             LoggedUserUsername = "Korisničko ime: " + MockService.getLoggedUser().UserName;
             LoggedUserAddress = "Adresa: " + MockService.getLoggedUser().Address.ToString();
             LoggedUserName = "Ime: " + MockService.getLoggedUser().Name + " " + mockService.getLoggedUser().Surname;
             main_frame = mainFrame;
+            RoutedCommand newCmd = new RoutedCommand();
+            newCmd.InputGestures.Add(new KeyGesture(Key.V, ModifierKeys.Alt));
+            main_window = window;
+            window.CommandBindings.Clear();
+            window.CommandBindings.Add(new CommandBinding(newCmd, ToggleTrainsCRUDPageSC));
+           
+    
         }
 
 
-        public void log_out(object sender, RoutedEventArgs e)
+        public void Log_out(object sender, RoutedEventArgs e)
         {
             if (MessageBox.Show("Da li ste sigurni da želite da se odjavite?",
                     "Odjava",
                     MessageBoxButton.YesNo,
                     MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
-                main_frame.Content = new Login(MockService, main_frame);
+                main_frame.Content = new Login(MockService, main_frame,main_window);
             }
 
         }
+
+        private void ToggleTrainsCRUDPageBTN(object sender, RoutedEventArgs e)
+        {
+            main_frame.Content = new TrainsPage(MockService, main_frame, main_window);
+        }
+
+        private void ToggleTrainsCRUDPageSC(object sender, ExecutedRoutedEventArgs e)
+        {
+            main_frame.Content= new TrainsPage(MockService, main_frame, main_window);
+        }
+
+
     }
 }

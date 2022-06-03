@@ -58,13 +58,16 @@ namespace SerbianRailways.authorization_pages
         private MockService MockService { get; set; }
         Frame main_frame;
 
-        public Login(MockService mockService, Frame mainFrame)
+        Window main_window { get; set; }
+        public Login(MockService mockService, Frame mainFrame,Window window)
         {
             InitializeComponent();
             this.DataContext = this;
             MockService = mockService;
             main_frame = mainFrame;
             mockService.logout();
+            main_window = window;
+            window.CommandBindings.Clear();
         }
 
 
@@ -79,7 +82,7 @@ namespace SerbianRailways.authorization_pages
             }
         }
 
-        private void sign_in_btn_Click(object sender, RoutedEventArgs e)
+        private void Sign_in_btn_Click(object sender, RoutedEventArgs e)
         {
             if (Username == null || Password == null || Username.Equals("") || Password.Equals(""))
             {
@@ -93,9 +96,9 @@ namespace SerbianRailways.authorization_pages
                 {
                     //MessageBox.Show("", "Uspešno prijavljivanje", MessageBoxButton.OK, MessageBoxImage.Information);
                     if (MockService.getLoggedUserType() == Role.CLIENT)
-                        main_frame.Content = new ClientMainPage(MockService, main_frame);
+                        main_frame.Content = new ClientMainPage(MockService, main_frame, main_window);
                     else
-                        main_frame.Content = new ManagerMainPage(MockService, main_frame);
+                        main_frame.Content = new ManagerMainPage(MockService, main_frame, main_window);
                     
                 }
                 else

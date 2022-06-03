@@ -24,9 +24,13 @@ namespace SerbianRailways
     public partial class MainWindow : Window
     {
         public MockService MockService=null;
+
+        
+
         public MainWindow()
         {
             InitializeComponent();
+
             MockService = new MockService();
             foreach(Client client in MockService.getAllClients())
             {
@@ -57,7 +61,9 @@ namespace SerbianRailways
                 Console.WriteLine(ticket);
             }
 
-            Main.Content = new Login(MockService,Main);
+            Main.Content = new Login(MockService,Main,this);
         }
+
+
     }
 }

@@ -6,6 +6,9 @@
         xmlns:local="clr-namespace:SerbianRailways"
         mc:Ignorable="d"
         Title="Srbija Voz" Height="450" Width="800" Icon="/AppLogo.png">
+    
+
+
     <Grid>
         <Frame x:Name="Main" NavigationUIVisibility="Hidden"/>
     </Grid>

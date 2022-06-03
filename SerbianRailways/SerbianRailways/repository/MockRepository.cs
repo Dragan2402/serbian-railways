@@ -43,7 +43,7 @@ namespace SerbianRailways.repository
             LoggedUser = null;
 
             Address addressAki = new Address("Futoska 12", "Novi Sad", "21000", "Srbija");
-            Client clientTemp1 = new Client("asiKavasaki", "akiaki", "Andrej", "Culjak", addressAki);
+            Client clientTemp1 = new Client("asiKavasaki", "akiaki", "Andrej", "Čuljak", addressAki);
 
             Address addressDmitar = new Address("Telep Gang", "Novi Sad", "21000", "Srbija");
             Client clientTemp2 = new Client("dmitar", "dmitar", "Dimitrije", "Petrov", addressDmitar);
@@ -52,10 +52,10 @@ namespace SerbianRailways.repository
             Users.Add(clientTemp2.UserName,clientTemp2);
 
             Address addressDanica = new Address("Konjarnik 10", "Beograd", "11000", "Srbija");
-            Manager managerDanica = new Manager("danica", "danica", "Danica", "Joksic", addressDanica);
+            Manager managerDanica = new Manager("danica", "danica", "Danica", "Joksić", addressDanica);
 
             Address addressGage = new Address("Hopovska 4", "Novi Sad", "21000", "Srbija");
-            Manager managerGage = new Manager("gage", "gage", "Dragan", "Mirkovic", addressGage);
+            Manager managerGage = new Manager("gage", "gage", "Dragan", "Mirković", addressGage);
 
             Users.Add(managerDanica.UserName,managerDanica);
             Users.Add(managerGage.UserName,managerGage);
