@@ -32,35 +32,6 @@ namespace SerbianRailways
             InitializeComponent();
 
             MockService = new MockService();
-            foreach(Client client in MockService.getAllClients())
-            {
-                Console.WriteLine(client);
-            }
-            foreach (Manager manager in MockService.getAllManagers())
-            {
-                Console.WriteLine(manager);
-            }
-            foreach (model.Line line in MockService.getAllLines())
-            {
-                Console.WriteLine(line);
-            }
-            foreach (Ride ride in MockService.getAllRides())
-            {
-                Console.WriteLine(ride);
-            }
-            foreach (Station station in MockService.getAllStations())
-            {
-                Console.WriteLine(station);
-            }
-            foreach (Train train in MockService.getAllTrains())
-            {
-                Console.WriteLine(train);
-            }
-            foreach (Ticket ticket in MockService.getAllTickets())
-            {
-                Console.WriteLine(ticket);
-            }
-
             Main.Content = new Login(MockService,Main,this);
         }
 

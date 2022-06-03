@@ -58,11 +58,26 @@
     <Compile Include="authorization_pages\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="authorization_pages\RegistrationPage.xaml.cs">
+      <DependentUpon>RegistrationPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="client_pages\ClientMainPage.xaml.cs">
       <DependentUpon>ClientMainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="manager_pages\LinesPage.xaml.cs">
+      <DependentUpon>LinesPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="manager_pages\ManagerMainPage.xaml.cs">
       <DependentUpon>ManagerMainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="manager_pages\RidesPage.xaml.cs">
+      <DependentUpon>RidesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="manager_pages\StationsPage.xaml.cs">
+      <DependentUpon>StationsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="manager_pages\TicketsPage.xaml.cs">
+      <DependentUpon>TicketsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="manager_pages\TrainsPage.xaml.cs">
       <DependentUpon>TrainsPage.xaml</DependentUpon>
@@ -72,6 +87,10 @@
     <Compile Include="utility\Commands.cs" />
     <Compile Include="utility\PasswordHelper.cs" />
     <Page Include="authorization_pages\LoginPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="authorization_pages\RegistrationPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -91,7 +110,23 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="manager_pages\LinesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="manager_pages\ManagerMainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="manager_pages\RidesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="manager_pages\StationsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="manager_pages\TicketsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

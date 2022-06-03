@@ -42,13 +42,32 @@ namespace SerbianRailways.manager_pages
             LoggedUserAddress = "Adresa: " + MockService.getLoggedUser().Address.ToString();
             LoggedUserName = "Ime: " + MockService.getLoggedUser().Name + " " + mockService.getLoggedUser().Surname;
             main_frame = mainFrame;
-            RoutedCommand newCmd = new RoutedCommand();
-            newCmd.InputGestures.Add(new KeyGesture(Key.V, ModifierKeys.Alt));
+            
             main_window = window;
+            main_window.Title = "Srbija Voz";
             window.CommandBindings.Clear();
-            window.CommandBindings.Add(new CommandBinding(newCmd, ToggleTrainsCRUDPageSC));
-           
-    
+
+            RoutedCommand toggleTrainsCMD = new RoutedCommand();
+            toggleTrainsCMD.InputGestures.Add(new KeyGesture(Key.V, ModifierKeys.Alt));
+            window.CommandBindings.Add(new CommandBinding(toggleTrainsCMD, ToggleTrainsCRUDPageSC));
+
+            RoutedCommand toggleStationsCMD = new RoutedCommand();
+            toggleStationsCMD.InputGestures.Add(new KeyGesture(Key.S, ModifierKeys.Alt));
+            window.CommandBindings.Add(new CommandBinding(toggleStationsCMD, ToggleStationsCRUDPageSC));
+
+            RoutedCommand toggleTicketsCMD = new RoutedCommand();
+            toggleTicketsCMD.InputGestures.Add(new KeyGesture(Key.K, ModifierKeys.Alt));
+            window.CommandBindings.Add(new CommandBinding(toggleTicketsCMD, ToggleTicketsCRUDPageSC));
+
+            RoutedCommand toggleLinesCMD = new RoutedCommand();
+            toggleLinesCMD.InputGestures.Add(new KeyGesture(Key.L, ModifierKeys.Alt));
+            window.CommandBindings.Add(new CommandBinding(toggleLinesCMD, ToggleLinesCRUDPageSC));
+
+            RoutedCommand toggleRidesCMD = new RoutedCommand();
+            toggleRidesCMD.InputGestures.Add(new KeyGesture(Key.O, ModifierKeys.Alt));
+            window.CommandBindings.Add(new CommandBinding(toggleRidesCMD, ToggleRidesCRUDPageSC));
+
+
         }
 
 
@@ -68,10 +87,46 @@ namespace SerbianRailways.manager_pages
         {
             main_frame.Content = new TrainsPage(MockService, main_frame, main_window);
         }
+        private void ToggleTicketsCRUDPageBTN(object sender, RoutedEventArgs e)
+        {
+            main_frame.Content = new TicketsPage(MockService, main_frame, main_window);
+        }
+        private void ToggleStationsCRUDPageBTN(object sender, RoutedEventArgs e)
+        {
+            main_frame.Content = new StationsPage(MockService, main_frame, main_window);
+        }
+        private void ToggleLinesCRUDPageBTN(object sender, RoutedEventArgs e)
+        {
+            main_frame.Content = new LinesPage(MockService, main_frame, main_window);
+        }
+        private void ToggleRidesCRUDPageBTN(object sender, RoutedEventArgs e)
+        {
+            main_frame.Content = new RidesPage(MockService, main_frame, main_window);
+        }
 
         private void ToggleTrainsCRUDPageSC(object sender, ExecutedRoutedEventArgs e)
         {
             main_frame.Content= new TrainsPage(MockService, main_frame, main_window);
+        }
+
+        private void ToggleTicketsCRUDPageSC(object sender, ExecutedRoutedEventArgs e)
+        {
+            main_frame.Content = new TicketsPage(MockService, main_frame, main_window);
+        }
+
+        private void ToggleStationsCRUDPageSC(object sender, ExecutedRoutedEventArgs e)
+        {
+            main_frame.Content = new StationsPage(MockService, main_frame, main_window);
+        }
+
+        private void ToggleLinesCRUDPageSC(object sender, ExecutedRoutedEventArgs e)
+        {
+            main_frame.Content = new LinesPage(MockService, main_frame, main_window);
+        }
+
+        private void ToggleRidesCRUDPageSC(object sender, ExecutedRoutedEventArgs e)
+        {
+            main_frame.Content = new RidesPage(MockService, main_frame, main_window);
         }
 
 

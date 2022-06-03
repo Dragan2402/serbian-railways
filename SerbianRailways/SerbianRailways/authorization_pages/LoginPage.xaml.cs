@@ -67,6 +67,7 @@ namespace SerbianRailways.authorization_pages
             main_frame = mainFrame;
             mockService.logout();
             main_window = window;
+            main_window.Title = "Srbija Voz-Prijava";
             window.CommandBindings.Clear();
         }
 
@@ -104,6 +105,11 @@ namespace SerbianRailways.authorization_pages
                 else
                     MessageBox.Show("Molimo vas ispravne podatke.", "Greška pri prijavljivanju", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+
+        private void SignUp(object sender, RoutedEventArgs e)
+        {
+            main_frame.Content = new RegistrationPage(MockService, main_frame, main_window);
         }
     }
 }

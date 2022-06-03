@@ -39,6 +39,7 @@ namespace SerbianRailways.client_pages
             LoggedUserName = "Ime: " + MockService.getLoggedUser().Name+" "+mockService.getLoggedUser().Surname;
             main_frame = mainFrame;
             main_window= window;
+            main_window.Title = "Srbija Voz";
             window.CommandBindings.Clear();
         }
 
