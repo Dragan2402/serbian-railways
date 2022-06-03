@@ -33,7 +33,7 @@ namespace SerbianRailways.manager_pages
             main_window = window;
             window.CommandBindings.Clear();
             RoutedCommand newCmd = new RoutedCommand();
-            newCmd.InputGestures.Add(new KeyGesture(Key.B, ModifierKeys.Control));
+            newCmd.InputGestures.Add(new KeyGesture(Key.Back, ModifierKeys.Control));
             window.CommandBindings.Add(new CommandBinding(newCmd, ReturnManagerPageSC));
             
         }
