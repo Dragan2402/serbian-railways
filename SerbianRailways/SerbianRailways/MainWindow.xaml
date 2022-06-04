@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SerbianRailways"
         mc:Ignorable="d"
-        Title="Srbija Voz" Height="450" Width="800" Icon="/AppLogo.png" WindowStartupLocation="CenterScreen">
+        Title="Srbija Voz" Height="600" Width="1200" Icon="/AppLogo.png" WindowStartupLocation="CenterScreen">
     
 
 

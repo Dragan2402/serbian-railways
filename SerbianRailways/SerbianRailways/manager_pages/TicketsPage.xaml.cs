@@ -80,6 +80,7 @@ namespace SerbianRailways.manager_pages
             
             SelectedIndex= 0;
             SelectedMonth = "Januar";
+            main_window.Title = "Srbija Voz-Prodate karte";
 
 
             Tickets = MockService.GetTicketsTableByMonthIndex(SelectedIndex);

@@ -122,6 +122,11 @@ namespace SerbianRailways.manager_pages
             this.Close();
         }
 
+        private void Cancel_Btn(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
         private void Add_train_btn(object sender, RoutedEventArgs e)
         {
 

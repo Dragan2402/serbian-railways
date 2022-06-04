@@ -8,13 +8,13 @@ namespace SerbianRailways.model
 {
     public class Location
     {
-        public int X { get; set; }
+        public double X { get; set; }
 
-        public int Y { get; set; }
+        public double Y { get; set; }
 
         public Location() { }
 
-        public Location(int x, int y)
+        public Location(double x, double y)
         {
             X = x;
             Y = y;

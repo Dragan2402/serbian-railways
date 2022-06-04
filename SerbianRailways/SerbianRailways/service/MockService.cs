@@ -58,6 +58,14 @@ namespace SerbianRailways.service
             return ticketTables;
         }
 
+        public ObservableCollection<Station> GetAllStationsTable()
+        {
+            ObservableCollection<Station> stationsTable = new ObservableCollection<Station>();
+            foreach(Station station in mockRepository.Stations.Values)
+                stationsTable.Add(station);
+            return stationsTable;
+        }
+
         public List<Ticket> GetLoggedClientTickets()
         {
             Client clientLogged = (Client)mockRepository.LoggedUser;
@@ -82,7 +90,7 @@ namespace SerbianRailways.service
             return mockRepository.Trains.Values.ToList();
         }
 
-        internal ObservableCollection<TicketTable> GetTicketsTableByMonthIndex(int selectedIndex)
+        public ObservableCollection<TicketTable> GetTicketsTableByMonthIndex(int selectedIndex)
         {
             ObservableCollection<TicketTable> ticketTables= new ObservableCollection<TicketTable>();
             foreach (Ticket ticket in mockRepository.Tickets.Values)
@@ -91,6 +99,11 @@ namespace SerbianRailways.service
                     ticketTables.Add(new TicketTable(ticket));
             }
             return ticketTables;
+        }
+
+        public Station AddStation(string stationName, Location stationLocation)
+        {
+            return mockRepository.AddNewStation(stationName, stationLocation);
         }
 
         public ObservableCollection<RideTable> GetRidesTable()
@@ -122,6 +135,12 @@ namespace SerbianRailways.service
             }
             return trainTable;
         }
+
+        public void DeleteStation(Station station)
+        {
+            mockRepository.Stations.Remove(station.Id);
+        }
+
         public List<Ride> GetAllRides()
         {
             return mockRepository.Rides.Values.ToList();

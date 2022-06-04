@@ -61,11 +61,11 @@ namespace SerbianRailways.repository
             Users.Add(managerGage.UserName,managerGage);
 
             StationID++;
-            Station stationNS = new Station(StationID, "Novi Sad", new Location(100, 200));
+            Station stationNS = new Station(StationID, "Novi Sad", new Location(45.26375758423444, 19.777578211764425));
             StationID++;
-            Station stationBG = new Station(StationID, "Beograd", new Location(100, 400));
+            Station stationBG = new Station(StationID, "Beograd", new Location(44.819380920430085, 20.439203287115173));
             StationID++;
-            Station stationNIS = new Station(StationID, "Niš", new Location(150, 600));
+            Station stationNIS = new Station(StationID, "Niš", new Location(43.33654100851986, 21.880093186766967));
 
             Stations.Add(stationNS.Id,stationNS);
             Stations.Add(stationBG.Id,stationBG);
@@ -135,6 +135,12 @@ namespace SerbianRailways.repository
 
         }
 
-
+        public Station AddNewStation(string stationName, Location stationLocation)
+        {
+            StationID++;
+            Station station = new Station(StationID,stationName,stationLocation);
+            Stations.Add(station.Id, station);
+            return station;
+        }
     }
 }

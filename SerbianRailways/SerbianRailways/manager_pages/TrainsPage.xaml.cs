@@ -39,6 +39,7 @@ namespace SerbianRailways.manager_pages
             MockService = mockService;
             main_frame = mainFrame;
             main_window = window;
+            main_window.Title = "Srbija Voz-Upravljanje vozovima";
             window.CommandBindings.Clear();
             RoutedCommand newCmd = new RoutedCommand();
             newCmd.InputGestures.Add(new KeyGesture(Key.Back, ModifierKeys.Control));
