@@ -43,7 +43,7 @@ namespace SerbianRailways.manager_pages
             RoutedCommand newCmd = new RoutedCommand();
             newCmd.InputGestures.Add(new KeyGesture(Key.Back, ModifierKeys.Control));
             window.CommandBindings.Add(new CommandBinding(newCmd, ReturnManagerPageSC));
-            trains = MockService.getAllTrainsTable();
+            trains = MockService.GetAllTrainsTable();
             dgTrains.DataContext = trains;
 
 
@@ -90,7 +90,7 @@ namespace SerbianRailways.manager_pages
                 List<Train> trainsToDelete = new List<Train>();
                 foreach (Train train in dgTrains.SelectedItems)
                 {
-                    MockService.deleteTrain(train);
+                    MockService.DeleteTrain(train);
                     trainsToDelete.Add(train);
                 }
                 foreach (Train train1 in trainsToDelete)
@@ -111,7 +111,7 @@ namespace SerbianRailways.manager_pages
                 List<Train> trainsToDelete = new List<Train>();
                 foreach (Train train in dgTrains.SelectedItems)
                 {
-                    MockService.deleteTrain(train);
+                    MockService.DeleteTrain(train);
                     trainsToDelete.Add(train);
                 }
                 foreach (Train train1 in trainsToDelete)
@@ -198,7 +198,7 @@ namespace SerbianRailways.manager_pages
                    MessageBoxImage.Question) == MessageBoxResult.Yes)
                 {
                     
-                     MockService.deleteTrain(train);
+                     MockService.DeleteTrain(train);
                      trains.Remove(train);
                     
                 }

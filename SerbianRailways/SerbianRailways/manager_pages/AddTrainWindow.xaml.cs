@@ -105,7 +105,7 @@ namespace SerbianRailways.manager_pages
             {
                 Train newTrain = new Train(int.Parse(SerialNumber), TrainName, int.Parse(Seats));
                 Trains.Add(newTrain);
-                MockService.addTrain(newTrain);
+                MockService.AddTrain(newTrain);
                 if (MessageBox.Show("Voz uspešno dodat",
                     "Dodavanje Voza",
                     MessageBoxButton.OK,
@@ -133,7 +133,7 @@ namespace SerbianRailways.manager_pages
             {
                 Train newTrain = new Train(int.Parse(SerialNumber), TrainName, int.Parse(Seats));
                 Trains.Add(newTrain);
-                MockService.addTrain(newTrain);
+                MockService.AddTrain(newTrain);
                 if (MessageBox.Show("Voz uspešno dodat",
                     "Dodavanje Voza",
                     MessageBoxButton.OK,

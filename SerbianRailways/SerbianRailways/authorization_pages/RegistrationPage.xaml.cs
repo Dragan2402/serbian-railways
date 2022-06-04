@@ -35,7 +35,7 @@ namespace SerbianRailways.authorization_pages
 
             this.DataContext = this;
             MockService = mockService;
-            MockService.logout();
+            MockService.Logout();
             main_frame = mainFrame;
             main_window = window;
             main_window.Title = "Srbija Voz-Registracija";

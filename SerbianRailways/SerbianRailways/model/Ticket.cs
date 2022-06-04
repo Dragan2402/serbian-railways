@@ -13,6 +13,8 @@ namespace SerbianRailways.model
         public int Seat { get; set; }
         public Ride Ride { get; set; }
         public Client Client { get; set; }
+
+        public DateTime PurchaseDate { get; set; }
         public TicketsType TicketType { get; set; }
 
         public Ticket() { }
@@ -25,7 +27,7 @@ namespace SerbianRailways.model
             Ride = ride;
             Client = client;
             TicketType = type;
-
+            PurchaseDate = DateTime.Now;         
             Ride.SeatsStatus[Seat] = true;
             Client.Tickets.Add(this);
             Ride.Tickets.Add(this);

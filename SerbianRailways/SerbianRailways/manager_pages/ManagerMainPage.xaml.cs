@@ -38,9 +38,9 @@ namespace SerbianRailways.manager_pages
 
             this.DataContext = this;
             MockService = mockService;
-            LoggedUserUsername = "Korisničko ime: " + MockService.getLoggedUser().UserName;
-            LoggedUserAddress = "Adresa: " + MockService.getLoggedUser().Address.ToString();
-            LoggedUserName = "Ime: " + MockService.getLoggedUser().Name + " " + mockService.getLoggedUser().Surname;
+            LoggedUserUsername = "Korisničko ime: " + MockService.GetLoggedUser().UserName;
+            LoggedUserAddress = "Adresa: " + MockService.GetLoggedUser().Address.ToString();
+            LoggedUserName = "Ime: " + MockService.GetLoggedUser().Name + " " + mockService.GetLoggedUser().Surname;
             main_frame = mainFrame;
             
             main_window = window;

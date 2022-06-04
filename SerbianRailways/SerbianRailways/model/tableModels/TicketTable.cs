@@ -12,6 +12,8 @@ namespace SerbianRailways.model.tableModels
         public int Id { get; set; }
         public Double Price { get; set; }
         public int Seat { get; set; }
+
+        public string PurchaseDate { get; set; }
         public string From { get; set; }
         public string To { get; set; }
         public string TicketType { get; set; }
@@ -23,6 +25,7 @@ namespace SerbianRailways.model.tableModels
             Seat = ticket.Seat;
             From = ticket.Ride.Line.DepartureStation.Name;
             To = ticket.Ride.Line.ArrivalStation.Name;
+            PurchaseDate = ticket.PurchaseDate.ToString("dd.MM.yyyy. HH:mm");
             if (ticket.TicketType == Ticket.TicketsType.RESERVED)
                 TicketType = "Rez";
             else

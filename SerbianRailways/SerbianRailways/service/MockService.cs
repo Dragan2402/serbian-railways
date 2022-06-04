@@ -7,6 +7,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 
 namespace SerbianRailways.service
 {
@@ -19,7 +20,7 @@ namespace SerbianRailways.service
             mockRepository = new MockRepository();
         }
 
-        public List<Client> getAllClients()
+        public List<Client> GetAllClients()
         {
             List<Client> clients = new List<Client>();
             foreach(User user in mockRepository.Users.Values)
@@ -30,12 +31,12 @@ namespace SerbianRailways.service
             return clients;
         }
 
-        public List<Ticket> getAllTickets()
+        public List<Ticket> GetAllTickets()
         {
             return mockRepository.Tickets.Values.ToList();
         }
       
-        public List<Manager> getAllManagers()
+        public List<Manager> GetAllManagers()
         {
             List<Manager> managers = new List<Manager>();
             foreach (User user in mockRepository.Users.Values)
@@ -46,10 +47,10 @@ namespace SerbianRailways.service
             return managers;
         }
 
-        internal ObservableCollection<TicketTable> getLoggedClientTicketsTable()
+        internal ObservableCollection<TicketTable> GetLoggedClientTicketsTable()
         {
             ObservableCollection<TicketTable> ticketTables = new ObservableCollection<TicketTable>();
-            foreach(Ticket ticket in getLoggedClientTickets())
+            foreach(Ticket ticket in GetLoggedClientTickets())
             {
                 TicketTable ticketTable = new TicketTable(ticket);
                 ticketTables.Add(ticketTable);
@@ -57,44 +58,76 @@ namespace SerbianRailways.service
             return ticketTables;
         }
 
-        public List<Ticket> getLoggedClientTickets()
+        public List<Ticket> GetLoggedClientTickets()
         {
             Client clientLogged = (Client)mockRepository.LoggedUser;
             return clientLogged.Tickets;
         }
 
-        public User getLoggedUser()
+        public User GetLoggedUser()
         {
             return mockRepository.LoggedUser;
         }
 
-        public List<Station> getAllStations()
+        public List<Station> GetAllStations()
         {
             return mockRepository.Stations.Values.ToList();
         }
-        public List<Line> getAllLines()
+        public List<Line> GetAllLines()
         {
             return mockRepository.Lines.Values.ToList();
         }
-        public List<Train> getAllTrains()
+        public List<Train> GetAllTrains()
         {
             return mockRepository.Trains.Values.ToList();
         }
-        public ObservableCollection<Train> getAllTrainsTable()
+
+        internal ObservableCollection<TicketTable> GetTicketsTableByMonthIndex(int selectedIndex)
+        {
+            ObservableCollection<TicketTable> ticketTables= new ObservableCollection<TicketTable>();
+            foreach (Ticket ticket in mockRepository.Tickets.Values)
+            {
+                if(ticket.PurchaseDate.Month == (selectedIndex+1))
+                    ticketTables.Add(new TicketTable(ticket));
+            }
+            return ticketTables;
+        }
+
+        public ObservableCollection<RideTable> GetRidesTable()
+        {
+            ObservableCollection<RideTable> rideTables = new ObservableCollection<RideTable>();
+            foreach(Ride rine in mockRepository.Rides.Values)
+                rideTables.Add(new RideTable(rine));
+            return rideTables;
+        }
+
+        internal double GetTicketsTotalByMonthIndex(int selectedIndex)
+        {
+            double total = 0;
+            foreach(Ticket ticket in mockRepository.Tickets.Values)
+            {
+                if (ticket.PurchaseDate.Month == (selectedIndex + 1))
+                    total += ticket.Price;
+            }
+          
+            return total;
+        }
+
+        public ObservableCollection<Train> GetAllTrainsTable()
         {
             ObservableCollection<Train> trainTable = new ObservableCollection<Train>();
-            foreach (Train train in getAllTrains())
+            foreach (Train train in GetAllTrains())
             {
                 trainTable.Add(train);
             }
             return trainTable;
         }
-        public List<Ride> getAllRides()
+        public List<Ride> GetAllRides()
         {
             return mockRepository.Rides.Values.ToList();
         }
 
-        public bool login(string username, string password)
+        public bool Login(string username, string password)
         {
             if (username == null || password == null) return false;
             if (mockRepository.Users.ContainsKey(username))
@@ -106,26 +139,42 @@ namespace SerbianRailways.service
             return false;
         }
 
-        public void deleteTrain(Train train)
+        public void DeleteTrain(Train train)
         {
             mockRepository.Trains.Remove(train.SerialNumber);
             foreach(Ride ride in train.Rides)
                 mockRepository.Rides.Remove(ride.Id);
         }
 
-        public void addTrain(Train newTrain)
+        public void AddTrain(Train newTrain)
         {
             mockRepository.Trains.Add(newTrain.SerialNumber, newTrain);
         }
 
-        public Role getLoggedUserType()
+        public Role GetLoggedUserType()
         {
             return mockRepository.LoggedUser.Role;
         }
 
-        public void logout()
+        public void Logout()
         {
             mockRepository.LoggedUser=null;
+        }
+
+        public object GetTicketsTableByRideId(int id)
+        {
+            ObservableCollection<TicketTable> ticketTables = new ObservableCollection<TicketTable>();
+            foreach (Ticket ticket in mockRepository.Rides[id].Tickets)
+                ticketTables.Add(new TicketTable(ticket));
+            return ticketTables;
+        }
+
+        public Tuple<double,double> GetTotalAndAvarageByRideId(int id)
+        {
+            double total = mockRepository.Rides[id].Tickets.Count* mockRepository.Rides[id].Price;
+            double avarage = total / mockRepository.Rides[id].Tickets.Count;
+            return new Tuple<double, double>(total, avarage);
+            
         }
     }
 }

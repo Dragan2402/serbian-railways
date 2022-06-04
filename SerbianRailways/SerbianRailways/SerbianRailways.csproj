@@ -85,6 +85,7 @@
     <Compile Include="manager_pages\TrainsPage.xaml.cs">
       <DependentUpon>TrainsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="model\tableModels\RideTable.cs" />
     <Compile Include="model\tableModels\TicketTable.cs" />
     <Compile Include="service\MockService.cs" />
     <Compile Include="repository\MockRepository.cs" />

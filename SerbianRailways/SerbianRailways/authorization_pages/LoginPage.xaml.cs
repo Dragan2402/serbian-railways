@@ -65,7 +65,7 @@ namespace SerbianRailways.authorization_pages
             this.DataContext = this;
             MockService = mockService;
             main_frame = mainFrame;
-            mockService.logout();
+            mockService.Logout();
             main_window = window;
             main_window.Title = "Srbija Voz-Prijava";
             window.CommandBindings.Clear();
@@ -91,12 +91,12 @@ namespace SerbianRailways.authorization_pages
             }
             else
             {
-                bool loggedIn = MockService.login(Username, Password);
+                bool loggedIn = MockService.Login(Username, Password);
 
                 if (loggedIn)
                 {
                     //MessageBox.Show("", "Uspešno prijavljivanje", MessageBoxButton.OK, MessageBoxImage.Information);
-                    if (MockService.getLoggedUserType() == Role.CLIENT)
+                    if (MockService.GetLoggedUserType() == Role.CLIENT)
                         main_frame.Content = new ClientMainPage(MockService, main_frame, main_window);
                     else
                         main_frame.Content = new ManagerMainPage(MockService, main_frame, main_window);
