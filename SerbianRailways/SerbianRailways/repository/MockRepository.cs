@@ -95,17 +95,17 @@ namespace SerbianRailways.repository
 
             //u konstruktoru Ride se vozu i liniji doda ride
             RideID++;
-            Ride rideNSBG = new Ride(RideID, new TimeSpan(12, 00, 00), new TimeSpan(12, 30, 00), trainSoko, lineNSBG);
+            Ride rideNSBG = new Ride(RideID, new TimeSpan(12, 00, 00), new TimeSpan(12, 30, 00), trainSoko, lineNSBG,600.0);
             RideID++;
-            Ride rideNSBG2 = new Ride(RideID, new TimeSpan(14, 00, 00), new TimeSpan(15, 00, 00), trainRegio, lineNSBG);
+            Ride rideNSBG2 = new Ride(RideID, new TimeSpan(14, 00, 00), new TimeSpan(15, 00, 00), trainRegio, lineNSBG,600.0);
             RideID++;
-            Ride rideBGNS = new Ride(RideID, new TimeSpan(12, 40, 00), new TimeSpan(13, 15, 00), trainSoko, lineBGNS);
+            Ride rideBGNS = new Ride(RideID, new TimeSpan(12, 40, 00), new TimeSpan(13, 15, 00), trainSoko, lineBGNS,560.0);
             RideID++;
-            Ride rideBGNS2 = new Ride(RideID, new TimeSpan(16, 40, 00), new TimeSpan(17, 50, 00), trainRegio2, lineBGNS);
+            Ride rideBGNS2 = new Ride(RideID, new TimeSpan(16, 40, 00), new TimeSpan(17, 50, 00), trainRegio2, lineBGNS,560.0);
             RideID++;
-            Ride rideNSNIS = new Ride(RideID, new TimeSpan(18, 00, 00), new TimeSpan(22, 00, 00), trainSoko, lineNSNIS);
+            Ride rideNSNIS = new Ride(RideID, new TimeSpan(18, 00, 00), new TimeSpan(22, 00, 00), trainSoko, lineNSNIS,560.0);
             RideID++;
-            Ride rideNISNS = new Ride(RideID, new TimeSpan(22, 40, 00), new TimeSpan(02, 15, 00), trainSoko, lineNISNS);
+            Ride rideNISNS = new Ride(RideID, new TimeSpan(22, 40, 00), new TimeSpan(02, 15, 00), trainSoko, lineNISNS,560.0);
 
             Rides.Add(rideNSBG.Id, rideNSBG);
             Rides.Add(rideNSBG2.Id, rideNSBG2);
@@ -116,13 +116,13 @@ namespace SerbianRailways.repository
 
             //u konstruktoru Ticket se dodaje karta klijentu i voznji i zauzima se mjesto automatski, validaciju postojanja mjesta odraditi ranije
             TicketID++;
-            Ticket ticketNSBG = new Ticket(TicketID, 600.0, 30, rideNSBG, clientTemp1,Ticket.TicketsType.BOUGHT);
+            Ticket ticketNSBG = new Ticket(TicketID, rideNSBG.Price, 30, rideNSBG, clientTemp1,Ticket.TicketsType.BOUGHT);
             TicketID++;
-            Ticket ticketBGNS = new Ticket(TicketID, 560.0, 35, rideNSBG, clientTemp1,Ticket.TicketsType.BOUGHT);
+            Ticket ticketBGNS = new Ticket(TicketID, rideBGNS.Price, 35, rideBGNS, clientTemp1,Ticket.TicketsType.BOUGHT);
             TicketID++;
-            Ticket ticketNSNIS = new Ticket(TicketID, 800.0, 5, rideNSNIS, clientTemp2,Ticket.TicketsType.RESERVED);
+            Ticket ticketNSNIS = new Ticket(TicketID, rideNSNIS.Price, 5, rideNSNIS, clientTemp2,Ticket.TicketsType.RESERVED);
             TicketID++;
-            Ticket ticketNISNS = new Ticket(TicketID, 770.0, 3, rideNISNS, clientTemp2,Ticket.TicketsType.RESERVED);
+            Ticket ticketNISNS = new Ticket(TicketID, rideNISNS.Price, 3, rideNISNS, clientTemp2,Ticket.TicketsType.RESERVED);
 
             Tickets.Add(ticketNSBG.Id, ticketNSBG);
             Tickets.Add(ticketBGNS.Id, ticketBGNS);

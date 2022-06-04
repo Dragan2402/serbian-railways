@@ -76,6 +76,14 @@ namespace SerbianRailways.manager_pages
             MockService = mockService;
             Trains=trains;
 
+            RoutedCommand addNewTrain = new RoutedCommand();
+            addNewTrain.InputGestures.Add(new KeyGesture(Key.D, ModifierKeys.Control));
+            this.CommandBindings.Add(new CommandBinding(addNewTrain, addTrainSC));
+
+            RoutedCommand cancelCMD = new RoutedCommand();
+            cancelCMD.InputGestures.Add(new KeyGesture(Key.O, ModifierKeys.Control));
+            this.CommandBindings.Add(new CommandBinding(cancelCMD, cancelSC));
+
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -87,10 +95,53 @@ namespace SerbianRailways.manager_pages
                 PropertyChanged(this, new PropertyChangedEventArgs(name));
             }
         }
+        private void addTrainSC(object sender, ExecutedRoutedEventArgs e)
+        {
+            if (SerialNumber == null || SerialNumber.Equals("") || TrainName == null || TrainName.Equals("") || Seats == null || Seats.Equals(""))
+            {
+                MessageBox.Show("Molimo vas unesite sve potrebne podatke.", "Greška pri dodavanju voza", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else
+            {
+                Train newTrain = new Train(int.Parse(SerialNumber), TrainName, int.Parse(Seats));
+                Trains.Add(newTrain);
+                MockService.addTrain(newTrain);
+                if (MessageBox.Show("Voz uspešno dodat",
+                    "Dodavanje Voza",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Information) == MessageBoxResult.OK)
+                {
+                    this.Close();
+                }
+            }
+
+        }
+
+        private void cancelSC(object sender, ExecutedRoutedEventArgs e)
+        {
+            this.Close();
+        }
 
         private void Add_train_btn(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(SerialNumber + " " + TrainName + " " + Seats);
+
+            if (SerialNumber == null || SerialNumber.Equals("") || TrainName == null || TrainName.Equals("") || Seats == null || Seats.Equals(""))
+            {
+                MessageBox.Show("Molimo vas unesite sve potrebne podatke.", "Greška pri dodavanju voza", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else
+            {
+                Train newTrain = new Train(int.Parse(SerialNumber), TrainName, int.Parse(Seats));
+                Trains.Add(newTrain);
+                MockService.addTrain(newTrain);
+                if (MessageBox.Show("Voz uspešno dodat",
+                    "Dodavanje Voza",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Information) == MessageBoxResult.OK)
+                {
+                    this.Close();
+                }
+            }
         }
     }
 }

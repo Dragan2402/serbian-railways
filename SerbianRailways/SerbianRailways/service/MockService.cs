@@ -106,6 +106,18 @@ namespace SerbianRailways.service
             return false;
         }
 
+        public void deleteTrain(Train train)
+        {
+            mockRepository.Trains.Remove(train.SerialNumber);
+            foreach(Ride ride in train.Rides)
+                mockRepository.Rides.Remove(ride.Id);
+        }
+
+        public void addTrain(Train newTrain)
+        {
+            mockRepository.Trains.Add(newTrain.SerialNumber, newTrain);
+        }
+
         public Role getLoggedUserType()
         {
             return mockRepository.LoggedUser.Role;

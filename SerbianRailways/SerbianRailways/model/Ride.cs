@@ -22,6 +22,8 @@ namespace SerbianRailways.model
 
         public Line Line { get; set; }
 
+        public Double Price { get; set; }
+
         public List<RideStop> RideStops { get; set; }
 
         public Dictionary<int,Boolean> SeatsStatus { get; set; }
@@ -33,7 +35,7 @@ namespace SerbianRailways.model
             SeatsStatus = new Dictionary<int,Boolean>();
         }
 
-        public Ride(int id,TimeSpan departureTime,TimeSpan arrivalTime,Train train,Line line)
+        public Ride(int id, TimeSpan departureTime, TimeSpan arrivalTime, Train train, Line line, double price)
         {
             Id = id;
             DepartureTime = departureTime;
@@ -47,13 +49,14 @@ namespace SerbianRailways.model
             Tickets = new List<Ticket>();
             RideStops = new List<RideStop>();
             SeatsStatus = new Dictionary<int, bool>();
-            for(int i = 0; i < Train.NumberOfSeats; i++)
+            for (int i = 0; i < Train.NumberOfSeats; i++)
             {
                 SeatsStatus[i] = false;
             }
 
             Line.Rides.Add(this);
             Train.Rides.Add(this);
+            Price = price;
 
         }
 
