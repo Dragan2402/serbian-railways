@@ -101,7 +101,7 @@
     <Compile Include="model\tableModels\TicketTable.cs" />
     <Compile Include="service\MockService.cs" />
     <Compile Include="repository\MockRepository.cs" />
-    <Compile Include="utility\Commands.cs" />
+    <Compile Include="utility\Borders.cs" />
     <Compile Include="utility\PasswordHelper.cs" />
     <Page Include="authorization_pages\LoginPage.xaml">
       <SubType>Designer</SubType>

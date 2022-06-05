@@ -21,9 +21,9 @@
         </Grid.RowDefinitions>
         <m:Map Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Name="RailGridMap" Mode="Road" Margin="20,20,20,0" CredentialsProvider="RAdSJ9oN7Xj9YygDWI12~XrS7m1Mwuli7Wh2uVKc3wQ~AldCHlKL7DGIwbTcEgkDKWDRuI53-sAZ_KVbCIAjc4CJoJto_rhkJJuB5jWPJnNj" MouseDoubleClick="MapWithPushpins_MouseDoubleClick" Center="44.820333616177386, 20.47796955328137"  ZoomLevel="8"/>
         <DataGrid x:Name="dgStations" Grid.Column="1" Grid.Row="0" Grid.RowSpan="2"  ColumnWidth="*" AutoGenerateColumns="False"  Margin="0,40,5,40" HorizontalAlignment="Center" CanUserAddRows="False"  HorizontalScrollBarVisibility="Disabled "  ItemsSource="{Binding}"
-                   PreviewMouseLeftButtonDown="DGStations_PreviewMouseLeftButtonDown" MouseMove="DGStations_MouseMove">
+                   PreviewMouseLeftButtonDown="DGStations_PreviewMouseLeftButtonDown" MouseMove="DGStations_MouseMove" CellEditEnding="CellEditEndingEvent" >
             <DataGrid.Columns>
-                <DataGridTextColumn Header = "Id" CanUserResize="False" Binding="{Binding Id}" Width="3*" IsReadOnly="False" CanUserReorder="False"/>
+                <DataGridTextColumn Header = "Id" CanUserResize="False" Binding="{Binding Id}" Width="3*" IsReadOnly="True" CanUserReorder="False"/>
                 <DataGridTextColumn Header = "Naziv" CanUserResize="False" Binding="{Binding Name}"  Width="3*" IsReadOnly="False"   CanUserReorder="False"/>
                 
             </DataGrid.Columns>

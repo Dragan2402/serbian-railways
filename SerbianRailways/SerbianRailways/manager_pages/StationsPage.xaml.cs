@@ -1,6 +1,7 @@
 ﻿using Microsoft.Maps.MapControl.WPF;
 using SerbianRailways.model;
 using SerbianRailways.service;
+using SerbianRailways.utility;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -83,6 +84,14 @@ namespace SerbianRailways.manager_pages
             e.Handled = true;
             Point mousePosition = e.GetPosition(this);
             Microsoft.Maps.MapControl.WPF.Location pinLocation = RailGridMap.ViewportPointToLocation(mousePosition);
+
+            if (pinLocation.Latitude > Borders.NORTH_LATITUDE || pinLocation.Latitude < Borders.SOUTH_LATITUDE || pinLocation.Longitude > Borders.EAST_LONGITUDE || pinLocation.Longitude < Borders.WEST_LONGITUDE)
+            {
+                
+                MessageBox.Show("Stanica izvan granica države.", "Greška pri dodavanju stanice", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
             int sizeBefore = Stations.Count; 
             Window addStationWindow = new AddStationWindow(MockService, Stations,new model.Location(pinLocation.Latitude,pinLocation.Altitude));
             addStationWindow.ShowDialog();
@@ -91,7 +100,8 @@ namespace SerbianRailways.manager_pages
             if (sizeBefore < Stations.Count)
             {
                 
-                Pushpin pin = new Pushpin();
+                Pushpin pin = new Pushpin();               
+
                 ToolTip toolTip = new ToolTip();
                 toolTip.Content = "Stanica " + Stations.Last().Name;
                 pin.Background = new SolidColorBrush(Color.FromArgb(100, 100, 100, 100));
@@ -234,6 +244,20 @@ namespace SerbianRailways.manager_pages
                     Stations.Remove(station);
 
                 }
+            }
+        }
+
+        private void CellEditEndingEvent(object sender, DataGridCellEditEndingEventArgs e)
+        {
+            var el = e.EditingElement as TextBox;
+            Station station = e.Row.Item as Station;
+            if (e.EditAction == DataGridEditAction.Commit)
+            {
+                ToolTip toolTip = new ToolTip();
+                toolTip.Content = "Stanica " + el.Text;
+                StationPins[station].ToolTip = toolTip;
+                RailGridMap.Children.Remove(StationPins[station]);
+                RailGridMap.Children.Add(StationPins[station]); 
             }
         }
     }
