@@ -47,6 +47,14 @@ namespace SerbianRailways.service
             return managers;
         }
 
+        internal ObservableCollection<Ride> GetAllRidesTable()
+        {
+            ObservableCollection<Ride> rides = new ObservableCollection<Ride>();
+            foreach (Ride ride in mockRepository.Rides.Values)
+                rides.Add(ride);
+            return rides;
+        }
+
         internal ObservableCollection<TicketTable> GetLoggedClientTicketsTable()
         {
             ObservableCollection<TicketTable> ticketTables = new ObservableCollection<TicketTable>();
@@ -101,6 +109,14 @@ namespace SerbianRailways.service
             return ticketTables;
         }
 
+        public void DeleteRide(Ride ride)
+        {
+            foreach (Ticket ticket in mockRepository.Rides[ride.Id].Tickets)
+                mockRepository.Tickets.Remove(ticket.Id);
+            mockRepository.Rides[ride.Id].Train.Rides.Remove(ride);
+            mockRepository.Rides.Remove(ride.Id);
+        }
+
         public Station AddStation(string stationName, Location stationLocation)
         {
             return mockRepository.AddNewStation(stationName, stationLocation);
@@ -112,6 +128,29 @@ namespace SerbianRailways.service
             foreach(Ride rine in mockRepository.Rides.Values)
                 rideTables.Add(new RideTable(rine));
             return rideTables;
+        }
+
+        public Ride AddRide(TimeSpan departureTime, TimeSpan arrivalTime, Train train, Line line, double price)
+        {
+            return mockRepository.AddNewRide(departureTime,arrivalTime,train,line,price);
+        }
+
+        public Ride AddReturnRide(Ride ride)
+        {
+            Line line = null;
+            foreach (Line lineTemp in mockRepository.Lines.Values)
+            {
+                if (lineTemp.DepartureStation.Id == ride.Line.ArrivalStation.Id && lineTemp.ArrivalStation.Id == ride.Line.DepartureStation.Id)
+                {
+                    line = lineTemp;
+                    break;
+                }
+            }
+            if (line == null)
+                line = mockRepository.AddNewLine(ride.Line.ArrivalStation, ride.Line.DepartureStation);
+            return mockRepository.AddNewRide(ride.DepartureTime,ride.ArrivalTime,ride.Train,line,ride.Price);
+            
+
         }
 
         internal double GetTicketsTotalByMonthIndex(int selectedIndex)

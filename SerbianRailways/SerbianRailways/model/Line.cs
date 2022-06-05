@@ -30,7 +30,7 @@ namespace SerbianRailways.model
 
         public override string ToString()
         {
-            return "Line:" + " " + Id + " " + DepartureStation + " " + ArrivalStation;
+            return "Linija:" + " " + Id + " " + DepartureStation.Name + "-" + ArrivalStation.Name;
         }
     }
 }

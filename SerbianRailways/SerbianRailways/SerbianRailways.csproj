@@ -67,6 +67,9 @@
     <Compile Include="client_pages\ClientMainPage.xaml.cs">
       <DependentUpon>ClientMainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="manager_pages\AddRideWindow.xaml.cs">
+      <DependentUpon>AddRideWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="manager_pages\AddStationWindow.xaml.cs">
       <DependentUpon>AddStationWindow.xaml</DependentUpon>
     </Compile>
@@ -90,6 +93,9 @@
     </Compile>
     <Compile Include="manager_pages\TrainsPage.xaml.cs">
       <DependentUpon>TrainsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="manager_pages\UpdateRideWindow.xaml.cs">
+      <DependentUpon>UpdateRideWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="model\tableModels\RideTable.cs" />
     <Compile Include="model\tableModels\TicketTable.cs" />
@@ -121,6 +127,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="manager_pages\AddRideWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="manager_pages\AddStationWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -150,6 +160,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="manager_pages\TrainsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="manager_pages\UpdateRideWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

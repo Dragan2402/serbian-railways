@@ -135,6 +135,22 @@ namespace SerbianRailways.repository
 
         }
 
+        public Line AddNewLine(Station departureStation, Station arrivalStation)
+        {
+            LineID++;
+            Line lineTemp = new Line(LineID, departureStation, arrivalStation);
+            Lines.Add(lineTemp.Id, lineTemp);
+            return lineTemp;
+        }
+
+        internal Ride AddNewRide(TimeSpan departureTime, TimeSpan arrivalTime, Train train, Line line, double price)
+        {
+            RideID++;
+            Ride rideTemp = new Ride(RideID, departureTime, arrivalTime, train, line, price);
+            Rides.Add(rideTemp.Id, rideTemp);
+            return rideTemp;
+        }
+
         public Station AddNewStation(string stationName, Location stationLocation)
         {
             StationID++;

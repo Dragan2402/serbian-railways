@@ -9,7 +9,32 @@
       Title="RidesPage">
 
     <Grid>
-        <TextBox>Voznje</TextBox>
-        <Button Content="Povratak" Width="50" Height="50" Click="ReturnManagerPage" />
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <DataGrid x:Name="dgRides" Grid.Column="0"  ColumnWidth="*" AutoGenerateColumns="False" Grid.Row="0" Margin="50,10,0,0" HorizontalAlignment="Stretch" CanUserAddRows="False"  HorizontalScrollBarVisibility="Disabled "  ItemsSource="{Binding}"
+                   PreviewMouseLeftButtonDown="DGRides_PreviewMouseLeftButtonDown" MouseMove="DGRides_MouseMove">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header = "Id" CanUserResize="False" Binding="{Binding Id}" Width="*" IsReadOnly="False" CanUserReorder="False"/>
+                <DataGridTextColumn Header = "Vreme polaska" CanUserResize="False" Binding="{Binding DepartureTime}"  Width="2.5*" IsReadOnly="False"   CanUserReorder="False"/>
+                <DataGridTextColumn Header = "Vreme dolaska" CanUserResize="False" Binding="{Binding ArrivalTime}"  Width="2.5*" IsReadOnly="False"   CanUserReorder="False"/>
+                <DataGridTextColumn Header = "Voz" CanUserResize="False" Binding="{Binding Train.Name}"  Width="2*" IsReadOnly="True"   CanUserReorder="False"/>
+                <DataGridTextColumn Header = "Id linije" CanUserResize="False" Binding="{Binding Line.Id}"  Width="1.3*" IsReadOnly="True"   CanUserReorder="False"/>
+                <DataGridTextColumn Header = "Polazište" CanUserResize="False" Binding="{Binding Line.DepartureStation.Name}"  Width="2*" IsReadOnly="True"   CanUserReorder="False"/>
+                <DataGridTextColumn Header = "Dolazište" CanUserResize="False" Binding="{Binding Line.ArrivalStation.Name}"  Width="2*" IsReadOnly="True"   CanUserReorder="False"/>
+                <DataGridTextColumn Header = "Cena" CanUserResize="False" Binding="{Binding Price}"  Width="*" IsReadOnly="False"   CanUserReorder="False"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="Dodaj Vožnju" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,250,0" MinWidth="70" BorderBrush="#FF3E3E3E" Background="White" MinHeight="30" Click="AddRideBtn"  />
+        <Button Content="Izmena Linije i Voza" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="100,0,100,0" MinWidth="70" BorderBrush="#FF3E3E3E" Background="White" MinHeight="30" Click="UpdateRideBtn" AllowDrop="True" DragEnter="DeleteBTN_DragEnter" Drop="UpdateBTN_Drop"/>
+        <Button Content="Izbriši Vožnju" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="250,0,0,0" MinWidth="70" BorderBrush="#FF3E3E3E" Background="White" MinHeight="30" Click="DeleteRideBtn" AllowDrop="True" DragEnter="DeleteBTN_DragEnter" Drop="DeleteBTN_Drop"/>
+
+        <Button Content="Povratak" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,20,20" MinWidth="70" BorderBrush="#FF3E3E3E" Background="White" MinHeight="30" Click="ReturnManagerPage" />
+
     </Grid>
 </Page>

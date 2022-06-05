@@ -25,7 +25,7 @@ namespace SerbianRailways.model
 
         public override string ToString()
         {
-            return "Train:" + " " + SerialNumber + " " + Name + " Seats: " + NumberOfSeats;
+            return "Voz:" + " " + SerialNumber + " " + Name + " Mesta: " + NumberOfSeats;
         }
     }
 }
