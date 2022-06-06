@@ -105,7 +105,32 @@ namespace SerbianRailways.manager_pages
 
         private void AddRideSC(object sender, ExecutedRoutedEventArgs e)
         {
+            if (DepartureTime == null || DepartureTime.Equals("") || ArrivalTime == null || ArrivalTime.Equals("") || Price == 0 || Price.Equals(""))
+            {
+                MessageBox.Show("Molimo vas unesite sve potrebne podatke.", "Greška pri dodavanju vožnje", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else
+            {
 
+                model.Line line = (model.Line)linesCMBX.SelectedItem;
+                Train train = (Train)trainsCMBX.SelectedItem;
+
+                Ride ride = MockService.AddRide(DepartureTime, ArrivalTime, train, line, Price);
+                Rides.Add(ride);
+
+                if ((bool)returnRide.IsChecked)
+                {
+                    Rides.Add(MockService.AddReturnRide(ride));
+                }
+
+                if (MessageBox.Show("Vožnja uspešno dodata",
+                    "Dodavanje Vožnje",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Information) == MessageBoxResult.OK)
+                {
+                    this.Close();
+                }
+            }
 
         }
 

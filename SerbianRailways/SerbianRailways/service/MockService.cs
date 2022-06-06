@@ -47,6 +47,14 @@ namespace SerbianRailways.service
             return managers;
         }
 
+        public ObservableCollection<Line> GetAllLinesTable()
+        {
+            ObservableCollection<Line> linesTable = new ObservableCollection<Line>();
+            foreach (Line line in mockRepository.Lines.Values)
+                linesTable.Add(line);
+            return linesTable;
+        }
+
         internal ObservableCollection<Ride> GetAllRidesTable()
         {
             ObservableCollection<Ride> rides = new ObservableCollection<Ride>();
@@ -83,6 +91,11 @@ namespace SerbianRailways.service
         public User GetLoggedUser()
         {
             return mockRepository.LoggedUser;
+        }
+
+        internal void DeleteLine(Line line)
+        {
+            throw new NotImplementedException();
         }
 
         public List<Station> GetAllStations()

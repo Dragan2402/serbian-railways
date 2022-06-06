@@ -65,10 +65,28 @@ namespace SerbianRailways.repository
             StationID++;
             Station stationBG = new Station(StationID, "Beograd", new Location(44.819380920430085, 20.439203287115173));
             StationID++;
+            Station stationIndjija = new Station(StationID, "Inđija", new Location(45.07861419731812, 20.11183757924523));
+            StationID++;
+            Station stationStaraPazova = new Station(StationID, "Stara Pazova", new Location(44.98531331412219, 20.17893026896439));
+            
+            StationID++;
+            Station stationKragujevac=new Station(StationID, "Kragujevac", new Location(44.0021259863985, 20.902610657668514));
+
+            StationID++;
+            Station stationSabac = new Station(StationID, "Šabac", new Location(44.766465531139204, 19.67960365061717));
+
+            StationID++;
+            Station stationJagodina = new Station(StationID, "Jagodina", new Location(44.010536683625034, 21.283007076104106));
+            StationID++;
             Station stationNIS = new Station(StationID, "Niš", new Location(43.33654100851986, 21.880093186766967));
 
             Stations.Add(stationNS.Id,stationNS);
             Stations.Add(stationBG.Id,stationBG);
+            Stations.Add(stationIndjija.Id,stationIndjija);
+            Stations.Add(stationStaraPazova.Id,stationStaraPazova);
+            Stations.Add(stationKragujevac.Id,stationKragujevac);
+            Stations.Add(stationSabac.Id,stationSabac);
+            Stations.Add(stationJagodina.Id,stationJagodina);
             Stations.Add(stationNIS.Id,stationNIS);
 
             Train trainSoko = new Train(561, "Soko", 300);
@@ -81,17 +99,51 @@ namespace SerbianRailways.repository
 
             LineID++;
             Line lineNSBG = new Line(LineID, stationNS, stationBG);
+            lineNSBG.InterStations.Add(stationIndjija);
+            lineNSBG.InterStations.Add(stationStaraPazova);
             LineID++;
             Line lineBGNS = new Line(LineID, stationBG, stationNS);
+            lineBGNS.InterStations.Add(stationStaraPazova);
+            lineBGNS.InterStations.Add(stationIndjija);
             LineID++;
             Line lineNSNIS = new Line(LineID,stationNS,stationNIS);
+            lineNSNIS.InterStations.Add(stationIndjija);
+            lineNSNIS.InterStations.Add(stationStaraPazova);
+            lineNSNIS.InterStations.Add(stationBG);
+            lineNSNIS.InterStations.Add(stationJagodina);
             LineID++;
             Line lineNISNS = new Line(LineID, stationNIS, stationNS);
+            lineNISNS.InterStations.Add(stationJagodina);
+            lineNISNS.InterStations.Add(stationBG);
+            lineNISNS.InterStations.Add(stationStaraPazova);
+            lineNISNS.InterStations.Add(stationIndjija);
+
+            LineID++;
+            Line lineNSKrag = new Line(LineID, stationNS, stationKragujevac);
+            lineNSKrag.InterStations.Add(stationIndjija);
+            lineNSKrag.InterStations.Add(stationStaraPazova);
+            lineNSKrag.InterStations.Add(stationBG);
+
+            LineID++;
+            Line lineKragNS = new Line(LineID, stationKragujevac, stationNS);
+            lineKragNS.InterStations.Add(stationBG);
+            lineKragNS.InterStations.Add(stationStaraPazova);
+            lineKragNS.InterStations.Add(stationIndjija);
+
+            LineID++;
+            Line lineBGSbc = new Line(LineID, stationBG, stationSabac);
+            LineID++;
+            Line lineSbcBG = new Line(LineID, stationSabac, stationBG);
+
 
             Lines.Add(lineNSBG.Id,lineNSBG);
             Lines.Add(lineBGNS.Id,lineBGNS);
             Lines.Add(lineNSNIS.Id,lineNSNIS);
             Lines.Add(lineNISNS.Id,lineNISNS);
+            Lines.Add(lineKragNS.Id, lineKragNS);
+            Lines.Add(lineNSKrag.Id, lineNSKrag);
+            Lines.Add(lineBGSbc.Id, lineBGSbc);
+            Lines.Add(lineSbcBG.Id, lineSbcBG);
 
             //u konstruktoru Ride se vozu i liniji doda ride
             RideID++;

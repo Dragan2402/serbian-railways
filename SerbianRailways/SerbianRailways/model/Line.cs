@@ -14,6 +14,8 @@ namespace SerbianRailways.model
 
         public Station ArrivalStation { get; set; }
 
+        public List<Station> InterStations { get; set; }
+
         public List<Ride> Rides { get; set; }
 
         public Line() {
@@ -26,6 +28,7 @@ namespace SerbianRailways.model
             DepartureStation = departureStation;
             ArrivalStation = arrivalStation;
             Rides=new List<Ride>();
+            InterStations=new List<Station>();
         }
 
         public override string ToString()
