@@ -131,6 +131,15 @@ namespace SerbianRailways.service
             return ridesTable;
         }
 
+        public bool CheckSerialNumExists(int serialNumber)
+        {
+            foreach(Train train in mockRepository.Trains.Values)
+                if(train.SerialNumber == serialNumber)
+                    return true;
+
+            return false;
+        }
+
         public List<Station> GetAllStations()
         {
             return mockRepository.Stations.Values.ToList();
@@ -165,6 +174,22 @@ namespace SerbianRailways.service
                     ticketTables.Add(new TicketTable(ticket));
             }
             return ticketTables;
+        }
+
+        public void AddNewClient(Client clientNew)
+        {
+            mockRepository.Users.Add(clientNew.UserName, clientNew);
+            
+        }
+
+        public bool CheckUsernameExists(string username)
+        {
+            foreach(User user in mockRepository.Users.Values)
+            {
+                if (user.UserName.ToLower().Equals(username.ToLower()))
+                    return true;
+            }
+            return false;
         }
 
         public bool BuyReserveTicketByRideIdAndFilter(int RideId, int searchedNumberOfTickets, int searchedClass, Line searchedLine, DateTime searchedDate, Ticket.TicketsType ticketsType)

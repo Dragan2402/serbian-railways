@@ -35,27 +35,27 @@
                 </StackPanel>
             </Border>
         </DockPanel>
-        <Button x:Name="CRUDRidesBtn" Grid.Column="1" Grid.Row="0" VerticalAlignment="Bottom" HorizontalAlignment="Center" Click="ToggleRidesCRUDPageBTN" MinWidth="170" Padding="5" Background="White" >
+        <Button x:Name="CRUDRidesBtn" Grid.Column="1" ToolTip="Alt+R" Grid.Row="0" VerticalAlignment="Bottom" HorizontalAlignment="Center" Click="ToggleRidesCRUDPageBTN" MinWidth="170" Padding="5" Background="White" >
             <Button.Effect>
                 <DropShadowEffect/>
             </Button.Effect> Upravljanje redovima vožnji
         </Button>
-        <Button x:Name="CRUDStationsBtn" Grid.Column="1" Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Center" Click="ToggleStationsCRUDPageBTN" MinWidth="170" Padding="5" Background="White" >
+        <Button x:Name="CRUDStationsBtn" Grid.Column="1" ToolTip="Alt+S" Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Center" Click="ToggleStationsCRUDPageBTN" MinWidth="170" Padding="5" Background="White" >
             <Button.Effect>
                 <DropShadowEffect/>
             </Button.Effect> Upravljanje stanicama
         </Button>
-        <Button x:Name="CRUDLinesBtn" Grid.Column="1" Grid.Row="2" VerticalAlignment="Bottom" HorizontalAlignment="Center" Click="ToggleLinesCRUDPageBTN" MinWidth="170" Padding="5" Background="White">
+        <Button x:Name="CRUDLinesBtn" Grid.Column="1" ToolTip="Alt+L" Grid.Row="2" VerticalAlignment="Bottom" HorizontalAlignment="Center" Click="ToggleLinesCRUDPageBTN" MinWidth="170" Padding="5" Background="White">
             <Button.Effect>
                 <DropShadowEffect/>
             </Button.Effect> Upravljanje linijama
         </Button>
-        <Button x:Name="CRUDTrainsBtn" Grid.Column="1" Grid.Row="3" VerticalAlignment="Bottom" Click="ToggleTrainsCRUDPageBTN" HorizontalAlignment="Center" MinWidth="170" Padding="5" Background="White">
+        <Button x:Name="CRUDTrainsBtn" Grid.Column="1" Grid.Row="3" ToolTip="Alt+V" VerticalAlignment="Bottom" Click="ToggleTrainsCRUDPageBTN" HorizontalAlignment="Center" MinWidth="170" Padding="5" Background="White">
             <Button.Effect>
                 <DropShadowEffect/>
             </Button.Effect> Upravljanje vozovima
         </Button>
-        <Button x:Name="SoldTicketsBtn" Grid.Column="1" Grid.Row="4" VerticalAlignment="Bottom" Click="ToggleTicketsCRUDPageBTN" HorizontalAlignment="Center" MinWidth="170" Padding="5" Background="White">
+        <Button x:Name="SoldTicketsBtn" Grid.Column="1" Grid.Row="4" ToolTip="Alt+K" VerticalAlignment="Bottom" Click="ToggleTicketsCRUDPageBTN" HorizontalAlignment="Center" MinWidth="170" Padding="5" Background="White">
             <Button.Effect>
                 <DropShadowEffect/>
             </Button.Effect> Pregled prodatih karata

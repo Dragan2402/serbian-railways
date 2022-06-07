@@ -136,6 +136,11 @@ namespace SerbianRailways.manager_pages
                     return;
                 }
 
+                if (MockService.CheckSerialNumExists(SerialNumber))
+                {
+                    MessageBox.Show("Serijski broj voza već postoji u bazi.", "Greška pri dodavanju voza", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return
+                }
                 Train newTrain = new Train(SerialNumber, TrainName, Cars,FirstClass,SecondClass);
                 Trains.Add(newTrain);
                 MockService.AddTrain(newTrain);

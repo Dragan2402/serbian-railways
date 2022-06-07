@@ -109,7 +109,9 @@ namespace SerbianRailways.authorization_pages
 
         private void SignUp(object sender, RoutedEventArgs e)
         {
-            main_frame.Content = new RegistrationPage(MockService, main_frame, main_window);
+            Window regWindow= new RegistrationWindow(MockService, main_frame, main_window);
+            regWindow.ShowDialog();
+            regWindow.Focus();
         }
     }
 }

@@ -62,8 +62,8 @@
     <Compile Include="authorization_pages\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="authorization_pages\RegistrationPage.xaml.cs">
-      <DependentUpon>RegistrationPage.xaml</DependentUpon>
+    <Compile Include="authorization_pages\RegistrationWindow.xaml.cs">
+      <DependentUpon>RegistrationWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="client_pages\BuyBookTicket.xaml.cs">
       <DependentUpon>BuyBookTicket.xaml</DependentUpon>
@@ -123,11 +123,12 @@
     <Compile Include="repository\MockRepository.cs" />
     <Compile Include="utility\Borders.cs" />
     <Compile Include="utility\PasswordHelper.cs" />
+    <Compile Include="utility\Validation.cs" />
     <Page Include="authorization_pages\LoginPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="authorization_pages\RegistrationPage.xaml">
+    <Page Include="authorization_pages\RegistrationWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

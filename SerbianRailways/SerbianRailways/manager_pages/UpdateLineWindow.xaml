@@ -9,7 +9,7 @@
     <Grid>
         <StackPanel Orientation="Vertical">
             <Label HorizontalAlignment="Center"  Margin="0,50,0,5" VerticalAlignment="Center">Ponuđenje stanice</Label>
-            <DataGrid x:Name="dgAvailableStations" ColumnWidth="*" AutoGenerateColumns="False" SelectionMode="Single"  Margin="20,0,20,50" MaxHeight="150" MinHeight="150"  HorizontalAlignment="Center" CanUserAddRows="False"  HorizontalScrollBarVisibility="Disabled "  ItemsSource="{Binding}"
+            <DataGrid x:Name="dgAvailableStations" ColumnWidth="*" ToolTip="Prevucite ili dva puta kliknite stanicu koju želite da dodate u liniju."  AutoGenerateColumns="False" SelectionMode="Single"  Margin="20,0,20,50" MaxHeight="150" MinHeight="150"  HorizontalAlignment="Center" CanUserAddRows="False"  HorizontalScrollBarVisibility="Disabled "  ItemsSource="{Binding}"
                    PreviewMouseLeftButtonDown="DGStations_PreviewMouseLeftButtonDown" MouseMove="DGStations_MouseMove" MouseDoubleClick="DoubleClickAdd" >
                 <DataGrid.Columns>
                     <DataGridTextColumn Header = "Id" CanUserResize="False" Binding="{Binding Id}" Width="3*" IsReadOnly="True" CanUserReorder="False"/>
@@ -17,7 +17,7 @@
                 </DataGrid.Columns>
             </DataGrid>
             <Label Margin="0,0,0,5" VerticalAlignment="Center" HorizontalAlignment="Center">Redosled stanica linije:</Label>
-            <DataGrid x:Name="dgSelectedStations" ColumnWidth="*"  AutoGenerateColumns="False"  Margin="20,0,20,20" MaxHeight="150" MinHeight="150"   MouseDoubleClick="DoubleClickRemove" HorizontalAlignment="Center" AllowDrop="True" DragEnter="Add_DragEnter" Drop="TableDrop"  CanUserAddRows="False"  HorizontalScrollBarVisibility="Disabled "  ItemsSource="{Binding}"
+            <DataGrid x:Name="dgSelectedStations" ColumnWidth="*"  ToolTip="Prevucite ovdje željene linije, dva puta kliknite za uklanjanje stanice iz linije." AutoGenerateColumns="False"  Margin="20,0,20,20" MaxHeight="150" MinHeight="150"   MouseDoubleClick="DoubleClickRemove" HorizontalAlignment="Center" AllowDrop="True" DragEnter="Add_DragEnter" Drop="TableDrop"  CanUserAddRows="False"  HorizontalScrollBarVisibility="Disabled "  ItemsSource="{Binding}"
                   >
                 <DataGrid.Columns>
                     <DataGridTextColumn Header = "Id" CanUserResize="False" Binding="{Binding Id}" Width="3*" IsReadOnly="True" CanUserReorder="False"/>
@@ -25,8 +25,8 @@
                 </DataGrid.Columns>
             </DataGrid>
             <WrapPanel HorizontalAlignment="Center" Margin="0,50,0,0">
-                <Button HorizontalAlignment="Left" Margin="0,0,5,0" MinHeight="30" MinWidth="70"  BorderBrush="#FF3E3E3E" Background="White" Click="UpdateLineBtn" >Izmeni</Button>
-                <Button HorizontalAlignment="Right"  MinHeight="30" MinWidth="70"  BorderBrush="#FF3E3E3E" Background="White" Click="Cancel_Btn">Odustani</Button>
+                <Button HorizontalAlignment="Left" Margin="0,0,5,0" MinHeight="30" ToolTip="Ctrl+D" MinWidth="70"  BorderBrush="#FF3E3E3E" Background="White" Click="UpdateLineBtn" >Izmeni</Button>
+                <Button HorizontalAlignment="Right"  MinHeight="30" MinWidth="70"  ToolTip="Ctrl+I" BorderBrush="#FF3E3E3E" Background="White" Click="Cancel_Btn">Odustani</Button>
             </WrapPanel>
         </StackPanel>
     </Grid>

@@ -25,8 +25,8 @@
                 <CheckBox x:Name="sundayCB" IsChecked="False">Ned</CheckBox>
             </StackPanel>
             <WrapPanel HorizontalAlignment="Center" Margin="0,30,0,0" >
-                <Button HorizontalAlignment="Left" Margin="0,0,5,0" MinHeight="30" MinWidth="70"  BorderBrush="#FF3E3E3E" Background="White" Click="UpdateRideBtn" >Izmeni</Button>
-                <Button HorizontalAlignment="Right"  MinHeight="30" MinWidth="70"  BorderBrush="#FF3E3E3E" Background="White" Click="Cancel_Btn">Odustani</Button>
+                <Button HorizontalAlignment="Left" Margin="0,0,5,0" MinHeight="30" ToolTip="Ctrl+D" MinWidth="70"  BorderBrush="#FF3E3E3E" Background="White" Click="UpdateRideBtn" >Izmeni</Button>
+                <Button HorizontalAlignment="Right"  MinHeight="30" MinWidth="70"  ToolTip="Ctrl+O" BorderBrush="#FF3E3E3E" Background="White" Click="Cancel_Btn">Odustani</Button>
             </WrapPanel>
         </StackPanel>
     </Grid>

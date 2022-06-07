@@ -20,20 +20,20 @@
         </Grid.ColumnDefinitions>
 
         <DataGrid x:Name="dgLines" Grid.Column="0"  ColumnWidth="*" AutoGenerateColumns="False" Grid.Row="0" Margin="20,10,10,0" HorizontalAlignment="Center" CanUserAddRows="False"  HorizontalScrollBarVisibility="Disabled "  ItemsSource="{Binding}"
-                   PreviewMouseLeftButtonDown="DGLines_PreviewMouseLeftButtonDown" MouseMove="DGLines_MouseMove">
+                   PreviewMouseLeftButtonDown="DGLines_PreviewMouseLeftButtonDown" MouseMove="DGLines_MouseMove" ToolTip="Prevucite željene linije na mapu za prikaz.">
             <DataGrid.Columns>
                 <DataGridTextColumn Header = "Id" CanUserResize="False" Binding="{Binding Id}" Width="*" IsReadOnly="True" CanUserReorder="False"/>
                 <DataGridTextColumn Header = "Polazište" CanUserResize="False" Binding="{Binding DepartureStation.Name}"  Width="2.5*" IsReadOnly="True"   CanUserReorder="False"/>
                 <DataGridTextColumn Header = "Dolazište" CanUserResize="False" Binding="{Binding ArrivalStation.Name}"  Width="2.5*" IsReadOnly="True"   CanUserReorder="False"/>
             </DataGrid.Columns>
         </DataGrid>
-        <m:Map Grid.Column="1" Grid.Row="0" Name="LinesGridMap" Mode="Road" Margin="20,20,20,0" CredentialsProvider="RAdSJ9oN7Xj9YygDWI12~XrS7m1Mwuli7Wh2uVKc3wQ~AldCHlKL7DGIwbTcEgkDKWDRuI53-sAZ_KVbCIAjc4CJoJto_rhkJJuB5jWPJnNj" AllowDrop="True" DragEnter="DeleteBTN_DragEnter" Drop="MapDrop" Center="44.820333616177386, 20.47796955328137"  ZoomLevel="7"/>
+        <m:Map Grid.Column="1" Grid.Row="0" ToolTip="Prevucite željene linije na mapu za prikaz." Name="LinesGridMap" Mode="Road" Margin="20,20,20,0" CredentialsProvider="RAdSJ9oN7Xj9YygDWI12~XrS7m1Mwuli7Wh2uVKc3wQ~AldCHlKL7DGIwbTcEgkDKWDRuI53-sAZ_KVbCIAjc4CJoJto_rhkJJuB5jWPJnNj" AllowDrop="True" DragEnter="DeleteBTN_DragEnter" Drop="MapDrop" Center="44.820333616177386, 20.47796955328137"  ZoomLevel="7"/>
         <Button Content="Očisti mapu" Grid.Row="1" Grid.Column="2"  HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,20,20" MinWidth="70" BorderBrush="#FF3E3E3E" Background="White" MinHeight="30" Click="ClearMap" />
         
         <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal" Margin="200,0,0,0">
-            <Button Content="Dodaj Liniju" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,20,0" MinWidth="70" BorderBrush="#FF3E3E3E" Background="White" MinHeight="30" Click="AddLineBtn"  />
-            <Button Content="Izmena Linije" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,20,0" MinWidth="70" BorderBrush="#FF3E3E3E" Background="White" MinHeight="30" Click="UpdateLineBtn" AllowDrop="True" DragEnter="DeleteBTN_DragEnter" Drop="UpdateBTN_Drop"/>
-            <Button Content="Izbriši Liniju" Grid.Column="0"   Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0" MinWidth="70" BorderBrush="#FF3E3E3E" Background="White" MinHeight="30" Click="DeleteLineBtn" AllowDrop="True" DragEnter="DeleteBTN_DragEnter" Drop="DeleteBTN_Drop"/>
+            <Button Content="Dodaj Liniju" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,20,0" MinWidth="70" BorderBrush="#FF3E3E3E" Background="White" MinHeight="30" Click="AddLineBtn" ToolTip="Ctrl+D" />
+            <Button Content="Izmena Linije" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,20,0" MinWidth="70" BorderBrush="#FF3E3E3E" Background="White" MinHeight="30" Click="UpdateLineBtn" AllowDrop="True" DragEnter="DeleteBTN_DragEnter" Drop="UpdateBTN_Drop" ToolTip="Prevucite liniju za izmenu ili odaberite više linija pa pritisnite dugme, Ctrl+O."/>
+            <Button Content="Izbriši Liniju" Grid.Column="0"   Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0" MinWidth="70" BorderBrush="#FF3E3E3E" Background="White" MinHeight="30" Click="DeleteLineBtn" AllowDrop="True" DragEnter="DeleteBTN_DragEnter" Drop="DeleteBTN_Drop" ToolTip="Prevucite liniju za brisanje ili odaberite više linija pa pritisnite dugme, Ctrl+I."/>
         </StackPanel>
         <Button Content="Povratak" Grid.Row="2" Grid.Column="2"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,20,20" MinWidth="70" BorderBrush="#FF3E3E3E" Background="White" MinHeight="30" Click="ReturnManagerPage" />
     </Grid>

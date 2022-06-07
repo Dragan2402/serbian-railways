@@ -27,7 +27,7 @@
                     </Grid.RowDefinitions>
                     <ComboBox Name="MonthsCMBX" ItemsSource="{Binding Months , UpdateSourceTrigger=PropertyChanged}" SelectedIndex="{Binding SelectedIndex, UpdateSourceTrigger=PropertyChanged}"
                         SelectedItem="{Binding SelectedMonth, UpdateSourceTrigger=PropertyChanged}" Grid.Row="0" Margin="0,0,100,0"  VerticalAlignment="Center" HorizontalAlignment="Center" MinWidth="100" Background="White" BorderBrush="#FF3E3E3E"></ComboBox>
-                    <Button VerticalAlignment="Center" Margin="100,0,0,0"  HorizontalAlignment="Center" MinWidth="70" BorderBrush="#FF3E3E3E" Background="White" Click="Refresh_Months_btn" >Osveži</Button>
+                    <Button VerticalAlignment="Center" ToolTip="Ctrl+R" Margin="100,0,0,0"  HorizontalAlignment="Center" MinWidth="70" BorderBrush="#FF3E3E3E" Background="White" Click="Refresh_Months_btn" >Osveži</Button>
                     
                     <DataGrid x:Name="dgTickets" ColumnWidth="*"   AutoGenerateColumns="False" Grid.Row="1" Margin="10" HorizontalAlignment="Stretch" CanUserAddRows="False"  HorizontalScrollBarVisibility="Disabled "  ItemsSource="{Binding}">
                             <DataGrid.Columns>
@@ -57,7 +57,7 @@
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                    <DataGrid x:Name="dgRides" ColumnWidth="*" AutoGenerateColumns="False" Grid.Row="0" Margin="10,10,10,10" SelectionMode="Single" HorizontalAlignment="Center" CanUserAddRows="False"  HorizontalScrollBarVisibility="Disabled "  ItemsSource="{Binding}"
-                             PreviewMouseLeftButtonDown="DGRides_PreviewMouseLeftButtonDown" MouseMove="DGRides_MouseMove">
+                             PreviewMouseLeftButtonDown="DGRides_PreviewMouseLeftButtonDown" MouseMove="DGRides_MouseMove" ToolTip="Prevucite željenu vožnju na donju tabelu za prikaz prodatih karata.">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header = "Id vožnje" CanUserResize="False" Binding="{Binding Id}" Width="1.1*" IsReadOnly="True" CanUserReorder="False"/>
                             <DataGridTextColumn Header = "Linija" CanUserResize="False" Binding="{Binding Line}"  Width="3*" IsReadOnly="True"   CanUserReorder="False"/>

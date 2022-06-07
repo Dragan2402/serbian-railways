@@ -31,8 +31,6 @@ C:\Users\draga\OneDrive\Dokumenti\HCI\Projekat\serbian-railways\SerbianRailways\
 C:\Users\draga\OneDrive\Dokumenti\HCI\Projekat\serbian-railways\SerbianRailways\SerbianRailways\obj\Debug\manager_pages\TicketsPage.baml
 C:\Users\draga\OneDrive\Dokumenti\HCI\Projekat\serbian-railways\SerbianRailways\SerbianRailways\obj\Debug\manager_pages\StationsPage.g.cs
 C:\Users\draga\OneDrive\Dokumenti\HCI\Projekat\serbian-railways\SerbianRailways\SerbianRailways\obj\Debug\manager_pages\StationsPage.baml
-C:\Users\draga\OneDrive\Dokumenti\HCI\Projekat\serbian-railways\SerbianRailways\SerbianRailways\obj\Debug\authorization_pages\RegistrationPage.g.cs
-C:\Users\draga\OneDrive\Dokumenti\HCI\Projekat\serbian-railways\SerbianRailways\SerbianRailways\obj\Debug\authorization_pages\RegistrationPage.baml
 C:\Users\draga\OneDrive\Dokumenti\HCI\Projekat\serbian-railways\SerbianRailways\SerbianRailways\obj\Debug\manager_pages\AddTrainWindow.g.cs
 C:\Users\draga\OneDrive\Dokumenti\HCI\Projekat\serbian-railways\SerbianRailways\SerbianRailways\obj\Debug\manager_pages\AddTrainWindow.baml
 C:\Users\draga\OneDrive\Dokumenti\HCI\Projekat\serbian-railways\SerbianRailways\SerbianRailways\bin\Debug\Microsoft.Maps.MapControl.WPF.dll
@@ -56,3 +54,5 @@ C:\Users\draga\OneDrive\Dokumenti\HCI\Projekat\serbian-railways\SerbianRailways\
 C:\Users\draga\OneDrive\Dokumenti\HCI\Projekat\serbian-railways\SerbianRailways\SerbianRailways\obj\Debug\client_pages\LinesRidesPreview.baml
 C:\Users\draga\OneDrive\Dokumenti\HCI\Projekat\serbian-railways\SerbianRailways\SerbianRailways\obj\Debug\client_pages\BuyBookTicket.g.cs
 C:\Users\draga\OneDrive\Dokumenti\HCI\Projekat\serbian-railways\SerbianRailways\SerbianRailways\obj\Debug\client_pages\BuyBookTicket.baml
+C:\Users\draga\OneDrive\Dokumenti\HCI\Projekat\serbian-railways\SerbianRailways\SerbianRailways\obj\Debug\authorization_pages\RegistrationWindow.g.cs
+C:\Users\draga\OneDrive\Dokumenti\HCI\Projekat\serbian-railways\SerbianRailways\SerbianRailways\obj\Debug\authorization_pages\RegistrationWindow.baml

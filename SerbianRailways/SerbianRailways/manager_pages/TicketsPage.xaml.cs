@@ -105,6 +105,10 @@ namespace SerbianRailways.manager_pages
             rideReportCMD.InputGestures.Add(new KeyGesture(Key.V, ModifierKeys.Control));
             window.CommandBindings.Add(new CommandBinding(rideReportCMD, RideReportSC));
 
+            RoutedCommand refreshCMD = new RoutedCommand();
+            refreshCMD.InputGestures.Add(new KeyGesture(Key.R, ModifierKeys.Control));
+            window.CommandBindings.Add(new CommandBinding(refreshCMD, RefreshSC));
+
         }
         private void MonthlyReportSC(object sender, ExecutedRoutedEventArgs e)
         {
@@ -125,7 +129,18 @@ namespace SerbianRailways.manager_pages
         {
             main_frame.Content = new ManagerMainPage(MockService, main_frame, main_window);
         }
+        private void RefreshSC(object sender, ExecutedRoutedEventArgs e)
+        {
+            if (mainTab.SelectedIndex == 1)
+            {
+                Tickets = MockService.GetTicketsTableByMonthIndex(SelectedIndex);
 
+                Tuple<double, double> totalAvarage = MockService.GetTicketsTotalAndAvarageByMonthIndex(SelectedIndex);
+                TotalLbl.Content = totalAvarage.Item1 + " din";
+                AvarageLbl.Content = totalAvarage.Item2 + " din";
+                dgTickets.DataContext = Tickets;
+            }
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
