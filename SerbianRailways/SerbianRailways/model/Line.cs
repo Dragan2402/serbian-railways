@@ -26,14 +26,23 @@ namespace SerbianRailways.model
         {
             Id = id;
             DepartureStation = departureStation;
+            DepartureStation.Lines.Add(this);
+            
             ArrivalStation = arrivalStation;
-            Rides=new List<Ride>();
+            ArrivalStation.Lines.Add(this);
+            Rides =new List<Ride>();
             InterStations=new List<Station>();
         }
 
         public override string ToString()
         {
             return "Linija:" + " " + Id + " " + DepartureStation.Name + "-" + ArrivalStation.Name;
+        }
+
+        public void AddInterStation(Station station)
+        {
+            InterStations.Add(station);
+            station.Lines.Add(this);
         }
     }
 }

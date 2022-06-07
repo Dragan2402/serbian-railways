@@ -139,7 +139,7 @@ namespace SerbianRailways.manager_pages
                 if (MockService.CheckSerialNumExists(SerialNumber))
                 {
                     MessageBox.Show("Serijski broj voza već postoji u bazi.", "Greška pri dodavanju voza", MessageBoxButton.OK, MessageBoxImage.Error);
-                    return
+                    return;
                 }
                 Train newTrain = new Train(SerialNumber, TrainName, Cars,FirstClass,SecondClass);
                 Trains.Add(newTrain);
@@ -177,6 +177,11 @@ namespace SerbianRailways.manager_pages
                 if (SerialNumber <= 0 || Cars <= 0 || SecondClass <= 0 || FirstClass <= 0)
                 {
                     MessageBox.Show("Molimo vas unesite sve potrebne podatke ispravno.", "Greška pri dodavanju voza", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+                if (MockService.CheckSerialNumExists(SerialNumber))
+                {
+                    MessageBox.Show("Serijski broj voza već postoji u bazi.", "Greška pri dodavanju voza", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
 

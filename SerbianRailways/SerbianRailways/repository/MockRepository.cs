@@ -100,36 +100,36 @@ namespace SerbianRailways.repository
 
             LineID++;
             Line lineNSBG = new Line(LineID, stationNS, stationBG);
-            lineNSBG.InterStations.Add(stationIndjija);
-            lineNSBG.InterStations.Add(stationStaraPazova);
+            lineNSBG.AddInterStation(stationIndjija);
+            lineNSBG.AddInterStation(stationStaraPazova);
             LineID++;
             Line lineBGNS = new Line(LineID, stationBG, stationNS);
-            lineBGNS.InterStations.Add(stationStaraPazova);
-            lineBGNS.InterStations.Add(stationIndjija);
+            lineBGNS.AddInterStation(stationStaraPazova);
+            lineBGNS.AddInterStation(stationIndjija);
             LineID++;
             Line lineNSNIS = new Line(LineID,stationNS,stationNIS);
-            lineNSNIS.InterStations.Add(stationIndjija);
-            lineNSNIS.InterStations.Add(stationStaraPazova);
-            lineNSNIS.InterStations.Add(stationBG);
-            lineNSNIS.InterStations.Add(stationJagodina);
+            lineNSNIS.AddInterStation(stationIndjija);
+            lineNSNIS.AddInterStation(stationStaraPazova);
+            lineNSNIS.AddInterStation(stationBG);
+            lineNSNIS.AddInterStation(stationJagodina);
             LineID++;
             Line lineNISNS = new Line(LineID, stationNIS, stationNS);
-            lineNISNS.InterStations.Add(stationJagodina);
-            lineNISNS.InterStations.Add(stationBG);
-            lineNISNS.InterStations.Add(stationStaraPazova);
-            lineNISNS.InterStations.Add(stationIndjija);
+            lineNISNS.AddInterStation(stationJagodina);
+            lineNISNS.AddInterStation(stationBG);
+            lineNISNS.AddInterStation(stationStaraPazova);
+            lineNISNS.AddInterStation(stationIndjija);
 
             LineID++;
             Line lineNSKrag = new Line(LineID, stationNS, stationKragujevac);
-            lineNSKrag.InterStations.Add(stationIndjija);
-            lineNSKrag.InterStations.Add(stationStaraPazova);
-            lineNSKrag.InterStations.Add(stationBG);
+            lineNSKrag.AddInterStation(stationIndjija);
+            lineNSKrag.AddInterStation(stationStaraPazova);
+            lineNSKrag.AddInterStation(stationBG);
 
             LineID++;
             Line lineKragNS = new Line(LineID, stationKragujevac, stationNS);
-            lineKragNS.InterStations.Add(stationBG);
-            lineKragNS.InterStations.Add(stationStaraPazova);
-            lineKragNS.InterStations.Add(stationIndjija);
+            lineKragNS.AddInterStation(stationBG);
+            lineKragNS.AddInterStation(stationStaraPazova);
+            lineKragNS.AddInterStation(stationIndjija);
 
             LineID++;
             Line lineBGSbc = new Line(LineID, stationBG, stationSabac);
@@ -284,7 +284,7 @@ namespace SerbianRailways.repository
                 line = new Line(LineID, stationsSelected.ElementAt(0), stationsSelected.Last());
                 for( int i=1; i < size - 1; i++)
                 {
-                    line.InterStations.Add(stationsSelected.ElementAt(i));
+                    line.AddInterStation(stationsSelected.ElementAt(i));
                 }
                 if (!LineExists(line))
                     Lines.Add(line.Id, line);

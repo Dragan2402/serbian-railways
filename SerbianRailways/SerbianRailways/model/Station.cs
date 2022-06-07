@@ -14,6 +14,8 @@ namespace SerbianRailways.model
 
         public Location Location { get; set; }
 
+        public List<Line> Lines { get; set; }
+
         public Station() { }
 
         public Station(int id, string name, Location location)
@@ -21,6 +23,7 @@ namespace SerbianRailways.model
             Id = id;
             Name = name;
             Location = location;
+            Lines = new List<Line>();
         }
 
         public override string ToString()

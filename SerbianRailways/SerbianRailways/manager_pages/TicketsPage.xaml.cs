@@ -131,7 +131,7 @@ namespace SerbianRailways.manager_pages
         }
         private void RefreshSC(object sender, ExecutedRoutedEventArgs e)
         {
-            if (mainTab.SelectedIndex == 1)
+            if (mainTab.SelectedIndex == 0)
             {
                 Tickets = MockService.GetTicketsTableByMonthIndex(SelectedIndex);
 

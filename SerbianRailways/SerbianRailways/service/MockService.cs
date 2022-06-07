@@ -109,7 +109,12 @@ namespace SerbianRailways.service
 
         internal void DeleteLine(Line line)
         {
-            throw new NotImplementedException();
+            foreach(Ride ride in line.Rides)
+            {
+                DeleteRide(ride);
+
+            }
+            mockRepository.Lines.Remove(line.Id);
         }
 
         public Line AddLine(ObservableCollection<Station> stationsSelected)
@@ -316,6 +321,24 @@ namespace SerbianRailways.service
 
         public void DeleteStation(Station station)
         {
+            foreach(Line line in station.Lines)
+            {
+              
+                foreach(Ride ride in line.Rides)
+                    {
+                        foreach(Ticket ticket in ride.Tickets)
+                        {
+                            
+                            
+                            mockRepository.Tickets.Remove(ticket.Id);                            
+                        }
+                     
+                        mockRepository.Rides.Remove(ride.Id); 
+                    }
+
+                    mockRepository.Lines.Remove(line.Id);
+                
+            }
             mockRepository.Stations.Remove(station.Id);
         }
 
@@ -339,8 +362,17 @@ namespace SerbianRailways.service
         public void DeleteTrain(Train train)
         {
             mockRepository.Trains.Remove(train.SerialNumber);
-            foreach(Ride ride in train.Rides)
+            foreach (Ride ride in train.Rides)
+            {
+                foreach(Ticket ticket in ride.Tickets) {
+                    ticket.Client.Tickets.Remove(ticket);
+                    mockRepository.Tickets.Remove(ticket.Id);
+                    
+                }
+                ride.Line.Rides.Remove(ride);
                 mockRepository.Rides.Remove(ride.Id);
+
+            }
         }
 
         public void AddTrain(Train newTrain)

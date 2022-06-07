@@ -35,6 +35,6 @@
             <Button Content="Izmena Linije" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,20,0" MinWidth="70" BorderBrush="#FF3E3E3E" Background="White" MinHeight="30" Click="UpdateLineBtn" AllowDrop="True" DragEnter="DeleteBTN_DragEnter" Drop="UpdateBTN_Drop" ToolTip="Prevucite liniju za izmenu ili odaberite više linija pa pritisnite dugme, Ctrl+O."/>
             <Button Content="Izbriši Liniju" Grid.Column="0"   Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0" MinWidth="70" BorderBrush="#FF3E3E3E" Background="White" MinHeight="30" Click="DeleteLineBtn" AllowDrop="True" DragEnter="DeleteBTN_DragEnter" Drop="DeleteBTN_Drop" ToolTip="Prevucite liniju za brisanje ili odaberite više linija pa pritisnite dugme, Ctrl+I."/>
         </StackPanel>
-        <Button Content="Povratak" Grid.Row="2" Grid.Column="2"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,20,20" MinWidth="70" BorderBrush="#FF3E3E3E" Background="White" MinHeight="30" Click="ReturnManagerPage" />
+        <Button Content="Povratak" Grid.Row="2" Grid.Column="2" ToolTip="Ctrl+Backspace" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,20,20" MinWidth="70" BorderBrush="#FF3E3E3E" Background="White" MinHeight="30" Click="ReturnManagerPage" />
     </Grid>
 </Page>

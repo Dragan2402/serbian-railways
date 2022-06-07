@@ -52,7 +52,7 @@ namespace SerbianRailways.manager_pages
             this.CommandBindings.Add(new CommandBinding(UpdateRideCMD, UpdateRideSC));
 
             RoutedCommand cancelCMD = new RoutedCommand();
-            cancelCMD.InputGestures.Add(new KeyGesture(Key.I, ModifierKeys.Control));
+            cancelCMD.InputGestures.Add(new KeyGesture(Key.O, ModifierKeys.Control));
             this.CommandBindings.Add(new CommandBinding(cancelCMD, cancelSC));
 
             foreach(DayOfWeek day in ride.DayOfWeeksThatDrives)
