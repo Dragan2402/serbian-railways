@@ -26,13 +26,14 @@ namespace SerbianRailways.model
 
         public List<RideStop> RideStops { get; set; }
 
-        public Dictionary<int,Boolean> SeatsStatus { get; set; }
+        public Dictionary<DateTime,SeatStatus> SeatsStatus { get; set; }
 
         public Ride()
         {
             Tickets = new List<Ticket>();
             RideStops = new List<RideStop>();
-            SeatsStatus = new Dictionary<int,Boolean>();
+            
+            SeatsStatus = new Dictionary<DateTime, SeatStatus>();
         }
 
         public Ride(int id, TimeSpan departureTime, TimeSpan arrivalTime, Train train, Line line, double price)
@@ -46,23 +47,57 @@ namespace SerbianRailways.model
                 Duration = arrivalTime - departureTime;
             Train = train;
             Line = line;
+
             Tickets = new List<Ticket>();
             RideStops = new List<RideStop>();
-            SeatsStatus = new Dictionary<int, bool>();
-            for (int i = 0; i < Train.NumberOfSeats; i++)
-            {
-                SeatsStatus[i] = false;
-            }
 
+            SeatsStatus = new Dictionary<DateTime, SeatStatus>();
             Line.Rides.Add(this);
             Train.Rides.Add(this);
             Price = price;
 
         }
 
+        public Tuple<int,int> TakeSeat(DateTime date,int grade)
+        {
+            if (SeatsStatus.ContainsKey(date))
+            {
+                return SeatsStatus[date].TakeSeat(grade);
+            }
+            else
+            {
+                SeatStatus seatStatus = new SeatStatus(Train);
+                SeatsStatus[date] = seatStatus;
+                return SeatsStatus[date].TakeSeat(grade);
+            }
+        }
+
+        public bool HasFreeSeats(DateTime date, int grade,int seats)
+        {
+            if (SeatsStatus.ContainsKey(date))
+            {
+                return SeatsStatus[date].HasFreeSeats(grade,seats);
+            }
+            else
+            {
+                SeatStatus seatStatus = new SeatStatus(Train);
+                SeatsStatus[date] = seatStatus;
+                return SeatsStatus[date].HasFreeSeats(grade,seats);
+            }
+        }
+
         public override string ToString()
         {
             return "Ride:" + " " + Id + " " + DepartureTime + "-" + ArrivalTime + " " + Duration + " " + Train + " " + Line;
+        }
+
+        public bool FreeSeat(Ticket ticket)
+        {
+            if (SeatsStatus.ContainsKey(ticket.RideDateTime))
+            {
+                return SeatsStatus[ticket.RideDateTime].FreeSeat(ticket);
+            }
+            return false;
         }
     }
 }

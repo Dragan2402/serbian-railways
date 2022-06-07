@@ -4,7 +4,6 @@ using SerbianRailways.service;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,64 +17,44 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace SerbianRailways.manager_pages
+namespace SerbianRailways.client_pages
 {
     /// <summary>
-    /// Interaction logic for LinesPage.xaml
+    /// Interaction logic for RailwayGridPage.xaml
     /// </summary>
-    public partial class LinesPage : Page
+    public partial class RailwayGridPage : Page
     {
 
         ObservableCollection<model.Line> Lines = new ObservableCollection<model.Line>();
         Dictionary<model.Line, List<Pushpin>> LinePins = new Dictionary<model.Line, List<Pushpin>>();
         Dictionary<model.Line, MapPolyline> LineRoute = new Dictionary<model.Line, MapPolyline>();
         Dictionary<Station, int> StationReferences = new Dictionary<Station, int>();
-
         List<System.Windows.Media.Color> ColorsToPick = new List<System.Windows.Media.Color>();
+        System.Windows.Point startPoint = new System.Windows.Point();
 
-        
 
         Random rand = new Random();
-
         private MockService MockService { get; set; }
         Frame main_frame;
         Window main_window { get; set; }
-        System.Windows.Point startPoint = new System.Windows.Point();
-
-        public LinesPage(MockService mockService, Frame mainFrame, Window window)
+        public RailwayGridPage(MockService mockService, Frame mainFrame, Window window)
         {
             InitializeComponent();
             this.DataContext = this;
             MockService = mockService;
+
             main_frame = mainFrame;
             main_window = window;
-            main_window.Title = "Srbija Voz-Upravljanje linijama";
-
+            main_window.Title = "Srbija Voz-Mreža linija";
+            window.CommandBindings.Clear();
             Lines = MockService.GetAllLinesTable();
             dgLines.DataContext = Lines;
-
-            window.CommandBindings.Clear();
-
             AddColors();
+        }
 
-
-            RoutedCommand newCmd = new RoutedCommand();
-            newCmd.InputGestures.Add(new KeyGesture(Key.Back, ModifierKeys.Control));
-            window.CommandBindings.Add(new CommandBinding(newCmd, ReturnManagerPageSC));
-
-
-            RoutedCommand addLineCMD = new RoutedCommand();
-            addLineCMD.InputGestures.Add(new KeyGesture(Key.D, ModifierKeys.Control));
-            window.CommandBindings.Add(new CommandBinding(addLineCMD, AddLineSC));
-
-            RoutedCommand delteLinesCMD = new RoutedCommand();
-            delteLinesCMD.InputGestures.Add(new KeyGesture(Key.I, ModifierKeys.Control));
-            window.CommandBindings.Add(new CommandBinding(delteLinesCMD, DeleteLineSC));
-
-            RoutedCommand updateLinesCMD = new RoutedCommand();
-            updateLinesCMD.InputGestures.Add(new KeyGesture(Key.O, ModifierKeys.Control));
-            window.CommandBindings.Add(new CommandBinding(updateLinesCMD, UpdateLineSc));
-
+        private void DGLines_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            startPoint = e.GetPosition(null);
         }
 
         private void AddColors()
@@ -92,86 +71,6 @@ namespace SerbianRailways.manager_pages
             ColorsToPick.Add(Colors.DarkGray);
             ColorsToPick.Add(Colors.Black);
             ColorsToPick.Add(Colors.White);
-        }
-
-        private void ReturnManagerPage(object sender, RoutedEventArgs e)
-        {
-            main_frame.Content = new ManagerMainPage(MockService, main_frame, main_window);
-        }
-        private void ReturnManagerPageSC(object sender, ExecutedRoutedEventArgs e)
-        {
-            main_frame.Content = new ManagerMainPage(MockService, main_frame, main_window);
-        }
-
-        private void AddLineSC(object sender, ExecutedRoutedEventArgs e)
-        {
-
-            Window addLineWindow = new AddLineWindow(MockService, Lines);
-            addLineWindow.ShowDialog();
-            addLineWindow.Focus();
-        }
-
-        private void AddLineBtn(object sender, RoutedEventArgs e)
-        {
-            Window addLineWindow = new AddLineWindow(MockService, Lines);
-            addLineWindow.ShowDialog();
-            addLineWindow.Focus();
-        }
-
-
-        private void DeleteLineBtn(object sender, RoutedEventArgs e)
-        {
-            if (dgLines.SelectedItems.Count == 0)
-            {
-                MessageBox.Show("Označite linije za brisanje.", "Brisanje linija", MessageBoxButton.OK, MessageBoxImage.Information);
-                return;
-            }
-            if (MessageBox.Show("Da li ste sigurni da želite da izbrišete označene linije i njihove vožnje?",
-                    "Brisanje linija",
-                    MessageBoxButton.YesNo,
-                    MessageBoxImage.Question) == MessageBoxResult.Yes)
-            {
-                List<model.Line> linesToDelete = new List<model.Line>();
-                foreach (model.Line line in dgLines.SelectedItems)
-                {
-                    MockService.DeleteLine(line);
-                    linesToDelete.Add(line);
-                }
-                foreach (model.Line line in linesToDelete)
-                {
-                    Lines.Remove(line);
-                }
-            }
-        }
-
-        private void DeleteLineSC(object sender, ExecutedRoutedEventArgs e)
-        {
-            if (dgLines.SelectedItems.Count == 0)
-            {
-                MessageBox.Show("Označite linije za brisanje.", "Brisanje linija", MessageBoxButton.OK, MessageBoxImage.Information);
-                return;
-            }
-            if (MessageBox.Show("Da li ste sigurni da želite da izbrišete označene linije i njihove vožnje?",
-                    "Brisanje linija",
-                    MessageBoxButton.YesNo,
-                    MessageBoxImage.Question) == MessageBoxResult.Yes)
-            {
-                List<model.Line> linesToDelete = new List<model.Line>();
-                foreach (model.Line line in dgLines.SelectedItems)
-                {
-                    MockService.DeleteLine(line);
-                    linesToDelete.Add(line);
-                }
-                foreach (model.Line line in linesToDelete)
-                {
-                    Lines.Remove(line);
-                }
-            }
-        }
-
-        private void DGLines_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            startPoint = e.GetPosition(null);
         }
 
         private void DGLines_MouseMove(object sender, MouseEventArgs e)
@@ -212,6 +111,13 @@ namespace SerbianRailways.manager_pages
             }
         }
 
+
+        private System.Windows.Media.Color getRandomColor()
+        {
+            int index = rand.Next(0, 12);
+            return ColorsToPick.ElementAt(index);
+        }
+
         private static T FindAncestor<T>(DependencyObject current) where T : DependencyObject
         {
             do
@@ -227,43 +133,13 @@ namespace SerbianRailways.manager_pages
 
 
         }
-        private void DeleteBTN_DragEnter(object sender, DragEventArgs e)
+
+        private void MapDrop_DragEnter(object sender, DragEventArgs e)
         {
             if (!e.Data.GetDataPresent("myFormat") || sender == e.Source)
             {
                 e.Effects = DragDropEffects.None;
             }
-        }
-
-        private void DeleteBTN_Drop(object sender, DragEventArgs e)
-        {
-            if (e.Data.GetDataPresent("myFormat"))
-            {
-                model.Line line = e.Data.GetData("myFormat") as model.Line;
-                if (MessageBox.Show("Da li ste sigurni da želite da izbrišete označenu linije i vožnje?",
-                   "Brisanje linije",
-                   MessageBoxButton.YesNo,
-                   MessageBoxImage.Question) == MessageBoxResult.Yes)
-                {
-
-                    MockService.DeleteLine(line);
-                    Lines.Remove(line);
-
-                }
-            }
-
-        }
-
-        private void UpdateBTN_Drop(object sender, DragEventArgs e)
-        {
-            if (e.Data.GetDataPresent("myFormat"))
-            {
-                model.Line line = e.Data.GetData("myFormat") as model.Line;
-                Window updateLineWindow = new UpdateLineWindow(MockService, Lines, line);
-                updateLineWindow.ShowDialog();
-
-            }
-            dgLines.Items.Refresh();
         }
 
         private void MapDrop(object sender, DragEventArgs e)
@@ -288,14 +164,14 @@ namespace SerbianRailways.manager_pages
                     linePushpins.Add(departurePin);
                     if (!StationReferences.ContainsKey(line.DepartureStation))
                     {
-                        LinesGridMap.Children.Add(departurePin);                        
+                        LinesGridMap.Children.Add(departurePin);
                         StationReferences.Add(line.DepartureStation, 1);
                     }
-                    else                    
+                    else
                         StationReferences[line.DepartureStation]++;
 
-                    
-                    foreach(Station station in line.InterStations)
+
+                    foreach (Station station in line.InterStations)
                     {
                         Pushpin interPin = new Pushpin();
                         interPin.Location = new Microsoft.Maps.MapControl.WPF.Location(station.Location.X, station.Location.Y);
@@ -304,8 +180,8 @@ namespace SerbianRailways.manager_pages
                         linePushpins.Add(interPin);
                         if (!StationReferences.ContainsKey(station))
                         {
-                           
-                            LinesGridMap.Children.Add(interPin);                            ;
+
+                            LinesGridMap.Children.Add(interPin); ;
                             StationReferences.Add(station, 1);
                         }
                         else
@@ -320,10 +196,11 @@ namespace SerbianRailways.manager_pages
                     pushpinARrival.ToolTip = "Stanica " + line.ArrivalStation.Name;
                     linePushpins.Add(pushpinARrival);
                     if (!StationReferences.ContainsKey(line.ArrivalStation))
-                    {                      
-                        LinesGridMap.Children.Add(pushpinARrival);                        
+                    {
+                        LinesGridMap.Children.Add(pushpinARrival);
                         StationReferences.Add(line.ArrivalStation, 1);
-                    }else
+                    }
+                    else
                         StationReferences[line.ArrivalStation]++;
 
                     MapPolyline route = new MapPolyline();
@@ -347,51 +224,17 @@ namespace SerbianRailways.manager_pages
             dgLines.Items.Refresh();
         }
 
-        private System.Windows.Media.Color getRandomColor()
-        {
-            int index = rand.Next(0, 12);
-            return ColorsToPick.ElementAt(index); 
-        }
-
-        private void UpdateLineBtn(object sender, RoutedEventArgs e)
-        {
-            foreach (model.Line line in dgLines.SelectedItems)
-            {
-                LinesGridMap.Children.Clear();
-                LinePins.Clear();
-                LineRoute.Clear();
-                StationReferences.Clear();
-                Window updateLineWindow = new UpdateLineWindow(MockService, Lines, line);
-                updateLineWindow.ShowDialog();
-                dgLines.Items.Refresh();
-
-            }
-            dgLines.Items.Refresh();
-
-        }
-
-        private void UpdateLineSc(object sender, ExecutedRoutedEventArgs e)
-        {
-            foreach (model.Line line in dgLines.SelectedItems)
-            {
-                LinesGridMap.Children.Clear();
-                LinePins.Clear();
-                LineRoute.Clear();
-                StationReferences.Clear();
-                Window updateLineWindow = new UpdateLineWindow(MockService, Lines, line);
-                updateLineWindow.ShowDialog();
-                dgLines.Items.Refresh();
-            }
-            dgLines.Items.Refresh();
-
-        }
-
         private void ClearMap(object sender, RoutedEventArgs e)
         {
             LinesGridMap.Children.Clear();
             LinePins.Clear();
             LineRoute.Clear();
             StationReferences.Clear();
+        }
+
+        private void ReturnClientPage(object sender, RoutedEventArgs e)
+        {
+            main_frame.Content = new ClientMainPage(MockService, main_frame, main_window);
         }
     }
 }

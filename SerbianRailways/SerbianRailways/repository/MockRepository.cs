@@ -1,6 +1,7 @@
 ﻿using SerbianRailways.model;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -89,9 +90,9 @@ namespace SerbianRailways.repository
             Stations.Add(stationJagodina.Id,stationJagodina);
             Stations.Add(stationNIS.Id,stationNIS);
 
-            Train trainSoko = new Train(561, "Soko", 300);
-            Train trainRegio = new Train(2423, "Regio", 250);
-            Train trainRegio2 = new Train(2422, "Regio", 245);
+            Train trainSoko = new Train(561, "Soko", 5,10,10);
+            Train trainRegio = new Train(2423, "Regio", 5,10,10);
+            Train trainRegio2 = new Train(2422, "Regio", 5,10,10);
 
             Trains.Add(trainSoko.SerialNumber,trainSoko);
             Trains.Add(trainRegio.SerialNumber,trainRegio);
@@ -167,24 +168,150 @@ namespace SerbianRailways.repository
             Rides.Add(rideNISNS.Id, rideNISNS);
 
             //u konstruktoru Ticket se dodaje karta klijentu i voznji i zauzima se mjesto automatski, validaciju postojanja mjesta odraditi ranije
-            TicketID++;
-            Ticket ticketNSBG = new Ticket(TicketID, rideNSBG.Price, 30, rideNSBG, clientTemp1,Ticket.TicketsType.BOUGHT);
-            TicketID++;
-            Ticket ticketBGNS = new Ticket(TicketID, rideBGNS.Price, 35, rideBGNS, clientTemp1,Ticket.TicketsType.BOUGHT);
-            TicketID++;
-            Ticket ticketNSNIS = new Ticket(TicketID, rideNSNIS.Price, 5, rideNSNIS, clientTemp2,Ticket.TicketsType.RESERVED);
-            ticketNSNIS.PurchaseDate = new DateTime(2022, 3, 20,15,20,20);
-            TicketID++;
-            Ticket ticketNISNS = new Ticket(TicketID, rideNISNS.Price, 3, rideNISNS, clientTemp2,Ticket.TicketsType.RESERVED);
-            ticketNISNS.PurchaseDate = new DateTime(2022, 3, 20, 15, 20, 21);
+            DateTime datum1 = new DateTime(2022, 6, 10);
+            DateTime datum2 = new DateTime(2022, 6, 12);
+            if (rideNSBG.HasFreeSeats(datum1, 1, 1))
+            {
+                Tuple<int, int> carSeat = rideNSBG.TakeSeat(datum1, 1);
+                TicketID++;
+                Ticket ticketNSBG = new Ticket(TicketID, rideNSBG.Price, carSeat.Item1,carSeat.Item2, datum1,rideNSBG, clientTemp1, Ticket.TicketsType.BOUGHT,1);
+                Tickets.Add(ticketNSBG.Id, ticketNSBG);
+            }
+            if (rideBGNS.HasFreeSeats(datum1, 2, 1))
+            {
+                TicketID++;
+                Tuple<int, int> carSeat = rideBGNS.TakeSeat(datum1, 1);
+                Ticket ticketBGNS = new Ticket(TicketID, rideBGNS.Price, carSeat.Item1,carSeat.Item2, datum1, rideBGNS, clientTemp1, Ticket.TicketsType.BOUGHT,2);
+                Tickets.Add(ticketBGNS.Id, ticketBGNS);
+            }
+            if (rideNSNIS.HasFreeSeats(datum2, 1, 1))
+            {
+                TicketID++;
+                Tuple<int, int> carSeat = rideNSNIS.TakeSeat(datum2, 1);
+                Ticket ticketNSNIS = new Ticket(TicketID, rideNSNIS.Price, carSeat.Item1,carSeat.Item2, datum2, rideNSNIS, clientTemp2, Ticket.TicketsType.RESERVED,1);
+                Tickets.Add(ticketNSNIS.Id, ticketNSNIS);
+            }
+            if (rideNISNS.HasFreeSeats(datum2, 1, 1))
+            {
+                TicketID++;
+                Tuple<int, int> carSeat = rideNISNS.TakeSeat(datum2, 1);
+                Ticket ticketNISNS = new Ticket(TicketID, rideNISNS.Price, carSeat.Item1,carSeat.Item2, datum2,rideNISNS, clientTemp2, Ticket.TicketsType.RESERVED,1);                
+                Tickets.Add(ticketNISNS.Id, ticketNISNS);
+            }
 
-            Tickets.Add(ticketNSBG.Id, ticketNSBG);
-            Tickets.Add(ticketBGNS.Id, ticketBGNS);
-            Tickets.Add(ticketNSNIS.Id, ticketNSNIS);
-            Tickets.Add(ticketNISNS.Id, ticketNISNS);
+/*            foreach (Ticket ticket in Tickets.Values)
+                Console.WriteLine(ticket);
+
+            DateTime dateTimeTest = new DateTime(2022, 6, 11);
+            Console.WriteLine("TEST 1: TRUE EXPECTED");
+            Console.WriteLine(rideNSBG2.HasFreeSeats(dateTimeTest, 1, 50));
+            Console.WriteLine("TEST 2: FALSE EXPECTED");
+            Console.WriteLine(rideNSBG2.HasFreeSeats(dateTimeTest, 1, 51));
+            Console.WriteLine(rideNSBG2.TakeSeat(dateTimeTest, 1).ToString());
+            Console.WriteLine("TEST 3: FALSE EXPECTED");
+            Console.WriteLine(rideNSBG2.HasFreeSeats(dateTimeTest, 1, 50));
+            DateTime dateTimeTest2 = new DateTime(2022, 6, 12);
+            Console.WriteLine("TEST 4: TRUE EXPECTED");
+            Console.WriteLine(rideNSBG2.HasFreeSeats(dateTimeTest2, 1, 50));*/
 
 
+        }
 
+        public bool LineExists(ObservableCollection<Station> stationsInLine)
+        {
+            foreach(Line line in Lines.Values)
+            {
+                if (stationsInLine.Count == 2)
+                {
+                    if (line.DepartureStation == stationsInLine.ElementAt(0) && line.ArrivalStation == stationsInLine.Last())
+                        return true;
+                }
+                else
+                {
+                    if (line.DepartureStation == stationsInLine.ElementAt(0) && line.ArrivalStation == stationsInLine.Last() && StationsInterSame(stationsInLine, line.InterStations))
+                        return true;
+                }
+
+            }
+            return false;
+        }
+
+        private bool StationsInterSame(ObservableCollection<Station> stationsInLine, List<Station> interStations)
+        {
+            
+            if ((stationsInLine.Count - 2) != interStations.Count)
+                return false;
+            for( int i=1; i< stationsInLine.Count - 1; i++)
+            {
+                if (stationsInLine.ElementAt(i) != interStations.ElementAt(i-1))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        public Line AddNewLine(ObservableCollection<Station> stationsSelected)
+        {
+            int size = stationsSelected.Count;
+            Line line = null;
+            if (size == 2)
+            {
+                LineID++;
+                line = new Line(LineID,stationsSelected.ElementAt(0),stationsSelected.ElementAt(1));
+                if (!LineExists(line))
+                    Lines.Add(line.Id, line);
+                else
+                    line = null;
+            }else if(size > 2)
+            {
+                LineID++;
+                line = new Line(LineID, stationsSelected.ElementAt(0), stationsSelected.Last());
+                for( int i=1; i < size - 1; i++)
+                {
+                    line.InterStations.Add(stationsSelected.ElementAt(i));
+                }
+                if (!LineExists(line))
+                    Lines.Add(line.Id, line);
+                else
+                    line = null;
+
+            }
+
+            return line;
+            
+        }
+
+        private bool LineExists(Line lineP)
+        {
+            foreach(Line line in Lines.Values)
+            {
+
+                if (line.DepartureStation.Id == lineP.DepartureStation.Id && lineP.ArrivalStation.Id == line.ArrivalStation.Id && InterStationsSame(line, lineP))
+                    return true;
+            
+            }
+
+            return false;
+        }
+
+        private bool InterStationsSame(Line line, Line lineP)
+        {
+            bool same = true;
+            if (line.InterStations.Count != lineP.InterStations.Count)
+                return false;
+            for( int i=0; i< line.InterStations.Count; i++)
+            {
+                if (line.InterStations.ElementAt(i) != lineP.InterStations.ElementAt(i))
+                {
+                    same = false;
+                    break;
+                }
+
+            }
+
+            return same;
+            
         }
 
         public Line AddNewLine(Station departureStation, Station arrivalStation)

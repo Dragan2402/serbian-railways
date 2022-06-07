@@ -84,7 +84,9 @@ namespace SerbianRailways.manager_pages
 
 
             Tickets = MockService.GetTicketsTableByMonthIndex(SelectedIndex);
-            TotalLbl.Content = MockService.GetTicketsTotalByMonthIndex(SelectedIndex);
+            Tuple<double,double> totalAvarage = MockService.GetTicketsTotalAndAvarageByMonthIndex(SelectedIndex);
+            TotalLbl.Content = totalAvarage.Item1+" din";
+            AvarageLbl.Content = totalAvarage.Item2 + " din";
             dgTickets.DataContext = Tickets;
      
             dgRides.DataContext = MockService.GetRidesTable();
@@ -139,7 +141,9 @@ namespace SerbianRailways.manager_pages
         {
             Tickets = MockService.GetTicketsTableByMonthIndex(SelectedIndex);
 
-            TotalLbl.Content = MockService.GetTicketsTotalByMonthIndex(SelectedIndex);
+            Tuple<double,double> totalAvarage= MockService.GetTicketsTotalAndAvarageByMonthIndex(SelectedIndex);
+            TotalLbl.Content= totalAvarage.Item1 + " din";
+            AvarageLbl.Content = totalAvarage.Item2 + " din";
             dgTickets.DataContext = Tickets;
         }
 
@@ -217,8 +221,8 @@ namespace SerbianRailways.manager_pages
                 RideTable rideTable = e.Data.GetData("myFormat") as RideTable;
                 dgTicketsRide.DataContext = MockService.GetTicketsTableByRideId(rideTable.Id);
                 Tuple<double,double> totalAndAvarage = MockService.GetTotalAndAvarageByRideId(rideTable.Id);
-                TotalRideLbl.Content = totalAndAvarage.Item1;
-                AvarageRideLbl.Content = totalAndAvarage.Item2;
+                TotalRideLbl.Content = totalAndAvarage.Item1 + " din";
+                AvarageRideLbl.Content = totalAndAvarage.Item2 + " din";
             }
         }
     }

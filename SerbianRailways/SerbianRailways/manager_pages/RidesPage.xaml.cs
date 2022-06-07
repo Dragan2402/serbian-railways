@@ -88,6 +88,12 @@ namespace SerbianRailways.manager_pages
 
         private void DeleteRideBtn(object sender, RoutedEventArgs e)
         {
+            if (dgRides.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Označite vožnje za brisanje.", "Brisanje vožnji", MessageBoxButton.OK, MessageBoxImage.Information);
+                return;
+            }
+
             if (MessageBox.Show("Da li ste sigurni da želite da izbrišete označene vožnje i njihove aktivne karte?",
                     "Brisanje vožnji",
                     MessageBoxButton.YesNo,
@@ -108,6 +114,11 @@ namespace SerbianRailways.manager_pages
 
         private void DeleteRidesSC(object sender, ExecutedRoutedEventArgs e)
         {
+            if (dgRides.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Označite vožnje za brisanje.", "Brisanje vožnji", MessageBoxButton.OK, MessageBoxImage.Information);
+                return;
+            }
             if (MessageBox.Show("Da li ste sigurni da želite da izbrišete označene vožnje i njihove aktivne karte?",
                                "Brisanje vožnji",
                                MessageBoxButton.YesNo,

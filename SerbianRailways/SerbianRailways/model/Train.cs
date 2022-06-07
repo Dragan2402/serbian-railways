@@ -10,16 +10,25 @@ namespace SerbianRailways.model
     {
         public int SerialNumber { get; set; }
         public string Name { get; set; }
+
         public int NumberOfSeats { get; set; }
+        public int PassengerCars { get; set; }
+        public int FirstGradeSeats { get; set; }
+        public int SecondGradeSeats { get; set; }
+
+            
         public List<Ride> Rides { get; set; }
 
         public Train() { }
 
-        public Train(int serialNumber, string name, int numberOfSeats)
+        public Train(int serialNumber, string name, int passengerCars,int fgSeats,int sgSeats)
         {
             SerialNumber = serialNumber;
             Name = name;
-            NumberOfSeats = numberOfSeats;
+            PassengerCars = passengerCars;
+            FirstGradeSeats = fgSeats;
+            SecondGradeSeats = sgSeats;
+            NumberOfSeats= PassengerCars*(FirstGradeSeats+SecondGradeSeats);
             Rides=new List<Ride>();
         }
 

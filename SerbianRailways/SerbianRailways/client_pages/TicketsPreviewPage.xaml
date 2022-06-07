@@ -1,0 +1,36 @@
+﻿<Page x:Class="SerbianRailways.client_pages.TicketsPreviewPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SerbianRailways.client_pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Pregled karti">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="6*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <DataGrid x:Name="dgTickets" Grid.Column="0"  ColumnWidth="*" SelectionMode="Single" AutoGenerateColumns="False" Grid.Row="0" Margin="20,10,10,0" HorizontalAlignment="Center" CanUserAddRows="False" MinHeight="200" MaxHeight="400"  HorizontalScrollBarVisibility="Disabled "  ItemsSource="{Binding}"
+                       PreviewMouseLeftButtonDown="DGTickets_PreviewMouseLeftButtonDown" MouseMove="DGTickets_MouseMove">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header = "Br. Karte" CanUserResize="False" Binding="{Binding Id}" Width="1.5*" IsReadOnly="True" CanUserReorder="False"/>
+                <DataGridTextColumn Header = "Polazište" CanUserResize="False" Binding="{Binding From}"  Width="2.5*" IsReadOnly="True"   CanUserReorder="False"/>
+                <DataGridTextColumn Header = "Dolazište" CanUserResize="False" Binding="{Binding To}"  Width="2.5*" IsReadOnly="True"   CanUserReorder="False"/>
+                <DataGridTextColumn Header = "Vagon" CanUserResize="False" Binding="{Binding PassengerCar}"  Width="1.5*" IsReadOnly="True"   CanUserReorder="False"/>
+                <DataGridTextColumn Header = "Sedište" CanUserResize="False" Binding="{Binding Seat}"  Width="1.5*" IsReadOnly="True"   CanUserReorder="False"/>
+                <DataGridTextColumn Header = "Razred" CanUserResize="False" Binding="{Binding Class}"  Width="2*" IsReadOnly="True"   CanUserReorder="False"/>
+                <DataGridTextColumn Header = "Cena" CanUserResize="False" Binding="{Binding Price}"  Width="2*" IsReadOnly="True"   CanUserReorder="False"/>
+                <DataGridTextColumn Header = "Datum akvizicije" CanUserResize="False" Binding="{Binding PurchaseDate}"  Width="3*" IsReadOnly="True"   CanUserReorder="False"/>
+                <DataGridTextColumn Header = "Datum vožnje" CanUserResize="False" Binding="{Binding RideDateTime}"  Width="3*" IsReadOnly="True"   CanUserReorder="False"/>
+                <DataGridTextColumn Header = "Tip" CanUserResize="False" Binding="{Binding TicketType}"  Width="*" IsReadOnly="True"   CanUserReorder="False"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="Otkaži kartu" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,20,20" MinWidth="70" BorderBrush="#FF3E3E3E" Background="White" MinHeight="30" Click="CancelTicket"  AllowDrop="True" DragEnter="CancelBTN_DragEnter" Drop="Cancel_Drop"/>
+
+        <Button Content="Povratak" Grid.Row="1"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,20,20" MinWidth="70" BorderBrush="#FF3E3E3E" Background="White" MinHeight="30" Click="ReturnClientPage" />
+
+    </Grid>
+</Page>

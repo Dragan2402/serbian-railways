@@ -20,9 +20,12 @@
         <DataGrid x:Name="dgTrains" Grid.Column="0"  ColumnWidth="*" AutoGenerateColumns="False" Grid.Row="0" Margin="50,10,0,0" HorizontalAlignment="Stretch" CanUserAddRows="False"  HorizontalScrollBarVisibility="Disabled "  ItemsSource="{Binding}"
                    PreviewMouseLeftButtonDown="DGTrains_PreviewMouseLeftButtonDown" MouseMove="DGTrains_MouseMove">
             <DataGrid.Columns>
-                <DataGridTextColumn Header = "Serijski broj voza" CanUserResize="False" Binding="{Binding SerialNumber}" Width="3*" IsReadOnly="False" CanUserReorder="False"/>
-                <DataGridTextColumn Header = "Naziv" CanUserResize="False" Binding="{Binding Name}"  Width="3*" IsReadOnly="False"   CanUserReorder="False"/>
-                <DataGridTextColumn Header = "Broj mesta" CanUserResize="False" Binding="{Binding NumberOfSeats}"  Width="2*" IsReadOnly="False"   CanUserReorder="False"/>
+                <DataGridTextColumn Header = "Ser. broj" CanUserResize="False" Binding="{Binding SerialNumber}" Width="1.5*" IsReadOnly="False" CanUserReorder="False"/>
+                <DataGridTextColumn Header = "Naziv" CanUserResize="False" Binding="{Binding Name}"  Width="2.5*" IsReadOnly="False"   CanUserReorder="False"/>
+                <DataGridTextColumn Header = "Broj vagona" CanUserResize="False" Binding="{Binding PassengerCars}"  Width="2*" IsReadOnly="False"   CanUserReorder="False"/>
+                <DataGridTextColumn Header = "Mesta Razred I" CanUserResize="False" Binding="{Binding FirstGradeSeats}"  Width="2*" IsReadOnly="False"   CanUserReorder="False"/>
+                <DataGridTextColumn Header = "Mesta Razred II" CanUserResize="False" Binding="{Binding SecondGradeSeats}"  Width="2*" IsReadOnly="False"   CanUserReorder="False"/>
+                <DataGridTextColumn Header = "Mesta" CanUserResize="False" Binding="{Binding NumberOfSeats}"  Width="2*" IsReadOnly="False"   CanUserReorder="False"/>
             </DataGrid.Columns>
         </DataGrid>
         <Button Content="Dodaj Voz" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,100,0" MinWidth="70" BorderBrush="#FF3E3E3E" Background="White" MinHeight="30" Click="AddTrainBtn" />

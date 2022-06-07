@@ -93,7 +93,7 @@ namespace SerbianRailways.manager_pages
             }
 
             int sizeBefore = Stations.Count; 
-            Window addStationWindow = new AddStationWindow(MockService, Stations,new model.Location(pinLocation.Latitude,pinLocation.Altitude));
+            Window addStationWindow = new AddStationWindow(MockService, Stations,new model.Location(pinLocation.Latitude,pinLocation.Longitude));
             addStationWindow.ShowDialog();
             addStationWindow.Focus();
 
@@ -115,6 +115,12 @@ namespace SerbianRailways.manager_pages
 
         private void DeleteStationsBtn(object sender, RoutedEventArgs e)
         {
+            if (dgStations.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Označite stanice za brisanje.", "Brisanje stanice", MessageBoxButton.OK, MessageBoxImage.Information);
+                return;
+            }
+            
             if (MessageBox.Show("Da li ste sigurni da želite da izbrišete označene stanice?",
                     "Brisanje stanica",
                     MessageBoxButton.YesNo,
@@ -138,7 +144,11 @@ namespace SerbianRailways.manager_pages
 
         private void DeleteStationsSC(object sender, ExecutedRoutedEventArgs e)
         {
-
+            if (dgStations.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Označite stanice za brisanje.", "Brisanje stanice", MessageBoxButton.OK, MessageBoxImage.Information);
+                return;
+            }
             if (MessageBox.Show("Da li ste sigurni da želite da izbrišete označene stanice?",
                     "Brisanje stanica",
                     MessageBoxButton.YesNo,

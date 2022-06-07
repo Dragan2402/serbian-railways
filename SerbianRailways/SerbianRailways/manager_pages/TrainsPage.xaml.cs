@@ -83,6 +83,11 @@ namespace SerbianRailways.manager_pages
         }
         private void DeleteTrainBtn(object sender, RoutedEventArgs e)
         {
+            if (dgTrains.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Označite vozove za brisanje.", "Brisanje vozova", MessageBoxButton.OK, MessageBoxImage.Information);
+                return;
+            }
             if (MessageBox.Show("Da li ste sigurni da želite da izbrišete označene vozove i njihove vožnje?",
                     "Brisanje vozova",
                     MessageBoxButton.YesNo,
@@ -103,7 +108,11 @@ namespace SerbianRailways.manager_pages
 
         private void DeleteTrainsSC(object sender, ExecutedRoutedEventArgs e)
         {
-
+            if (dgTrains.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Označite vozove za brisanje.", "Brisanje vozova", MessageBoxButton.OK, MessageBoxImage.Information);
+                return;
+            }
             if (MessageBox.Show("Da li ste sigurni da želite da izbrišete označene vozove i njihove vožnje?",
                     "Brisanje vozova",
                     MessageBoxButton.YesNo,
@@ -201,7 +210,9 @@ namespace SerbianRailways.manager_pages
                     
                      MockService.DeleteTrain(train);
                      trains.Remove(train);
+                     MessageBox.Show("Uspešno izbrisan voz i njegove vožnje.", "Srbija voz-Brisanje voza", MessageBoxButton.OK, MessageBoxImage.Information);
                     
+
                 }
             }
         }

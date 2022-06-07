@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SerbianRailways.manager_pages"
         mc:Ignorable="d"
-        Title="Srbija Voz-Ažuriranje vožnje" Icon="/AppLogo.png" Height="400" Width="300" WindowStartupLocation="CenterScreen">
+        Title="Srbija Voz-Izmena vožnje" Icon="/AppLogo.png" Height="400" Width="300" WindowStartupLocation="CenterScreen">
     <Grid>
         <StackPanel Orientation="Vertical">
             <Label VerticalAlignment="Center" Margin="0,50,0,20" HorizontalAlignment="Center">Odabir voza:</Label>

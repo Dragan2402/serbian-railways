@@ -48,3 +48,7 @@ C:\Users\draga\OneDrive\Dokumenti\HCI\Projekat\serbian-railways\SerbianRailways\
 C:\Users\draga\OneDrive\Dokumenti\HCI\Projekat\serbian-railways\SerbianRailways\SerbianRailways\obj\Debug\manager_pages\UpdateLineWindow.g.cs
 C:\Users\draga\OneDrive\Dokumenti\HCI\Projekat\serbian-railways\SerbianRailways\SerbianRailways\obj\Debug\manager_pages\AddLineWindow.baml
 C:\Users\draga\OneDrive\Dokumenti\HCI\Projekat\serbian-railways\SerbianRailways\SerbianRailways\obj\Debug\manager_pages\UpdateLineWindow.baml
+C:\Users\draga\OneDrive\Dokumenti\HCI\Projekat\serbian-railways\SerbianRailways\SerbianRailways\obj\Debug\client_pages\RailwayGridPage.g.cs
+C:\Users\draga\OneDrive\Dokumenti\HCI\Projekat\serbian-railways\SerbianRailways\SerbianRailways\obj\Debug\client_pages\RailwayGridPage.baml
+C:\Users\draga\OneDrive\Dokumenti\HCI\Projekat\serbian-railways\SerbianRailways\SerbianRailways\obj\Debug\client_pages\TicketsPreviewPage.g.cs
+C:\Users\draga\OneDrive\Dokumenti\HCI\Projekat\serbian-railways\SerbianRailways\SerbianRailways\obj\Debug\client_pages\TicketsPreviewPage.baml

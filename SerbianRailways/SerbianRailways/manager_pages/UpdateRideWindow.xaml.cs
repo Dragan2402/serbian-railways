@@ -73,7 +73,7 @@ namespace SerbianRailways.manager_pages
             line.Rides.Add(Ride);
 
 
-            MessageBox.Show("Uspešno ažurirana vožnja.", "Srbija voz-Ažuriranje vožnje", MessageBoxButton.OK, MessageBoxImage.Information);
+            MessageBox.Show("Uspešno izmenjena vožnja.", "Srbija voz-Izmena vožnje", MessageBoxButton.OK, MessageBoxImage.Information);
             this.Close();
         }
 
@@ -101,7 +101,7 @@ namespace SerbianRailways.manager_pages
             line.Rides.Add(Ride);            
 
 
-            MessageBox.Show("Uspešno ažurirana vožnja.", "Srbija voz-Ažuriranje vožnje", MessageBoxButton.OK, MessageBoxImage.Information);
+            MessageBox.Show("Uspešno izmenjena vožnja.", "Srbija voz-Izmena vožnje", MessageBoxButton.OK, MessageBoxImage.Information);
             this.Close();
         }
     }

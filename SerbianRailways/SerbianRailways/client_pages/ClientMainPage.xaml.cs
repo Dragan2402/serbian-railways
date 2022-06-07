@@ -56,7 +56,12 @@ namespace SerbianRailways.client_pages
         }
         public void showMyTickets(object sender,RoutedEventArgs e)
         {
-            MessageBox.Show("Dosad");
+            main_frame.Content = new TicketsPreviewPage(MockService, main_frame,main_window);
+        }
+
+        private void RailwayGridBTNClick(object sender, RoutedEventArgs e)
+        {
+            main_frame.Content = new RailwayGridPage(MockService, main_frame, main_window);
         }
     }
 }

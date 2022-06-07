@@ -55,6 +55,15 @@ namespace SerbianRailways.service
             return linesTable;
         }
 
+        public ObservableCollection<Station> GetOtherStations(Line line)
+        {
+            ObservableCollection<Station> otherStations = new ObservableCollection<Station>();
+            foreach(Station station in mockRepository.Stations.Values)
+                if( line.DepartureStation != station && line.ArrivalStation!=station && !line.InterStations.Contains(station))
+                    otherStations.Add(station);
+            return otherStations;
+        }
+
         internal ObservableCollection<Ride> GetAllRidesTable()
         {
             ObservableCollection<Ride> rides = new ObservableCollection<Ride>();
@@ -82,6 +91,11 @@ namespace SerbianRailways.service
             return stationsTable;
         }
 
+        public bool LineExists(ObservableCollection<Station> stationsInLine)
+        {
+            return mockRepository.LineExists(stationsInLine);
+        }
+
         public List<Ticket> GetLoggedClientTickets()
         {
             Client clientLogged = (Client)mockRepository.LoggedUser;
@@ -96,6 +110,11 @@ namespace SerbianRailways.service
         internal void DeleteLine(Line line)
         {
             throw new NotImplementedException();
+        }
+
+        public Line AddLine(ObservableCollection<Station> stationsSelected)
+        {
+            return mockRepository.AddNewLine(stationsSelected);
         }
 
         public List<Station> GetAllStations()
@@ -128,6 +147,33 @@ namespace SerbianRailways.service
                 mockRepository.Tickets.Remove(ticket.Id);
             mockRepository.Rides[ride.Id].Train.Rides.Remove(ride);
             mockRepository.Rides.Remove(ride.Id);
+        }
+
+        public bool TicketPassedById(int id)
+        {
+            Ticket ticket = mockRepository.Tickets[id];
+            if (ticket.RideDateTime <= DateTime.Now)
+                return true;
+            return false;
+        }
+
+        public bool CancelTicketById(int id)
+        {
+            Ticket ticket = mockRepository.Tickets[id];
+            if (ticket.Ride.FreeSeat(ticket))
+            {
+                ticket.Ride.Tickets.Remove(ticket);
+                ticket.Client.Tickets.Remove(ticket);
+                ticket.Ride = null;
+                ticket.Client = null;
+                mockRepository.Tickets.Remove(ticket.Id);
+                return true;
+            }
+            else
+            {
+                return false;
+            };
+
         }
 
         public Station AddStation(string stationName, Location stationLocation)
@@ -166,16 +212,24 @@ namespace SerbianRailways.service
 
         }
 
-        internal double GetTicketsTotalByMonthIndex(int selectedIndex)
+        internal Tuple<double,double> GetTicketsTotalAndAvarageByMonthIndex(int selectedIndex)
         {
             double total = 0;
+            int count = 0;
+            double avarage = 0;
             foreach(Ticket ticket in mockRepository.Tickets.Values)
             {
                 if (ticket.PurchaseDate.Month == (selectedIndex + 1))
+                {
                     total += ticket.Price;
+                    count++;
+                }
             }
-          
-            return total;
+            if (count > 0)
+                avarage = total / count;
+            total = Math.Round(total, 2, MidpointRounding.AwayFromZero);
+            avarage = Math.Round(avarage, 2, MidpointRounding.AwayFromZero);
+            return new Tuple<double,double>(total,avarage);
         }
 
         public ObservableCollection<Train> GetAllTrainsTable()
@@ -243,7 +297,11 @@ namespace SerbianRailways.service
         public Tuple<double,double> GetTotalAndAvarageByRideId(int id)
         {
             double total = mockRepository.Rides[id].Tickets.Count* mockRepository.Rides[id].Price;
-            double avarage = total / mockRepository.Rides[id].Tickets.Count;
+            double avarage = 0;
+            if (mockRepository.Rides[id].Tickets.Count>0)
+                avarage = total / mockRepository.Rides[id].Tickets.Count;
+            total = Math.Round(total, 2, MidpointRounding.AwayFromZero);
+            avarage = Math.Round(avarage, 2, MidpointRounding.AwayFromZero);
             return new Tuple<double, double>(total, avarage);
             
         }

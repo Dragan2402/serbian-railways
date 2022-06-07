@@ -5,8 +5,29 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SerbianRailways.manager_pages"
         mc:Ignorable="d"
-        Title="AddLineWindow" Height="450" Width="800">
+        Title="Srbija Voz-Dodavanje linije" Icon="/AppLogo.png" Height="650" Width="300" WindowStartupLocation="CenterScreen">
     <Grid>
-        
+        <StackPanel Orientation="Vertical">
+            <Label HorizontalAlignment="Center"  Margin="0,50,0,5" VerticalAlignment="Center">Ponuđenje stanice</Label>
+            <DataGrid x:Name="dgAvailableStations" ColumnWidth="*" AutoGenerateColumns="False" SelectionMode="Single"  Margin="20,0,20,50" MaxHeight="150" MinHeight="150"  HorizontalAlignment="Center" CanUserAddRows="False"  HorizontalScrollBarVisibility="Disabled "  ItemsSource="{Binding}"
+                   PreviewMouseLeftButtonDown="DGStations_PreviewMouseLeftButtonDown" MouseMove="DGStations_MouseMove" MouseDoubleClick="DoubleClickAdd" >
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header = "Id" CanUserResize="False" Binding="{Binding Id}" Width="3*" IsReadOnly="True" CanUserReorder="False"/>
+                    <DataGridTextColumn Header = "Naziv" CanUserResize="False" Binding="{Binding Name}"  Width="3*" IsReadOnly="True"   CanUserReorder="False"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <Label Margin="0,0,0,5" VerticalAlignment="Center" HorizontalAlignment="Center">Redosled stanica linije:</Label>
+            <DataGrid x:Name="dgSelectedStations" ColumnWidth="*" AutoGenerateColumns="False"  Margin="20,0,20,20" MaxHeight="150" MinHeight="150"   MouseDoubleClick="DoubleClickRemove" HorizontalAlignment="Center" AllowDrop="True" DragEnter="Add_DragEnter" Drop="TableDrop"  CanUserAddRows="False"  HorizontalScrollBarVisibility="Disabled "  ItemsSource="{Binding}"
+                  >
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header = "Id" CanUserResize="False" Binding="{Binding Id}" Width="3*" IsReadOnly="True" CanUserReorder="False"/>
+                    <DataGridTextColumn Header = "Naziv" CanUserResize="False" Binding="{Binding Name}"  Width="3*" IsReadOnly="True"   CanUserReorder="False"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <WrapPanel HorizontalAlignment="Center" Margin="0,50,0,0">
+                <Button HorizontalAlignment="Left" Margin="0,0,5,0" MinHeight="30" MinWidth="70"  BorderBrush="#FF3E3E3E" Background="White" Click="AddRideBtn" >Dodaj</Button>
+                <Button HorizontalAlignment="Right"  MinHeight="30" MinWidth="70"  BorderBrush="#FF3E3E3E" Background="White" Click="Cancel_Btn">Odustani</Button>
+            </WrapPanel>
+        </StackPanel>        
     </Grid>
 </Window>

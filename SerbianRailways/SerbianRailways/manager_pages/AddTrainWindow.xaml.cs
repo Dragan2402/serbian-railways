@@ -24,11 +24,11 @@ namespace SerbianRailways.manager_pages
     public partial class AddTrainWindow : Window
     {
 
-        private string _serialNumber;
+        private int _serialNumber;
         private string _name;
-        private string _seats;
+        private int _cars;
 
-        public string SerialNumber
+        public int SerialNumber
         {
             get { return _serialNumber; }
             set
@@ -52,15 +52,42 @@ namespace SerbianRailways.manager_pages
                 }
             }
         }
-        public string Seats
+        public int Cars
         {
-            get { return _seats; }
+            get { return _cars; }
             set
             {
-                if (value != _seats)
+                if (value != _cars)
                 {
-                    _seats = value;
+                    _cars = value;
                     OnPropertyChanged("Seats");
+                }
+            }
+        }
+
+        private int _firstClass;
+        public int FirstClass
+        {
+            get { return _firstClass; }
+            set
+            {
+                if (value != _firstClass)
+                {
+                    _firstClass = value;
+                    OnPropertyChanged("FirstClass");
+                }
+            }
+        }
+        private int _secondClass;
+        public int SecondClass
+        {
+            get { return _secondClass; }
+            set
+            {
+                if (value != _secondClass)
+                {
+                    _secondClass = value;
+                    OnPropertyChanged("SecondClass");
                 }
             }
         }
@@ -78,7 +105,7 @@ namespace SerbianRailways.manager_pages
 
             RoutedCommand addNewTrain = new RoutedCommand();
             addNewTrain.InputGestures.Add(new KeyGesture(Key.D, ModifierKeys.Control));
-            this.CommandBindings.Add(new CommandBinding(addNewTrain, addTrainSC));
+            this.CommandBindings.Add(new CommandBinding(addNewTrain, AddTrainSC));
 
             RoutedCommand cancelCMD = new RoutedCommand();
             cancelCMD.InputGestures.Add(new KeyGesture(Key.O, ModifierKeys.Control));
@@ -95,15 +122,21 @@ namespace SerbianRailways.manager_pages
                 PropertyChanged(this, new PropertyChangedEventArgs(name));
             }
         }
-        private void addTrainSC(object sender, ExecutedRoutedEventArgs e)
+        private void AddTrainSC(object sender, ExecutedRoutedEventArgs e)
         {
-            if (SerialNumber == null || SerialNumber.Equals("") || TrainName == null || TrainName.Equals("") || Seats == null || Seats.Equals(""))
+            if ( SerialNumber.Equals("") ||  TrainName == null || TrainName.Equals("") || Cars.Equals("") || SecondClass.Equals("") || FirstClass.Equals("") || Cars.Equals(""))
             {
                 MessageBox.Show("Molimo vas unesite sve potrebne podatke.", "Greška pri dodavanju voza", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             else
             {
-                Train newTrain = new Train(int.Parse(SerialNumber), TrainName, int.Parse(Seats));
+                if (SerialNumber <= 0 || Cars<=0 || SecondClass <=0 || FirstClass <=0)
+                {
+                    MessageBox.Show("Molimo vas unesite sve potrebne podatke ispravno.", "Greška pri dodavanju voza", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+
+                Train newTrain = new Train(SerialNumber, TrainName, Cars,FirstClass,SecondClass);
                 Trains.Add(newTrain);
                 MockService.AddTrain(newTrain);
                 if (MessageBox.Show("Voz uspešno dodat",
@@ -130,13 +163,19 @@ namespace SerbianRailways.manager_pages
         private void Add_train_btn(object sender, RoutedEventArgs e)
         {
 
-            if (SerialNumber == null || SerialNumber.Equals("") || TrainName == null || TrainName.Equals("") || Seats == null || Seats.Equals(""))
+            if (SerialNumber.Equals("") || TrainName == null || TrainName.Equals("") || Cars.Equals("") || SecondClass.Equals("") || FirstClass.Equals("") || Cars.Equals(""))
             {
                 MessageBox.Show("Molimo vas unesite sve potrebne podatke.", "Greška pri dodavanju voza", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             else
             {
-                Train newTrain = new Train(int.Parse(SerialNumber), TrainName, int.Parse(Seats));
+                if (SerialNumber <= 0 || Cars <= 0 || SecondClass <= 0 || FirstClass <= 0)
+                {
+                    MessageBox.Show("Molimo vas unesite sve potrebne podatke ispravno.", "Greška pri dodavanju voza", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+
+                Train newTrain = new Train(SerialNumber, TrainName, Cars, FirstClass, SecondClass);
                 Trains.Add(newTrain);
                 MockService.AddTrain(newTrain);
                 if (MessageBox.Show("Voz uspešno dodat",

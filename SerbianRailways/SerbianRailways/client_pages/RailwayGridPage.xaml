@@ -1,0 +1,33 @@
+﻿<Page x:Class="SerbianRailways.client_pages.RailwayGridPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:m="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SerbianRailways.client_pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Mreža linija">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="6*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1.5*"/>
+        </Grid.ColumnDefinitions>
+        <DataGrid x:Name="dgLines" Grid.Column="0"  ColumnWidth="*" AutoGenerateColumns="False" Grid.Row="0" Margin="20,10,10,0" HorizontalAlignment="Center" CanUserAddRows="False" MinHeight="200" MaxHeight="400"  HorizontalScrollBarVisibility="Disabled "  ItemsSource="{Binding}"
+                       PreviewMouseLeftButtonDown="DGLines_PreviewMouseLeftButtonDown" MouseMove="DGLines_MouseMove">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header = "Id" CanUserResize="False" Binding="{Binding Id}" Width="*" IsReadOnly="True" CanUserReorder="False"/>
+                <DataGridTextColumn Header = "Polazište" CanUserResize="False" Binding="{Binding DepartureStation.Name}"  Width="2.5*" IsReadOnly="True"   CanUserReorder="False"/>
+                <DataGridTextColumn Header = "Dolazište" CanUserResize="False" Binding="{Binding ArrivalStation.Name}"  Width="2.5*" IsReadOnly="True"   CanUserReorder="False"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <m:Map Grid.Column="1" Grid.Row="0" Name="LinesGridMap" Mode="Road" Margin="20,20,20,0" CredentialsProvider="RAdSJ9oN7Xj9YygDWI12~XrS7m1Mwuli7Wh2uVKc3wQ~AldCHlKL7DGIwbTcEgkDKWDRuI53-sAZ_KVbCIAjc4CJoJto_rhkJJuB5jWPJnNj" AllowDrop="True" DragEnter="MapDrop_DragEnter" Drop="MapDrop" Center="44.820333616177386, 20.47796955328137"  ZoomLevel="7"/>
+        <Button Content="Očisti mapu" Grid.Row="2" Grid.Column="2"  HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,5,20,20" MinWidth="70" BorderBrush="#FF3E3E3E" Background="White" MinHeight="30" Click="ClearMap" />
+        <Button Content="Povratak" Grid.Row="2" Grid.Column="2"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,20,20" MinWidth="70" BorderBrush="#FF3E3E3E" Background="White" MinHeight="30" Click="ReturnClientPage" />
+    </Grid>
+</Page>
