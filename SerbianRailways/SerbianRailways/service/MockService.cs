@@ -117,10 +117,36 @@ namespace SerbianRailways.service
             return mockRepository.AddNewLine(stationsSelected);
         }
 
+        public ObservableCollection<RideTable> GetRidesByFilter(int numOfTickets, int selectedClass, Line line, DateTime selectedDate)
+        {
+            ObservableCollection<RideTable> ridesTable = new ObservableCollection<RideTable>();
+            foreach(Ride ride in mockRepository.Lines[line.Id].Rides)
+            {
+                
+                if (ride.HasFreeSeats(selectedDate, selectedClass, numOfTickets) && ride.DayOfWeeksThatDrives.Contains(selectedDate.DayOfWeek))
+                {
+                    ridesTable.Add(new RideTable(ride));
+                }
+            }
+            return ridesTable;
+        }
+
         public List<Station> GetAllStations()
         {
             return mockRepository.Stations.Values.ToList();
         }
+
+        public ObservableCollection<RideTable> getAllRidesByLine(Line line)
+        {
+            ObservableCollection<RideTable> rides = new ObservableCollection<RideTable>();
+            foreach(Ride ride in mockRepository.Lines[line.Id].Rides)
+            {
+                RideTable rideTable= new RideTable(ride);
+                rides.Add(rideTable);
+            }
+            return rides;
+        }
+
         public List<Line> GetAllLines()
         {
             return mockRepository.Lines.Values.ToList();
@@ -139,6 +165,27 @@ namespace SerbianRailways.service
                     ticketTables.Add(new TicketTable(ticket));
             }
             return ticketTables;
+        }
+
+        public bool BuyReserveTicketByRideIdAndFilter(int RideId, int searchedNumberOfTickets, int searchedClass, Line searchedLine, DateTime searchedDate, Ticket.TicketsType ticketsType)
+        {
+            while(searchedNumberOfTickets != 0)
+            {
+                Tuple<int,int> carSeat=mockRepository.Rides[RideId].TakeSeat(searchedDate, searchedClass);
+                if(carSeat.Item1 != 0 && carSeat.Item2 != 0)
+                {
+                    Ride ride = mockRepository.Rides[RideId];
+                    Ticket ticketnNew = new Ticket(mockRepository.GetNextTicketID(), ride.Price, carSeat.Item1, carSeat.Item2, searchedDate, ride, mockRepository.GetLoggedClient(), ticketsType, searchedClass);
+                    mockRepository.Tickets.Add(ticketnNew.Id,ticketnNew);
+                    searchedNumberOfTickets--;
+
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            return true;
         }
 
         public void DeleteRide(Ride ride)
@@ -189,9 +236,9 @@ namespace SerbianRailways.service
             return rideTables;
         }
 
-        public Ride AddRide(TimeSpan departureTime, TimeSpan arrivalTime, Train train, Line line, double price)
+        public Ride AddRide(TimeSpan departureTime, TimeSpan arrivalTime, Train train, Line line, double price,List<DayOfWeek> dayOfWeeks)
         {
-            return mockRepository.AddNewRide(departureTime,arrivalTime,train,line,price);
+            return mockRepository.AddNewRide(departureTime,arrivalTime,train,line, price,dayOfWeeks);
         }
 
         public Ride AddReturnRide(Ride ride)
@@ -207,7 +254,7 @@ namespace SerbianRailways.service
             }
             if (line == null)
                 line = mockRepository.AddNewLine(ride.Line.ArrivalStation, ride.Line.DepartureStation);
-            return mockRepository.AddNewRide(ride.DepartureTime,ride.ArrivalTime,ride.Train,line,ride.Price);
+            return mockRepository.AddNewRide(ride.DepartureTime,ride.ArrivalTime,ride.Train,line,ride.Price,ride.DayOfWeeksThatDrives);
             
 
         }

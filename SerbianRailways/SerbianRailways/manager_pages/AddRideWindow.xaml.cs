@@ -105,7 +105,8 @@ namespace SerbianRailways.manager_pages
 
         private void AddRideSC(object sender, ExecutedRoutedEventArgs e)
         {
-            if (DepartureTime == null || DepartureTime.Equals("") || ArrivalTime == null || ArrivalTime.Equals("") || Price == 0 || Price.Equals(""))
+            List<DayOfWeek> dayOfWeeksThatRides = GetListOfDaysThatDrives();
+            if (DepartureTime == null || DepartureTime.Equals("") || ArrivalTime == null || ArrivalTime.Equals("") || Price == 0 || Price.Equals("") || dayOfWeeksThatRides.Count==0)
             {
                 MessageBox.Show("Molimo vas unesite sve potrebne podatke.", "Greška pri dodavanju vožnje", MessageBoxButton.OK, MessageBoxImage.Error);
             }
@@ -115,7 +116,7 @@ namespace SerbianRailways.manager_pages
                 model.Line line = (model.Line)linesCMBX.SelectedItem;
                 Train train = (Train)trainsCMBX.SelectedItem;
 
-                Ride ride = MockService.AddRide(DepartureTime, ArrivalTime, train, line, Price);
+                Ride ride = MockService.AddRide(DepartureTime, ArrivalTime, train, line, Price,dayOfWeeksThatRides);
                 Rides.Add(ride);
 
                 if ((bool)returnRide.IsChecked)
@@ -157,8 +158,8 @@ namespace SerbianRailways.manager_pages
 
         private void AddRideBtn(object sender, RoutedEventArgs e)
         {
-
-            if (DepartureTime == null || DepartureTime.Equals("") || ArrivalTime == null || ArrivalTime.Equals("") || Price == 0 || Price.Equals(""))
+            List<DayOfWeek> dayOfWeeksThatRides = GetListOfDaysThatDrives();
+            if (DepartureTime == null || DepartureTime.Equals("") || ArrivalTime == null || ArrivalTime.Equals("") || Price == 0 || Price.Equals("") || dayOfWeeksThatRides.Count==0)
             {
                 MessageBox.Show("Molimo vas unesite sve potrebne podatke.", "Greška pri dodavanju vožnje", MessageBoxButton.OK, MessageBoxImage.Error);
             }
@@ -168,7 +169,8 @@ namespace SerbianRailways.manager_pages
                 model.Line line = (model.Line)linesCMBX.SelectedItem;
                 Train train = (Train)trainsCMBX.SelectedItem;
 
-                Ride ride = MockService.AddRide(DepartureTime, ArrivalTime, train, line, Price);
+                
+                Ride ride = MockService.AddRide(DepartureTime, ArrivalTime, train, line, Price,dayOfWeeksThatRides);
                 Rides.Add(ride);
 
                 if ((bool)returnRide.IsChecked)
@@ -184,6 +186,26 @@ namespace SerbianRailways.manager_pages
                     this.Close();
                 }
             }
+        }
+
+        private List<DayOfWeek> GetListOfDaysThatDrives()
+        {
+            List<DayOfWeek> dayOfWeeks = new List<DayOfWeek>();
+            if ((bool)mondayCB.IsChecked)
+                dayOfWeeks.Add(DayOfWeek.Monday);
+            if ((bool)tuesdayCB.IsChecked)
+                dayOfWeeks.Add(DayOfWeek.Tuesday);
+            if ((bool)wednesdayCB.IsChecked)
+                dayOfWeeks.Add(DayOfWeek.Wednesday);
+            if ((bool)thursdayCB.IsChecked)
+                dayOfWeeks.Add(DayOfWeek.Thursday);
+            if ((bool)fridayCB.IsChecked)
+                dayOfWeeks.Add(DayOfWeek.Friday);
+            if ((bool)saturdayCB.IsChecked)
+                dayOfWeeks.Add(DayOfWeek.Saturday);
+            if ((bool)sundayCB.IsChecked)
+                dayOfWeeks.Add(DayOfWeek.Sunday);
+            return dayOfWeeks;
         }
     }
 }

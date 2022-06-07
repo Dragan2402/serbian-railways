@@ -24,6 +24,10 @@ namespace SerbianRailways.model
 
         public Double Price { get; set; }
 
+        public string DaysThatRidesTable { get; set; }
+
+        public List<DayOfWeek> DayOfWeeksThatDrives { get; set; }
+
         public List<RideStop> RideStops { get; set; }
 
         public Dictionary<DateTime,SeatStatus> SeatsStatus { get; set; }
@@ -32,11 +36,11 @@ namespace SerbianRailways.model
         {
             Tickets = new List<Ticket>();
             RideStops = new List<RideStop>();
-            
+            DayOfWeeksThatDrives= new List<DayOfWeek>();
             SeatsStatus = new Dictionary<DateTime, SeatStatus>();
         }
 
-        public Ride(int id, TimeSpan departureTime, TimeSpan arrivalTime, Train train, Line line, double price)
+        public Ride(int id, TimeSpan departureTime, TimeSpan arrivalTime, Train train, Line line, double price,List<DayOfWeek> dayOfWeeks)
         {
             Id = id;
             DepartureTime = departureTime;
@@ -50,14 +54,48 @@ namespace SerbianRailways.model
 
             Tickets = new List<Ticket>();
             RideStops = new List<RideStop>();
-
+            
             SeatsStatus = new Dictionary<DateTime, SeatStatus>();
+            DayOfWeeksThatDrives = dayOfWeeks;
+           
             Line.Rides.Add(this);
             Train.Rides.Add(this);
             Price = price;
-
+            GenerateWhenDrivesString();
         }
 
+        public void GenerateWhenDrivesString()
+        {
+            DaysThatRidesTable = "";
+            foreach (DayOfWeek dayOfWeek in DayOfWeeksThatDrives)
+            {
+                switch (dayOfWeek)
+                {
+                    case DayOfWeek.Monday:
+                        DaysThatRidesTable = DaysThatRidesTable + "Pon" + " ";
+                        break;
+                    case DayOfWeek.Tuesday:
+                        DaysThatRidesTable = DaysThatRidesTable + "Uto" + " ";
+                        break;
+                    case DayOfWeek.Wednesday:
+                        DaysThatRidesTable = DaysThatRidesTable + "Sre" + " ";
+                        break;
+                    case DayOfWeek.Thursday:
+                        DaysThatRidesTable = DaysThatRidesTable + "Čet" + " ";
+                        break;
+                    case DayOfWeek.Friday:
+                        DaysThatRidesTable = DaysThatRidesTable + "Pet" + " ";
+                        break;
+                    case DayOfWeek.Saturday:
+                        DaysThatRidesTable = DaysThatRidesTable + "Sub" + " ";
+                        break;
+                    case DayOfWeek.Sunday:
+                        DaysThatRidesTable = DaysThatRidesTable + "Ned" + " ";
+                        break;
+                }
+
+            }
+        }
         public Tuple<int,int> TakeSeat(DateTime date,int grade)
         {
             if (SeatsStatus.ContainsKey(date))

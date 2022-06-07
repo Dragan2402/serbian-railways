@@ -33,7 +33,7 @@
                 </StackPanel>
             </Border>
         </DockPanel>
-        <Button x:Name="buyBookTicketsBtn" Grid.Column="1" Grid.Row="0" VerticalAlignment="Bottom" HorizontalAlignment="Center" MinWidth="120" Padding="5" Background="White">
+        <Button x:Name="buyBookTicketsBtn" Grid.Column="1" Grid.Row="0" VerticalAlignment="Bottom" HorizontalAlignment="Center" MinWidth="120" Padding="5" Background="White" Click="ToggleBuyBookTicket">
             <Button.Effect>
                 <DropShadowEffect/>
             </Button.Effect> Kupi/Rezerviši kartu</Button>
@@ -41,7 +41,7 @@
             <Button.Effect>
                 <DropShadowEffect/>
             </Button.Effect> Pregled mojih karti</Button>
-        <Button x:Name="showLinesRidesBtn" Grid.Column="1" Grid.Row="2" VerticalAlignment="Bottom" HorizontalAlignment="Center" MinWidth="120" Padding="5" Background="White">
+        <Button x:Name="showLinesRidesBtn" Grid.Column="1" Grid.Row="2" VerticalAlignment="Bottom" HorizontalAlignment="Center" MinWidth="120" Padding="5" Background="White" Click="ToggleLineRidesPreview">
             <Button.Effect>
                 <DropShadowEffect/>
             </Button.Effect> Pregled linija i vožnji</Button>

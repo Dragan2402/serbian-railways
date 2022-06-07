@@ -146,19 +146,23 @@ namespace SerbianRailways.repository
             Lines.Add(lineBGSbc.Id, lineBGSbc);
             Lines.Add(lineSbcBG.Id, lineSbcBG);
 
+            List<DayOfWeek> allDays = new List<DayOfWeek>() { DayOfWeek.Sunday,DayOfWeek.Monday,DayOfWeek.Tuesday,DayOfWeek.Wednesday,DayOfWeek.Wednesday,DayOfWeek.Thursday,DayOfWeek.Friday,DayOfWeek.Saturday};
+            List<DayOfWeek> weekDays = new List<DayOfWeek>() { DayOfWeek.Sunday,DayOfWeek.Saturday};
+            List<DayOfWeek> workDays = new List<DayOfWeek>() { DayOfWeek.Monday,DayOfWeek.Tuesday,DayOfWeek.Wednesday,DayOfWeek.Thursday,DayOfWeek.Friday};
+
             //u konstruktoru Ride se vozu i liniji doda ride
             RideID++;
-            Ride rideNSBG = new Ride(RideID, new TimeSpan(12, 00, 00), new TimeSpan(12, 30, 00), trainSoko, lineNSBG,600.4);
+            Ride rideNSBG = new Ride(RideID, new TimeSpan(12, 00, 00), new TimeSpan(12, 30, 00), trainSoko, lineNSBG,600.4,allDays);
             RideID++;
-            Ride rideNSBG2 = new Ride(RideID, new TimeSpan(14, 00, 00), new TimeSpan(15, 00, 00), trainRegio, lineNSBG,600.23);
+            Ride rideNSBG2 = new Ride(RideID, new TimeSpan(14, 00, 00), new TimeSpan(15, 00, 00), trainRegio, lineNSBG,600.23,weekDays);
             RideID++;
-            Ride rideBGNS = new Ride(RideID, new TimeSpan(12, 40, 00), new TimeSpan(13, 15, 00), trainSoko, lineBGNS,560.1);
+            Ride rideBGNS = new Ride(RideID, new TimeSpan(12, 40, 00), new TimeSpan(13, 15, 00), trainSoko, lineBGNS,560.1,allDays);
             RideID++;
-            Ride rideBGNS2 = new Ride(RideID, new TimeSpan(16, 40, 00), new TimeSpan(17, 50, 00), trainRegio2, lineBGNS,560.8);
+            Ride rideBGNS2 = new Ride(RideID, new TimeSpan(16, 40, 00), new TimeSpan(17, 50, 00), trainRegio2, lineBGNS,560.8,weekDays);
             RideID++;
-            Ride rideNSNIS = new Ride(RideID, new TimeSpan(18, 00, 00), new TimeSpan(22, 00, 00), trainSoko, lineNSNIS,560.5);
+            Ride rideNSNIS = new Ride(RideID, new TimeSpan(18, 00, 00), new TimeSpan(22, 00, 00), trainSoko, lineNSNIS,560.5,workDays);
             RideID++;
-            Ride rideNISNS = new Ride(RideID, new TimeSpan(22, 40, 00), new TimeSpan(02, 15, 00), trainSoko, lineNISNS,560.23);
+            Ride rideNISNS = new Ride(RideID, new TimeSpan(22, 40, 00), new TimeSpan(02, 15, 00), trainSoko, lineNISNS,560.23,workDays);
 
             Rides.Add(rideNSBG.Id, rideNSBG);
             Rides.Add(rideNSBG2.Id, rideNSBG2);
@@ -215,6 +219,17 @@ namespace SerbianRailways.repository
             Console.WriteLine(rideNSBG2.HasFreeSeats(dateTimeTest2, 1, 50));*/
 
 
+        }
+
+        internal Client GetLoggedClient()
+        {
+            return (Client)LoggedUser;
+        }
+
+        public int GetNextTicketID()
+        {
+            TicketID++;
+            return TicketID;
         }
 
         public bool LineExists(ObservableCollection<Station> stationsInLine)
@@ -322,10 +337,10 @@ namespace SerbianRailways.repository
             return lineTemp;
         }
 
-        internal Ride AddNewRide(TimeSpan departureTime, TimeSpan arrivalTime, Train train, Line line, double price)
+        internal Ride AddNewRide(TimeSpan departureTime, TimeSpan arrivalTime, Train train, Line line, double price, List<DayOfWeek> dayOfWeeks)
         {
             RideID++;
-            Ride rideTemp = new Ride(RideID, departureTime, arrivalTime, train, line, price);
+            Ride rideTemp = new Ride(RideID, departureTime, arrivalTime, train, line, price, dayOfWeeks);
             Rides.Add(rideTemp.Id, rideTemp);
             return rideTemp;
         }

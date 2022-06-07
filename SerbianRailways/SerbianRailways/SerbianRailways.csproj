@@ -65,8 +65,14 @@
     <Compile Include="authorization_pages\RegistrationPage.xaml.cs">
       <DependentUpon>RegistrationPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="client_pages\BuyBookTicket.xaml.cs">
+      <DependentUpon>BuyBookTicket.xaml</DependentUpon>
+    </Compile>
     <Compile Include="client_pages\ClientMainPage.xaml.cs">
       <DependentUpon>ClientMainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="client_pages\LinesRidesPreview.xaml.cs">
+      <DependentUpon>LinesRidesPreview.xaml</DependentUpon>
     </Compile>
     <Compile Include="client_pages\RailwayGridPage.xaml.cs">
       <DependentUpon>RailwayGridPage.xaml</DependentUpon>
@@ -125,7 +131,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="client_pages\BuyBookTicket.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="client_pages\ClientMainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="client_pages\LinesRidesPreview.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

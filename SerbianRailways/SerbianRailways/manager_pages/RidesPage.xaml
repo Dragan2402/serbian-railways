@@ -14,15 +14,16 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="7*"/>
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
-        <DataGrid x:Name="dgRides" Grid.Column="0"  ColumnWidth="*" AutoGenerateColumns="False" Grid.Row="0" Margin="50,10,0,0" HorizontalAlignment="Stretch" CanUserAddRows="False"  HorizontalScrollBarVisibility="Disabled "  ItemsSource="{Binding}"
+        <DataGrid x:Name="dgRides" Grid.Column="0"  ColumnWidth="*" AutoGenerateColumns="False" Grid.Row="0" Margin="20,10,0,0" HorizontalAlignment="Stretch" CanUserAddRows="False"  HorizontalScrollBarVisibility="Disabled "  ItemsSource="{Binding}"
                    PreviewMouseLeftButtonDown="DGRides_PreviewMouseLeftButtonDown" MouseMove="DGRides_MouseMove">
             <DataGrid.Columns>
                 <DataGridTextColumn Header = "Id" CanUserResize="False" Binding="{Binding Id}" Width="*" IsReadOnly="False" CanUserReorder="False"/>
                 <DataGridTextColumn Header = "Vreme polaska" CanUserResize="False" Binding="{Binding DepartureTime}"  Width="2.5*" IsReadOnly="False"   CanUserReorder="False"/>
                 <DataGridTextColumn Header = "Vreme dolaska" CanUserResize="False" Binding="{Binding ArrivalTime}"  Width="2.5*" IsReadOnly="False"   CanUserReorder="False"/>
+                <DataGridTextColumn Header = "Dani vožnje" CanUserResize="False" Binding="{Binding DaysThatRidesTable}"  Width="3.5*" IsReadOnly="True"   CanUserReorder="False"/>
                 <DataGridTextColumn Header = "Voz" CanUserResize="False" Binding="{Binding Train.Name}"  Width="2*" IsReadOnly="True"   CanUserReorder="False"/>
                 <DataGridTextColumn Header = "Id linije" CanUserResize="False" Binding="{Binding Line.Id}"  Width="1.3*" IsReadOnly="True"   CanUserReorder="False"/>
                 <DataGridTextColumn Header = "Polazište" CanUserResize="False" Binding="{Binding Line.DepartureStation.Name}"  Width="2*" IsReadOnly="True"   CanUserReorder="False"/>

@@ -63,5 +63,15 @@ namespace SerbianRailways.client_pages
         {
             main_frame.Content = new RailwayGridPage(MockService, main_frame, main_window);
         }
+
+        private void ToggleLineRidesPreview(object sender, RoutedEventArgs e)
+        {
+            main_frame.Content= new LinesRidesPreview(MockService,main_frame, main_window);
+        }
+
+        private void ToggleBuyBookTicket(object sender, RoutedEventArgs e)
+        {
+            main_frame.Content = new BuyBookTicket(MockService, main_frame, main_window);
+        }
     }
 }

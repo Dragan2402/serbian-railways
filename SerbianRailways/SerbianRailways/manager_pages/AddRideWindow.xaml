@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SerbianRailways.manager_pages"
         mc:Ignorable="d"
-        Title="Srbija Voz-Dodavanje vožnje" Icon="/AppLogo.png" Height="600" Width="300" WindowStartupLocation="CenterScreen">
+        Title="Srbija Voz-Dodavanje vožnje" Icon="/AppLogo.png" Height="700" Width="300" WindowStartupLocation="CenterScreen">
     <Grid>
         <StackPanel Orientation="Vertical">
             <Label VerticalAlignment="Center" Margin="0,50,0,10" HorizontalAlignment="Center">Vreme polaska:</Label>
@@ -18,7 +18,19 @@
             <ComboBox Name="linesCMBX" Margin="0,10,0,10" HorizontalAlignment="Center"  VerticalAlignment="Center" ItemsSource="{Binding Path=Lines}" />
             <Label VerticalAlignment="Center" Margin="0,10,0,10" HorizontalAlignment="Center">Cena:</Label>
             <TextBox Margin="0,0,0,10" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="70" x:Name="price_tb" Text="{Binding Path=Price, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" ></TextBox>
-            <CheckBox x:Name="returnRide" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,10,0,30">Povratna vožnja</CheckBox>
+            <Label VerticalAlignment="Center" Margin="0,10,0,10" HorizontalAlignment="Center">Dani kojima se obavjla vožnja:</Label>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <CheckBox Margin="0,0,10,0" x:Name="mondayCB" IsChecked="True">Pon</CheckBox>
+                <CheckBox Margin="0,0,10,0" x:Name="tuesdayCB" IsChecked="True">Uto</CheckBox>
+                <CheckBox Margin="0,0,10,0" x:Name="wednesdayCB" IsChecked="True">Sre</CheckBox>
+                <CheckBox Margin="0,0,10,0"  x:Name="thursdayCB" IsChecked="True">Čet</CheckBox>
+                <CheckBox Margin="0,0,0,0" x:Name="fridayCB" IsChecked="True">Pet</CheckBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,10,0,0">
+                <CheckBox Margin="0,0,10,0" x:Name="saturdayCB" IsChecked="True">Sub</CheckBox>
+                <CheckBox x:Name="sundayCB" IsChecked="True">Ned</CheckBox>
+            </StackPanel>
+            <CheckBox x:Name="returnRide" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,30,0,30">Povratna vožnja</CheckBox>
             <WrapPanel HorizontalAlignment="Center" >
                 <Button HorizontalAlignment="Left" Margin="0,0,5,0" MinHeight="30" MinWidth="70"  BorderBrush="#FF3E3E3E" Background="White" Click="AddRideBtn" >Dodaj</Button>
                 <Button HorizontalAlignment="Right"  MinHeight="30" MinWidth="70"  BorderBrush="#FF3E3E3E" Background="White" Click="Cancel_Btn">Odustani</Button>

@@ -2,8 +2,13 @@
 
 FC:\Users\draga\OneDrive\Dokumenti\HCI\Projekat\serbian-railways\SerbianRailways\SerbianRailways\authorization_pages\LoginPage.xaml;;
 FC:\Users\draga\OneDrive\Dokumenti\HCI\Projekat\serbian-railways\SerbianRailways\SerbianRailways\authorization_pages\RegistrationPage.xaml;;
+FC:\Users\draga\OneDrive\Dokumenti\HCI\Projekat\serbian-railways\SerbianRailways\SerbianRailways\client_pages\BuyBookTicket.xaml;;
 FC:\Users\draga\OneDrive\Dokumenti\HCI\Projekat\serbian-railways\SerbianRailways\SerbianRailways\client_pages\ClientMainPage.xaml;;
+FC:\Users\draga\OneDrive\Dokumenti\HCI\Projekat\serbian-railways\SerbianRailways\SerbianRailways\client_pages\LinesRidesPreview.xaml;;
+FC:\Users\draga\OneDrive\Dokumenti\HCI\Projekat\serbian-railways\SerbianRailways\SerbianRailways\client_pages\RailwayGridPage.xaml;;
+FC:\Users\draga\OneDrive\Dokumenti\HCI\Projekat\serbian-railways\SerbianRailways\SerbianRailways\client_pages\TicketsPreviewPage.xaml;;
 FC:\Users\draga\OneDrive\Dokumenti\HCI\Projekat\serbian-railways\SerbianRailways\SerbianRailways\MainWindow.xaml;;
+FC:\Users\draga\OneDrive\Dokumenti\HCI\Projekat\serbian-railways\SerbianRailways\SerbianRailways\manager_pages\AddLineWindow.xaml;;
 FC:\Users\draga\OneDrive\Dokumenti\HCI\Projekat\serbian-railways\SerbianRailways\SerbianRailways\manager_pages\AddRideWindow.xaml;;
 FC:\Users\draga\OneDrive\Dokumenti\HCI\Projekat\serbian-railways\SerbianRailways\SerbianRailways\manager_pages\AddStationWindow.xaml;;
 FC:\Users\draga\OneDrive\Dokumenti\HCI\Projekat\serbian-railways\SerbianRailways\SerbianRailways\manager_pages\LinesPage.xaml;;
@@ -12,9 +17,6 @@ FC:\Users\draga\OneDrive\Dokumenti\HCI\Projekat\serbian-railways\SerbianRailways
 FC:\Users\draga\OneDrive\Dokumenti\HCI\Projekat\serbian-railways\SerbianRailways\SerbianRailways\manager_pages\StationsPage.xaml;;
 FC:\Users\draga\OneDrive\Dokumenti\HCI\Projekat\serbian-railways\SerbianRailways\SerbianRailways\manager_pages\TicketsPage.xaml;;
 FC:\Users\draga\OneDrive\Dokumenti\HCI\Projekat\serbian-railways\SerbianRailways\SerbianRailways\manager_pages\TrainsPage.xaml;;
-FC:\Users\draga\OneDrive\Dokumenti\HCI\Projekat\serbian-railways\SerbianRailways\SerbianRailways\manager_pages\UpdateRideWindow.xaml;;
-FC:\Users\draga\OneDrive\Dokumenti\HCI\Projekat\serbian-railways\SerbianRailways\SerbianRailways\manager_pages\AddLineWindow.xaml;;
 FC:\Users\draga\OneDrive\Dokumenti\HCI\Projekat\serbian-railways\SerbianRailways\SerbianRailways\manager_pages\UpdateLineWindow.xaml;;
-FC:\Users\draga\OneDrive\Dokumenti\HCI\Projekat\serbian-railways\SerbianRailways\SerbianRailways\client_pages\RailwayGridPage.xaml;;
-FC:\Users\draga\OneDrive\Dokumenti\HCI\Projekat\serbian-railways\SerbianRailways\SerbianRailways\client_pages\TicketsPreviewPage.xaml;;
+FC:\Users\draga\OneDrive\Dokumenti\HCI\Projekat\serbian-railways\SerbianRailways\SerbianRailways\manager_pages\UpdateRideWindow.xaml;;
 

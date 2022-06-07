@@ -67,10 +67,23 @@ namespace SerbianRailways.manager_pages
         private void UpdateLineSC(object sender, ExecutedRoutedEventArgs e)
         {
 
-        
 
+            bool exists = MockService.LineExists(StationsInLine);
+            if (exists)
+            {
+                MessageBox.Show("Greška prilikom izmene linije, linija već postoji", "Izmena Linije", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            Line.DepartureStation = StationsInLine.ElementAt(0);
+            Line.ArrivalStation = StationsInLine.Last();
+            if (StationsInLine.Count > 2)
+            {
+                Line.InterStations.Clear();
+                for (int i = 0; i < StationsInLine.Count - 1; i++)
+                    Line.InterStations.Add(StationsInLine[i]);
+            }
 
-            MessageBox.Show("Uspešno ažurirana linija.", "Srbija voz-Ažuriranje linije", MessageBoxButton.OK, MessageBoxImage.Information);
+            MessageBox.Show("Uspešno ažurirana linija.", "Srbija voz-Izmena linije", MessageBoxButton.OK, MessageBoxImage.Information);
             this.Close();
         }
 
