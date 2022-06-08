@@ -16,12 +16,12 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition  Height="2*"/>
+            <RowDefinition  Height="2*"/>
+            <RowDefinition  Height="2*"/>
+            <RowDefinition  Height="2*"/>
+            <RowDefinition  Height="3*"/>
         </Grid.RowDefinitions>
         <Image Grid.Column="0" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,0,5" Source="../AppLogo.png"></Image>
         <DockPanel Grid.Row="1" Grid.RowSpan="4" Grid.Column="0" Margin="50,0,50,0">
@@ -60,8 +60,12 @@
                 <DropShadowEffect/>
             </Button.Effect> Pregled prodatih karata
         </Button>
+
+        <TextBox x:Name="commandLine_tb"  Grid.Row="6" Grid.Column="0" Padding="5,5,0,5" Grid.ColumnSpan="2" Margin="30,20,30,10" FontSize="11" Background="Black" BorderBrush="#FF3E3E3E" Text="{Binding Path=Command, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"  Foreground="White" TextAlignment="Left" IsEnabled="False" Visibility="Hidden" KeyDown="KeyDown_CommandLine_Handler">
+            
+        </TextBox>
         
-        <Button x:Name="logOutBtn" Grid.Column="2" Grid.Row="5" VerticalAlignment="Center" Padding="2.5" HorizontalAlignment="Center" Click="Log_out" Background="White" >
+        <Button x:Name="logOutBtn" Grid.Column="2" Grid.Row="5" VerticalAlignment="Center"  Padding="2.5" HorizontalAlignment="Center" Click="Log_out" Background="White" >
             <Button.Effect>
                 <DropShadowEffect/>
             </Button.Effect> Odjavi se

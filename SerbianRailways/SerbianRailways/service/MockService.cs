@@ -309,6 +309,11 @@ namespace SerbianRailways.service
             return new Tuple<double,double>(total,avarage);
         }
 
+        public bool CheckStationIdExists(int stationId)
+        {
+            return mockRepository.Stations.ContainsKey(stationId);
+        }
+
         public ObservableCollection<Train> GetAllTrainsTable()
         {
             ObservableCollection<Train> trainTable = new ObservableCollection<Train>();
@@ -317,6 +322,11 @@ namespace SerbianRailways.service
                 trainTable.Add(train);
             }
             return trainTable;
+        }
+
+        public void DeleteStationById(int stationId)
+        {
+            DeleteStation(mockRepository.Stations[stationId]);
         }
 
         public void DeleteStation(Station station)
@@ -408,6 +418,58 @@ namespace SerbianRailways.service
             avarage = Math.Round(avarage, 2, MidpointRounding.AwayFromZero);
             return new Tuple<double, double>(total, avarage);
             
+        }
+
+        public void DeleteTrainById(int serialNumber)
+        {
+            Train train = mockRepository.Trains[serialNumber];
+            DeleteTrain(train);
+        }
+
+        public bool CheckLineIdExists(int lineId)
+        {
+            return mockRepository.Lines.ContainsKey(lineId);
+        }
+
+        public void DeleteLineById(int lineId)
+        {
+            Line line = mockRepository.Lines[lineId];
+            DeleteLine(line);
+        }
+
+        public Station GetStationById(int stationId)
+        {
+            return mockRepository.Stations[stationId];
+        }
+
+        public bool CheckRideExists(int rideId)
+        {
+            return mockRepository.Rides.ContainsKey(rideId);
+        }
+
+        public void DeleteRideByID(int rideId)
+        {
+            Ride ride = mockRepository.Rides[rideId];
+            DeleteRide(ride);
+        }
+
+        public Train GetTrainBySerialNumber(int serialNumber)
+        {
+            return mockRepository.Trains[serialNumber]; 
+        }
+
+        public Line GetLineById(int lineId)
+        {
+            return mockRepository.Lines[lineId];
+        }
+
+        public void DeleteAll()
+        {
+            mockRepository.Tickets.Clear();
+            mockRepository.Rides.Clear();
+            mockRepository.Trains.Clear();
+            mockRepository.Lines.Clear();
+            mockRepository.Stations.Clear();
         }
     }
 }

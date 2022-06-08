@@ -28,7 +28,7 @@ namespace SerbianRailways.model
 
         public override string ToString()
         {
-            return "Station:" + " " + Id + " " + Name + " " + Location;
+            return "Stanica:" + " " + Id + " " + Name + " " + Location;
         }
 
     }

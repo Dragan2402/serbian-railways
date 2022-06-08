@@ -22,7 +22,7 @@ namespace SerbianRailways.model
 
         public override string ToString()
         {
-            return "X: " + X + " Y: " + Y;
+            return "GG_Š: " + X + " GG_V: " + Y;
         }
     }
 }

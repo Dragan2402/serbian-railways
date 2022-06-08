@@ -126,7 +126,7 @@ namespace SerbianRailways.model
 
         public override string ToString()
         {
-            return "Ride:" + " " + Id + " " + DepartureTime + "-" + ArrivalTime + " " + Duration + " " + Train + " " + Line;
+            return "Vožnja:" + " " + Id + " " + DepartureTime + "-" + ArrivalTime + " " + Duration + " " + Train + " " + Line;
         }
 
         public bool FreeSeat(Ticket ticket)

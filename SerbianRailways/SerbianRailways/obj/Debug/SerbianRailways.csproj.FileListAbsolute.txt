@@ -56,3 +56,8 @@ C:\Users\draga\OneDrive\Dokumenti\HCI\Projekat\serbian-railways\SerbianRailways\
 C:\Users\draga\OneDrive\Dokumenti\HCI\Projekat\serbian-railways\SerbianRailways\SerbianRailways\obj\Debug\client_pages\BuyBookTicket.baml
 C:\Users\draga\OneDrive\Dokumenti\HCI\Projekat\serbian-railways\SerbianRailways\SerbianRailways\obj\Debug\authorization_pages\RegistrationWindow.g.cs
 C:\Users\draga\OneDrive\Dokumenti\HCI\Projekat\serbian-railways\SerbianRailways\SerbianRailways\obj\Debug\authorization_pages\RegistrationWindow.baml
+C:\Users\draga\OneDrive\Dokumenti\HCI\Projekat\serbian-railways\SerbianRailways\SerbianRailways\bin\Debug\MaterialDesignColors.dll
+C:\Users\draga\OneDrive\Dokumenti\HCI\Projekat\serbian-railways\SerbianRailways\SerbianRailways\bin\Debug\MaterialDesignThemes.Wpf.dll
+C:\Users\draga\OneDrive\Dokumenti\HCI\Projekat\serbian-railways\SerbianRailways\SerbianRailways\bin\Debug\MaterialDesignColors.pdb
+C:\Users\draga\OneDrive\Dokumenti\HCI\Projekat\serbian-railways\SerbianRailways\SerbianRailways\bin\Debug\MaterialDesignThemes.Wpf.pdb
+C:\Users\draga\OneDrive\Dokumenti\HCI\Projekat\serbian-railways\SerbianRailways\SerbianRailways\bin\Debug\MaterialDesignThemes.Wpf.xml
