@@ -69,6 +69,7 @@ namespace SerbianRailways.authorization_pages
             main_window = window;
             main_window.Title = "Srbija Voz-Prijava";
             window.CommandBindings.Clear();
+            username_tb.Focus();    
         }
 
 
