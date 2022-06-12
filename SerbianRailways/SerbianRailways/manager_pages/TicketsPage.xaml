@@ -26,8 +26,8 @@
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                     <ComboBox Name="MonthsCMBX" ItemsSource="{Binding Months , UpdateSourceTrigger=PropertyChanged}" SelectedIndex="{Binding SelectedIndex, UpdateSourceTrigger=PropertyChanged}"
-                        SelectedItem="{Binding SelectedMonth, UpdateSourceTrigger=PropertyChanged}" Grid.Row="0" Margin="0,0,100,0"  VerticalAlignment="Center" HorizontalAlignment="Center" MinWidth="100" Background="White" BorderBrush="#FF3E3E3E"></ComboBox>
-                    <Button VerticalAlignment="Center" ToolTip="Ctrl+R" Margin="100,0,0,0"  HorizontalAlignment="Center" MinWidth="70" BorderBrush="#FF3E3E3E" Background="White" Click="Refresh_Months_btn" >Osveži</Button>
+                        SelectedItem="{Binding SelectedMonth, UpdateSourceTrigger=PropertyChanged}" Grid.Row="0" Margin="0,0,100,0"  VerticalAlignment="Center" HorizontalAlignment="Center" MinWidth="100"></ComboBox>
+                    <Button VerticalAlignment="Center" ToolTip="Ctrl+R" Margin="100,0,0,0"  HorizontalAlignment="Center" MinWidth="70" Click="Refresh_Months_btn" >Osveži</Button>
                     
                     <DataGrid x:Name="dgTickets" ColumnWidth="*"   AutoGenerateColumns="False" Grid.Row="1" Margin="10" HorizontalAlignment="Stretch" CanUserAddRows="False"  HorizontalScrollBarVisibility="Disabled "  ItemsSource="{Binding}">
                             <DataGrid.Columns>

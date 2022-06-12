@@ -98,6 +98,7 @@ C:\Users\Asi\Desktop\serbian-railways\SerbianRailways\SerbianRailways\obj\Debug\
 C:\Users\Asi\Desktop\serbian-railways\SerbianRailways\SerbianRailways\obj\Debug\GeneratedInternalTypeHelper.g.cs
 C:\Users\Asi\Desktop\serbian-railways\SerbianRailways\SerbianRailways\obj\Debug\SerbianRailways_MarkupCompile.cache
 C:\Users\Asi\Desktop\serbian-railways\SerbianRailways\SerbianRailways\obj\Debug\SerbianRailways_MarkupCompile.lref
+C:\Users\Asi\Desktop\serbian-railways\SerbianRailways\SerbianRailways\obj\Debug\App.baml
 C:\Users\Asi\Desktop\serbian-railways\SerbianRailways\SerbianRailways\obj\Debug\authorization_pages\LoginPage.baml
 C:\Users\Asi\Desktop\serbian-railways\SerbianRailways\SerbianRailways\obj\Debug\authorization_pages\RegistrationWindow.baml
 C:\Users\Asi\Desktop\serbian-railways\SerbianRailways\SerbianRailways\obj\Debug\client_pages\BuyBookTicket.baml
