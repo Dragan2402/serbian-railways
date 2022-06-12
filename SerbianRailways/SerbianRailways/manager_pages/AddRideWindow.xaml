@@ -6,7 +6,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:SerbianRailways.manager_pages"
         mc:Ignorable="d"
-        Title="Srbija Voz-Dodavanje vožnje" Icon="/AppLogo.png" Height="541" Width="400" WindowStartupLocation="CenterScreen">
+        Title="Srbija Voz-Dodavanje vožnje" Icon="/icon.png" Height="541" Width="400" WindowStartupLocation="CenterScreen">
     <Grid>
         <StackPanel Orientation="Vertical">
             <TextBox materialDesign:HintAssist.Hint="Vreme polaska"  ToolTip="Unesite vreme polaska vožnje u formatu 'ss','ss:mm','ss:mm:sc'." Margin="0,20,0,10" HorizontalAlignment="Center" MinWidth="70" Text="{Binding Path=DepartureTime, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" Width="300" />

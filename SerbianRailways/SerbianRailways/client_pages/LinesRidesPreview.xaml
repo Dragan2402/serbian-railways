@@ -9,23 +9,25 @@
       Title="Vožnje i linije">
 
     <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="../background.png"/>
+        </Grid.Background>
         <Grid.RowDefinitions>
-            <RowDefinition Height="6*"/>
-            <RowDefinition/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*"/>
             <ColumnDefinition Width="3*"/>
         </Grid.ColumnDefinitions>
-        <DataGrid x:Name="dgLines" Grid.Column="0" ToolTip="Klikni dva puta ili prevuci željenu liniju" ColumnWidth="*" SelectionMode="Single" AutoGenerateColumns="False" Grid.Row="0" Margin="20,10,10,0" HorizontalAlignment="Center" CanUserAddRows="False" MinHeight="200" MaxHeight="400"  HorizontalScrollBarVisibility="Disabled "  ItemsSource="{Binding}"
-                       PreviewMouseLeftButtonDown="DGSLines_PreviewMouseLeftButtonDown" MouseMove="DGLines_MouseMove" MouseDoubleClick="DoubleClickAdd">
+        <DataGrid x:Name="dgLines" Grid.Column="0" ToolTip="Klikni dva puta ili prevuci željenu liniju" SelectionMode="Single" AutoGenerateColumns="False" Grid.Row="0" Margin="10" HorizontalAlignment="Center" CanUserAddRows="False" HorizontalScrollBarVisibility="Disabled" ItemsSource="{Binding}" PreviewMouseLeftButtonDown="DGSLines_PreviewMouseLeftButtonDown" MouseMove="DGLines_MouseMove" MouseDoubleClick="DoubleClickAdd">
             <DataGrid.Columns>
                 <DataGridTextColumn Header = "Polazište" CanUserResize="False" Binding="{Binding DepartureStation.Name}"  Width="2.5*" IsReadOnly="True"   CanUserReorder="False"/>
                 <DataGridTextColumn Header = "Dolazište" CanUserResize="False" Binding="{Binding ArrivalStation.Name}"  Width="2.5*" IsReadOnly="True"   CanUserReorder="False"/>
             </DataGrid.Columns>
         </DataGrid>
 
-        <DataGrid x:Name="dgShowingRides" ColumnWidth="*" ToolTip="Prikaz vožnji odabrane linije" Grid.Row="0" Grid.Column="1"  AutoGenerateColumns="False"  Margin="30,10,30,0" VerticalAlignment="Top"  MinHeight="150"     AllowDrop="True" DragEnter="Add_DragEnter" Drop="TableDrop"  CanUserAddRows="False"  HorizontalScrollBarVisibility="Disabled "  ItemsSource="{Binding}">
+        <DataGrid x:Name="dgShowingRides" ToolTip="Prikaz vožnji odabrane linije" Grid.Row="0" Grid.Column="1"  AutoGenerateColumns="False"  Margin="10" AllowDrop="True" DragEnter="Add_DragEnter" Drop="TableDrop"  CanUserAddRows="False"  HorizontalScrollBarVisibility="Disabled "  ItemsSource="{Binding}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header = "Vreme vožnje" CanUserResize="False" Binding="{Binding TimeSpan}" Width="3*" IsReadOnly="True" CanUserReorder="False"/>
                 <DataGridTextColumn Header = "Voz" CanUserResize="False" Binding="{Binding Train}"  Width="3*" IsReadOnly="True"   CanUserReorder="False"/>
@@ -34,7 +36,7 @@
         </DataGrid>
 
 
-        <Button Content="Povratak" Grid.Row="1" Grid.Column="1"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,20,20" MinWidth="70" MinHeight="30" Click="ReturnClientPage" />
+        <Button Content="Povratak" Grid.Row="1" Grid.Column="1"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,10,10" MinWidth="100" MinHeight="40" Click="ReturnClientPage" />
 
     </Grid>
 </Page>

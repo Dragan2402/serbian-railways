@@ -16,5 +16,5 @@ C:\Users\Asi\Desktop\serbian-railways\SerbianRailways\SerbianRailways\App.xaml
 171389359862
 authorization_pages\LoginPage.xaml;authorization_pages\RegistrationWindow.xaml;client_pages\BuyBookTicket.xaml;client_pages\ClientMainPage.xaml;client_pages\LinesRidesPreview.xaml;client_pages\RailwayGridPage.xaml;client_pages\TicketsPreviewPage.xaml;MainWindow.xaml;manager_pages\AddLineWindow.xaml;manager_pages\AddRideWindow.xaml;manager_pages\AddStationWindow.xaml;manager_pages\AddTrainWindow.xaml;manager_pages\LinesPage.xaml;manager_pages\ManagerMainPage.xaml;manager_pages\RidesPage.xaml;manager_pages\StationsPage.xaml;manager_pages\TicketsPage.xaml;manager_pages\TrainsPage.xaml;manager_pages\UpdateLineWindow.xaml;manager_pages\UpdateRideWindow.xaml;
 
-False
+True
 

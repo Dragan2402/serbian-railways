@@ -260,9 +260,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="AppLogo.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="icon.png" />
     <Resource Include="logo.png" />
   </ItemGroup>

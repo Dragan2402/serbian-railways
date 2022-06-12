@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SerbianRailways.manager_pages"
         mc:Ignorable="d"
-        Title="Srbija Voz-Izmena linije" Icon="/AppLogo.png" Height="650" Width="400" WindowStartupLocation="CenterScreen">
+        Title="Srbija Voz-Izmena linije" Icon="/icon.png" Height="650" Width="400" WindowStartupLocation="CenterScreen">
     <Grid>
         <StackPanel Orientation="Vertical">
             <Label HorizontalAlignment="Center"  Margin="0,50,0,5" VerticalAlignment="Center" FontWeight="Bold">Ponuđenje stanice:</Label>
