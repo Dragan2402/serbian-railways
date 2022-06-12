@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SerbianRailways.manager_pages"
         mc:Ignorable="d"
-        Title="Srbija Voz-Izmena linije" Icon="/AppLogo.png" Height="650" Width="300" WindowStartupLocation="CenterScreen">
+        Title="Srbija Voz-Izmena linije" Icon="/icon.png" Height="650" Width="400" WindowStartupLocation="CenterScreen">
     <Grid>
         <StackPanel Orientation="Vertical">
-            <Label HorizontalAlignment="Center"  Margin="0,50,0,5" VerticalAlignment="Center">Ponuđenje stanice</Label>
+            <Label HorizontalAlignment="Center"  Margin="0,50,0,5" VerticalAlignment="Center" FontWeight="Bold">Ponuđenje stanice:</Label>
             <DataGrid x:Name="dgAvailableStations" ColumnWidth="*" ToolTip="Prevucite ili dva puta kliknite stanicu koju želite da dodate u liniju."  AutoGenerateColumns="False" SelectionMode="Single"  Margin="20,0,20,50" MaxHeight="150" MinHeight="150"  HorizontalAlignment="Center" CanUserAddRows="False"  HorizontalScrollBarVisibility="Disabled "  ItemsSource="{Binding}"
                    PreviewMouseLeftButtonDown="DGStations_PreviewMouseLeftButtonDown" MouseMove="DGStations_MouseMove" MouseDoubleClick="DoubleClickAdd" >
                 <DataGrid.Columns>
@@ -16,7 +16,7 @@
                     <DataGridTextColumn Header = "Naziv" CanUserResize="False" Binding="{Binding Name}"  Width="3*" IsReadOnly="True"   CanUserReorder="False"/>
                 </DataGrid.Columns>
             </DataGrid>
-            <Label Margin="0,0,0,5" VerticalAlignment="Center" HorizontalAlignment="Center">Redosled stanica linije:</Label>
+            <Label Margin="0,0,0,5" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold">Redosled stanica linije:</Label>
             <DataGrid x:Name="dgSelectedStations" ColumnWidth="*"  ToolTip="Prevucite ovdje željene linije, dva puta kliknite za uklanjanje stanice iz linije." AutoGenerateColumns="False"  Margin="20,0,20,20" MaxHeight="150" MinHeight="150"   MouseDoubleClick="DoubleClickRemove" HorizontalAlignment="Center" AllowDrop="True" DragEnter="Add_DragEnter" Drop="TableDrop"  CanUserAddRows="False"  HorizontalScrollBarVisibility="Disabled "  ItemsSource="{Binding}"
                   >
                 <DataGrid.Columns>
@@ -25,8 +25,8 @@
                 </DataGrid.Columns>
             </DataGrid>
             <WrapPanel HorizontalAlignment="Center" Margin="0,50,0,0">
-                <Button HorizontalAlignment="Left" Margin="0,0,5,0" MinHeight="30" ToolTip="Ctrl+D" MinWidth="70"  BorderBrush="#FF3E3E3E" Background="White" Click="UpdateLineBtn" >Izmeni</Button>
-                <Button HorizontalAlignment="Right"  MinHeight="30" MinWidth="70"  ToolTip="Ctrl+I" BorderBrush="#FF3E3E3E" Background="White" Click="Cancel_Btn">Odustani</Button>
+                <Button HorizontalAlignment="Left" Margin="0,0,30,0" MinHeight="40" ToolTip="Ctrl+D" MinWidth="100" Click="UpdateLineBtn" >Izmeni</Button>
+                <Button HorizontalAlignment="Right"  MinHeight="40" MinWidth="100"  ToolTip="Ctrl+I" Click="Cancel_Btn">Odustani</Button>
             </WrapPanel>
         </StackPanel>
     </Grid>

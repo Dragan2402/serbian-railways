@@ -85,12 +85,6 @@ namespace SerbianRailways.manager_pages
             Trains = mockService.GetAllTrains();
             Lines = mockService.GetAllLines();
 
-            trainsCMBX.SelectedItem = Trains.ElementAt(0);
-            trainsCMBX.SelectedIndex = 0;
-
-            linesCMBX.SelectedItem = Lines.ElementAt(0);
-            linesCMBX.SelectedIndex = 0;
-
             RoutedCommand addNewRidecmd = new RoutedCommand();
             addNewRidecmd.InputGestures.Add(new KeyGesture(Key.D, ModifierKeys.Control));
             this.CommandBindings.Add(new CommandBinding(addNewRidecmd, AddRideSC));

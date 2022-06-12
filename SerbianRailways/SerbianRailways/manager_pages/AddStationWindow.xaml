@@ -5,16 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SerbianRailways.manager_pages"
         mc:Ignorable="d"
-         Title="Srbija Voz-Dodavanje stanice" Icon="/AppLogo.png" Height="300" Width="300" WindowStartupLocation="CenterScreen">
+         Title="Srbija Voz-Dodavanje stanice" Icon="/icon.png" Height="300" Width="400" WindowStartupLocation="CenterScreen">
     <Grid>
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
 
-            <Label Margin="10">Naziv stanice:</Label>
+            <Label FontWeight="Bold" Margin="10">Naziv stanice:</Label>
             <TextBox  Margin="0,10,0,20" x:Name="name_tb" Text="{Binding Path=StationName, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" ></TextBox>
 
             <WrapPanel HorizontalAlignment="Center" >
-                <Button HorizontalAlignment="Left" Margin="0,0,5,0" MinHeight="30" MinWidth="70" ToolTip="Ctrl+D" BorderBrush="#FF3E3E3E" Background="White" Click="Add_station_Btn"  >Dodaj</Button>
-                <Button HorizontalAlignment="Right"  MinHeight="30" MinWidth="70" ToolTip="Ctrl+O"  BorderBrush="#FF3E3E3E" Background="White" Click="Cancel_Btn">Odustani</Button>
+                <Button HorizontalAlignment="Left" Margin="0,0,30,0" MinHeight="40" MinWidth="100" ToolTip="Ctrl+D" Click="Add_station_Btn"  >Dodaj</Button>
+                <Button HorizontalAlignment="Right"  MinHeight="40" MinWidth="100" ToolTip="Ctrl+O" Click="Cancel_Btn">Odustani</Button>
             </WrapPanel>
         </StackPanel>
     </Grid>

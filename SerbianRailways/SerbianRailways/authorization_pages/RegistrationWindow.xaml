@@ -4,48 +4,25 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SerbianRailways.authorization_pages"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:w="clr-namespace:SerbianRailways.utility"
         mc:Ignorable="d"
-        Title="Srbija Voz-Registracija" Icon="/AppLogo.png" Height="500" Width="300" WindowStartupLocation="CenterScreen">
+        Title="Srbija Voz-Registracija" Icon="/icon.png" Height="530" Width="400" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Grid>
-            
-
-            <WrapPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Top"  Margin="0,20,0,0" >
-
-                <Label >Korisničko ime:</Label>
-                <TextBox  x:Name="username_tb" Text="{Binding Path=Username, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" ></TextBox>
-
-                <Label >Ime:</Label>
-                <TextBox  x:Name="name_tb" Text="{Binding Path=FirstName, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" ></TextBox>
-
-                <Label >Prezime:</Label>
-                <TextBox  x:Name="lastname_tb" Text="{Binding Path=LastName, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" ></TextBox>
-
-                <Label >Lozinka:</Label>
-
-                <PasswordBox w:PasswordHelper.Attach="True" 
-                                w:PasswordHelper.Password="{Binding Path=Password, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"/>
-
-                <Label >Ulica:</Label>
-                <TextBox  x:Name="street_tb" Text="{Binding Path=Street, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" ></TextBox>
-
-                <Label >Grad:</Label>
-                <TextBox  x:Name="city_tb" Text="{Binding Path=City, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" ></TextBox>
-
-                <Label >Poštanski broj:</Label>
-                <TextBox  x:Name="postalCode_tb" Text="{Binding Path=PostalCode, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" ></TextBox>
-
-                <Label >Država:</Label>
-                <TextBox  x:Name="country_tb"  Text="{Binding Path=Country, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" ></TextBox>
-
-
-
-           
-            <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Top"  Margin="0,20,0,0" Orientation="Horizontal">
-                <Button Content="Registruj se" x:Name="sign_up_btn" MinWidth="70" Margin="0,0,5,10" BorderBrush="#FF3E3E3E" Background="White"   MinHeight="30" Click="Sign_up_btn_click"/>
-                <Button Content="Odustani"   MinWidth="70" BorderBrush="#FF3E3E3E" Margin="5,0,0,10" Background="White" MinHeight="30" Click="ReturnLoginPage" />
-            </WrapPanel>
+        <Grid Margin="10,10,10,10">
+            <WrapPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Width="300" >
+                <TextBox MinWidth="300" materialDesign:HintAssist.Hint="Korisničko ime" x:Name="username_tb" Text="{Binding Path=Username, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" ></TextBox>
+                <TextBox MinWidth="300" Margin="0 20 0 0" materialDesign:HintAssist.Hint="Ime" x:Name="name_tb" Text="{Binding Path=FirstName, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" ></TextBox>
+                <TextBox MinWidth="300" Margin="0 20 0 0" materialDesign:HintAssist.Hint="Prezime" x:Name="lastname_tb" Text="{Binding Path=LastName, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" ></TextBox>
+                <PasswordBox MinWidth="300" Margin="0 20 0 0" materialDesign:HintAssist.Hint="Lozinka" w:PasswordHelper.Attach="True" w:PasswordHelper.Password="{Binding Path=Password, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBox MinWidth="300" Margin="0 20 0 0" materialDesign:HintAssist.Hint="Ulica" x:Name="street_tb" Text="{Binding Path=Street, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" ></TextBox>
+                <TextBox MinWidth="300" Margin="0 20 0 0" materialDesign:HintAssist.Hint="Grad" x:Name="city_tb" Text="{Binding Path=City, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" ></TextBox>
+                <TextBox MinWidth="300" Margin="0 20 0 0" materialDesign:HintAssist.Hint="Poštanski broj" x:Name="postalCode_tb" Text="{Binding Path=PostalCode, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" ></TextBox>
+                <TextBox MinWidth="300" Margin="0 20 0 30" materialDesign:HintAssist.Hint="Država" x:Name="country_tb"  Text="{Binding Path=Country, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" ></TextBox>
+                <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Top"  Margin="0,20,0,0" Orientation="Horizontal">
+                    <Button Content="Registruj se" x:Name="sign_up_btn" MinWidth="100" Margin="0,0,5,10" MinHeight="40" Click="Sign_up_btn_click"/>
+                    <Button Content="Odustani"   MinWidth="100" Margin="30,0,0,10" MinHeight="40" Click="ReturnLoginPage" />
+                </WrapPanel>
             </WrapPanel>
         </Grid>
 

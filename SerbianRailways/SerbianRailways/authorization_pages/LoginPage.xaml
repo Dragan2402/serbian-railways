@@ -4,38 +4,30 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:w="clr-namespace:SerbianRailways.utility"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:local="clr-namespace:SerbianRailways.authorization_pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Login">
 
     <Grid>
-        <Border Background="White" BorderThickness="1,1,1,1" BorderBrush="AntiqueWhite" CornerRadius="2"
-            HorizontalAlignment="Center" VerticalAlignment="Center" Padding="20">
-            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" >
+        <Grid.Background>
+            <ImageBrush ImageSource="../background.png"/>
+        </Grid.Background>
+        <Border Background="white" CornerRadius="5" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="20" Width="300" Height="300">
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Width="201" >
 
+                <TextBox x:Name="username_tb" materialDesign:HintAssist.Hint="Korisničko ime" Text="{Binding Path=Username, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" ></TextBox>
 
-                <TextBlock Margin="10,0,0,50" HorizontalAlignment="Stretch" >
-                    <Run Text="Dobrodošli,"/>
-                    <LineBreak/>
-                    <Run Text="putujte sa najboljim..."/>
-                </TextBlock>
+                <PasswordBox Margin="0 20 0 20" materialDesign:HintAssist.Hint="Lozinka" w:PasswordHelper.Attach="True" w:PasswordHelper.Password="{Binding Path=Password, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"/>
 
-                <Label >Korisničko ime:</Label>
-                <TextBox  x:Name="username_tb" Text="{Binding Path=Username, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" ></TextBox>
-
-                <Label Margin="0,5,0,0" >Lozinka:</Label>
-                
-                <PasswordBox w:PasswordHelper.Attach="True" 
-                                w:PasswordHelper.Password="{Binding Path=Password, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"/>
-             
-                <Button Content="Prijavi se" x:Name="sign_in_btn" Background="White" VerticalAlignment="Center"  HorizontalAlignment="Center" MinWidth="70" Margin="0,20,0,20" Click="Sign_in_btn_Click" BorderBrush="#FF3E3E3E"/>
+                <Button Content="Prijavi se" x:Name="sign_in_btn" VerticalAlignment="Center"  HorizontalAlignment="Center" MinWidth="100" MinHeight="40" Margin="0,20,0,20" Click="Sign_in_btn_Click"/>
                 <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center">
                     <Hyperlink Click="SignUp" CommandParameter="{Binding}">
                         <TextBlock Text="Registruj se"/>
                     </Hyperlink>
                 </TextBlock>
-                
+
             </StackPanel>
         </Border>
     </Grid>

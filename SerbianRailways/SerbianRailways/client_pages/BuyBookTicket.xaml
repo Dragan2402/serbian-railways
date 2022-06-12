@@ -9,33 +9,41 @@
       Title="Kupovina/Rezervacija karata">
 
     <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="../background.png"/>
+        </Grid.Background>
         <Grid.RowDefinitions>
-            <RowDefinition Height="2*"/>
+            <RowDefinition Height="1*"/>
             <RowDefinition Height="4*"/>
-            <RowDefinition/>
+            <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" >
-            <Label Margin="0,0,25,0" HorizontalAlignment="Center"  VerticalAlignment="Center">Broj karti:</Label>
-            <TextBox Margin="0,0,50,0" Name="numOfTickets_tb" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="70" Text="{Binding Path=NumOfTickets, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" ></TextBox>
-            <Label Margin="0,0,25,0" HorizontalAlignment="Center"  VerticalAlignment="Center">Razred:</Label>
-            <ComboBox Name="classCMBX" Margin="0,0,50,0" HorizontalAlignment="Center"  VerticalAlignment="Center" ItemsSource="{Binding Path=Classes}" MinWidth="50" MaxWidth="50" BorderBrush="#FF3E3E3E" Background="White" MinHeight="30"/>
-
-            <ComboBox Name="linesCMBX" Margin="0,0,50,0" HorizontalAlignment="Center"  VerticalAlignment="Center" ItemsSource="{Binding Path=Lines}" MinWidth="200" MaxWidth="400" BorderBrush="#FF3E3E3E" Background="White" MinHeight="30"/>
-           
-            <DatePicker Margin="0,0,50,0" Name="ticketDatePicker"  HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="70" BorderBrush="#FF3E3E3E" Background="White" MinHeight="30"></DatePicker>
-            <Button Margin="20,0,00,0" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="70" BorderBrush="#FF3E3E3E" Background="White" MinHeight="30" Click="SearchRidesBTN">Pretraži</Button>
-        </StackPanel>
-        <DataGrid x:Name="dgShowingRides" ColumnWidth="*" ToolTip="Prikaz vožnji odabrane linije" Grid.Row="1" SelectionMode="Single"  AutoGenerateColumns="False"  Margin="30,10,30,0" VerticalAlignment="Top"  MinHeight="220"       CanUserAddRows="False"  HorizontalScrollBarVisibility="Disabled "  ItemsSource="{Binding}">
+        <Border Margin="10" Background="White" CornerRadius="5" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <StackPanel Margin="10" Orientation="Horizontal">
+                <Label Margin="0,0,25,0" HorizontalAlignment="Center"  VerticalAlignment="Center">Broj karti:</Label>
+                <TextBox Margin="0,0,50,0" Name="numOfTickets_tb" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="70" Text="{Binding Path=NumOfTickets, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" ></TextBox>
+                <Label Margin="0,0,25,0" HorizontalAlignment="Center"  VerticalAlignment="Center">Razred:</Label>
+                <ComboBox Name="classCMBX" Margin="0,0,50,0" HorizontalAlignment="Center"  VerticalAlignment="Center" ItemsSource="{Binding Path=Classes}" MinWidth="50" MaxWidth="50" MinHeight="30"/>
+                <ComboBox Name="linesCMBX" Margin="0,0,50,0" HorizontalAlignment="Center"  VerticalAlignment="Center" ItemsSource="{Binding Path=Lines}" MinWidth="200" MaxWidth="400" MinHeight="30"/>
+                <DatePicker Margin="0,0,50,0" Name="ticketDatePicker"  HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="70" MinHeight="30"></DatePicker>
+                <Button Margin="20,0,00,0" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="0" MinHeight="40" Click="SearchRidesBTN">Pretraži</Button>
+            </StackPanel>
+        </Border>
+        <DataGrid x:Name="dgShowingRides" ColumnWidth="*" ToolTip="Prikaz vožnji odabrane linije" Grid.Row="1" SelectionMode="Single"  AutoGenerateColumns="False"  Margin="10,10,10,30" HorizontalAlignment="Center" CanUserAddRows="False"  HorizontalScrollBarVisibility="Disabled "  ItemsSource="{Binding}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header = "Vreme vožnje" CanUserResize="False" Binding="{Binding TimeSpan}" Width="3*" IsReadOnly="True" CanUserReorder="False"/>
                 <DataGridTextColumn Header = "Voz" CanUserResize="False" Binding="{Binding Train}"  Width="3*" IsReadOnly="True"   CanUserReorder="False"/>
                 <DataGridTextColumn Header = "Cena" CanUserResize="False" Binding="{Binding Price}"  Width="2*" IsReadOnly="True"   CanUserReorder="False"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button Content="Kupi" Grid.Row="2"  HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,100,0" MinWidth="70" BorderBrush="#FF3E3E3E" Background="White" MinHeight="30" Click="BuyTicketsBtn" />
-        <Button Content="Rezerviši" Grid.Row="2"  HorizontalAlignment="Center" VerticalAlignment="Center" Margin="100,0,0,0" MinWidth="70" BorderBrush="#FF3E3E3E" Background="White" MinHeight="30" Click="ReserveTicketsBtn" />
-
-        <Button Content="Povratak" Grid.Row="2"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,20,20" MinWidth="70" BorderBrush="#FF3E3E3E" Background="White" MinHeight="30" Click="ReturnClientPage" />
-
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Button Content="Kupi"  HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="200" MinHeight="50" Click="BuyTicketsBtn" Height="50" Width="200" />
+            <Button Content="Rezerviši" Grid.Column="1"  HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="200" MinHeight="50" Click="ReserveTicketsBtn" Height="50" Width="200" />
+            <Button Content="Povratak" Grid.Column="2"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,10,10" MinWidth="100" MinHeight="40" Click="ReturnClientPage" Height="40" Width="100" />
+        </Grid>
     </Grid>
 </Page>
