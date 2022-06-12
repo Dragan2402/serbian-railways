@@ -10,8 +10,11 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Login">
 
-    <Grid Background="#774fce">
-        <Border Background="white" CornerRadius="10" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="20" Width="300" Height="300">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="../background.png"/>
+        </Grid.Background>
+        <Border Background="white" CornerRadius="5" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="20" Width="300" Height="300">
             <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Width="201" >
 
                 <TextBox x:Name="username_tb" materialDesign:HintAssist.Hint="Korisničko ime" Text="{Binding Path=Username, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" ></TextBox>

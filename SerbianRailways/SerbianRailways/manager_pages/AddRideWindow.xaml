@@ -3,38 +3,31 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:SerbianRailways.manager_pages"
         mc:Ignorable="d"
-        Title="Srbija Voz-Dodavanje vožnje" Icon="/AppLogo.png" Height="700" Width="400" WindowStartupLocation="CenterScreen">
+        Title="Srbija Voz-Dodavanje vožnje" Icon="/AppLogo.png" Height="541" Width="400" WindowStartupLocation="CenterScreen">
     <Grid>
         <StackPanel Orientation="Vertical">
-            
-            <Label VerticalAlignment="Center" Margin="0,50,0,10" HorizontalAlignment="Center">Vreme polaska:</Label>
-            <TextBox  x:Name="departureTime_tb" ToolTip="Unesite vreme polaska vožnje u formatu 'ss','ss:mm','ss:mm:sc'." Margin="0,10,0,10" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="70" Text="{Binding Path=DepartureTime, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" ></TextBox>
-            <Label VerticalAlignment="Center" Margin="0,10,0,10" HorizontalAlignment="Center">Vreme dolaska:</Label>
-            <TextBox  x:Name="arrivalTime_tb"  Margin="0,10,0,10" ToolTip="Unesite vreme dolaska vožnje u formatu 'ss','ss:mm','ss:mm:sc'." HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="70" Text="{Binding Path=ArrivalTime, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" ></TextBox>
-            <Label VerticalAlignment="Center" Margin="0,10,0,10" HorizontalAlignment="Center">Odabir voza:</Label>
-            <ComboBox Name="trainsCMBX" Margin="0,10,0,10" HorizontalAlignment="Center"  VerticalAlignment="Center" ItemsSource="{Binding Path=Trains}" />
-            <Label VerticalAlignment="Center" Margin="0,10,0,10" HorizontalAlignment="Center">Odabir linije:</Label>
-            <ComboBox Name="linesCMBX" Margin="0,10,0,10" HorizontalAlignment="Center"  VerticalAlignment="Center" ItemsSource="{Binding Path=Lines}" />
-            <Label VerticalAlignment="Center" Margin="0,10,0,10" HorizontalAlignment="Center">Cena:</Label>
-            <TextBox Margin="0,0,0,10" HorizontalAlignment="Center" ToolTip="Unesite cenu vožnje. Decimalna mesta se odvjaaju tačkom." VerticalAlignment="Center" MinWidth="70" x:Name="price_tb" Text="{Binding Path=Price, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" ></TextBox>
-            <Label VerticalAlignment="Center" Margin="0,10,0,10" HorizontalAlignment="Center">Dani kojima se obavjla vožnja:</Label>
-            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBox materialDesign:HintAssist.Hint="Vreme polaska"  ToolTip="Unesite vreme polaska vožnje u formatu 'ss','ss:mm','ss:mm:sc'." Margin="0,20,0,10" HorizontalAlignment="Center" MinWidth="70" Text="{Binding Path=DepartureTime, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" Width="300" />
+            <TextBox materialDesign:HintAssist.Hint="Vreme dolaska" x:Name="arrivalTime_tb"  Margin="0,20,0,10" ToolTip="Unesite vreme dolaska vožnje u formatu 'ss','ss:mm','ss:mm:sc'." HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="70" Text="{Binding Path=ArrivalTime, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" Width="300"></TextBox>
+            <ComboBox materialDesign:HintAssist.Hint="Odabir voza" Name="trainsCMBX" Margin="0,20,0,10" HorizontalAlignment="Center"  VerticalAlignment="Center" ItemsSource="{Binding Path=Trains}" Width="300"/>
+            <ComboBox materialDesign:HintAssist.Hint="Odabir linije" Name="linesCMBX" Margin="0,20,0,10" HorizontalAlignment="Center"  VerticalAlignment="Center" ItemsSource="{Binding Path=Lines}" Width="300"/>
+            <TextBox materialDesign:HintAssist.Hint="Cena" Margin="0,20,0,10" HorizontalAlignment="Center" ToolTip="Unesite cenu vožnje. Decimalna mesta se odvjaaju tačkom." VerticalAlignment="Center" MinWidth="70" x:Name="price_tb" Text="{Binding Path=Price, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" Width="300" ></TextBox>
+            <Label VerticalAlignment="Center" Margin="0,20,0,10" HorizontalAlignment="Center">Dani kojima se obavjla vožnja:</Label>
+            <StackPanel Margin="0,10,0,0" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
                 <CheckBox Margin="0,0,10,0" x:Name="mondayCB" IsChecked="True">Pon</CheckBox>
                 <CheckBox Margin="0,0,10,0" x:Name="tuesdayCB" IsChecked="True">Uto</CheckBox>
                 <CheckBox Margin="0,0,10,0" x:Name="wednesdayCB" IsChecked="True">Sre</CheckBox>
                 <CheckBox Margin="0,0,10,0"  x:Name="thursdayCB" IsChecked="True">Čet</CheckBox>
-                <CheckBox Margin="0,0,0,0" x:Name="fridayCB" IsChecked="True">Pet</CheckBox>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,10,0,0">
+                <CheckBox Margin="0,0,10,0" x:Name="fridayCB" IsChecked="True">Pet</CheckBox>
                 <CheckBox Margin="0,0,10,0" x:Name="saturdayCB" IsChecked="True">Sub</CheckBox>
                 <CheckBox x:Name="sundayCB" IsChecked="True">Ned</CheckBox>
             </StackPanel>
             <CheckBox x:Name="returnRide" ToolTip="Izaberite za automatsko kreiranje povratne vožnje. Ako vožnja ne postoji kreiraće se i potrebna linija." VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,30,0,30">Povratna vožnja</CheckBox>
             <WrapPanel HorizontalAlignment="Center" >
-                <Button HorizontalAlignment="Left" Margin="0,0,5,0" ToolTip="Ctrl+D" MinHeight="30" MinWidth="70" Click="AddRideBtn" >Dodaj</Button>
-                <Button HorizontalAlignment="Right"  MinHeight="30" MinWidth="70"  ToolTip="Ctrl+O" Click="Cancel_Btn">Odustani</Button>
+                <Button HorizontalAlignment="Left" Margin="0,0,30,0" ToolTip="Ctrl+D" MinHeight="40" MinWidth="100" Click="AddRideBtn" >Dodaj</Button>
+                <Button HorizontalAlignment="Right"  MinHeight="40" MinWidth="100"  ToolTip="Ctrl+O" Click="Cancel_Btn">Odustani</Button>
             </WrapPanel>
         </StackPanel>
     </Grid>

@@ -10,6 +10,9 @@
       Title="StationsPage">
 
     <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="../background.png"/>
+        </Grid.Background>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="25*"/>
             <ColumnDefinition Width="7*"/>

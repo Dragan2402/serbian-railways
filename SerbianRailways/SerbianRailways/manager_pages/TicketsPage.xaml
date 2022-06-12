@@ -9,18 +9,29 @@
       Title="TicketsPage">
 
     <Grid>
-        <TabControl x:Name="mainTab" Grid.Row="0" Grid.Column="0" Margin="10,10,10,10">
-            <TabItem Header="Izveštaj po mesecu"  MinWidth="140">
+        <Grid.Background>
+            <ImageBrush ImageSource="../background.png"/>
+        </Grid.Background>
+        <TabControl x:Name="mainTab" Grid.Row="0" Grid.Column="0" Margin="10,10,10,10" BorderThickness="0,0,0,0">
+            <TabControl.Resources>
+                <Style TargetType="{x:Type TabControl}">
+                    <Setter Property="Background" Value="Transparent"></Setter>
+                </Style>
+            </TabControl.Resources>
+            <TabItem  Header="Izveštaj po mesecu" MinWidth="200" Width="380" Margin="10,0,0,0">
                 <Grid x:Name="tab1Grid">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="5*"/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
-                    <ComboBox Name="MonthsCMBX" ItemsSource="{Binding Months , UpdateSourceTrigger=PropertyChanged}" SelectedIndex="{Binding SelectedIndex, UpdateSourceTrigger=PropertyChanged}"
-                        SelectedItem="{Binding SelectedMonth, UpdateSourceTrigger=PropertyChanged}" Grid.Row="0" Margin="0,0,120,0"  VerticalAlignment="Center" HorizontalAlignment="Center" MinWidth="100"></ComboBox>
-                    <Button VerticalAlignment="Center" ToolTip="Ctrl+R" Margin="120,0,0,0"  HorizontalAlignment="Center" MinWidth="100" MinHeight="40" Click="Refresh_Months_btn" >Osveži</Button>
-
+                    <Border CornerRadius="5" Margin="0, 5, 0, 0" HorizontalAlignment="Center" VerticalAlignment="Center" Background="white" >
+                        <WrapPanel>
+                            <ComboBox Margin="20, 10, 40, 10" Name="MonthsCMBX" ItemsSource="{Binding Months , UpdateSourceTrigger=PropertyChanged}" SelectedIndex="{Binding SelectedIndex, UpdateSourceTrigger=PropertyChanged}"
+                        SelectedItem="{Binding SelectedMonth, UpdateSourceTrigger=PropertyChanged}" Grid.Row="0"  VerticalAlignment="Center" MinWidth="100"></ComboBox>
+                            <Button Margin="0, 5, 20, 5" ToolTip="Ctrl+R" VerticalAlignment="Center" MinWidth="100" MinHeight="40" Click="Refresh_Months_btn" >Osveži</Button>
+                        </WrapPanel>
+                    </Border>
                     <DataGrid x:Name="dgTickets" ColumnWidth="*"   AutoGenerateColumns="False" Grid.Row="1" Margin="10" HorizontalAlignment="Stretch" CanUserAddRows="False"  HorizontalScrollBarVisibility="Disabled "  ItemsSource="{Binding}">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header = "Broj karte" CanUserResize="False" Binding="{Binding Id}" Width="3*" IsReadOnly="True" CanUserReorder="False"/>
@@ -34,14 +45,14 @@
 
                     </DataGrid>
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Grid.Row="2" Margin="10,0,0,0">
-                        <Label HorizontalAlignment="Left" Margin="5,0,5,0" FontWeight="Bold">Ukupni prihod:</Label>
-                        <Label HorizontalAlignment="Left" Name="TotalLbl" Margin="0,0,5,0" />
-                        <Label HorizontalAlignment="Right" Margin="50,0,5,0" FontWeight="Bold">Prosečna cena karte:</Label>
-                        <Label HorizontalAlignment="Right" Name="AvarageLbl"/>
+                        <Label Foreground="White" HorizontalAlignment="Left" Margin="5,0,5,0" FontWeight="Bold">Ukupni prihod:</Label>
+                        <Label Foreground="White" HorizontalAlignment="Left" Name="TotalLbl" Margin="0,0,5,0" />
+                        <Label Foreground="White" HorizontalAlignment="Right" Margin="50,0,5,0" FontWeight="Bold">Prosečna cena karte:</Label>
+                        <Label Foreground="White" HorizontalAlignment="Right" Name="AvarageLbl"/>
                     </StackPanel>
                 </Grid>
             </TabItem>
-            <TabItem Header="Izveštaj po vožnji"  MinWidth="140">
+            <TabItem Header="Izveštaj po vožnji" MinWidth="200" Width="385" Margin="10,0,0,0">
                 <Grid x:Name="tab2Grid">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="3*"/>
@@ -73,11 +84,11 @@
                         </DataGrid.Columns>
 
                     </DataGrid>
-                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Grid.Row="2">
-                        <Label Margin="5,0,5,0" Width="130">Ukupni prihod:</Label>
-                        <Label HorizontalAlignment="Left" Name="TotalRideLbl" Margin="0,0,5,0" />
-                        <Label Margin="50,0,5,0" Width="130">Prosečna cena karte:</Label>
-                        <Label HorizontalAlignment="Right" Name="AvarageRideLbl"/>
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Grid.Row="2" Margin="10,0,0,0">
+                        <Label Foreground="White" HorizontalAlignment="Left" Margin="5,0,5,0" FontWeight="Bold">Ukupni prihod:</Label>
+                        <Label Foreground="White" HorizontalAlignment="Left" Name="TotalRideLbl" Margin="0,0,5,0" />
+                        <Label Foreground="White" HorizontalAlignment="Right" Margin="50,0,5,0" FontWeight="Bold">Prosečna cena karte:</Label>
+                        <Label Foreground="White" HorizontalAlignment="Right" Name="AvarageRideLbl"/>
                     </StackPanel>
                 </Grid>
             </TabItem>

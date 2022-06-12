@@ -3,25 +3,19 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="Srbija Voz-Dodavanje voza" Icon="/AppLogo.png" Height="550" Width="400" WindowStartupLocation="CenterScreen">
+        Title="Srbija Voz-Dodavanje voza" Icon="/AppLogo.png" Height="450" Width="400" WindowStartupLocation="CenterScreen">
     <Grid>
-        <WrapPanel VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Vertical">
-            <Label Margin="10">Serijski broj voza:</Label>
-            <TextBox Margin="10" x:Name="SerialNumber_tb" ToolTip="Serijski broj se sastoji iz cifara. Mora biti unikatan." Text="{Binding Path=SerialNumber, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" ></TextBox>
-            <Label Margin="10">Naziv voza:</Label>
-            <TextBox  Margin="10" x:Name="name_tb" Text="{Binding Path=TrainName, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" ></TextBox>
-            <Label Margin="10">Broj vagona:</Label>
-            <TextBox  Margin="10" x:Name="seats_tb" Text="{Binding Path=Cars, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" ></TextBox>
-           
-            <Label Margin="10">Broj sedišta prvog razreda:</Label>
-            <TextBox  Margin="10" x:Name="first_class_seats" Text="{Binding Path=FirstClass, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" ></TextBox>
-            <Label Margin="10">Broj sedišta prvog razreda:</Label>
-            <TextBox  Margin="10,10,10,20" x:Name="second_class_seats" Text="{Binding Path=SecondClass, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" ></TextBox>
-           
-            <WrapPanel HorizontalAlignment="Center" >
-                <Button HorizontalAlignment="Left" ToolTip="Ctrl+D" Margin="0,0,5,0" MinHeight="30" MinWidth="70" Click="Add_train_btn" >Dodaj</Button>
-                <Button HorizontalAlignment="Right" ToolTip="Ctrl+O" MinHeight="30" MinWidth="70" Click="Cancel_Btn">Odustani</Button>
+        <WrapPanel VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Vertical" Width="300">
+            <TextBox materialDesign:HintAssist.Hint="Serijski broj voza" Margin="10, 20, 10, 10" Width="300" x:Name="SerialNumber_tb" ToolTip="Serijski broj se sastoji iz cifara. Mora biti unikatan." Text="{Binding Path=SerialNumber, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBox materialDesign:HintAssist.Hint="Naziv voza"  Margin="10, 20, 10, 10" x:Name="name_tb" Text="{Binding Path=TrainName, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" ></TextBox>
+            <TextBox materialDesign:HintAssist.Hint="Broj vagona"  Margin="10, 20, 10, 10" x:Name="seats_tb" Text="{Binding Path=Cars, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" ></TextBox>
+            <TextBox materialDesign:HintAssist.Hint="Broj sedišta prvog razreda"  Margin="10, 20, 10, 10" x:Name="first_class_seats" Text="{Binding Path=FirstClass, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" ></TextBox>
+            <TextBox materialDesign:HintAssist.Hint="Broj sedišta prvog razreda"  Margin="10, 20, 10, 10" x:Name="second_class_seats" Text="{Binding Path=SecondClass, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" ></TextBox>
+            <WrapPanel Margin="10, 30, 10, 30" HorizontalAlignment="Center" >
+                <Button HorizontalAlignment="Left" ToolTip="Ctrl+D" Margin="0,0,30,0" MinHeight="40" MinWidth="100" Click="Add_train_btn" >Dodaj</Button>
+                <Button HorizontalAlignment="Right" ToolTip="Ctrl+O" MinHeight="40" MinWidth="100" Click="Cancel_Btn">Odustani</Button>
             </WrapPanel>
         </WrapPanel>
     </Grid>

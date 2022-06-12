@@ -9,12 +9,12 @@
     <Grid>
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
 
-            <Label Margin="10">Naziv stanice:</Label>
+            <Label FontWeight="Bold" Margin="10">Naziv stanice:</Label>
             <TextBox  Margin="0,10,0,20" x:Name="name_tb" Text="{Binding Path=StationName, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" ></TextBox>
 
             <WrapPanel HorizontalAlignment="Center" >
-                <Button HorizontalAlignment="Left" Margin="0,0,5,0" MinHeight="30" MinWidth="70" ToolTip="Ctrl+D" Click="Add_station_Btn"  >Dodaj</Button>
-                <Button HorizontalAlignment="Right"  MinHeight="30" MinWidth="70" ToolTip="Ctrl+O" Click="Cancel_Btn">Odustani</Button>
+                <Button HorizontalAlignment="Left" Margin="0,0,30,0" MinHeight="40" MinWidth="100" ToolTip="Ctrl+D" Click="Add_station_Btn"  >Dodaj</Button>
+                <Button HorizontalAlignment="Right"  MinHeight="40" MinWidth="100" ToolTip="Ctrl+O" Click="Cancel_Btn">Odustani</Button>
             </WrapPanel>
         </StackPanel>
     </Grid>

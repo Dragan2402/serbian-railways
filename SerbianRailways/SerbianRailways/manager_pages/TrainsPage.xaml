@@ -9,6 +9,9 @@
       Title="TrainsPage">
 
     <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="../background.png"/>
+        </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="3*"/>
             <RowDefinition/>
