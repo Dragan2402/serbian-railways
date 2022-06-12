@@ -12,16 +12,19 @@
         <Grid.Background>
             <ImageBrush ImageSource="../background.png"/>
         </Grid.Background>
-        <TabControl x:Name="mainTab" Grid.Row="0" Grid.Column="0" Margin="10,10,10,10" BorderThickness="0,0,0,0">
+        <TabControl Margin="0,10,0,0" x:Name="mainTab" BorderThickness="0,0,0,0">
             <TabControl.Resources>
                 <Style TargetType="{x:Type TabControl}">
                     <Setter Property="Background" Value="Transparent"></Setter>
                 </Style>
+                <Style TargetType="{x:Type TabPanel}">
+                    <Setter Property="HorizontalAlignment" Value="Center"/>
+                </Style>
             </TabControl.Resources>
-            <TabItem  Header="Izveštaj po mesecu" MinWidth="200" Width="380" Margin="10,0,0,0">
+            <TabItem MinWidth="300" Header="Izveštaj po mesecu" Margin="10,0,0,0">
                 <Grid x:Name="tab1Grid">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="1*"/>
                         <RowDefinition Height="5*"/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
@@ -52,11 +55,11 @@
                     </StackPanel>
                 </Grid>
             </TabItem>
-            <TabItem Header="Izveštaj po vožnji" MinWidth="200" Width="385" Margin="10,0,0,0">
+            <TabItem MinWidth="300" Header="Izveštaj po vožnji" Margin="10,0,0,0">
                 <Grid x:Name="tab2Grid">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="3*"/>
-                        <RowDefinition Height="5*"/>
+                        <RowDefinition Height="3*"/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                     <DataGrid x:Name="dgRides" ColumnWidth="*" AutoGenerateColumns="False" Grid.Row="0" Margin="10,10,10,10" SelectionMode="Single" HorizontalAlignment="Center" CanUserAddRows="False"  HorizontalScrollBarVisibility="Disabled "  ItemsSource="{Binding}"
