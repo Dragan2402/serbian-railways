@@ -28,9 +28,9 @@
                 <DataGridTextColumn Header = "Tip" CanUserResize="False" Binding="{Binding TicketType}"  Width="*" IsReadOnly="True"   CanUserReorder="False"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button Content="Otkaži kartu" Grid.Row="1" ToolTip="Prevucite selektovanu kartu na dugme ili kliknite dugme za otkazivanje karte" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,20,20" MinWidth="70" BorderBrush="#FF3E3E3E" Background="White" MinHeight="30" Click="CancelTicket"  AllowDrop="True" DragEnter="CancelBTN_DragEnter" Drop="Cancel_Drop"/>
+        <Button Content="Otkaži kartu" Grid.Row="1" ToolTip="Prevucite selektovanu kartu na dugme ili kliknite dugme za otkazivanje karte" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,20,20" MinWidth="70" MinHeight="30" Click="CancelTicket"  AllowDrop="True" DragEnter="CancelBTN_DragEnter" Drop="Cancel_Drop"/>
 
-        <Button Content="Povratak" Grid.Row="1"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,20,20" MinWidth="70" BorderBrush="#FF3E3E3E" Background="White" MinHeight="30" Click="ReturnClientPage" />
+        <Button Content="Povratak" Grid.Row="1"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,20,20" MinWidth="70" MinHeight="30" Click="ReturnClientPage" />
 
     </Grid>
 </Page>

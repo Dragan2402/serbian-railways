@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:SerbianRailways.authorization_pages"
         xmlns:w="clr-namespace:SerbianRailways.utility"
         mc:Ignorable="d"
-        Title="Srbija Voz-Registracija" Icon="/AppLogo.png" Height="500" Width="300" WindowStartupLocation="CenterScreen">
+        Title="Srbija Voz-Registracija" Icon="/AppLogo.png" Height="600" Width="400" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid>
             
@@ -43,8 +43,8 @@
 
            
             <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Top"  Margin="0,20,0,0" Orientation="Horizontal">
-                <Button Content="Registruj se" x:Name="sign_up_btn" MinWidth="70" Margin="0,0,5,10" BorderBrush="#FF3E3E3E" Background="White"   MinHeight="30" Click="Sign_up_btn_click"/>
-                <Button Content="Odustani"   MinWidth="70" BorderBrush="#FF3E3E3E" Margin="5,0,0,10" Background="White" MinHeight="30" Click="ReturnLoginPage" />
+                <Button Content="Registruj se" x:Name="sign_up_btn" MinWidth="70" Margin="0,0,5,10" MinHeight="30" Click="Sign_up_btn_click"/>
+                <Button Content="Odustani"   MinWidth="70" Margin="5,0,0,10" MinHeight="30" Click="ReturnLoginPage" />
             </WrapPanel>
             </WrapPanel>
         </Grid>

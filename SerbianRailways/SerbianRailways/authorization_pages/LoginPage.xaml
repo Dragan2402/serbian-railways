@@ -29,7 +29,7 @@
                 <PasswordBox w:PasswordHelper.Attach="True" 
                                 w:PasswordHelper.Password="{Binding Path=Password, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"/>
              
-                <Button Content="Prijavi se" x:Name="sign_in_btn" Background="White" VerticalAlignment="Center"  HorizontalAlignment="Center" MinWidth="70" Margin="0,20,0,20" Click="Sign_in_btn_Click" BorderBrush="#FF3E3E3E"/>
+                <Button Content="Prijavi se" x:Name="sign_in_btn" VerticalAlignment="Center"  HorizontalAlignment="Center" MinWidth="70" Margin="0,20,0,20" Click="Sign_in_btn_Click"/>
                 <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center">
                     <Hyperlink Click="SignUp" CommandParameter="{Binding}">
                         <TextBlock Text="Registruj se"/>

@@ -28,8 +28,8 @@
                 
             </DataGrid.Columns>
         </DataGrid>
-        <Button Content="Izbriši Stanice" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0" MinWidth="70" BorderBrush="#FF3E3E3E" Background="White" MinHeight="30" Click="DeleteStationsBtn" AllowDrop="True" DragEnter="DeleteBTN_DragEnter" Drop="DeleteBTN_Drop" ToolTip="Prevucite stanicu za brisanje ili odaberite više stanica pa pritisnite dugme, Ctrl+I."/>
+        <Button Content="Izbriši Stanice" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0" MinWidth="70" MinHeight="30" Click="DeleteStationsBtn" AllowDrop="True" DragEnter="DeleteBTN_DragEnter" Drop="DeleteBTN_Drop" ToolTip="Prevucite stanicu za brisanje ili odaberite više stanica pa pritisnite dugme, Ctrl+I."/>
 
-        <Button Content="Povratak" Grid.Row="2" Grid.Column="2"  ToolTip="Ctrl+Backspace" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,20,20" MinWidth="70" BorderBrush="#FF3E3E3E" Background="White" MinHeight="30" Click="ReturnManagerPage" />
+        <Button Content="Povratak" Grid.Row="2" Grid.Column="2"  ToolTip="Ctrl+Backspace" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,20,20" MinWidth="70" MinHeight="30" Click="ReturnManagerPage" />
     </Grid>
 </Page>

@@ -18,12 +18,12 @@
             <Label Margin="0,0,25,0" HorizontalAlignment="Center"  VerticalAlignment="Center">Broj karti:</Label>
             <TextBox Margin="0,0,50,0" Name="numOfTickets_tb" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="70" Text="{Binding Path=NumOfTickets, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" ></TextBox>
             <Label Margin="0,0,25,0" HorizontalAlignment="Center"  VerticalAlignment="Center">Razred:</Label>
-            <ComboBox Name="classCMBX" Margin="0,0,50,0" HorizontalAlignment="Center"  VerticalAlignment="Center" ItemsSource="{Binding Path=Classes}" MinWidth="50" MaxWidth="50" BorderBrush="#FF3E3E3E" Background="White" MinHeight="30"/>
+            <ComboBox Name="classCMBX" Margin="0,0,50,0" HorizontalAlignment="Center"  VerticalAlignment="Center" ItemsSource="{Binding Path=Classes}" MinWidth="50" MaxWidth="50" MinHeight="30"/>
 
-            <ComboBox Name="linesCMBX" Margin="0,0,50,0" HorizontalAlignment="Center"  VerticalAlignment="Center" ItemsSource="{Binding Path=Lines}" MinWidth="200" MaxWidth="400" BorderBrush="#FF3E3E3E" Background="White" MinHeight="30"/>
+            <ComboBox Name="linesCMBX" Margin="0,0,50,0" HorizontalAlignment="Center"  VerticalAlignment="Center" ItemsSource="{Binding Path=Lines}" MinWidth="200" MaxWidth="400" MinHeight="30"/>
            
-            <DatePicker Margin="0,0,50,0" Name="ticketDatePicker"  HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="70" BorderBrush="#FF3E3E3E" Background="White" MinHeight="30"></DatePicker>
-            <Button Margin="20,0,00,0" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="70" BorderBrush="#FF3E3E3E" Background="White" MinHeight="30" Click="SearchRidesBTN">Pretraži</Button>
+            <DatePicker Margin="0,0,50,0" Name="ticketDatePicker"  HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="70" MinHeight="30"></DatePicker>
+            <Button Margin="20,0,00,0" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="70" MinHeight="30" Click="SearchRidesBTN">Pretraži</Button>
         </StackPanel>
         <DataGrid x:Name="dgShowingRides" ColumnWidth="*" ToolTip="Prikaz vožnji odabrane linije" Grid.Row="1" SelectionMode="Single"  AutoGenerateColumns="False"  Margin="30,10,30,0" VerticalAlignment="Top"  MinHeight="220"       CanUserAddRows="False"  HorizontalScrollBarVisibility="Disabled "  ItemsSource="{Binding}">
             <DataGrid.Columns>
@@ -32,10 +32,10 @@
                 <DataGridTextColumn Header = "Cena" CanUserResize="False" Binding="{Binding Price}"  Width="2*" IsReadOnly="True"   CanUserReorder="False"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button Content="Kupi" Grid.Row="2"  HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,100,0" MinWidth="70" BorderBrush="#FF3E3E3E" Background="White" MinHeight="30" Click="BuyTicketsBtn" />
-        <Button Content="Rezerviši" Grid.Row="2"  HorizontalAlignment="Center" VerticalAlignment="Center" Margin="100,0,0,0" MinWidth="70" BorderBrush="#FF3E3E3E" Background="White" MinHeight="30" Click="ReserveTicketsBtn" />
+        <Button Content="Kupi" Grid.Row="2"  HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,100,0" MinWidth="70" MinHeight="30" Click="BuyTicketsBtn" />
+        <Button Content="Rezerviši" Grid.Row="2"  HorizontalAlignment="Center" VerticalAlignment="Center" Margin="100,0,0,0" MinWidth="70" MinHeight="30" Click="ReserveTicketsBtn" />
 
-        <Button Content="Povratak" Grid.Row="2"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,20,20" MinWidth="70" BorderBrush="#FF3E3E3E" Background="White" MinHeight="30" Click="ReturnClientPage" />
+        <Button Content="Povratak" Grid.Row="2"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,20,20" MinWidth="70" MinHeight="30" Click="ReturnClientPage" />
 
     </Grid>
 </Page>
