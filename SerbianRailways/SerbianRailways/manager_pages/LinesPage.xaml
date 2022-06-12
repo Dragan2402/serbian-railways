@@ -16,11 +16,11 @@
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="1.5*"/>
+                <ColumnDefinition Width="1.2*"/>
+                <ColumnDefinition Width="3*"/>
             </Grid.ColumnDefinitions>
-            <DataGrid x:Name="dgLines" AutoGenerateColumns="False" Margin="0,10,0,10" HorizontalAlignment="Center" CanUserAddRows="False"  HorizontalScrollBarVisibility="Disabled "  ItemsSource="{Binding}"
-                   PreviewMouseLeftButtonDown="DGLines_PreviewMouseLeftButtonDown" MouseMove="DGLines_MouseMove" ToolTip="Prevucite željene linije na mapu za prikaz." Width="300">
+            <DataGrid x:Name="dgLines" AutoGenerateColumns="False" Margin="10,10" HorizontalAlignment="Center" CanUserAddRows="False"  HorizontalScrollBarVisibility="Disabled "  ItemsSource="{Binding}"
+                   PreviewMouseLeftButtonDown="DGLines_PreviewMouseLeftButtonDown" MouseMove="DGLines_MouseMove" ToolTip="Prevucite željene linije na mapu za prikaz.">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header = "Id" CanUserResize="False" Binding="{Binding Id}" Width="*" IsReadOnly="True" CanUserReorder="False"/>
                     <DataGridTextColumn Header = "Polazište" CanUserResize="False" Binding="{Binding DepartureStation.Name}"  Width="2.5*" IsReadOnly="True"   CanUserReorder="False"/>
@@ -32,17 +32,16 @@
         </Grid>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
-
-            <Button Content="Dodaj Liniju" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,20,0" MinWidth="70" MinHeight="30" Click="AddLineBtn" ToolTip="Ctrl+D" />
-            <Button Content="Izmena Linije" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,20,0" MinWidth="70" MinHeight="30" Click="UpdateLineBtn" AllowDrop="True" DragEnter="DeleteBTN_DragEnter" Drop="UpdateBTN_Drop" ToolTip="Prevucite liniju za izmenu ili odaberite više linija pa pritisnite dugme, Ctrl+O."/>
-            <Button Content="Izbriši Liniju" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0" MinWidth="70" MinHeight="30" Click="DeleteLineBtn" AllowDrop="True" DragEnter="DeleteBTN_DragEnter" Drop="DeleteBTN_Drop" ToolTip="Prevucite liniju za brisanje ili odaberite više linija pa pritisnite dugme, Ctrl+I."/>
-            <Button Content="Očisti mapu" Grid.Column="3" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,20,0" MinWidth="70" MinHeight="30" Click="ClearMap" Height="32" Width="108" />
-            <Button Content="Povratak" Grid.Column="3" ToolTip="Ctrl+Backspace" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,20,20" MinWidth="70" MinHeight="30" Click="ReturnManagerPage" Height="32" Width="87" />
+            <Button Content="Dodaj Liniju" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="200" MinHeight="50" Click="AddLineBtn" ToolTip="Ctrl+D" Height="50" Width="200" />
+            <Button Content="Izmena Linije" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="200" MinHeight="50" Click="UpdateLineBtn" AllowDrop="True" DragEnter="DeleteBTN_DragEnter" Drop="UpdateBTN_Drop" ToolTip="Prevucite liniju za izmenu ili odaberite više linija pa pritisnite dugme, Ctrl+O." Height="50" Width="200"/>
+            <Button Content="Izbriši Liniju" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="200" MinHeight="50" Click="DeleteLineBtn" AllowDrop="True" DragEnter="DeleteBTN_DragEnter" Drop="DeleteBTN_Drop" ToolTip="Prevucite liniju za brisanje ili odaberite više linija pa pritisnite dugme, Ctrl+I." Height="50" Width="200"/>
+            <Button Content="Očisti mapu" Grid.Column="3" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,10,0" MinWidth="100" MinHeight="40" Click="ClearMap" Height="40" Width="108" />
+            <Button Content="Povratak" Grid.Column="3" ToolTip="Ctrl+Backspace" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,10,10" MinWidth="100" MinHeight="40" Click="ReturnManagerPage" Height="40" Width="100"/>
         </Grid>
     </Grid>
 </Page>

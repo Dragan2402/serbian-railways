@@ -20,8 +20,8 @@
                 <TextBox MinWidth="300" Margin="0 20 0 0" materialDesign:HintAssist.Hint="Poštanski broj" x:Name="postalCode_tb" Text="{Binding Path=PostalCode, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" ></TextBox>
                 <TextBox MinWidth="300" Margin="0 20 0 30" materialDesign:HintAssist.Hint="Država" x:Name="country_tb"  Text="{Binding Path=Country, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" ></TextBox>
                 <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Top"  Margin="0,20,0,0" Orientation="Horizontal">
-                    <Button Content="Registruj se" x:Name="sign_up_btn" MinWidth="70" Margin="0,0,5,10" MinHeight="30" Click="Sign_up_btn_click"/>
-                    <Button Content="Odustani"   MinWidth="70" Margin="30,0,0,10" MinHeight="30" Click="ReturnLoginPage" />
+                    <Button Content="Registruj se" x:Name="sign_up_btn" MinWidth="100" Margin="0,0,5,10" MinHeight="40" Click="Sign_up_btn_click"/>
+                    <Button Content="Odustani"   MinWidth="100" Margin="30,0,0,10" MinHeight="40" Click="ReturnLoginPage" />
                 </WrapPanel>
             </WrapPanel>
         </Grid>

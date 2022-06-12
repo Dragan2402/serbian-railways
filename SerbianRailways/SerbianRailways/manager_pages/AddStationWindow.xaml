@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SerbianRailways.manager_pages"
         mc:Ignorable="d"
-         Title="Srbija Voz-Dodavanje stanice" Icon="/AppLogo.png" Height="300" Width="300" WindowStartupLocation="CenterScreen">
+         Title="Srbija Voz-Dodavanje stanice" Icon="/AppLogo.png" Height="300" Width="400" WindowStartupLocation="CenterScreen">
     <Grid>
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
 

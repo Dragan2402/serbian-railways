@@ -4,7 +4,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Srbija Voz-Dodavanje voza" Icon="/AppLogo.png" Height="550" Width="300" WindowStartupLocation="CenterScreen">
+        Title="Srbija Voz-Dodavanje voza" Icon="/AppLogo.png" Height="550" Width="400" WindowStartupLocation="CenterScreen">
     <Grid>
         <WrapPanel VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Vertical">
             <Label Margin="10">Serijski broj voza:</Label>

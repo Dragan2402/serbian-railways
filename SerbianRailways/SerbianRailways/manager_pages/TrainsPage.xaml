@@ -13,11 +13,7 @@
             <RowDefinition Height="3*"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="4*"/>
-            <ColumnDefinition Width="1*"/>
-        </Grid.ColumnDefinitions>
-        <DataGrid x:Name="dgTrains" Grid.Column="0"  ColumnWidth="*" AutoGenerateColumns="False" Grid.Row="0" Margin="50,10,0,0" HorizontalAlignment="Stretch" CanUserAddRows="False"  HorizontalScrollBarVisibility="Disabled "  ItemsSource="{Binding}"
+        <DataGrid x:Name="dgTrains" Grid.Column="0"  ColumnWidth="*" AutoGenerateColumns="False" Grid.Row="0" Margin="10,10,10,10" CanUserAddRows="False"  HorizontalScrollBarVisibility="Disabled "  ItemsSource="{Binding}"
                    PreviewMouseLeftButtonDown="DGTrains_PreviewMouseLeftButtonDown" MouseMove="DGTrains_MouseMove">
             <DataGrid.Columns>
                 <DataGridTextColumn Header = "Ser. broj" CanUserResize="False" Binding="{Binding SerialNumber}" Width="1.5*" IsReadOnly="False" CanUserReorder="False"/>
@@ -28,10 +24,15 @@
                 <DataGridTextColumn Header = "Mesta" CanUserResize="False" Binding="{Binding NumberOfSeats}"  Width="2*" IsReadOnly="False"   CanUserReorder="False"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button Content="Dodaj Voz" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,100,0" MinWidth="70" MinHeight="30" Click="AddTrainBtn" ToolTip="Ctrl+D"/>
-        <Button Content="Izbriši Voz" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="100,0,0,0" MinWidth="70" MinHeight="30" Click="DeleteTrainBtn" AllowDrop="True" DragEnter="DeleteBTN_DragEnter" Drop="DeleteBTN_Drop" ToolTip="Prevucite voz za brisanje ili odaberite više vozova pa pritisnite dugme, Ctrl+I."/>
-
-        <Button Content="Povratak" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Right" ToolTip="Ctrl+Backspace" VerticalAlignment="Bottom" Margin="0,0,20,20" MinWidth="70" MinHeight="30" Click="ReturnManagerPage" />
-
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Content="Dodaj Voz" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="200" MinHeight="50" Click="AddTrainBtn" ToolTip="Ctrl+D"/>
+            <Button Grid.Column="1" Content="Izbriši Voz" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="200" MinHeight="50" Click="DeleteTrainBtn" AllowDrop="True" DragEnter="DeleteBTN_DragEnter" Drop="DeleteBTN_Drop" ToolTip="Prevucite voz za brisanje ili odaberite više vozova pa pritisnite dugme, Ctrl+I."/>
+            <Button Grid.Column="2" Content="Povratak" HorizontalAlignment="Right" ToolTip="Ctrl+Backspace" VerticalAlignment="Bottom" Margin="0,0,10,10" MinWidth="100" MinHeight="40" Click="ReturnManagerPage" />
+        </Grid>
     </Grid>
 </Page>
