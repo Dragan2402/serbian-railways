@@ -1,4 +1,5 @@
-﻿using SerbianRailways.model.tableModels;
+﻿using SerbianRailways.help_pages;
+using SerbianRailways.model.tableModels;
 using SerbianRailways.service;
 using System;
 using System.Collections.Generic;
@@ -66,6 +67,10 @@ namespace SerbianRailways.client_pages
             main_window = window;
             main_window.Title = "Srbija Voz-Kupovina/Rezervacija Karte";
             window.CommandBindings.Clear();
+
+            RoutedCommand openHelpPage = new RoutedCommand();
+            openHelpPage.InputGestures.Add(new KeyGesture(Key.F1));
+            window.CommandBindings.Add(new CommandBinding(openHelpPage, ToggleHelpPageSC));
 
             ticketDatePicker.Text = "Datum";
             ticketDatePicker.ToolTip = "Odaberite datum vožnje";
@@ -198,6 +203,11 @@ namespace SerbianRailways.client_pages
                     main_frame.Content = new ClientMainPage(MockService, main_frame, main_window);
                 }
             }
+        }
+
+        private void ToggleHelpPageSC(object sender, ExecutedRoutedEventArgs e)
+        {
+            main_frame.Content = new HelpPage(MockService, main_frame, main_window, "Kupi/Rezerviši Karte", "clientBuyBookTicket");
         }
     }
 }

@@ -33,7 +33,7 @@ namespace SerbianRailways
 
 
             MockService = new MockService();
-            Main.Content = new Login(MockService,Main,this);
+            Main.Content = new Login(MockService, Main, this);
         }
 
 

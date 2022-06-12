@@ -88,6 +88,9 @@
     <Compile Include="client_pages\TicketsPreviewPage.xaml.cs">
       <DependentUpon>TicketsPreviewPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="help_pages\HelpPage.xaml.cs">
+      <DependentUpon>HelpPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="manager_pages\AddLineWindow.xaml.cs">
       <DependentUpon>AddLineWindow.xaml</DependentUpon>
     </Compile>
@@ -157,6 +160,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="client_pages\TicketsPreviewPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="help_pages\HelpPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -263,6 +270,11 @@
     <Resource Include="AppLogo.png" />
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <Content Include="help_pages\html\clientBuyBookTicket.html" />
+    <Content Include="help_pages\html\clientLinesRidesPreview.html" />
+    <Content Include="help_pages\html\error.html" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.4.5.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.5.0\build\MaterialDesignThemes.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
