@@ -27,7 +27,8 @@ namespace SerbianRailways.manager_pages
 
         Point startPoint = new Point();
 
-      
+        CommandBinding AddBinding { get; set; }
+        CommandBinding DeleteBinding { get; set; }
 
         private MockService MockService { get; set; }
         Frame main_frame;
@@ -40,30 +41,39 @@ namespace SerbianRailways.manager_pages
             main_frame = mainFrame;
             main_window = window;
             main_window.Title = "Srbija Voz-Upravljanje vozovima";
-            window.CommandBindings.Clear();
-            RoutedCommand newCmd = new RoutedCommand();
-            newCmd.InputGestures.Add(new KeyGesture(Key.Back, ModifierKeys.Control));
-            window.CommandBindings.Add(new CommandBinding(newCmd, ReturnManagerPageSC));
+            //window.CommandBindings.Clear();
+
+
+            RoutedCommand mainMenuCMD = new RoutedCommand();
+            mainMenuCMD.InputGestures.Add(new KeyGesture(Key.M, ModifierKeys.Control));
+            window.CommandBindings.Add(new CommandBinding(mainMenuCMD, MainMenuSc));
+            ((MainWindow)System.Windows.Application.Current.MainWindow).MainMenuMenuItem.Command = mainMenuCMD;
             trains = MockService.GetAllTrainsTable();
             dgTrains.DataContext = trains;
 
 
             RoutedCommand addTrainCMD = new RoutedCommand();
             addTrainCMD.InputGestures.Add(new KeyGesture(Key.D, ModifierKeys.Control));
-            window.CommandBindings.Add(new CommandBinding(addTrainCMD, AddTrainSC));
+            AddBinding = new CommandBinding(addTrainCMD, AddTrainSC);
+            window.CommandBindings.Add(AddBinding);
 
             RoutedCommand deleteTrainsCMD = new RoutedCommand();
             deleteTrainsCMD.InputGestures.Add(new KeyGesture(Key.I, ModifierKeys.Control));
-            window.CommandBindings.Add(new CommandBinding(deleteTrainsCMD, DeleteTrainsSC));
+            DeleteBinding = new CommandBinding(deleteTrainsCMD, DeleteTrainsSC);
+            window.CommandBindings.Add(DeleteBinding);
 
         }
 
         private void ReturnManagerPage(object sender, RoutedEventArgs e)
         {
+            main_window.CommandBindings.Remove(DeleteBinding);
+            main_window.CommandBindings.Remove(AddBinding);
             main_frame.Content = new ManagerMainPage(MockService, main_frame, main_window);
         }
-        private void ReturnManagerPageSC(object sender, ExecutedRoutedEventArgs e)
+        private void MainMenuSc(object sender, ExecutedRoutedEventArgs e)
         {
+            main_window.CommandBindings.Remove(DeleteBinding);            
+            main_window.CommandBindings.Remove(AddBinding);
             main_frame.Content = new ManagerMainPage(MockService, main_frame, main_window);
         }
 

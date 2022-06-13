@@ -67,6 +67,11 @@ namespace SerbianRailways.manager_pages
             }
         }
 
+        CommandBinding RefreshCommandBinding { get; set; }
+        CommandBinding RideCommandBinding { get; set; }
+        CommandBinding MonthCommandBinding { get; set; }
+
+
         private MockService MockService { get; set; }
         Frame main_frame;
         Window main_window { get; set; }
@@ -92,22 +97,29 @@ namespace SerbianRailways.manager_pages
             dgRides.DataContext = MockService.GetRidesTable();
 
 
-            window.CommandBindings.Clear();
-            RoutedCommand newCmd = new RoutedCommand();
-            newCmd.InputGestures.Add(new KeyGesture(Key.Back, ModifierKeys.Control));
-            window.CommandBindings.Add(new CommandBinding(newCmd, ReturnManagerPageSC));
+            //window.CommandBindings.Clear();
+
+
+            RoutedCommand mainMenuCMD = new RoutedCommand();
+            mainMenuCMD.InputGestures.Add(new KeyGesture(Key.M, ModifierKeys.Control));
+            window.CommandBindings.Add(new CommandBinding(mainMenuCMD, MainMenuSc));
+
+            ((MainWindow)System.Windows.Application.Current.MainWindow).MainMenuMenuItem.Command = mainMenuCMD;
 
             RoutedCommand monthlyReportSC = new RoutedCommand();
-            monthlyReportSC.InputGestures.Add(new KeyGesture(Key.M, ModifierKeys.Control));
-            window.CommandBindings.Add(new CommandBinding(monthlyReportSC, MonthlyReportSC));
+            monthlyReportSC.InputGestures.Add(new KeyGesture(Key.T, ModifierKeys.Control));
+            MonthCommandBinding = new CommandBinding(monthlyReportSC, MonthlyReportSC);
+            window.CommandBindings.Add(MonthCommandBinding);
 
             RoutedCommand rideReportCMD = new RoutedCommand();
             rideReportCMD.InputGestures.Add(new KeyGesture(Key.V, ModifierKeys.Control));
-            window.CommandBindings.Add(new CommandBinding(rideReportCMD, RideReportSC));
+            RideCommandBinding = new CommandBinding(rideReportCMD, RideReportSC);
+            window.CommandBindings.Add(RideCommandBinding);
 
             RoutedCommand refreshCMD = new RoutedCommand();
             refreshCMD.InputGestures.Add(new KeyGesture(Key.R, ModifierKeys.Control));
-            window.CommandBindings.Add(new CommandBinding(refreshCMD, RefreshSC));
+            RefreshCommandBinding = new CommandBinding(refreshCMD, RefreshSC);
+            window.CommandBindings.Add(RefreshCommandBinding);
 
         }
         private void MonthlyReportSC(object sender, ExecutedRoutedEventArgs e)
@@ -123,10 +135,16 @@ namespace SerbianRailways.manager_pages
 
         private void ReturnManagerPage(object sender, RoutedEventArgs e)
         {
+            main_window.CommandBindings.Remove(RideCommandBinding);
+            main_window.CommandBindings.Remove(RefreshCommandBinding);
+            main_window.CommandBindings.Remove(MonthCommandBinding);
             main_frame.Content = new ManagerMainPage(MockService, main_frame, main_window);
         }
-        private void ReturnManagerPageSC(object sender, ExecutedRoutedEventArgs e)
-        {
+        private void MainMenuSc(object sender, ExecutedRoutedEventArgs e)        {
+
+            main_window.CommandBindings.Remove(RideCommandBinding);
+            main_window.CommandBindings.Remove(RefreshCommandBinding);
+            main_window.CommandBindings.Remove(MonthCommandBinding);
             main_frame.Content = new ManagerMainPage(MockService, main_frame, main_window);
         }
         private void RefreshSC(object sender, ExecutedRoutedEventArgs e)

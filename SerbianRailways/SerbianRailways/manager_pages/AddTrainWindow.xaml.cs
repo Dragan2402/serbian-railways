@@ -60,7 +60,7 @@ namespace SerbianRailways.manager_pages
                 if (value != _cars)
                 {
                     _cars = value;
-                    OnPropertyChanged("Seats");
+                    OnPropertyChanged("Cars");
                 }
             }
         }
@@ -110,6 +110,12 @@ namespace SerbianRailways.manager_pages
             RoutedCommand cancelCMD = new RoutedCommand();
             cancelCMD.InputGestures.Add(new KeyGesture(Key.O, ModifierKeys.Control));
             this.CommandBindings.Add(new CommandBinding(cancelCMD, cancelSC));
+
+            SerialNumber_tb.Text = "500";
+            cars_tb.Text = "5";
+            name_tb.Text = "Voz";
+            first_class_seats.Text = "10";
+            second_class_seats.Text = "10";
 
         }
 

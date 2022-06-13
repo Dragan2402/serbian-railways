@@ -85,6 +85,11 @@ namespace SerbianRailways.manager_pages
             Trains = mockService.GetAllTrains();
             Lines = mockService.GetAllLines();
 
+            TimeSpan timespan = new TimeSpan(12, 0, 0);
+            deparuteTime_tb.Text = timespan.ToString();
+            arrivalTime_tb.Text=timespan.ToString();
+            price_tb.Text = "500";
+
             RoutedCommand addNewRidecmd = new RoutedCommand();
             addNewRidecmd.InputGestures.Add(new KeyGesture(Key.D, ModifierKeys.Control));
             this.CommandBindings.Add(new CommandBinding(addNewRidecmd, AddRideSC));
@@ -159,10 +164,31 @@ namespace SerbianRailways.manager_pages
             }
             else
             {
+                TimeSpan limitUpper = new TimeSpan(24, 0, 0);
+                TimeSpan limitDown = new TimeSpan(0, 0, 0);
+
+
+                if (DepartureTime.Duration().CompareTo(limitUpper.Duration()) > 0 || DepartureTime.Duration().CompareTo(limitDown.Duration()) < 0)
+                {
+                    MessageBox.Show("Molimo vas unesite sve potrebne podatke ispravno.", "Greška pri dodavanju vožnje", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+
+                if (ArrivalTime.Duration().CompareTo(limitUpper.Duration()) > 0 || ArrivalTime.Duration().CompareTo(limitDown.Duration()) < 0)
+                {
+                    MessageBox.Show("Molimo vas unesite sve potrebne podatke ispravno.", "Greška pri dodavanju vožnje", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+
+                
+                if (Price <=0)
+                {
+                    MessageBox.Show("Molimo vas unesite sve potrebne podatke ispravno.", "Greška pri dodavanju vožnje", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
 
                 model.Line line = (model.Line)linesCMBX.SelectedItem;
                 Train train = (Train)trainsCMBX.SelectedItem;
-
                 
                 Ride ride = MockService.AddRide(DepartureTime, ArrivalTime, train, line, Price,dayOfWeeksThatRides);
                 Rides.Add(ride);

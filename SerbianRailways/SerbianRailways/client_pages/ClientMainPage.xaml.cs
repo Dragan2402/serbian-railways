@@ -40,7 +40,14 @@ namespace SerbianRailways.client_pages
             main_frame = mainFrame;
             main_window= window;
             main_window.Title = "Srbija Voz";
-            window.CommandBindings.Clear();
+            //window.CommandBindings.Clear();
+            RoutedCommand logoutCMD = new RoutedCommand();
+            logoutCMD.InputGestures.Add(new KeyGesture(Key.Back, ModifierKeys.Control));
+            window.CommandBindings.Add(new CommandBinding(logoutCMD, LogoutSC));
+
+
+            ((MainWindow)System.Windows.Application.Current.MainWindow).LogoutMenuItem.IsEnabled = true;
+            ((MainWindow)System.Windows.Application.Current.MainWindow).LogoutMenuItem.Command = logoutCMD;
         }
 
         public void log_out(object sender, RoutedEventArgs e)
@@ -54,6 +61,18 @@ namespace SerbianRailways.client_pages
             }
             
         }
+
+        private void LogoutSC(object sender, ExecutedRoutedEventArgs e)
+        {
+            if (MessageBox.Show("Da li ste sigurni da želite da se odjavite?",
+                 "Odjava",
+                 MessageBoxButton.YesNo,
+                 MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                main_frame.Content = new Login(MockService, main_frame, main_window);
+            }
+        }
+
         public void showMyTickets(object sender,RoutedEventArgs e)
         {
             main_frame.Content = new TicketsPreviewPage(MockService, main_frame,main_window);

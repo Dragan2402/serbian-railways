@@ -69,10 +69,42 @@ namespace SerbianRailways.authorization_pages
             main_window = window;
             main_window.Title = "Srbija Voz-Prijava";
             window.CommandBindings.Clear();
-            username_tb.Focus();    
+            username_tb.Focus();
+
+            RoutedCommand exitCMD = new RoutedCommand();
+            exitCMD.InputGestures.Add(new KeyGesture(Key.F4, ModifierKeys.Alt));
+            window.CommandBindings.Add(new CommandBinding(exitCMD, ExitCommandSC));
+
+
+            ((MainWindow)System.Windows.Application.Current.MainWindow).LogoutMenuItem.IsEnabled = false;
+            ((MainWindow)System.Windows.Application.Current.MainWindow).LogoutMenuItem.IsEnabled = false;
+
+            ((MainWindow)System.Windows.Application.Current.MainWindow).MainMenuMenuItem.Visibility = Visibility.Collapsed;
+            ((MainWindow)System.Windows.Application.Current.MainWindow).MainMenuSeperator.Visibility=Visibility.Collapsed;
+             ((MainWindow)System.Windows.Application.Current.MainWindow).MainMenuMenuItem.IsEnabled = false;
+
+            ((MainWindow)System.Windows.Application.Current.MainWindow).CRUDEntitiesMenuItem.IsEnabled= false;
+            ((MainWindow)System.Windows.Application.Current.MainWindow).CRUDEntitiesMenuItem.Visibility = Visibility.Collapsed;
+
+            ((MainWindow)System.Windows.Application.Current.MainWindow).StatisticsMenu.IsEnabled = false;
+            ((MainWindow)System.Windows.Application.Current.MainWindow).StatisticsMenu.Visibility = Visibility.Collapsed;
+
+            ((MainWindow)System.Windows.Application.Current.MainWindow).HelpMenu.IsEnabled = false;
+            ((MainWindow)System.Windows.Application.Current.MainWindow).HelpMenu.Visibility = Visibility.Collapsed;
+
+            ((MainWindow)System.Windows.Application.Current.MainWindow).ExitMenuItem.Command = exitCMD;
         }
 
-
+        private void ExitCommandSC(object sender, ExecutedRoutedEventArgs e)
+        {
+            if (MessageBox.Show("Da li ste sigurni da želite da ugasite aplikaciju?",
+                 "Izlaz",
+                 MessageBoxButton.YesNo,
+                 MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                main_window.Close();
+            }
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
 

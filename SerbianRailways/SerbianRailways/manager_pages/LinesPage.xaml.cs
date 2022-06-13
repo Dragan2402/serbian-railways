@@ -33,7 +33,9 @@ namespace SerbianRailways.manager_pages
 
         List<System.Windows.Media.Color> ColorsToPick = new List<System.Windows.Media.Color>();
 
-        
+        CommandBinding AddBinding { get; set; }
+        CommandBinding DeleteBinding { get; set; }
+        CommandBinding UpdateBinding { get; set; }
 
         Random rand = new Random();
 
@@ -54,26 +56,29 @@ namespace SerbianRailways.manager_pages
             Lines = MockService.GetAllLinesTable();
             dgLines.DataContext = Lines;
 
-            window.CommandBindings.Clear();
+            //window.CommandBindings.Clear();
 
             AddColors();
 
+            RoutedCommand mainMenuCMD = new RoutedCommand();
+            mainMenuCMD.InputGestures.Add(new KeyGesture(Key.M, ModifierKeys.Control));
+            window.CommandBindings.Add(new CommandBinding(mainMenuCMD, MainMenuSc));
 
-            RoutedCommand newCmd = new RoutedCommand();
-            newCmd.InputGestures.Add(new KeyGesture(Key.Back, ModifierKeys.Control));
-            window.CommandBindings.Add(new CommandBinding(newCmd, ReturnManagerPageSC));
-
+            ((MainWindow)System.Windows.Application.Current.MainWindow).MainMenuMenuItem.Command = mainMenuCMD;
 
             RoutedCommand addLineCMD = new RoutedCommand();
             addLineCMD.InputGestures.Add(new KeyGesture(Key.D, ModifierKeys.Control));
-            window.CommandBindings.Add(new CommandBinding(addLineCMD, AddLineSC));
+            AddBinding = new CommandBinding(addLineCMD, AddLineSC);
+            window.CommandBindings.Add(AddBinding);
 
             RoutedCommand delteLinesCMD = new RoutedCommand();
             delteLinesCMD.InputGestures.Add(new KeyGesture(Key.I, ModifierKeys.Control));
-            window.CommandBindings.Add(new CommandBinding(delteLinesCMD, DeleteLineSC));
+            DeleteBinding = new CommandBinding(delteLinesCMD, DeleteLineSC);
+            window.CommandBindings.Add(DeleteBinding);
 
             RoutedCommand updateLinesCMD = new RoutedCommand();
             updateLinesCMD.InputGestures.Add(new KeyGesture(Key.O, ModifierKeys.Control));
+            UpdateBinding = new CommandBinding(updateLinesCMD, UpdateLineSc);
             window.CommandBindings.Add(new CommandBinding(updateLinesCMD, UpdateLineSc));
 
         }
@@ -96,12 +101,20 @@ namespace SerbianRailways.manager_pages
 
         private void ReturnManagerPage(object sender, RoutedEventArgs e)
         {
+            main_window.CommandBindings.Remove(DeleteBinding);
+            main_window.CommandBindings.Remove(UpdateBinding);
+            main_window.CommandBindings.Remove(AddBinding);
             main_frame.Content = new ManagerMainPage(MockService, main_frame, main_window);
         }
-        private void ReturnManagerPageSC(object sender, ExecutedRoutedEventArgs e)
+
+        private void MainMenuSc(object sender, ExecutedRoutedEventArgs e)
         {
+            main_window.CommandBindings.Remove(DeleteBinding);
+            main_window.CommandBindings.Remove(UpdateBinding);
+            main_window.CommandBindings.Remove(AddBinding);
             main_frame.Content = new ManagerMainPage(MockService, main_frame, main_window);
         }
+
 
         private void AddLineSC(object sender, ExecutedRoutedEventArgs e)
         {

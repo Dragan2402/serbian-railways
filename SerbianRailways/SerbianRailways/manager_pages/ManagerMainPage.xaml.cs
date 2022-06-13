@@ -64,43 +64,86 @@ namespace SerbianRailways.manager_pages
             LoggedUserAddress = "Adresa: " + MockService.GetLoggedUser().Address.ToString();
             LoggedUserName = "Ime: " + MockService.GetLoggedUser().Name + " " + mockService.GetLoggedUser().Surname;
             main_frame = mainFrame;
-            
+
+            Window window1 = new DemoPlayerWindow();
+            window1.Show();
+
             main_window = window;
             main_window.Title = "Srbija Voz";
 
             GenerateSupportedFunctions();
 
-            window.CommandBindings.Clear();
+            ClearAndAddBindings();           
+            
+
+        }
+
+        private void ClearAndAddBindings()
+        {
+            main_window.CommandBindings.Clear();
+
+            RoutedCommand exitCMD = new RoutedCommand();
+            exitCMD.InputGestures.Add(new KeyGesture(Key.F4, ModifierKeys.Alt));
+            main_window.CommandBindings.Add(new CommandBinding(exitCMD, ExitCommandSC));
+            ((MainWindow)System.Windows.Application.Current.MainWindow).ExitMenuItem.Command = exitCMD;
+
+            RoutedCommand logoutCMD = new RoutedCommand();
+            logoutCMD.InputGestures.Add(new KeyGesture(Key.Back, ModifierKeys.Control));
+            main_window.CommandBindings.Add(new CommandBinding(logoutCMD, LogoutSC));
 
             RoutedCommand toggleTrainsCMD = new RoutedCommand();
             toggleTrainsCMD.InputGestures.Add(new KeyGesture(Key.V, ModifierKeys.Alt));
-            window.CommandBindings.Add(new CommandBinding(toggleTrainsCMD, ToggleTrainsCRUDPageSC));
+            main_window.CommandBindings.Add(new CommandBinding(toggleTrainsCMD, ToggleTrainsCRUDPageSC));
 
             RoutedCommand toggleStationsCMD = new RoutedCommand();
             toggleStationsCMD.InputGestures.Add(new KeyGesture(Key.S, ModifierKeys.Alt));
-            window.CommandBindings.Add(new CommandBinding(toggleStationsCMD, ToggleStationsCRUDPageSC));
+            main_window.CommandBindings.Add(new CommandBinding(toggleStationsCMD, ToggleStationsCRUDPageSC));
 
             RoutedCommand toggleTicketsCMD = new RoutedCommand();
             toggleTicketsCMD.InputGestures.Add(new KeyGesture(Key.K, ModifierKeys.Alt));
-            window.CommandBindings.Add(new CommandBinding(toggleTicketsCMD, ToggleTicketsCRUDPageSC));
+            main_window.CommandBindings.Add(new CommandBinding(toggleTicketsCMD, ToggleTicketsCRUDPageSC));
 
             RoutedCommand toggleLinesCMD = new RoutedCommand();
             toggleLinesCMD.InputGestures.Add(new KeyGesture(Key.L, ModifierKeys.Alt));
-            window.CommandBindings.Add(new CommandBinding(toggleLinesCMD, ToggleLinesCRUDPageSC));
+            main_window.CommandBindings.Add(new CommandBinding(toggleLinesCMD, ToggleLinesCRUDPageSC));
 
             RoutedCommand toggleRidesCMD = new RoutedCommand();
             toggleRidesCMD.InputGestures.Add(new KeyGesture(Key.O, ModifierKeys.Alt));
-            window.CommandBindings.Add(new CommandBinding(toggleRidesCMD, ToggleRidesCRUDPageSC));
+            main_window.CommandBindings.Add(new CommandBinding(toggleRidesCMD, ToggleRidesCRUDPageSC));
 
 
             RoutedCommand toggleCommandLine = new RoutedCommand();
             toggleCommandLine.InputGestures.Add(new KeyGesture(Key.F11, ModifierKeys.Control));
-            window.CommandBindings.Add(new CommandBinding(toggleCommandLine, ToggleCommandLine));
+            main_window.CommandBindings.Add(new CommandBinding(toggleCommandLine, ToggleCommandLine));
 
             RoutedCommand clearCommandLineCMD = new RoutedCommand();
             clearCommandLineCMD.InputGestures.Add(new KeyGesture(Key.B, ModifierKeys.Control));
-            window.CommandBindings.Add(new CommandBinding(clearCommandLineCMD, ClearCommandLine));
+            main_window.CommandBindings.Add(new CommandBinding(clearCommandLineCMD, ClearCommandLine));
 
+
+
+            ((MainWindow)System.Windows.Application.Current.MainWindow).CRUDEntitiesMenuItem.IsEnabled = true;
+            ((MainWindow)System.Windows.Application.Current.MainWindow).CRUDEntitiesMenuItem.Visibility = Visibility.Visible;
+
+            ((MainWindow)System.Windows.Application.Current.MainWindow).LogoutMenuItem.IsEnabled = true;
+            ((MainWindow)System.Windows.Application.Current.MainWindow).LogoutMenuItem.Command = logoutCMD;
+
+            ((MainWindow)System.Windows.Application.Current.MainWindow).StatisticsMenu.IsEnabled = true;
+            ((MainWindow)System.Windows.Application.Current.MainWindow).StatisticsMenu.Visibility = Visibility.Visible;
+
+            ((MainWindow)System.Windows.Application.Current.MainWindow).HelpMenu.IsEnabled = true;
+            ((MainWindow)System.Windows.Application.Current.MainWindow).StatisticsMenu.Visibility = Visibility.Visible;
+
+            ((MainWindow)System.Windows.Application.Current.MainWindow).MainMenuSeperator.Visibility = Visibility.Visible;
+            ((MainWindow)System.Windows.Application.Current.MainWindow).MainMenuMenuItem.Visibility = Visibility.Visible;
+            ((MainWindow)System.Windows.Application.Current.MainWindow).MainMenuMenuItem.IsEnabled = true;
+            ((MainWindow)System.Windows.Application.Current.MainWindow).MainMenuMenuItem.Command = null;
+
+            ((MainWindow)System.Windows.Application.Current.MainWindow).TrainsMenuItem.Command = toggleTrainsCMD;
+            ((MainWindow)System.Windows.Application.Current.MainWindow).LinesMenuItem.Command = toggleLinesCMD;
+            ((MainWindow)System.Windows.Application.Current.MainWindow).RidesMenuItem.Command = toggleRidesCMD;
+            ((MainWindow)System.Windows.Application.Current.MainWindow).TicketsMenuItem.Command = toggleTicketsCMD;
+            ((MainWindow)System.Windows.Application.Current.MainWindow).StationsMenuItem.Command = toggleStationsCMD;
         }
 
         private void GenerateSupportedFunctions()
@@ -129,35 +172,80 @@ namespace SerbianRailways.manager_pages
             }
 
         }
+        private void SignOut_MenuClick(object sender, RoutedEventArgs e)
+        {
+            if (MessageBox.Show("Da li ste sigurni da želite da se odjavite?",
+                "Odjava",
+                MessageBoxButton.YesNo,
+                MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                main_frame.Content = new Login(MockService, main_frame, main_window);
+            }
+        }
+
+        private void LogoutSC(object sender, ExecutedRoutedEventArgs e)
+        {
+            if (MessageBox.Show("Da li ste sigurni da želite da se odjavite?",
+                 "Odjava",
+                 MessageBoxButton.YesNo,
+                 MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                main_frame.Content = new Login(MockService, main_frame, main_window);
+            }
+        }
+
+        private void ExitCommandSC(object sender, ExecutedRoutedEventArgs e)
+        {
+            if (MessageBox.Show("Da li ste sigurni da želite da ugasite aplikaciju?",
+                 "Izlaz",
+                 MessageBoxButton.YesNo,
+                 MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                main_window.Close();
+            }
+        }
+
+        private void MainMenuSc(object sender, ExecutedRoutedEventArgs e)
+        {
+            ClearAndAddBindings();
+            main_frame.Content = new ManagerMainPage(MockService, main_frame, main_window);
+        }
 
         private void ToggleTrainsCRUDPageBTN(object sender, RoutedEventArgs e)
         {
+            ClearAndAddBindings();
             main_frame.Content = new TrainsPage(MockService, main_frame, main_window);
         }
         private void ToggleTicketsCRUDPageBTN(object sender, RoutedEventArgs e)
         {
+            ClearAndAddBindings();
             main_frame.Content = new TicketsPage(MockService, main_frame, main_window);
         }
         private void ToggleStationsCRUDPageBTN(object sender, RoutedEventArgs e)
         {
+            ClearAndAddBindings();
             main_frame.Content = new StationsPage(MockService, main_frame, main_window);
         }
         private void ToggleLinesCRUDPageBTN(object sender, RoutedEventArgs e)
         {
+            ClearAndAddBindings();
             main_frame.Content = new LinesPage(MockService, main_frame, main_window);
         }
         private void ToggleRidesCRUDPageBTN(object sender, RoutedEventArgs e)
         {
+            ClearAndAddBindings();
             main_frame.Content = new RidesPage(MockService, main_frame, main_window);
         }
 
         private void ToggleTrainsCRUDPageSC(object sender, ExecutedRoutedEventArgs e)
         {
+            ClearAndAddBindings();
             main_frame.Content= new TrainsPage(MockService, main_frame, main_window);
         }
 
         private void ToggleTicketsCRUDPageSC(object sender, ExecutedRoutedEventArgs e)
         {
+            ClearAndAddBindings();
             main_frame.Content = new TicketsPage(MockService, main_frame, main_window);
         }
 
@@ -168,11 +256,13 @@ namespace SerbianRailways.manager_pages
 
         private void ToggleLinesCRUDPageSC(object sender, ExecutedRoutedEventArgs e)
         {
+            ClearAndAddBindings();
             main_frame.Content = new LinesPage(MockService, main_frame, main_window);
         }
 
         private void ToggleRidesCRUDPageSC(object sender, ExecutedRoutedEventArgs e)
         {
+            ClearAndAddBindings();
             main_frame.Content = new RidesPage(MockService, main_frame, main_window);
         }
         private void ToggleCommandLine(object sender, ExecutedRoutedEventArgs e)
@@ -796,5 +886,7 @@ namespace SerbianRailways.manager_pages
             WaitingForCMDLineClear=true;         
             
         }
+
+
     }
 }

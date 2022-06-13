@@ -33,6 +33,7 @@ namespace SerbianRailways.manager_pages
         Window main_window { get; set; }
 
         private Dictionary<Station,Pushpin> StationPins = new Dictionary<Station,Pushpin>();
+        CommandBinding DeleteBinding { get; set; }
 
         private ObservableCollection<Station> Stations { get; set; }
         public StationsPage(MockService mockService, Frame mainFrame, Window window)
@@ -44,14 +45,18 @@ namespace SerbianRailways.manager_pages
             main_window = window;
             main_window.Title = "Srbija Voz-Upravljanje stanicama";
             RailGridMap.Focus();
-            window.CommandBindings.Clear();
-            RoutedCommand newCmd = new RoutedCommand();
-            newCmd.InputGestures.Add(new KeyGesture(Key.Back, ModifierKeys.Control));
-            window.CommandBindings.Add(new CommandBinding(newCmd, ReturnManagerPageSC));
+            //window.CommandBindings.Clear();
+
+            RoutedCommand mainMenuCMD = new RoutedCommand();
+            mainMenuCMD.InputGestures.Add(new KeyGesture(Key.M, ModifierKeys.Control));
+            window.CommandBindings.Add(new CommandBinding(mainMenuCMD, MainMenuSc));
+
+            ((MainWindow)System.Windows.Application.Current.MainWindow).MainMenuMenuItem.Command = mainMenuCMD;
 
             RoutedCommand deleteTrainsCMD = new RoutedCommand();
             deleteTrainsCMD.InputGestures.Add(new KeyGesture(Key.I, ModifierKeys.Control));
-            window.CommandBindings.Add(new CommandBinding(deleteTrainsCMD, DeleteStationsSC));
+            DeleteBinding = new CommandBinding(deleteTrainsCMD, DeleteStationsSC);
+            window.CommandBindings.Add(DeleteBinding);
 
             Stations = mockService.GetAllStationsTable();
             dgStations.DataContext = Stations;
@@ -72,10 +77,12 @@ namespace SerbianRailways.manager_pages
 
         private void ReturnManagerPage(object sender, RoutedEventArgs e)
         {
+            main_window.CommandBindings.Remove(DeleteBinding);
             main_frame.Content = new ManagerMainPage(MockService, main_frame, main_window);
         }
-        private void ReturnManagerPageSC(object sender, ExecutedRoutedEventArgs e)
+        private void MainMenuSc(object sender, ExecutedRoutedEventArgs e)
         {
+            main_window.CommandBindings.Remove(DeleteBinding);
             main_frame.Content = new ManagerMainPage(MockService, main_frame, main_window);
         }
 

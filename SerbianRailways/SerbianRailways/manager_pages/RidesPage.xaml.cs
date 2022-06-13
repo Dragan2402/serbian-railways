@@ -29,6 +29,10 @@ namespace SerbianRailways.manager_pages
         Point startPoint = new Point();
 
         ObservableCollection<Ride> Rides = new ObservableCollection<Ride>();
+        CommandBinding AddBinding { get; set; }
+        CommandBinding DeleteBinding { get; set; }
+        CommandBinding UpdateBinding { get; set; }
+
 
         public RidesPage(MockService mockService, Frame mainFrame, Window window)
         {
@@ -37,36 +41,47 @@ namespace SerbianRailways.manager_pages
             MockService = mockService;
             main_frame = mainFrame;
             main_window = window;
-            window.CommandBindings.Clear();
+            //window.CommandBindings.Clear();
             window.Title = "Srbija Voz-Upravljanje vožnjama";
             Rides = MockService.GetAllRidesTable();
             dgRides.DataContext = Rides;
 
-            RoutedCommand newCmd = new RoutedCommand();
-            newCmd.InputGestures.Add(new KeyGesture(Key.Back, ModifierKeys.Control));
-            window.CommandBindings.Add(new CommandBinding(newCmd, ReturnManagerPageSC));
+            RoutedCommand mainMenuCMD = new RoutedCommand();
+            mainMenuCMD.InputGestures.Add(new KeyGesture(Key.M, ModifierKeys.Control));
+            window.CommandBindings.Add(new CommandBinding(mainMenuCMD, MainMenuSc));
+
+            ((MainWindow)System.Windows.Application.Current.MainWindow).MainMenuMenuItem.Command = mainMenuCMD;
 
 
             RoutedCommand addRideCMD = new RoutedCommand();
             addRideCMD.InputGestures.Add(new KeyGesture(Key.D, ModifierKeys.Control));
-            window.CommandBindings.Add(new CommandBinding(addRideCMD, AddRideSC));
+            AddBinding = new CommandBinding(addRideCMD, AddRideSC);
+            window.CommandBindings.Add(AddBinding);
 
             RoutedCommand deleteRidesCMD = new RoutedCommand();
             deleteRidesCMD.InputGestures.Add(new KeyGesture(Key.I, ModifierKeys.Control));
-            window.CommandBindings.Add(new CommandBinding(deleteRidesCMD, DeleteRidesSC));
+            DeleteBinding = new CommandBinding(deleteRidesCMD, DeleteRidesSC);
+            window.CommandBindings.Add(DeleteBinding);
 
             RoutedCommand updateRidesCMD = new RoutedCommand();
             updateRidesCMD.InputGestures.Add(new KeyGesture(Key.O, ModifierKeys.Control));
-            window.CommandBindings.Add(new CommandBinding(updateRidesCMD, UpdateRideSC));
+            UpdateBinding = new CommandBinding(updateRidesCMD, UpdateRideSC);
+            window.CommandBindings.Add(UpdateBinding);
 
         }
 
         private void ReturnManagerPage(object sender, RoutedEventArgs e)
         {
+            main_window.CommandBindings.Remove(DeleteBinding);
+            main_window.CommandBindings.Remove(UpdateBinding);
+            main_window.CommandBindings.Remove(AddBinding);
             main_frame.Content = new ManagerMainPage(MockService, main_frame, main_window);
         }
-        private void ReturnManagerPageSC(object sender, ExecutedRoutedEventArgs e)
+        private void MainMenuSc(object sender, ExecutedRoutedEventArgs e)
         {
+            main_window.CommandBindings.Remove(DeleteBinding);
+            main_window.CommandBindings.Remove(UpdateBinding);
+            main_window.CommandBindings.Remove(AddBinding);
             main_frame.Content = new ManagerMainPage(MockService, main_frame, main_window);
         }
 

@@ -7,13 +7,13 @@
         mc:Ignorable="d"
         Title="Srbija Voz-Izmena vožnje" Icon="/icon.png" Height="500" Width="400" WindowStartupLocation="CenterScreen">
     <Grid>
-        <StackPanel Orientation="Vertical">
+        <WrapPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
             <Label VerticalAlignment="Center" Margin="0,50,0,20" HorizontalAlignment="Center">Odabir voza:</Label>
             <ComboBox Name="trainsCMBX" Margin="0,20,0,20" HorizontalAlignment="Center"  VerticalAlignment="Center" ItemsSource="{Binding Path=Trains}" Width="300" />
             <Label VerticalAlignment="Center" Margin="0,20,0,20" HorizontalAlignment="Center">Odabir linije:</Label>
             <ComboBox Name="linesCMBX" Margin="0,20,0,20" HorizontalAlignment="Center"  VerticalAlignment="Center" ItemsSource="{Binding Path=Lines}" Width="300"/>
             <Label VerticalAlignment="Center" Margin="0,10,0,10" HorizontalAlignment="Center">Dani kojima se obavlja vožnja:</Label>
-            <StackPanel Margin="0,20,0,0" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <WrapPanel Margin="0,20,0,0" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
                 <CheckBox Margin="0,0,10,0" x:Name="mondayCB" IsChecked="False">Pon</CheckBox>
                 <CheckBox Margin="0,0,10,0" x:Name="tuesdayCB" IsChecked="False">Uto</CheckBox>
                 <CheckBox Margin="0,0,10,0" x:Name="wednesdayCB" IsChecked="False">Sre</CheckBox>
@@ -21,11 +21,11 @@
                 <CheckBox Margin="0,0,10,0" x:Name="fridayCB" IsChecked="False">Pet</CheckBox>
                 <CheckBox Margin="0,0,10,0" x:Name="saturdayCB" IsChecked="False">Sub</CheckBox>
                 <CheckBox x:Name="sundayCB" IsChecked="False">Ned</CheckBox>
-            </StackPanel>
+            </WrapPanel>
             <WrapPanel HorizontalAlignment="Center" Margin="0,40,0,0" >
                 <Button HorizontalAlignment="Left" Margin="0,0,30,0" MinHeight="40" ToolTip="Ctrl+D" MinWidth="100" Click="UpdateRideBtn" >Izmeni</Button>
                 <Button HorizontalAlignment="Right"  MinHeight="40" MinWidth="100"  ToolTip="Ctrl+O" Click="Cancel_Btn">Odustani</Button>
             </WrapPanel>
-        </StackPanel>
+        </WrapPanel>
     </Grid>
 </Window>

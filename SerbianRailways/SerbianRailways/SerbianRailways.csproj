@@ -103,6 +103,9 @@
     <Compile Include="manager_pages\AddTrainWindow.xaml.cs">
       <DependentUpon>AddTrainWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="manager_pages\DemoPlayerWindow.xaml.cs">
+      <DependentUpon>DemoPlayerWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="manager_pages\LinesPage.xaml.cs">
       <DependentUpon>LinesPage.xaml</DependentUpon>
     </Compile>
@@ -192,6 +195,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="manager_pages\AddTrainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="manager_pages\DemoPlayerWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -43,7 +43,7 @@
             <Button Content="Dodaj Vožnju" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="200" MinHeight="50" Click="AddRideBtn" ToolTip="Ctrl+D" Height="50" Width="200"/>
             <Button Content="Izmena Linije i Voza" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="200" MinHeight="50" Click="UpdateRideBtn" AllowDrop="True" DragEnter="DeleteBTN_DragEnter" Drop="UpdateBTN_Drop" ToolTip="Prevucite vožnju za izmenu ili odaberite više vožnji pa pritisnite dugme, Ctrl+O." Height="50" Width="200"/>
             <Button Content="Izbriši Vožnju" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="200" MinHeight="50" Click="DeleteRideBtn" AllowDrop="True" DragEnter="DeleteBTN_DragEnter" Drop="DeleteBTN_Drop" ToolTip="Prevucite vožnju za brisanje ili odaberite više vožnji pa pritisnite dugme, Ctrl+I." Height="50" Width="200"/>
-            <Button Content="Povratak" Grid.Column="3" Grid.Row="0" ToolTip="Ctrl+Backspace" HorizontalAlignment="Right" VerticalAlignment="Bottom" MinWidth="100" MinHeight="40" Click="ReturnManagerPage" Margin="0,0,10,10" Height="40" Width="100"/>
+            <Button Content="Povratak" Grid.Column="3" Grid.Row="0" ToolTip="Ctrl+M" HorizontalAlignment="Right" VerticalAlignment="Bottom" MinWidth="100" MinHeight="40" Click="ReturnManagerPage" Margin="0,0,10,10" Height="40" Width="100"/>
 
         </Grid>
     </Grid>

@@ -31,10 +31,22 @@ namespace SerbianRailways
         {
             InitializeComponent();
 
+            double width=SystemParameters.PrimaryScreenWidth;
+            double height=SystemParameters.PrimaryScreenHeight;
+
+
+
+            this.Width = (width * 7) / 10;
+            this.Height= (height * 7) / 10;
 
             MockService = new MockService();
             Main.Content = new Login(MockService, Main, this);
+
+
+
+
         }
+
 
 
     }

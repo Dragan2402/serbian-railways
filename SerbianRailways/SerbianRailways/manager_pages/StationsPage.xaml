@@ -31,6 +31,6 @@
             </DataGrid.Columns>
         </DataGrid>
         <Button Content="Izbriši Stanice" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="200" MinHeight="50" Click="DeleteStationsBtn" AllowDrop="True" DragEnter="DeleteBTN_DragEnter" Drop="DeleteBTN_Drop" ToolTip="Prevucite stanicu za brisanje ili odaberite više stanica pa pritisnite dugme, Ctrl+I." Height="50" Width="200"/>
-        <Button Content="Povratak" Grid.Row="2" Grid.Column="1"  ToolTip="Ctrl+Backspace" HorizontalAlignment="Right" VerticalAlignment="Bottom" MinWidth="100" MinHeight="40" Click="ReturnManagerPage" Margin="0,0,10,10"/>
+        <Button Content="Povratak" Grid.Row="2" Grid.Column="1"  ToolTip="Ctrl+M" HorizontalAlignment="Right" VerticalAlignment="Bottom" MinWidth="100" MinHeight="40" Click="ReturnManagerPage" Margin="0,0,10,10"/>
     </Grid>
 </Page>

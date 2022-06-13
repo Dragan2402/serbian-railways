@@ -6,10 +6,13 @@
       xmlns:local="clr-namespace:SerbianRailways.manager_pages"
       xmlns:cmd="clr-namespace:SerbianRailways.utility"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="600" d:DesignWidth="1200"
       Title="Menadžer">
 
-    <Grid x:Name="ManagerGrid">
+
+
+
+        <Grid x:Name="ManagerGrid">
         <Grid.Background>
             <ImageBrush ImageSource="../background.png"/>
         </Grid.Background>
@@ -19,19 +22,25 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+           
             <RowDefinition Height="70*"/>
             <RowDefinition  Height="70*"/>
             <RowDefinition  Height="70*"/>
             <RowDefinition  Height="70*"/>
             <RowDefinition  Height="70*"/>
-            <RowDefinition  Height="40*"/>
+            <RowDefinition  Height="80*"/>
         </Grid.RowDefinitions>
+
+    
+
+        
+
         <Image Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,-30,0,0" Source="../logo.png" Grid.RowSpan="2" Height="77" Width="296">
             <Image.Effect>
                 <DropShadowEffect/>
             </Image.Effect>
         </Image>
-        <DockPanel Grid.Row="1" Grid.RowSpan="3" Grid.Column="0" Margin="50,24,50,0">
+        <DockPanel Grid.Row="1" Grid.RowSpan="4" Grid.Column="0" Margin="50,10,50,0">
             <Border Background="#774fce" Padding="20" Width="240" Height="180" CornerRadius="5">
                 <StackPanel VerticalAlignment="Stretch" HorizontalAlignment="Stretch" MinWidth="100">
                     <Label Foreground="white" FontWeight="Bold" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5,0,5">Lični Podaci</Label>
@@ -59,4 +68,6 @@
 
         <Button x:Name="logOutBtn" Grid.Column="1" Grid.Row="5" VerticalAlignment="Bottom" HorizontalAlignment="Right" Click="Log_out" Height="40" Width="100" Grid.ColumnSpan="2" Margin="0,0,10,10">Odjavi se</Button>
     </Grid>
+
+   
 </Page>

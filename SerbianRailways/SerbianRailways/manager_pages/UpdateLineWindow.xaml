@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Srbija Voz-Izmena linije" Icon="/icon.png" Height="650" Width="400" WindowStartupLocation="CenterScreen">
     <Grid>
-        <StackPanel Orientation="Vertical">
+        <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Vertical">
             <Label HorizontalAlignment="Center"  Margin="0,50,0,5" VerticalAlignment="Center" FontWeight="Bold">Ponuđenje stanice:</Label>
             <DataGrid x:Name="dgAvailableStations" ColumnWidth="*" ToolTip="Prevucite ili dva puta kliknite stanicu koju želite da dodate u liniju."  AutoGenerateColumns="False" SelectionMode="Single"  Margin="20,0,20,50" MaxHeight="150" MinHeight="150"  HorizontalAlignment="Center" CanUserAddRows="False"  HorizontalScrollBarVisibility="Disabled "  ItemsSource="{Binding}"
                    PreviewMouseLeftButtonDown="DGStations_PreviewMouseLeftButtonDown" MouseMove="DGStations_MouseMove" MouseDoubleClick="DoubleClickAdd" >
@@ -28,6 +28,6 @@
                 <Button HorizontalAlignment="Left" Margin="0,0,30,0" MinHeight="40" ToolTip="Ctrl+D" MinWidth="100" Click="UpdateLineBtn" >Izmeni</Button>
                 <Button HorizontalAlignment="Right"  MinHeight="40" MinWidth="100"  ToolTip="Ctrl+I" Click="Cancel_Btn">Odustani</Button>
             </WrapPanel>
-        </StackPanel>
+        </WrapPanel>
     </Grid>
 </Window>

@@ -14,10 +14,37 @@
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
         Title="Srbija Voz" Height="600" Width="1200" Icon="/icon.png" WindowStartupLocation="CenterScreen">
-    
 
+    <DockPanel>
+        <Menu DockPanel.Dock ="Top" FontSize="15" Name="managerMenuBar">
+            <MenuItem Header="_Aplikacija">
+                <MenuItem Header="_Glavni Meni" Name="MainMenuMenuItem"></MenuItem>
+                <Separator Name="MainMenuSeperator"></Separator>
+                <MenuItem Header="_Odjava" Name="LogoutMenuItem" ></MenuItem>
+                <Separator></Separator>
+                <MenuItem Header="_Izlaz" Name="ExitMenuItem"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="_Upravljanje Entitetima" Name="CRUDEntitiesMenuItem">
+                <MenuItem Header="_Redovi vožnje" Name="RidesMenuItem" ></MenuItem>
+                <Separator/>
+                <MenuItem Header="_Stanice" Name="StationsMenuItem" ></MenuItem>
+                <Separator/>
+                <MenuItem Header="_Linije" Name="LinesMenuItem" ></MenuItem>
+                <Separator/>
+                <MenuItem Header="_Vozovi" Name="TrainsMenuItem" ></MenuItem>
 
-    <Grid>
-        <Frame x:Name="Main" NavigationUIVisibility="Hidden"/>
-    </Grid>
+            </MenuItem>
+            <MenuItem Header="_Statistika" Name="StatisticsMenu">
+                <MenuItem Header="_Prodate karte" Name="TicketsMenuItem"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="_Pomoć" Name="HelpMenu">
+                <MenuItem Header="_Demo" ></MenuItem>
+                <Separator></Separator>
+                <MenuItem Header="_Kontekstna pomoć"></MenuItem>
+            </MenuItem>
+        </Menu>
+        <Grid>
+            <Frame x:Name="Main" NavigationUIVisibility="Hidden"/>
+        </Grid>
+    </DockPanel>
 </Window>
