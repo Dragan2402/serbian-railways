@@ -175,7 +175,7 @@ namespace SerbianRailways.service
             ObservableCollection<TicketTable> ticketTables= new ObservableCollection<TicketTable>();
             foreach (Ticket ticket in mockRepository.Tickets.Values)
             {
-                if(ticket.PurchaseDate.Month == (selectedIndex+1))
+                if(ticket.PurchaseDate.Month == (selectedIndex+1) && ticket.TicketType == Ticket.TicketsType.BOUGHT)
                     ticketTables.Add(new TicketTable(ticket));
             }
             return ticketTables;
@@ -296,7 +296,7 @@ namespace SerbianRailways.service
             double avarage = 0;
             foreach(Ticket ticket in mockRepository.Tickets.Values)
             {
-                if (ticket.PurchaseDate.Month == (selectedIndex + 1))
+                if (ticket.PurchaseDate.Month == (selectedIndex + 1) && ticket.TicketType == Ticket.TicketsType.BOUGHT)
                 {
                     total += ticket.Price;
                     count++;
@@ -404,20 +404,30 @@ namespace SerbianRailways.service
         {
             ObservableCollection<TicketTable> ticketTables = new ObservableCollection<TicketTable>();
             foreach (Ticket ticket in mockRepository.Rides[id].Tickets)
-                ticketTables.Add(new TicketTable(ticket));
+                if (ticket.TicketType == Ticket.TicketsType.BOUGHT) ticketTables.Add(new TicketTable(ticket));
             return ticketTables;
         }
 
         public Tuple<double,double> GetTotalAndAvarageByRideId(int id)
         {
-            double total = mockRepository.Rides[id].Tickets.Count* mockRepository.Rides[id].Price;
+
+            double total = 0;
             double avarage = 0;
-            if (mockRepository.Rides[id].Tickets.Count>0)
-                avarage = total / mockRepository.Rides[id].Tickets.Count;
+            int counter = 0;
+
+            foreach (Ticket ticket in mockRepository.Rides[id].Tickets)
+            {
+                if (ticket.TicketType == Ticket.TicketsType.BOUGHT)
+                {
+                    total += ticket.Price;
+                    counter++;
+                }
+            }
+
+            if (counter>0) avarage = total / counter;
             total = Math.Round(total, 2, MidpointRounding.AwayFromZero);
             avarage = Math.Round(avarage, 2, MidpointRounding.AwayFromZero);
             return new Tuple<double, double>(total, avarage);
-            
         }
 
         public void DeleteTrainById(int serialNumber)

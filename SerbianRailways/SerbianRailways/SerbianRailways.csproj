@@ -282,10 +282,9 @@
   <ItemGroup>
     <Resource Include="background.png" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="demoVideos\" />
-  </ItemGroup>
-  <ItemGroup>
+    <Content Include="demo_videos\test.mp4" />
     <Content Include="help_pages\html\clientBuyBookTicket.html" />
     <Content Include="help_pages\html\clientLinesRidesPreview.html" />
     <Content Include="help_pages\html\error.html" />

@@ -23,7 +23,7 @@ namespace SerbianRailways.manager_pages
         public DemoPlayerWindow(string demoToPlay)
         {
             InitializeComponent();
-			string uri = "../../demoVideos/" + demoToPlay;
+			string uri = "../../demo_videos/" + demoToPlay + ".mp4";
 			mePlayer.Source = new Uri(uri, UriKind.Relative);
             DispatcherTimer timer = new DispatcherTimer();
 			timer.Interval = TimeSpan.FromSeconds(1);
