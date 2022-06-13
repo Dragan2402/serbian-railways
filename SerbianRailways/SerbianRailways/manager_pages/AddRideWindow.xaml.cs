@@ -85,6 +85,7 @@ namespace SerbianRailways.manager_pages
 
             Trains = mockService.GetAllTrains();
             Lines = mockService.GetAllLines();    
+            deparuteTime_tb.Focus();
 
             RoutedCommand addNewRidecmd = new RoutedCommand();
             addNewRidecmd.InputGestures.Add(new KeyGesture(Key.D, ModifierKeys.Control));

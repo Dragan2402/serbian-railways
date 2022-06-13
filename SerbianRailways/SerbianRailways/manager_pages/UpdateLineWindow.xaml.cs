@@ -51,7 +51,7 @@ namespace SerbianRailways.manager_pages
 
             dgAvailableStations.DataContext = StationsNotInLine;
             dgSelectedStations.DataContext = StationsInLine;
-
+            dgAvailableStations.Focus();
             RoutedCommand UpdateLineCMD = new RoutedCommand();
             UpdateLineCMD.InputGestures.Add(new KeyGesture(Key.D, ModifierKeys.Control));
             this.CommandBindings.Add(new CommandBinding(UpdateLineCMD, UpdateLineSC));
@@ -99,8 +99,14 @@ namespace SerbianRailways.manager_pages
 
         private void UpdateLineBtn(object sender, RoutedEventArgs e)
         {
-
-
+            if(StationsInLine.Count < 2)
+            {
+                
+                 MessageBox.Show("Greška prilikom izmene linije, potrebno je izabrati bar 2 stanice", "Izmena Linije", MessageBoxButton.OK, MessageBoxImage.Error);
+                 return;
+                
+            }
+            
             bool exists = MockService.LineExists(StationsInLine);
             if (exists)
             {

@@ -169,12 +169,17 @@ namespace SerbianRailways.manager_pages
         {
             if (mainTab.SelectedIndex == 0)
             {
-                Tickets = MockService.GetTicketsTableByMonthIndex(SelectedIndex);
+                ObservableCollection<TicketTable> tickets = MockService.GetTicketsTableByMonthIndex(SelectedIndex);
+                if (tickets.Count == 0)
+                {
+                    MessageBox.Show("Za odabrani mesec nema prodatih karata.", "Pregled karata po vožnji", MessageBoxButton.OK, MessageBoxImage.Information);
+                    return;
+                }
 
                 Tuple<double, double> totalAvarage = MockService.GetTicketsTotalAndAvarageByMonthIndex(SelectedIndex);
                 TotalLbl.Content = totalAvarage.Item1 + " din";
                 AvarageLbl.Content = totalAvarage.Item2 + " din";
-                dgTickets.DataContext = Tickets;
+                dgTickets.DataContext = tickets;
             }
         }
 
@@ -190,12 +195,17 @@ namespace SerbianRailways.manager_pages
 
         private void Refresh_Months_btn(object sender, RoutedEventArgs e)
         {
-            Tickets = MockService.GetTicketsTableByMonthIndex(SelectedIndex);
+            ObservableCollection<TicketTable> tickets= MockService.GetTicketsTableByMonthIndex(SelectedIndex);
+            if (tickets.Count == 0)
+            {
+                MessageBox.Show("Za odabrani mesec nema prodatih karata.", "Pregled karata po vožnji", MessageBoxButton.OK, MessageBoxImage.Information);
+                return;
+            }
 
             Tuple<double,double> totalAvarage= MockService.GetTicketsTotalAndAvarageByMonthIndex(SelectedIndex);
             TotalLbl.Content= totalAvarage.Item1 + " din";
             AvarageLbl.Content = totalAvarage.Item2 + " din";
-            dgTickets.DataContext = Tickets;
+            dgTickets.DataContext = tickets;
         }
 
 
@@ -265,12 +275,47 @@ namespace SerbianRailways.manager_pages
             }
         }
 
+
+        private void DoubleClickHandler(object sender, MouseButtonEventArgs e)
+        {
+            DataGrid dataGrid = sender as DataGrid;
+            if (dataGrid == null)
+                return;
+            DataGridRow dgr = dataGrid.ItemContainerGenerator.ContainerFromItem(dataGrid.SelectedItem) as DataGridRow;
+            if (dgr == null)
+                return;
+            RideTable rideTable = (RideTable)dgr.Item;
+            if (rideTable == null)
+                return;
+
+            ObservableCollection<TicketTable> tickets = MockService.GetTicketsTableByRideId(rideTable.Id);
+            if (tickets.Count == 0)
+            {
+                MessageBox.Show("Za odabranu vožnju nema prodatih karata.", "Pregled karata po vožnji", MessageBoxButton.OK, MessageBoxImage.Information);
+                return;
+            }
+
+            dgTicketsRide.DataContext = tickets;
+            Tuple<double, double> totalAndAvarage = MockService.GetTotalAndAvarageByRideId(rideTable.Id);
+            TotalRideLbl.Content = totalAndAvarage.Item1 + " din";
+            AvarageRideLbl.Content = totalAndAvarage.Item2 + " din";
+
+        }
+
+
         private void DGTickets_Drop(object sender, DragEventArgs e)
         {
             if (e.Data.GetDataPresent("myFormat"))
             {
                 RideTable rideTable = e.Data.GetData("myFormat") as RideTable;
-                dgTicketsRide.DataContext = MockService.GetTicketsTableByRideId(rideTable.Id);
+                ObservableCollection<TicketTable> tickets= MockService.GetTicketsTableByRideId(rideTable.Id);
+                if (tickets.Count == 0)
+                {
+                    MessageBox.Show("Za odabranu vožnju nema prodatih karata.", "Pregled karata po vožnji", MessageBoxButton.OK, MessageBoxImage.Information);
+                    return;
+                }
+
+                dgTicketsRide.DataContext = tickets;
                 Tuple<double,double> totalAndAvarage = MockService.GetTotalAndAvarageByRideId(rideTable.Id);
                 TotalRideLbl.Content = totalAndAvarage.Item1 + " din";
                 AvarageRideLbl.Content = totalAndAvarage.Item2 + " din";

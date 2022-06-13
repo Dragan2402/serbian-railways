@@ -59,6 +59,7 @@ namespace SerbianRailways.manager_pages
             cancelCMD.InputGestures.Add(new KeyGesture(Key.O, ModifierKeys.Control));
             this.CommandBindings.Add(new CommandBinding(cancelCMD, CancelSC));
 
+            name_tb.Focus();
         }
 
 

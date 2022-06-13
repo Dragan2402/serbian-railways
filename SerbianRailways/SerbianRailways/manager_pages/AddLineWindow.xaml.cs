@@ -47,7 +47,7 @@ namespace SerbianRailways.manager_pages
 
             dgAvailableStations.DataContext = StationsAvailable;
             dgSelectedStations.DataContext = StationsSelected;
-
+            dgAvailableStations.Focus();
 
             RoutedCommand addLineCMD = new RoutedCommand();
             addLineCMD.InputGestures.Add(new KeyGesture(Key.D, ModifierKeys.Control));

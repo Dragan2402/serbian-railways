@@ -400,7 +400,7 @@ namespace SerbianRailways.service
             mockRepository.LoggedUser=null;
         }
 
-        public object GetTicketsTableByRideId(int id)
+        public ObservableCollection<TicketTable> GetTicketsTableByRideId(int id)
         {
             ObservableCollection<TicketTable> ticketTables = new ObservableCollection<TicketTable>();
             foreach (Ticket ticket in mockRepository.Rides[id].Tickets)

@@ -63,7 +63,7 @@
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                     <DataGrid x:Name="dgRides" ColumnWidth="*" AutoGenerateColumns="False" Grid.Row="0" Margin="10,10,10,10" SelectionMode="Single" HorizontalAlignment="Center" CanUserAddRows="False"  HorizontalScrollBarVisibility="Disabled "  ItemsSource="{Binding}"
-                             PreviewMouseLeftButtonDown="DGRides_PreviewMouseLeftButtonDown" MouseMove="DGRides_MouseMove" ToolTip="Prevucite željenu vožnju na donju tabelu za prikaz prodatih karata.">
+                             PreviewMouseLeftButtonDown="DGRides_PreviewMouseLeftButtonDown" MouseMove="DGRides_MouseMove" MouseDoubleClick="DoubleClickHandler" ToolTip="Prevucite željenu vožnju na donju tabelu za prikaz prodatih karata.">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header = "Id vožnje" CanUserResize="False" Binding="{Binding Id}" Width="1.1*" IsReadOnly="True" CanUserReorder="False"/>
                             <DataGridTextColumn Header = "Linija" CanUserResize="False" Binding="{Binding Line}"  Width="3*" IsReadOnly="True"   CanUserReorder="False"/>

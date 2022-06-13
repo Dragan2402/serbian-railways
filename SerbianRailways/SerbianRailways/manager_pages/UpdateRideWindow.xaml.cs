@@ -43,7 +43,7 @@ namespace SerbianRailways.manager_pages
 
             trainsCMBX.SelectedItem = ride.Train;
             trainsCMBX.SelectedIndex = Trains.IndexOf(ride.Train);
-
+            trainsCMBX.Focus();
             linesCMBX.SelectedItem = ride.Line;
             linesCMBX.SelectedIndex = Lines.IndexOf(ride.Line);
 

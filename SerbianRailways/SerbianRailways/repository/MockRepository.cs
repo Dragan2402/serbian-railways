@@ -236,10 +236,13 @@ namespace SerbianRailways.repository
         {
             foreach(Line line in Lines.Values)
             {
+                
                 if (stationsInLine.Count == 2)
                 {
-                    if (line.DepartureStation == stationsInLine.ElementAt(0) && line.ArrivalStation == stationsInLine.Last())
+                    if (line.DepartureStation.Id == stationsInLine.ElementAt(0).Id && line.ArrivalStation.Id == stationsInLine.Last().Id && line.InterStations.Count==0)
+                    {                       
                         return true;
+                    }
                 }
                 else
                 {
