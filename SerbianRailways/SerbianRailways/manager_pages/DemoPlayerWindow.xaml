@@ -16,7 +16,7 @@
             <Label Name="lblStatus" Content="Not playing..." HorizontalContentAlignment="Center" Margin="5" />
             <WrapPanel HorizontalAlignment="Center">
                 <Button Name="btnPlay" Click="btnPlay_Click">Pusti</Button>
-                <Button Name="btnPause" Margin="15,0" Click="btnPause_Click">Puziraj</Button>
+                <Button Name="btnPause" Margin="15,0" Click="btnPause_Click">Pauziraj</Button>
                 <Button Name="btnStop" Click="btnStop_Click">Stopiraj</Button>
             </WrapPanel>
         </StackPanel>
