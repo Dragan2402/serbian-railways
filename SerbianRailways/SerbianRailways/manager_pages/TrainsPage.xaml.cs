@@ -1,4 +1,5 @@
-﻿using SerbianRailways.model;
+﻿using SerbianRailways.help_pages;
+using SerbianRailways.model;
 using SerbianRailways.service;
 using System;
 using System.Collections.Generic;
@@ -55,6 +56,10 @@ namespace SerbianRailways.manager_pages
             RoutedCommand deleteTrainsCMD = new RoutedCommand();
             deleteTrainsCMD.InputGestures.Add(new KeyGesture(Key.I, ModifierKeys.Control));
             window.CommandBindings.Add(new CommandBinding(deleteTrainsCMD, DeleteTrainsSC));
+
+            RoutedCommand openHelpPage = new RoutedCommand();
+            openHelpPage.InputGestures.Add(new KeyGesture(Key.F1));
+            window.CommandBindings.Add(new CommandBinding(openHelpPage, ToggleHelpPageSC));
 
         }
 
@@ -216,8 +221,11 @@ namespace SerbianRailways.manager_pages
                 }
             }
         }
+
+        private void ToggleHelpPageSC(object sender, ExecutedRoutedEventArgs e)
+        {
+            main_frame.Content = new HelpPage(main_frame, main_window, "managerTrainsPage", this);
+        }
     }
-
-
         
-    }
+}

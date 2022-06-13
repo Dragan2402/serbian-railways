@@ -1,4 +1,5 @@
-﻿using SerbianRailways.model;
+﻿using SerbianRailways.help_pages;
+using SerbianRailways.model;
 using SerbianRailways.service;
 using System;
 using System.Collections.Generic;
@@ -58,6 +59,10 @@ namespace SerbianRailways.manager_pages
             RoutedCommand updateRidesCMD = new RoutedCommand();
             updateRidesCMD.InputGestures.Add(new KeyGesture(Key.O, ModifierKeys.Control));
             window.CommandBindings.Add(new CommandBinding(updateRidesCMD, UpdateRideSC));
+
+            RoutedCommand openHelpPage = new RoutedCommand();
+            openHelpPage.InputGestures.Add(new KeyGesture(Key.F1));
+            window.CommandBindings.Add(new CommandBinding(openHelpPage, ToggleHelpPageSC));
 
         }
 
@@ -256,6 +261,11 @@ namespace SerbianRailways.manager_pages
             }
             dgRides.Items.Refresh();
 
+        }
+
+        private void ToggleHelpPageSC(object sender, ExecutedRoutedEventArgs e)
+        {
+            main_frame.Content = new HelpPage(main_frame, main_window, "managerRidesPage", this);
         }
     }
 }

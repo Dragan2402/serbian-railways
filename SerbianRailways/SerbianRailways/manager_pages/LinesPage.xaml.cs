@@ -1,4 +1,5 @@
 ﻿using Microsoft.Maps.MapControl.WPF;
+using SerbianRailways.help_pages;
 using SerbianRailways.model;
 using SerbianRailways.service;
 using System;
@@ -75,6 +76,10 @@ namespace SerbianRailways.manager_pages
             RoutedCommand updateLinesCMD = new RoutedCommand();
             updateLinesCMD.InputGestures.Add(new KeyGesture(Key.O, ModifierKeys.Control));
             window.CommandBindings.Add(new CommandBinding(updateLinesCMD, UpdateLineSc));
+
+            RoutedCommand openHelpPage = new RoutedCommand();
+            openHelpPage.InputGestures.Add(new KeyGesture(Key.F1));
+            window.CommandBindings.Add(new CommandBinding(openHelpPage, ToggleHelpPageSC));
 
         }
 
@@ -392,6 +397,11 @@ namespace SerbianRailways.manager_pages
             LinePins.Clear();
             LineRoute.Clear();
             StationReferences.Clear();
+        }
+
+        private void ToggleHelpPageSC(object sender, ExecutedRoutedEventArgs e)
+        {
+            main_frame.Content = new HelpPage(main_frame, main_window, "managerLinesPage", this);
         }
     }
 }
