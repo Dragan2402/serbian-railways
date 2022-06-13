@@ -20,10 +20,12 @@ namespace SerbianRailways.manager_pages
     /// </summary>
     public partial class DemoPlayerWindow : Window
     {
-        public DemoPlayerWindow()
+        public DemoPlayerWindow(string demoToPlay)
         {
-			InitializeComponent();
-			DispatcherTimer timer = new DispatcherTimer();
+            InitializeComponent();
+			string uri = "../../demoVideos/" + demoToPlay;
+			mePlayer.Source = new Uri(uri, UriKind.Relative);
+            DispatcherTimer timer = new DispatcherTimer();
 			timer.Interval = TimeSpan.FromSeconds(1);
 			timer.Tick += timer_Tick;
 			timer.Start();
@@ -54,5 +56,10 @@ namespace SerbianRailways.manager_pages
 		{
 			mePlayer.Stop();
 		}
-	}
+
+        private void KeyDown_Handler(object sender, KeyEventArgs e)
+        {
+			this.Close();
+        }
+    }
 }

@@ -65,8 +65,8 @@ namespace SerbianRailways.manager_pages
             LoggedUserName = "Ime: " + MockService.GetLoggedUser().Name + " " + mockService.GetLoggedUser().Surname;
             main_frame = mainFrame;
 
-            Window window1 = new DemoPlayerWindow();
-            window1.Show();
+            Window window1 = new DemoPlayerWindow("test.mp4");
+            window1.ShowDialog();
 
             main_window = window;
             main_window.Title = "Srbija Voz";
@@ -132,7 +132,7 @@ namespace SerbianRailways.manager_pages
             ((MainWindow)System.Windows.Application.Current.MainWindow).StatisticsMenu.Visibility = Visibility.Visible;
 
             ((MainWindow)System.Windows.Application.Current.MainWindow).HelpMenu.IsEnabled = true;
-            ((MainWindow)System.Windows.Application.Current.MainWindow).StatisticsMenu.Visibility = Visibility.Visible;
+            ((MainWindow)System.Windows.Application.Current.MainWindow).HelpMenu.Visibility = Visibility.Visible;
 
             ((MainWindow)System.Windows.Application.Current.MainWindow).MainMenuSeperator.Visibility = Visibility.Visible;
             ((MainWindow)System.Windows.Application.Current.MainWindow).MainMenuMenuItem.Visibility = Visibility.Visible;

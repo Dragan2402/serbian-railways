@@ -280,7 +280,9 @@
   <ItemGroup>
     <Resource Include="background.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="demoVideos\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="help_pages\html\clientBuyBookTicket.html" />
     <Content Include="help_pages\html\clientLinesRidesPreview.html" />
