@@ -9,7 +9,7 @@
         Title="Srbija Voz-Dodavanje voza" Icon="/icon.png" Height="450" Width="400" WindowStartupLocation="CenterScreen">
     <Grid>
         <WrapPanel VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Vertical" Width="300">
-            <TextBox materialDesign:HintAssist.Hint="Serijski broj voza" Margin="10, 20, 10, 10" Width="300" x:Name="SerialNumber_tb" ToolTip="Serijski broj se sastoji iz cifara. Mora biti unikatan." >
+            <TextBox materialDesign:HintAssist.Hint="Serijski broj voza" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10, 20, 10, 10" Width="300" x:Name="SerialNumber_tb" ToolTip="Serijski broj se sastoji iz cifara. Mora biti unikatan." >
                 <TextBox.Text>
                     <Binding Path="SerialNumber" UpdateSourceTrigger="PropertyChanged">
                         <Binding.ValidationRules>
@@ -19,8 +19,8 @@
                     </Binding>
                 </TextBox.Text>
             </TextBox>
-            <TextBox materialDesign:HintAssist.Hint="Naziv voza"  Margin="10, 20, 10, 10" x:Name="name_tb" Text="{Binding Path=TrainName, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" ></TextBox>
-            <TextBox materialDesign:HintAssist.Hint="Broj vagona"  Margin="10, 20, 10, 10" x:Name="cars_tb" >
+            <TextBox materialDesign:HintAssist.Hint="Naziv voza"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10, 20, 10, 10" x:Name="name_tb" Text="{Binding Path=TrainName, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" ></TextBox>
+            <TextBox materialDesign:HintAssist.Hint="Broj vagona"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10, 20, 10, 10" x:Name="cars_tb" >
                 <TextBox.Text>
                     <Binding Path="Cars" UpdateSourceTrigger="PropertyChanged">
                         <Binding.ValidationRules>
@@ -30,7 +30,7 @@
                     </Binding>
                 </TextBox.Text>
             </TextBox>
-            <TextBox materialDesign:HintAssist.Hint="Broj sedišta prvog razreda"  Margin="10, 20, 10, 10" x:Name="first_class_seats">
+            <TextBox materialDesign:HintAssist.Hint="Broj sedišta prvog razreda" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10, 20, 10, 10" x:Name="first_class_seats">
                 <TextBox.Text>
                     <Binding Path="FirstClass" UpdateSourceTrigger="PropertyChanged">
                         <Binding.ValidationRules>
@@ -40,7 +40,7 @@
                     </Binding>
                 </TextBox.Text>
             </TextBox>
-            <TextBox materialDesign:HintAssist.Hint="Broj sedišta drugog razreda"  Margin="10, 20, 10, 10" x:Name="second_class_seats" >
+            <TextBox materialDesign:HintAssist.Hint="Broj sedišta drugog razreda" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Margin="10, 20, 10, 10" x:Name="second_class_seats" >
                 <TextBox.Text>
                     <Binding Path="SecondClass" UpdateSourceTrigger="PropertyChanged">
                         <Binding.ValidationRules>

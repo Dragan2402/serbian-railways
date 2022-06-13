@@ -92,6 +92,7 @@ namespace SerbianRailways.authorization_pages
             ((MainWindow)System.Windows.Application.Current.MainWindow).HelpMenu.IsEnabled = false;
             ((MainWindow)System.Windows.Application.Current.MainWindow).HelpMenu.Visibility = Visibility.Collapsed;
 
+            ((MainWindow)System.Windows.Application.Current.MainWindow).ExitMenuItem.IsEnabled = true;
             ((MainWindow)System.Windows.Application.Current.MainWindow).ExitMenuItem.Command = exitCMD;
         }
 

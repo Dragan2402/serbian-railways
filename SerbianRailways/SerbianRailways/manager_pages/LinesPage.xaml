@@ -25,7 +25,7 @@
             <DataGrid x:Name="dgLines" AutoGenerateColumns="False" Margin="10,10" HorizontalAlignment="Center" CanUserAddRows="False"  HorizontalScrollBarVisibility="Disabled "  ItemsSource="{Binding}"
                    PreviewMouseLeftButtonDown="DGLines_PreviewMouseLeftButtonDown" MouseMove="DGLines_MouseMove" ToolTip="Prevucite željene linije na mapu za prikaz.">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header = "Id" CanUserResize="False" Binding="{Binding Id}" Width="*" IsReadOnly="True" CanUserReorder="False"/>
+                    <DataGridTextColumn Header = "Id" CanUserResize="False" Binding="{Binding Id}" Width="1.2*" IsReadOnly="True" CanUserReorder="False"/>
                     <DataGridTextColumn Header = "Polazište" CanUserResize="False" Binding="{Binding DepartureStation.Name}"  Width="2.5*" IsReadOnly="True"   CanUserReorder="False"/>
                     <DataGridTextColumn Header = "Dolazište" CanUserResize="False" Binding="{Binding ArrivalStation.Name}"  Width="2.5*" IsReadOnly="True"   CanUserReorder="False"/>
                 </DataGrid.Columns>

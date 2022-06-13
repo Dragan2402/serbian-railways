@@ -7,18 +7,18 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:w="clr-namespace:SerbianRailways.utility"
         mc:Ignorable="d"
-        Title="Srbija Voz-Registracija" Icon="/icon.png" Height="530" Width="400" WindowStartupLocation="CenterScreen">
+        Title="Srbija Voz-Registracija" Icon="/icon.png" Height="600" Width="400" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid Margin="10,10,10,10">
             <WrapPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Width="300" >
-                <TextBox MinWidth="300" materialDesign:HintAssist.Hint="Korisničko ime" x:Name="username_tb" Text="{Binding Path=Username, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" ></TextBox>
-                <TextBox MinWidth="300" Margin="0 20 0 0" materialDesign:HintAssist.Hint="Ime" x:Name="name_tb" Text="{Binding Path=FirstName, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" ></TextBox>
-                <TextBox MinWidth="300" Margin="0 20 0 0" materialDesign:HintAssist.Hint="Prezime" x:Name="lastname_tb" Text="{Binding Path=LastName, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" ></TextBox>
-                <PasswordBox MinWidth="300" Margin="0 20 0 0" materialDesign:HintAssist.Hint="Lozinka" w:PasswordHelper.Attach="True" w:PasswordHelper.Password="{Binding Path=Password, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"/>
-                <TextBox MinWidth="300" Margin="0 20 0 0" materialDesign:HintAssist.Hint="Ulica" x:Name="street_tb" Text="{Binding Path=Street, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" ></TextBox>
-                <TextBox MinWidth="300" Margin="0 20 0 0" materialDesign:HintAssist.Hint="Grad" x:Name="city_tb" Text="{Binding Path=City, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" ></TextBox>
-                <TextBox MinWidth="300" Margin="0 20 0 0" materialDesign:HintAssist.Hint="Poštanski broj" x:Name="postalCode_tb" Text="{Binding Path=PostalCode, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" ></TextBox>
-                <TextBox MinWidth="300" Margin="0 20 0 30" materialDesign:HintAssist.Hint="Država" x:Name="country_tb"  Text="{Binding Path=Country, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" ></TextBox>
+                <TextBox MinWidth="300" materialDesign:HintAssist.Hint="Korisničko ime" Style="{StaticResource MaterialDesignFloatingHintTextBox}" x:Name="username_tb" Text="{Binding Path=Username, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" ></TextBox>
+                <TextBox MinWidth="300" Margin="0 20 0 0" materialDesign:HintAssist.Hint="Ime"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" x:Name="name_tb" Text="{Binding Path=FirstName, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" ></TextBox>
+                <TextBox MinWidth="300" Margin="0 20 0 0" materialDesign:HintAssist.Hint="Prezime" Style="{StaticResource MaterialDesignFloatingHintTextBox}" x:Name="lastname_tb" Text="{Binding Path=LastName, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" ></TextBox>
+                <PasswordBox MinWidth="300" Margin="0 20 0 0" materialDesign:HintAssist.Hint="Lozinka" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" w:PasswordHelper.Attach="True" w:PasswordHelper.Password="{Binding Path=Password, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBox MinWidth="300" Margin="0 20 0 0" materialDesign:HintAssist.Hint="Ulica" Style="{StaticResource MaterialDesignFloatingHintTextBox}" x:Name="street_tb" Text="{Binding Path=Street, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" ></TextBox>
+                <TextBox MinWidth="300" Margin="0 20 0 0" materialDesign:HintAssist.Hint="Grad" Style="{StaticResource MaterialDesignFloatingHintTextBox}" x:Name="city_tb" Text="{Binding Path=City, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" ></TextBox>
+                <TextBox MinWidth="300" Margin="0 20 0 0" materialDesign:HintAssist.Hint="Poštanski broj" Style="{StaticResource MaterialDesignFloatingHintTextBox}" x:Name="postalCode_tb" Text="{Binding Path=PostalCode, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" ></TextBox>
+                <TextBox MinWidth="300" Margin="0 20 0 30" materialDesign:HintAssist.Hint="Država" Style="{StaticResource MaterialDesignFloatingHintTextBox}" x:Name="country_tb"  Text="{Binding Path=Country, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" ></TextBox>
                 <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Top"  Margin="0,20,0,0" Orientation="Horizontal">
                     <Button Content="Registruj se" x:Name="sign_up_btn" MinWidth="100" Margin="0,0,5,10" MinHeight="40" Click="Sign_up_btn_click"/>
                     <Button Content="Odustani"   MinWidth="100" Margin="30,0,0,10" MinHeight="40" Click="ReturnLoginPage" />

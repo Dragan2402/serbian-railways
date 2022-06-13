@@ -19,9 +19,9 @@
         <Border Background="white" CornerRadius="5" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="20" Width="300" Height="300">
             <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Width="201" >
 
-                <TextBox x:Name="username_tb" materialDesign:HintAssist.Hint="Korisničko ime" Text="{Binding Path=Username, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" ></TextBox>
+                <TextBox x:Name="username_tb" materialDesign:HintAssist.Hint="Korisničko ime" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="{Binding Path=Username, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" ></TextBox>
 
-                <PasswordBox Margin="0 20 0 20" materialDesign:HintAssist.Hint="Lozinka" w:PasswordHelper.Attach="True" w:PasswordHelper.Password="{Binding Path=Password, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"/>
+                <PasswordBox Margin="0 20 0 20" materialDesign:HintAssist.Hint="Lozinka" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" w:PasswordHelper.Attach="True" w:PasswordHelper.Password="{Binding Path=Password, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"/>
 
                 <Button Content="Prijavi se" x:Name="sign_in_btn" VerticalAlignment="Center"  HorizontalAlignment="Center" MinWidth="100" MinHeight="40" Margin="0,20,0,20" Click="Sign_in_btn_Click"/>
                 <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center">
