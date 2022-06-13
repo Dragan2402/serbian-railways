@@ -38,9 +38,9 @@
                 <MenuItem Header="_Prodate karte" Name="TicketsMenuItem"></MenuItem>
             </MenuItem>
             <MenuItem Header="_Pomoć" Name="HelpMenu">
-                <MenuItem Header="_Demo" ></MenuItem>
+                <MenuItem Header="_Demo" Name="DemoMenuItem"></MenuItem>
                 <Separator></Separator>
-                <MenuItem Header="_Kontekstna pomoć"></MenuItem>
+                <MenuItem Header="_Kontekstna pomoć" Name="HelpMenuItem"></MenuItem>
             </MenuItem>
         </Menu>
         <Grid>

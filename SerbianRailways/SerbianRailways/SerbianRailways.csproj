@@ -137,6 +137,7 @@
     <Compile Include="repository\MockRepository.cs" />
     <Compile Include="utility\Borders.cs" />
     <Compile Include="utility\PasswordHelper.cs" />
+    <Compile Include="utility\StringToDoubleValidationRule.cs" />
     <Compile Include="utility\Validation.cs" />
     <Page Include="authorization_pages\LoginPage.xaml">
       <SubType>Designer</SubType>

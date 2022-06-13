@@ -65,8 +65,7 @@ namespace SerbianRailways.manager_pages
             LoggedUserName = "Ime: " + MockService.GetLoggedUser().Name + " " + mockService.GetLoggedUser().Surname;
             main_frame = mainFrame;
 
-            Window window1 = new DemoPlayerWindow("test.mp4");
-            window1.ShowDialog();
+            
 
             main_window = window;
             main_window.Title = "Srbija Voz";
@@ -81,6 +80,9 @@ namespace SerbianRailways.manager_pages
         private void ClearAndAddBindings()
         {
             main_window.CommandBindings.Clear();
+
+            ((MainWindow)System.Windows.Application.Current.MainWindow).DemoMenuItem.Command = null;
+            ((MainWindow)System.Windows.Application.Current.MainWindow).DemoMenuItem.IsEnabled = false;
 
             RoutedCommand exitCMD = new RoutedCommand();
             exitCMD.InputGestures.Add(new KeyGesture(Key.F4, ModifierKeys.Alt));
@@ -144,6 +146,12 @@ namespace SerbianRailways.manager_pages
             ((MainWindow)System.Windows.Application.Current.MainWindow).RidesMenuItem.Command = toggleRidesCMD;
             ((MainWindow)System.Windows.Application.Current.MainWindow).TicketsMenuItem.Command = toggleTicketsCMD;
             ((MainWindow)System.Windows.Application.Current.MainWindow).StationsMenuItem.Command = toggleStationsCMD;
+        }
+
+        private void ToggleDemoSC(object sender, ExecutedRoutedEventArgs e)
+        {
+            Window demoWindow = new DemoPlayerWindow("test.mp4");
+            demoWindow.ShowDialog();
         }
 
         private void GenerateSupportedFunctions()
