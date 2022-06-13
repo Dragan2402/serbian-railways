@@ -14,8 +14,9 @@
     <DockPanel>
         <Grid DockPanel.Dock="Top" Height="40px">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="40px" />
-                <ColumnDefinition Width="40px" />
+                <ColumnDefinition Width="125px" />
+                <ColumnDefinition Width="3px" />
+                <ColumnDefinition Width="125px" />
                 <ColumnDefinition Width="1*" />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
@@ -23,13 +24,13 @@
             </Grid.RowDefinitions>
             <Button Command="NavigationCommands.BrowseBack" Grid.Column="0" Margin="1" Padding="0">
                 <!--<Image Source="/WpfTutorialSamples;component/Images/arrow_left.png" Width="16" Height="16" />-->
-                <Label Content="&lt;" Padding="0"></Label>
+                <Label Content="Back" Padding="0"></Label>
             </Button>
-            <Button Command="NavigationCommands.BrowseForward" Grid.Column="1" Margin="1" Padding="0">
+            <Button Command="NavigationCommands.BrowseForward" Grid.Column="2" Margin="1" Padding="0">
                 <!--<Image Source="/WpfTutorialSamples;component/Images/arrow_right.png" Width="16" Height="16" />-->
-                <Label Content="&gt;" Padding="0"></Label>
+                <Label Content="Forward" Padding="0"></Label>
             </Button>
-            <TextBox Name="urlTextBox" Grid.Column="2" Margin="1" Padding="0" />
+            <!--<TextBox Name="urlTextBox" Grid.Column="2" Margin="1" Padding="0" />-->
         </Grid>
         <WebBrowser Name="helpPage" Navigating="HelpPage_Navigating" Margin="1"></WebBrowser>
     </DockPanel>

@@ -19,26 +19,22 @@
             font-family: "Roboto", sans-serif;
         }
 
-        .body {
-            border-top: 1px solid black;
-        }
-
         .sidebar {
             height: 100%;
             width: 250px;
-            position: absolute;
+            position: fixed;
             left: 0;
             top: 0;
-            background-color: #f2f2f2;
+            background-color: #fafafa;
             border-right: 1px solid lightgrey;
-            border-top: 1px solid lightgrey;
+            overflow: auto;
         }
-
+        
         .sidebar h2 {
             padding-left: 20px;
             display: block;
         }
-
+        
         .sidebar div {
             padding-left: 30px;
             padding-bottom: 10px;
@@ -46,21 +42,21 @@
             display: block;
             text-decoration: none
         }
-
+        
         .sidebar a {
             text-decoration: none;
-            color: rebeccapurple;
+            color: #673ab7;
             font-weight: bold;
         }
-
+        
         .sidebar a:visited {
-            color: rebeccapurple;
+            color: #673ab7;
         }
-
+        
         .sidebar a:hover {
             color: black;
         }
-
+        
         .sidebar-img {
             display: block;
             padding-top: 20px;
@@ -70,71 +66,46 @@
             width: 210px;
             height: auto;
         }
-
+        
         .body-text {
             margin-left: 260px;
             font-size: 18px;
             top: 0;
+        }
+        
+        .body-text h1 {
+            color: #673ab7;
         }
     </style>
 </head>
 
 <body>
 
-    <!-- Navbar -->
-    <!--<div class="w3-top">
-        <div class="w3-bar w3-theme w3-top w3-left-align w3-large">
-            <a class="w3-bar-item w3-button w3-right w3-hide-large w3-hover-white w3-large w3-theme-l1" href="javascript:void(0)" onclick="w3_open()"><i class="fa fa-bars"></i></a>
-            <a href="error.html" class="w3-bar-item w3-button w3-theme-l1">Logo</a>
-            <a href="clientBuyBookTicket.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Kupovina i rezervacija karata</a>
-            <a href="clientLinesRidesPreview.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Pregled linija</a>
-        </div>
-    </div>-->
-
-    <!-- Sidebar -->
-    <!--<nav class="w3-sidebar w3-bar-block w3-collapse w3-large w3-theme-l5 w3-animate-left" id="mySidebar">
-        <a class="w3-bar-item w3-button w3-hover-black" href="#">Link</a>
-        <a class="w3-bar-item w3-button w3-hover-black" href="#">Link</a>
-        <a class="w3-bar-item w3-button w3-hover-black" href="#">Link</a>
-        <a class="w3-bar-item w3-button w3-hover-black" href="#">Link</a>
-    </nav>-->
-
     <div class="sidebar">
-        <img class="sidebar-img" src="../../AppLogo.png" />
+        <img class="sidebar-img" src="../../logo.png" />
         <h2>Klijent</h2>
         <div><a href="clientBuyBookTicket.html">Kupovina i rezervacija karata</a></div>
+        <div><a href="clientTicketsPreviewPage.html">Pregled klijentovih karata</a></div>
+        <div><a href="clientLinesRidesPreview.html">Pregled linija i vožnji</a></div>
+        <div><a href="clientRailwayGridPage.html">Mreža linija</a></div>
+        <h2>Menadžer</h2>
+        <div><a href="managerRidesPage.html">Upravljanje redovima vožnji</a></div>
+        <div><a href="managerStationsPage.html">Upravljanje stanicama</a></div>
+        <div><a href="managerLinesPage.html">Upravljanje linijama</a></div>
+        <div><a href="managerTrainsPage.html">Upravljanje vozovima</a></div>
+        <div><a href="managerTicketsPage.html">Pregled prodatih karata</a></div>
     </div>
-
-
-    <!-- Main content: shift it to the right by 250 pixels when the sidebar is visible -->
     <div class="body-text">
 
         <div>
-            <div>
-                <h1>Heading</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem
-                    ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            </div>
-        </div>
-
-        <div>
-            <div>
-                <h1>Heading</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem
-                    ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            </div>
-        </div>
-
-        <div class="w3-row w3-padding-64">
-            <div class="w3-twothird w3-container">
-                <h1 class="w3-text-teal">Heading</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem
-                    ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            </div>
+            <h1>Kupovina i rezervacija karata</h1>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor
+                sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            </p>
         </div>
 
     </div>
-
 </body>
 
 </html>

@@ -34,6 +34,7 @@ namespace SerbianRailways.help_pages
             main_frame = mainFrame;
             main_window = window;
             main_window.Title = helpPageTitle + " - Pomoć";
+            //window.CommandBindings.Clear();
 
             string debugDir = System.IO.Path.GetDirectoryName(AppContext.BaseDirectory);
             string binDir = Directory.GetParent(debugDir).FullName;
@@ -49,7 +50,7 @@ namespace SerbianRailways.help_pages
 
         private void HelpPage_Navigating(object sender, NavigatingCancelEventArgs e)
         {
-            urlTextBox.Text = e.Uri.OriginalString;
+            //urlTextBox.Text = e.Uri.OriginalString;
         }
 
         private void BrowseBack_CanExecute(object sender, CanExecuteRoutedEventArgs e)
