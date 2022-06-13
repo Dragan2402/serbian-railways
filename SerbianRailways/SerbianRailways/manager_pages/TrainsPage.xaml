@@ -24,7 +24,7 @@
                 <DataGridTextColumn Header = "Broj vagona" CanUserResize="False" Binding="{Binding PassengerCars}"  Width="2*" IsReadOnly="False"   CanUserReorder="False"/>
                 <DataGridTextColumn Header = "Mesta Razred I" CanUserResize="False" Binding="{Binding FirstGradeSeats}"  Width="2*" IsReadOnly="False"   CanUserReorder="False"/>
                 <DataGridTextColumn Header = "Mesta Razred II" CanUserResize="False" Binding="{Binding SecondGradeSeats}"  Width="2*" IsReadOnly="False"   CanUserReorder="False"/>
-                <DataGridTextColumn Header = "Mesta" CanUserResize="False" Binding="{Binding NumberOfSeats}"  Width="2*" IsReadOnly="False"   CanUserReorder="False"/>
+                
             </DataGrid.Columns>
         </DataGrid>
         <Grid Grid.Row="1">

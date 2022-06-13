@@ -7,19 +7,19 @@ using System.Windows.Controls;
 
 namespace SerbianRailways.utility
 {
-    public class StringToDoubleValidationRule : ValidationRule
+    public class TimeSpanValidationRule : ValidationRule
     {
         public override ValidationResult Validate(object value, System.Globalization.CultureInfo cultureInfo)
         {
             try
             {
                 var s = value as string;
-                double r;
-                if (double.TryParse(s, out r))
+                TimeSpan time;
+                if (TimeSpan.TryParse(s, out time))
                 {
                     return new ValidationResult(true, null);
                 }
-                return new ValidationResult(false, "Molimo vas unesite validnu cenu.");
+                return new ValidationResult(false, "Molimo vas unesite validno vreme.");
             }
             catch
             {
@@ -28,27 +28,17 @@ namespace SerbianRailways.utility
         }
     }
 
-    public class MinMaxValidationRule : ValidationRule
+    public class MinMaxTimeSpanValidationRule : ValidationRule
     {
-        public double Min
-        {
-            get;
-            set;
-        }
-
-        public double Max
-        {
-            get;
-            set;
-        }
-
         public override ValidationResult Validate(object value, System.Globalization.CultureInfo cultureInfo)
         {
-            if (value is double)
+            if (value is TimeSpan)
             {
-                double d = (double)value;
-                if (d < Min) return new ValidationResult(false, "Cena mora biti pozitivna.");
-                if (d > Max) return new ValidationResult(false, "Cena ne može biti veća od 10 000.");
+                TimeSpan Min = new TimeSpan(0, 0, 0, 0);
+                TimeSpan Max = new TimeSpan(24, 0, 0, 0);
+                TimeSpan d = (TimeSpan)value;
+                if (d.CompareTo(Min) < 0) return new ValidationResult(false, "Molimo vas unesite validno vreme.");
+                if (d.CompareTo(Max) > 0 ) return new ValidationResult(false, "Molimo vas unesite validno vreme.");
                 return new ValidationResult(true, null);
             }
             else

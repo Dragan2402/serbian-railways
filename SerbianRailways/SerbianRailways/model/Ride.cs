@@ -28,14 +28,14 @@ namespace SerbianRailways.model
 
         public List<DayOfWeek> DayOfWeeksThatDrives { get; set; }
 
-        public List<RideStop> RideStops { get; set; }
+
 
         public Dictionary<DateTime,SeatStatus> SeatsStatus { get; set; }
 
         public Ride()
         {
             Tickets = new List<Ticket>();
-            RideStops = new List<RideStop>();
+ 
             DayOfWeeksThatDrives= new List<DayOfWeek>();
             SeatsStatus = new Dictionary<DateTime, SeatStatus>();
         }
@@ -52,8 +52,7 @@ namespace SerbianRailways.model
             Train = train;
             Line = line;
 
-            Tickets = new List<Ticket>();
-            RideStops = new List<RideStop>();
+            Tickets = new List<Ticket>();  
             
             SeatsStatus = new Dictionary<DateTime, SeatStatus>();
             DayOfWeeksThatDrives = dayOfWeeks;

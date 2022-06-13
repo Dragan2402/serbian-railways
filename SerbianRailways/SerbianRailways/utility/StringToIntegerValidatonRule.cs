@@ -7,19 +7,19 @@ using System.Windows.Controls;
 
 namespace SerbianRailways.utility
 {
-    public class StringToDoubleValidationRule : ValidationRule
+    public class StringToIntegerValidatonRule : ValidationRule
     {
         public override ValidationResult Validate(object value, System.Globalization.CultureInfo cultureInfo)
         {
             try
             {
                 var s = value as string;
-                double r;
-                if (double.TryParse(s, out r))
+                int r;
+                if (int.TryParse(s, out r))
                 {
                     return new ValidationResult(true, null);
                 }
-                return new ValidationResult(false, "Molimo vas unesite validnu cenu.");
+                return new ValidationResult(false, "Molimo vas unesite pozitivan ceo broj za dato polje.");
             }
             catch
             {
@@ -28,15 +28,15 @@ namespace SerbianRailways.utility
         }
     }
 
-    public class MinMaxValidationRule : ValidationRule
+    public class MinMaxValidationIntegerRule : ValidationRule
     {
-        public double Min
+        public int Min
         {
             get;
             set;
         }
 
-        public double Max
+        public int Max
         {
             get;
             set;
@@ -44,11 +44,11 @@ namespace SerbianRailways.utility
 
         public override ValidationResult Validate(object value, System.Globalization.CultureInfo cultureInfo)
         {
-            if (value is double)
+            if (value is int)
             {
-                double d = (double)value;
-                if (d < Min) return new ValidationResult(false, "Cena mora biti pozitivna.");
-                if (d > Max) return new ValidationResult(false, "Cena ne može biti veća od 10 000.");
+                int d = (int)value;
+                if (d < Min) return new ValidationResult(false, "Broj mora biti ceo pozitivan.");
+                if (d > Max) return new ValidationResult(false, "Broj ne može biti veći od "+Max.ToString()+".");
                 return new ValidationResult(true, null);
             }
             else

@@ -7,30 +7,43 @@
         xmlns:val="clr-namespace:SerbianRailways.utility"
         xmlns:local="clr-namespace:SerbianRailways.manager_pages"
         mc:Ignorable="d"
-        Title="Srbija Voz-Dodavanje vožnje" Icon="/icon.png" Height="541" Width="400" WindowStartupLocation="CenterScreen">
-    <DockPanel>
+        Title="Srbija Voz-Dodavanje vožnje" Icon="/icon.png" Height="600" Width="400" WindowStartupLocation="CenterScreen">
+    
         <Grid>
             <WrapPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <TextBox materialDesign:HintAssist.Hint="Vreme polaska"  Name="deparuteTime_tb" ToolTip="Unesite vreme polaska vožnje u formatu 'ss:mm','ss:mm:sc'." Margin="0,20,0,10" HorizontalAlignment="Center" MinWidth="70" Text="{Binding Path=DepartureTime, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" Width="300" />
-                <TextBox materialDesign:HintAssist.Hint="Vreme dolaska" x:Name="arrivalTime_tb"  Margin="0,20,0,10" ToolTip="Unesite vreme dolaska vožnje u formatu 'ss:mm','ss:mm:sc'." HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="70" Text="{Binding Path=ArrivalTime, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" Width="300"></TextBox>
+            <TextBox materialDesign:HintAssist.Hint="Vreme polaska"  Name="deparuteTime_tb" ToolTip="Unesite vreme polaska vožnje u formatu 'ss:mm','ss:mm:sc'." Margin="0,20,0,10" HorizontalAlignment="Center" MinWidth="70" Width="300" >
+                <TextBox.Text>
+                    <Binding Path="DepartureTime" UpdateSourceTrigger="PropertyChanged">
+                        <Binding.ValidationRules>
+                            <val:TimeSpanValidationRule ValidationStep="RawProposedValue"/>
+                            <val:MinMaxTimeSpanValidationRule ValidationStep="ConvertedProposedValue" />
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
+                <TextBox materialDesign:HintAssist.Hint="Vreme dolaska" x:Name="arrivalTime_tb"  Margin="0,20,0,10" ToolTip="Unesite vreme dolaska vožnje u formatu 'ss:mm','ss:mm:sc'." HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="70"  Width="300">
+                    <TextBox.Text>
+                    <Binding Path="ArrivalTime" UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <val:TimeSpanValidationRule ValidationStep="RawProposedValue"/>
+                                <val:MinMaxTimeSpanValidationRule ValidationStep="ConvertedProposedValue" />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+            </TextBox>
                 <ComboBox materialDesign:HintAssist.Hint="Odabir voza" Name="trainsCMBX" Margin="0,20,0,10" HorizontalAlignment="Center"  VerticalAlignment="Center" ItemsSource="{Binding Path=Trains}" Width="300"/>
                 <ComboBox materialDesign:HintAssist.Hint="Odabir linije" Name="linesCMBX" Margin="0,20,0,10" HorizontalAlignment="Center"  VerticalAlignment="Center" ItemsSource="{Binding Path=Lines}" Width="300"/>
-                <TextBox materialDesign:HintAssist.Hint="Cena" Margin="0,20,0,10" HorizontalAlignment="Center" ToolTip="Unesite cenu vožnje. Decimalna mesta se odvajaju tačkom." VerticalAlignment="Center" MinWidth="70" x:Name="price_tb" >
+                <TextBox materialDesign:HintAssist.Hint="Cena" Margin="0,20,0,10" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="70" x:Name="price_tb" >
                     <TextBox.Text>
                         <Binding Path="Price" UpdateSourceTrigger="PropertyChanged">
                             <Binding.ValidationRules>
                                 <val:StringToDoubleValidationRule ValidationStep="RawProposedValue"/>
-                                <val:MinMaxValidationRule ValidationStep="ConvertedProposedValue" Min="0" Max="100000"/>
+                                <val:MinMaxValidationRule ValidationStep="ConvertedProposedValue" Min="1" Max="100000"/>
                             </Binding.ValidationRules>
                         </Binding>
-                    </TextBox.Text>
-                    <Validation.ErrorTemplate>
-                        <ControlTemplate>
-                            <TextBlock DockPanel.Dock="Bottom" Text="{Binding [0].ErrorContent}" Foreground="Red"/>
-                        </ControlTemplate>
-                    </Validation.ErrorTemplate>
+                    </TextBox.Text>         
                 </TextBox>
-                <Label VerticalAlignment="Center" Margin="0,20,0,10" HorizontalAlignment="Center">Dani kojima se obavjla vožnja:</Label>
+                <Label VerticalAlignment="Center" Margin="0,40,0,10" HorizontalAlignment="Center">Dani kojima se obavjla vožnja:</Label>
                 <WrapPanel Margin="0,10,0,0" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
                     <CheckBox Margin="0,0,10,0" x:Name="mondayCB" IsChecked="True">Pon</CheckBox>
                     <CheckBox Margin="0,0,10,0" x:Name="tuesdayCB" IsChecked="True">Uto</CheckBox>
@@ -47,5 +60,5 @@
                 </WrapPanel>
             </WrapPanel>
         </Grid>
-    </DockPanel>
+    
 </Window>

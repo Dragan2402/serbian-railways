@@ -138,6 +138,8 @@
     <Compile Include="utility\Borders.cs" />
     <Compile Include="utility\PasswordHelper.cs" />
     <Compile Include="utility\StringToDoubleValidationRule.cs" />
+    <Compile Include="utility\StringToIntegerValidatonRule.cs" />
+    <Compile Include="utility\TimeSpanValidationRule.cs" />
     <Compile Include="utility\Validation.cs" />
     <Page Include="authorization_pages\LoginPage.xaml">
       <SubType>Designer</SubType>
@@ -243,7 +245,6 @@
     <Compile Include="model\Location.cs" />
     <Compile Include="model\Manager.cs" />
     <Compile Include="model\Ride.cs" />
-    <Compile Include="model\RideStop.cs" />
     <Compile Include="model\Station.cs" />
     <Compile Include="model\Ticket.cs" />
     <Compile Include="model\Train.cs" />

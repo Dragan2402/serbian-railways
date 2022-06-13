@@ -83,12 +83,7 @@ namespace SerbianRailways.manager_pages
             Rides = rides;
 
             Trains = mockService.GetAllTrains();
-            Lines = mockService.GetAllLines();
-
-            TimeSpan timespan = new TimeSpan(12, 0, 0);
-            deparuteTime_tb.Text = timespan.ToString();
-            arrivalTime_tb.Text=timespan.ToString();
-            price_tb.Text = "500";
+            Lines = mockService.GetAllLines();    
 
             RoutedCommand addNewRidecmd = new RoutedCommand();
             addNewRidecmd.InputGestures.Add(new KeyGesture(Key.D, ModifierKeys.Control));
