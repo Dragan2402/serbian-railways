@@ -284,7 +284,11 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Content Include="demo_videos\test.mp4" />
+    <Content Include="demo_videos\tickets.mp4" />
+    <Content Include="demo_videos\lines.mp4" />
+    <Content Include="demo_videos\stations.mp4" />
+    <Content Include="demo_videos\rides.mp4" />
+    <Content Include="demo_videos\trains.mp4" />
     <Content Include="help_pages\html\clientBuyBookTicket.html" />
     <Content Include="help_pages\html\clientLinesRidesPreview.html" />
     <Content Include="help_pages\html\error.html" />

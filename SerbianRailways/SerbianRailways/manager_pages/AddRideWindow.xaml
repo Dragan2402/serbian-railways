@@ -33,7 +33,7 @@
             </TextBox>
                 <ComboBox materialDesign:HintAssist.Hint="Odabir voza" Name="trainsCMBX" Margin="0,20,0,10" HorizontalAlignment="Center"  VerticalAlignment="Center" ItemsSource="{Binding Path=Trains}" Width="300"/>
                 <ComboBox materialDesign:HintAssist.Hint="Odabir linije" Name="linesCMBX" Margin="0,20,0,10" HorizontalAlignment="Center"  VerticalAlignment="Center" ItemsSource="{Binding Path=Lines}" Width="300"/>
-                <TextBox materialDesign:HintAssist.Hint="Cena" Margin="0,20,0,10" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="70" x:Name="price_tb" >
+                <TextBox materialDesign:HintAssist.Hint="Cena" Margin="0,20,0,10" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="300" x:Name="price_tb" >
                     <TextBox.Text>
                         <Binding Path="Price" UpdateSourceTrigger="PropertyChanged">
                             <Binding.ValidationRules>

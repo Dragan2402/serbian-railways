@@ -72,7 +72,19 @@ namespace SerbianRailways.manager_pages
                 StationPins.Add(station, pushpin);
              
             }
+            RoutedCommand demoCMD = new RoutedCommand();
+            demoCMD.InputGestures.Add(new KeyGesture(Key.F5, ModifierKeys.Control));
+            window.CommandBindings.Add(new CommandBinding(demoCMD, ToggleDemoSC));
+            ((MainWindow)System.Windows.Application.Current.MainWindow).DemoMenuItem.IsEnabled = true;
+            ((MainWindow)System.Windows.Application.Current.MainWindow).DemoMenuItem.Command = demoCMD;
 
+        }
+
+        private void ToggleDemoSC(object sender, ExecutedRoutedEventArgs e)
+        {
+
+            Window demoWindow = new DemoPlayerWindow("stations");
+            demoWindow.ShowDialog();
         }
 
         private void ReturnManagerPage(object sender, RoutedEventArgs e)

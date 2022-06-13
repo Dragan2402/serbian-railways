@@ -109,7 +109,7 @@ namespace SerbianRailways.manager_pages
         private void ToggleDemoSC(object sender, ExecutedRoutedEventArgs e)
         {
             
-            Window demoWindow = new DemoPlayerWindow("test");
+            Window demoWindow = new DemoPlayerWindow("lines");
             demoWindow.ShowDialog();
         }
 

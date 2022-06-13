@@ -81,6 +81,7 @@ namespace SerbianRailways.manager_pages
             DataContext = this;
             MockService = mockService;
             Rides = rides;
+            price_tb.Clear();
 
             Trains = mockService.GetAllTrains();
             Lines = mockService.GetAllLines();    
