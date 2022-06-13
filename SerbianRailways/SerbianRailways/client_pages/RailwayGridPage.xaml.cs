@@ -1,4 +1,5 @@
 ﻿using Microsoft.Maps.MapControl.WPF;
+using SerbianRailways.help_pages;
 using SerbianRailways.model;
 using SerbianRailways.service;
 using System;
@@ -47,6 +48,11 @@ namespace SerbianRailways.client_pages
             main_window = window;
             main_window.Title = "Srbija Voz-Mreža linija";
             window.CommandBindings.Clear();
+
+            RoutedCommand openHelpPage = new RoutedCommand();
+            openHelpPage.InputGestures.Add(new KeyGesture(Key.F1));
+            window.CommandBindings.Add(new CommandBinding(openHelpPage, ToggleHelpPageSC));
+
             Lines = MockService.GetAllLinesTable();
             dgLines.DataContext = Lines;
             AddColors();
@@ -235,6 +241,11 @@ namespace SerbianRailways.client_pages
         private void ReturnClientPage(object sender, RoutedEventArgs e)
         {
             main_frame.Content = new ClientMainPage(MockService, main_frame, main_window);
+        }
+
+        private void ToggleHelpPageSC(object sender, ExecutedRoutedEventArgs e)
+        {
+            main_frame.Content = new HelpPage(main_frame, main_window, "clientRailwayGridPage", this);
         }
     }
 }

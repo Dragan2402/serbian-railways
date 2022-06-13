@@ -1,4 +1,5 @@
-﻿using SerbianRailways.model.tableModels;
+﻿using SerbianRailways.help_pages;
+using SerbianRailways.model.tableModels;
 using SerbianRailways.service;
 using System;
 using System.Collections.Generic;
@@ -127,6 +128,9 @@ namespace SerbianRailways.manager_pages
             ((MainWindow)System.Windows.Application.Current.MainWindow).DemoMenuItem.IsEnabled = true;
             ((MainWindow)System.Windows.Application.Current.MainWindow).DemoMenuItem.Command = demoCMD;
 
+            RoutedCommand openHelpPage = new RoutedCommand();
+            openHelpPage.InputGestures.Add(new KeyGesture(Key.F1));
+            window.CommandBindings.Add(new CommandBinding(openHelpPage, ToggleHelpPageSC));
         }
 
         private void ToggleDemoSC(object sender, ExecutedRoutedEventArgs e)
@@ -134,6 +138,7 @@ namespace SerbianRailways.manager_pages
 
             Window demoWindow = new DemoPlayerWindow("tickets");
             demoWindow.ShowDialog();
+
         }
         private void MonthlyReportSC(object sender, ExecutedRoutedEventArgs e)
         {
@@ -270,6 +275,11 @@ namespace SerbianRailways.manager_pages
                 TotalRideLbl.Content = totalAndAvarage.Item1 + " din";
                 AvarageRideLbl.Content = totalAndAvarage.Item2 + " din";
             }
+        }
+
+        private void ToggleHelpPageSC(object sender, ExecutedRoutedEventArgs e)
+        {
+            main_frame.Content = new HelpPage(main_frame, main_window, "managerTicketsPage", this);
         }
     }
 }

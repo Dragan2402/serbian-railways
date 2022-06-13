@@ -1,4 +1,5 @@
 ﻿using Microsoft.Maps.MapControl.WPF;
+using SerbianRailways.help_pages;
 using SerbianRailways.model;
 using SerbianRailways.service;
 using SerbianRailways.utility;
@@ -57,6 +58,10 @@ namespace SerbianRailways.manager_pages
             deleteTrainsCMD.InputGestures.Add(new KeyGesture(Key.I, ModifierKeys.Control));
             DeleteBinding = new CommandBinding(deleteTrainsCMD, DeleteStationsSC);
             window.CommandBindings.Add(DeleteBinding);
+
+            RoutedCommand openHelpPage = new RoutedCommand();
+            openHelpPage.InputGestures.Add(new KeyGesture(Key.F1));
+            window.CommandBindings.Add(new CommandBinding(openHelpPage, ToggleHelpPageSC));
 
             Stations = mockService.GetAllStationsTable();
             dgStations.DataContext = Stations;
@@ -288,6 +293,11 @@ namespace SerbianRailways.manager_pages
                 RailGridMap.Children.Remove(StationPins[station]);
                 RailGridMap.Children.Add(StationPins[station]); 
             }
+        }
+
+        private void ToggleHelpPageSC(object sender, ExecutedRoutedEventArgs e)
+        {
+            main_frame.Content = new HelpPage(main_frame, main_window, "managerStationsPage", this);
         }
     }
 }

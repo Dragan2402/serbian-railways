@@ -1,4 +1,5 @@
 ﻿using Microsoft.Maps.MapControl.WPF;
+using SerbianRailways.help_pages;
 using SerbianRailways.model;
 using SerbianRailways.service;
 using System;
@@ -87,6 +88,10 @@ namespace SerbianRailways.manager_pages
             window.CommandBindings.Add(new CommandBinding(demoCMD, ToggleDemoSC));
             ((MainWindow)System.Windows.Application.Current.MainWindow).DemoMenuItem.IsEnabled = true;
             ((MainWindow)System.Windows.Application.Current.MainWindow).DemoMenuItem.Command = demoCMD;
+            
+            RoutedCommand openHelpPage = new RoutedCommand();
+            openHelpPage.InputGestures.Add(new KeyGesture(Key.F1));
+            window.CommandBindings.Add(new CommandBinding(openHelpPage, ToggleHelpPageSC));
 
         }
 
@@ -419,6 +424,11 @@ namespace SerbianRailways.manager_pages
             LinePins.Clear();
             LineRoute.Clear();
             StationReferences.Clear();
+        }
+
+        private void ToggleHelpPageSC(object sender, ExecutedRoutedEventArgs e)
+        {
+            main_frame.Content = new HelpPage(main_frame, main_window, "managerLinesPage", this);
         }
     }
 }

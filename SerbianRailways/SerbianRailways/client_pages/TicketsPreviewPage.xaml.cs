@@ -1,4 +1,5 @@
-﻿using SerbianRailways.model.tableModels;
+﻿using SerbianRailways.help_pages;
+using SerbianRailways.model.tableModels;
 using SerbianRailways.service;
 using System;
 using System.Collections.Generic;
@@ -39,6 +40,11 @@ namespace SerbianRailways.client_pages
             main_window = window;
             main_window.Title = "Srbija Voz-Pregled karata";
             window.CommandBindings.Clear();
+
+            RoutedCommand openHelpPage = new RoutedCommand();
+            openHelpPage.InputGestures.Add(new KeyGesture(Key.F1));
+            window.CommandBindings.Add(new CommandBinding(openHelpPage, ToggleHelpPageSC));
+
             Tickets = MockService.GetLoggedClientTicketsTable();
             dgTickets.DataContext= Tickets;
         }
@@ -172,6 +178,11 @@ namespace SerbianRailways.client_pages
                     }
                 }
             }
+        }
+
+        private void ToggleHelpPageSC(object sender, ExecutedRoutedEventArgs e)
+        {
+            main_frame.Content = new HelpPage(main_frame, main_window, "clientTicketsPreviewPage", this);
         }
     }
 }

@@ -22,18 +22,21 @@ namespace SerbianRailways.help_pages
     /// </summary>
     public partial class HelpPage : Page
     {
-        private MockService MockService { get; set; }
         Frame main_frame;
         Window main_window { get; set; }
+        Page originPage;
+        //string originPageTitle;
 
-        public HelpPage(MockService mockService, Frame mainFrame, Window window, string helpPageTitle, string helpPageName)
+        public HelpPage(Frame mainFrame, Window window, string helpPageName, Page origin)
         {
             InitializeComponent();
             this.DataContext = this;
-            MockService = mockService;
+            originPage = origin;
+            //originPageTitle = originTitle;
             main_frame = mainFrame;
             main_window = window;
-            main_window.Title = helpPageTitle + " - Pomoć";
+            //main_window.Title = originPageTitle + " - Pomoć";
+            //window.CommandBindings.Clear();
 
             string debugDir = System.IO.Path.GetDirectoryName(AppContext.BaseDirectory);
             string binDir = Directory.GetParent(debugDir).FullName;
@@ -49,7 +52,7 @@ namespace SerbianRailways.help_pages
 
         private void HelpPage_Navigating(object sender, NavigatingCancelEventArgs e)
         {
-            urlTextBox.Text = e.Uri.OriginalString;
+            //urlTextBox.Text = e.Uri.OriginalString;
         }
 
         private void BrowseBack_CanExecute(object sender, CanExecuteRoutedEventArgs e)
@@ -70,6 +73,12 @@ namespace SerbianRailways.help_pages
         private void BrowseForward_Executed(object sender, ExecutedRoutedEventArgs e)
         {
             helpPage.GoForward();
+        }
+
+        private void ReturnToOriginPage(object sender, RoutedEventArgs e)
+        {
+            //main_window.Title = originPageTitle;
+            main_frame.Content = originPage;
         }
     }
 }

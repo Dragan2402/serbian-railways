@@ -207,7 +207,7 @@ namespace SerbianRailways.client_pages
 
         private void ToggleHelpPageSC(object sender, ExecutedRoutedEventArgs e)
         {
-            main_frame.Content = new HelpPage(MockService, main_frame, main_window, "Kupi/Rezerviši Karte", "clientBuyBookTicket");
+            main_frame.Content = new HelpPage(main_frame, main_window, "clientBuyBookTicket", this);
         }
     }
 }

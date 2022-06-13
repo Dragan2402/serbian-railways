@@ -16,6 +16,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using SerbianRailways.model.tableModels;
+using SerbianRailways.help_pages;
 
 namespace SerbianRailways.client_pages
 {
@@ -44,6 +45,11 @@ namespace SerbianRailways.client_pages
             main_window = window;
             main_window.Title = "Srbija Voz-Pregled vožnji i linija";
             window.CommandBindings.Clear();
+
+            RoutedCommand openHelpPage = new RoutedCommand();
+            openHelpPage.InputGestures.Add(new KeyGesture(Key.F1));
+            window.CommandBindings.Add(new CommandBinding(openHelpPage, ToggleHelpPageSC));
+
             Lines = MockService.GetAllLinesTable();
             dgLines.DataContext = Lines;
             
@@ -160,6 +166,11 @@ namespace SerbianRailways.client_pages
         private void ReturnClientPage(object sender, RoutedEventArgs e)
         {
             main_frame.Content = new ClientMainPage(MockService, main_frame, main_window);
+        }
+
+        private void ToggleHelpPageSC(object sender, ExecutedRoutedEventArgs e)
+        {
+            main_frame.Content = new HelpPage(main_frame, main_window, "clientLinesRidesPreview", this);
         }
 
     }
