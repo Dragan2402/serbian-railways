@@ -5,78 +5,7 @@
     <title>W3.CSS Template</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
-    <style>
-        html,
-        body,
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6,
-        a {
-            font-family: "Roboto", sans-serif;
-        }
-        
-        .sidebar {
-            height: 100%;
-            width: 250px;
-            position: fixed;
-            left: 0;
-            top: 0;
-            background-color: #fafafa;
-            border-right: 1px solid lightgrey;
-            overflow: auto;
-        }
-        
-        .sidebar h2 {
-            padding-left: 20px;
-            display: block;
-        }
-        
-        .sidebar div {
-            padding-left: 30px;
-            padding-bottom: 10px;
-            font-size: 18px;
-            display: block;
-            text-decoration: none
-        }
-        
-        .sidebar a {
-            text-decoration: none;
-            color: #673ab7;
-            font-weight: bold;
-        }
-        
-        .sidebar a:visited {
-            color: #673ab7;
-        }
-        
-        .sidebar a:hover {
-            color: black;
-        }
-        
-        .sidebar-img {
-            display: block;
-            padding-top: 20px;
-            padding-left: 15px;
-            padding-bottom: 20px;
-            margin: 0;
-            width: 210px;
-            height: auto;
-        }
-        
-        .body-text {
-            margin-left: 260px;
-            font-size: 18px;
-            top: 0;
-        }
-        
-        .body-text h1 {
-            color: #673ab7;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -88,23 +17,53 @@
         <div><a href="clientTicketsPreviewPage.html">Pregled karata</a></div>
         <div><a href="clientLinesRidesPreview.html">Pregled linija i vožnji</a></div>
         <div><a href="clientRailwayGridPage.html">Mreža linija</a></div>
-        <!-- <h2>Menadžer</h2>
-        <div><a href="managerRidesPage.html">Upravljanje redovima vožnji</a></div>
-        <div><a href="managerStationsPage.html">Upravljanje stanicama</a></div>
-        <div><a href="managerLinesPage.html">Upravljanje linijama</a></div>
-        <div><a href="managerTrainsPage.html">Upravljanje vozovima</a></div>
-        <div><a href="managerTicketsPage.html">Pregled prodatih karata</a></div> -->
     </div>
     <div class="body-text">
 
         <div>
             <h1>Kupovina i rezervacija karata</h1>
+            <p>Stranici za kupovinu i rezervaciju karata moguće je pristupiti klikom na dugme "Kupi/Rezerviši kartu" na glavnoj stranici.</p>
+
+            <h2>Pretraga slobodnih karata</h2>
             <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor
-                sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                Kako biste pronašli kartu za traženu vožnju, potrebno je prvo da popunite kriterijume na vrhu stranice.
+            </p>
+            <p>
+                U polje "Broj karti", označeno brojem <span class="number">1</span> uneti željeni broj karata. Zatim u padajućem meniju "Razred", označenim brojem <span class="number">2</span> odabrati razred sedišta, a u meniju "Linija", označenim brojem
+                <span class="number">3</span> odabrati željenu liniju. Kalendar označen brojem <span class="number">4</span> omogućava unos datuma kada želite da putujete.
+            </p>
+            <p>
+                Kada su svi kriterijumi uneseni, klikom na dugme "Pretraži", pod broj <span class="number">5</span>, pronalaze se vožnje kojima uneseni kriterijumi odgovaraju, ako takve vožnje postoje. Bitne informacije o pronađenim vožnjama će se ispisati
+                u tabeli ispod, označenoj brojem <span class="number">6</span>.
+            </p>
+            <div class="page-img-div">
+                <img class="page-img" src="img/client_buy_book_ticket/page.png">
+            </div>
+
+            <h2>Kupovina karata</h2>
+            <p>
+                Da biste mogli da kupite karte, potrebno je odabrati jednu od pretraženih vožnji u tabeli <span class="number">7</span>, klikom na bilo koji deo odgovarajućeg reda u tabeli.
+            </p>
+            <div class="page-img-div">
+                <img class="page-img" src="img/client_buy_book_ticket/page_searched.png">
+            </div>
+            <p>
+                Odabrani red će biti označen sivom bojom kao red na slici ispod označen brojem <span class="number">8</span>. Kupovina se završava klikom na dugme "Kupi", označeno brojem <span class="number">9</span>. Ukoliko je kupovina uspešna, bićete
+                obavešteni i preusmereni nazad na glavnu stranicu.
+            </p>
+            <div class="page-img-div">
+                <img class="page-img" src="img/client_buy_book_ticket/page_selected.png">
+            </div>
+
+            <h2>Rezervacija karata</h2>
+            <p>
+                Da biste mogli da rezervišete karte, potrebno je odabrati jednu od pretraženih vožnji u tabeli <span class="number">7</span>, klikom na bilo koji deo odgovarajućeg reda u tabeli.
+            </p>
+            <p>
+                Odabrani red će biti označen sivom bojom kao red na slici iznad označen brojem <span class="number">8</span>. Rezervacija se završava klikom na dugme "Rezerviši", označeno brojem <span class="number">10</span>. Ukoliko je rezervacija uspešna,
+                bićete obavešteni i preusmereni nazad na glavnu stranicu.
             </p>
         </div>
-
     </div>
 </body>
 

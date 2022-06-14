@@ -1,0 +1,93 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a {
+    color: #673ab7;
+}
+
+.sidebar {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: #fafafa;
+    border-right: 1px solid lightgrey;
+    overflow: auto;
+}
+
+.sidebar h2 {
+    padding-left: 20px;
+    display: block;
+    color: black;
+}
+
+.sidebar div {
+    padding-left: 30px;
+    padding-bottom: 10px;
+    font-size: 18px;
+    display: block;
+    text-decoration: none;
+}
+
+.sidebar a {
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.sidebar a:visited {
+    color: #673ab7;
+}
+
+.sidebar a:hover {
+    color: black;
+}
+
+.sidebar-img {
+    display: block;
+    padding-top: 20px;
+    padding-left: 15px;
+    padding-bottom: 20px;
+    margin: 0;
+    width: 210px;
+    height: auto;
+}
+
+.body-text {
+    margin-left: 260px;
+    margin-right: 10px;
+    font-size: 18px;
+    top: 0;
+    padding-bottom: 200px;
+}
+
+.body-text h1 {
+    color: #673ab7;
+}
+
+.page-img-div {
+    width: 100%;
+    text-align: center;
+    border-radius: 5px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.page-img {
+    width: 90%;
+    height: auto;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+}
+
+.number {
+    color: #ff7f27;
+    font-weight: bold;
+}
