@@ -6,77 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
-    <style>
-        html,
-        body,
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6,
-        a {
-            font-family: "Roboto", sans-serif;
-        }
-        
-        .sidebar {
-            height: 100%;
-            width: 250px;
-            position: fixed;
-            left: 0;
-            top: 0;
-            background-color: #fafafa;
-            border-right: 1px solid lightgrey;
-            overflow: auto;
-        }
-        
-        .sidebar h2 {
-            padding-left: 20px;
-            display: block;
-        }
-        
-        .sidebar div {
-            padding-left: 30px;
-            padding-bottom: 10px;
-            font-size: 18px;
-            display: block;
-            text-decoration: none
-        }
-        
-        .sidebar a {
-            text-decoration: none;
-            color: #673ab7;
-            font-weight: bold;
-        }
-        
-        .sidebar a:visited {
-            color: #673ab7;
-        }
-        
-        .sidebar a:hover {
-            color: black;
-        }
-        
-        .sidebar-img {
-            display: block;
-            padding-top: 20px;
-            padding-left: 15px;
-            padding-bottom: 20px;
-            margin: 0;
-            width: 210px;
-            height: auto;
-        }
-        
-        .body-text {
-            margin-left: 260px;
-            font-size: 18px;
-            top: 0;
-        }
-        
-        .body-text h1 {
-            color: #673ab7;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -88,21 +18,36 @@
         <div><a href="clientTicketsPreviewPage.html">Pregled karata</a></div>
         <div><a href="clientLinesRidesPreview.html">Pregled linija i vožnji</a></div>
         <div><a href="clientRailwayGridPage.html">Mreža linija</a></div>
-        <!-- <h2>Menadžer</h2>
-        <div><a href="managerRidesPage.html">Upravljanje redovima vožnji</a></div>
-        <div><a href="managerStationsPage.html">Upravljanje stanicama</a></div>
-        <div><a href="managerLinesPage.html">Upravljanje linijama</a></div>
-        <div><a href="managerTrainsPage.html">Upravljanje vozovima</a></div>
-        <div><a href="managerTicketsPage.html">Pregled prodatih karata</a></div> -->
     </div>
     <div class="body-text">
 
         <div>
             <h1>Mreža linija</h1>
             <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor
-                sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                Stranici za pregled mreže linija moguće je pristupiti klikom na dugme "Mreža linija" na glavnoj stranici.
             </p>
+            <p>
+                Na levoj strani stranice nalazi se tabela označena brojem <span class="number">1</span> na slici ispod, na kojoj su prikazane sve postojeće linije. Sa desne strane se nalazi mapa sveta, označena brojem <span class="number">2</span> pri
+                učitavanju stranice fokusirana na teritoriju Republike Srbije.
+            </p>
+            <p>
+                Mapa se može pomerati pritiskom na nju i povlačenjem miša. Takođe, mapa se može zumirati pomoću točkića na mišu.
+            </p>
+            <div class="page-img-div">
+                <img class="page-img" src="img/client_railway_grid_page/page.png">
+            </div>
+
+            <h2>Prikaz linija na mapi</h2>
+            <p>
+                Da bi se određena linija iz tabele <span class="number">1</span> prikazala na mapi, potrebno je prevući mišem red koji odgovara toj liniji bilo gde na mapu. Odabrani red će biti obeležen kao red označen brojem <span class="number">3</span>,
+                a odabrana linija će biti iscrtana na mapi u nasumično odabranoj boji, kao što je obeleženo brojem <span class="number">4</span>.
+            </p>
+            <p>
+                Uklanjanje svih iscrtanih linija sa mape može se izvršiti klikom na dugme "Očisti mapu", obeleženo sa <span class="number">5</span>.
+            </p>
+            <div class="page-img-div">
+                <img class="page-img" src="img/client_railway_grid_page/page_dragged.png">
+            </div>
         </div>
 
     </div>

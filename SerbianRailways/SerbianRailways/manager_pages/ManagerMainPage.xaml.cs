@@ -84,6 +84,9 @@ namespace SerbianRailways.manager_pages
             ((MainWindow)System.Windows.Application.Current.MainWindow).DemoMenuItem.Command = null;
             ((MainWindow)System.Windows.Application.Current.MainWindow).DemoMenuItem.IsEnabled = false;
 
+            ((MainWindow)System.Windows.Application.Current.MainWindow).HelpMenuItem.Command = null;
+            ((MainWindow)System.Windows.Application.Current.MainWindow).HelpMenuItem.IsEnabled = false;
+
             RoutedCommand exitCMD = new RoutedCommand();
             exitCMD.InputGestures.Add(new KeyGesture(Key.F4, ModifierKeys.Alt));
             main_window.CommandBindings.Add(new CommandBinding(exitCMD, ExitCommandSC));

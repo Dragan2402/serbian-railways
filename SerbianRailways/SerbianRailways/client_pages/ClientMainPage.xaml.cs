@@ -41,13 +41,8 @@ namespace SerbianRailways.client_pages
             main_window= window;
             main_window.Title = "Srbija Voz";
             //window.CommandBindings.Clear();
-            RoutedCommand logoutCMD = new RoutedCommand();
-            logoutCMD.InputGestures.Add(new KeyGesture(Key.Back, ModifierKeys.Control));
-            window.CommandBindings.Add(new CommandBinding(logoutCMD, LogoutSC));
+            ClearAndAddBindings();
 
-
-            ((MainWindow)System.Windows.Application.Current.MainWindow).LogoutMenuItem.IsEnabled = true;
-            ((MainWindow)System.Windows.Application.Current.MainWindow).LogoutMenuItem.Command = logoutCMD;
         }
 
         public void log_out(object sender, RoutedEventArgs e)
@@ -91,6 +86,43 @@ namespace SerbianRailways.client_pages
         private void ToggleBuyBookTicket(object sender, RoutedEventArgs e)
         {
             main_frame.Content = new BuyBookTicket(MockService, main_frame, main_window);
+        }
+
+        private void ClearAndAddBindings()
+        {
+            main_window.CommandBindings.Clear();
+
+            RoutedCommand exitCMD = new RoutedCommand();
+            exitCMD.InputGestures.Add(new KeyGesture(Key.F4, ModifierKeys.Alt));
+            main_window.CommandBindings.Add(new CommandBinding(exitCMD, ExitCommandSC));
+            ((MainWindow)System.Windows.Application.Current.MainWindow).ExitMenuItem.Command = exitCMD;
+
+            RoutedCommand logoutCMD = new RoutedCommand();
+            logoutCMD.InputGestures.Add(new KeyGesture(Key.Back, ModifierKeys.Control));
+            main_window.CommandBindings.Add(new CommandBinding(logoutCMD, LogoutSC));
+
+
+            ((MainWindow)System.Windows.Application.Current.MainWindow).LogoutMenuItem.IsEnabled = true;
+            ((MainWindow)System.Windows.Application.Current.MainWindow).LogoutMenuItem.Command = logoutCMD;
+
+            ((MainWindow)System.Windows.Application.Current.MainWindow).HelpMenu.IsEnabled = true;
+            ((MainWindow)System.Windows.Application.Current.MainWindow).HelpMenu.Visibility = Visibility.Visible;
+
+            ((MainWindow)System.Windows.Application.Current.MainWindow).DemoMenuItem.Visibility = Visibility.Collapsed;
+            ((MainWindow)System.Windows.Application.Current.MainWindow).HelpSeparator.Visibility = Visibility.Collapsed;
+
+            ((MainWindow)System.Windows.Application.Current.MainWindow).HelpMenuItem.IsEnabled = false;
+        }
+
+        private void ExitCommandSC(object sender, ExecutedRoutedEventArgs e)
+        {
+            if (MessageBox.Show("Da li ste sigurni da želite da ugasite aplikaciju?",
+                 "Izlaz",
+                 MessageBoxButton.YesNo,
+                 MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                main_window.Close();
+            }
         }
     }
 }

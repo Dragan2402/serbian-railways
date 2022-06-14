@@ -6,77 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
-    <style>
-        html,
-        body,
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6,
-        a {
-            font-family: "Roboto", sans-serif;
-        }
-        
-        .sidebar {
-            height: 100%;
-            width: 250px;
-            position: fixed;
-            left: 0;
-            top: 0;
-            background-color: #fafafa;
-            border-right: 1px solid lightgrey;
-            overflow: auto;
-        }
-        
-        .sidebar h2 {
-            padding-left: 20px;
-            display: block;
-        }
-        
-        .sidebar div {
-            padding-left: 30px;
-            padding-bottom: 10px;
-            font-size: 18px;
-            display: block;
-            text-decoration: none
-        }
-        
-        .sidebar a {
-            text-decoration: none;
-            color: #673ab7;
-            font-weight: bold;
-        }
-        
-        .sidebar a:visited {
-            color: #673ab7;
-        }
-        
-        .sidebar a:hover {
-            color: black;
-        }
-        
-        .sidebar-img {
-            display: block;
-            padding-top: 20px;
-            padding-left: 15px;
-            padding-bottom: 20px;
-            margin: 0;
-            width: 210px;
-            height: auto;
-        }
-        
-        .body-text {
-            margin-left: 260px;
-            font-size: 18px;
-            top: 0;
-        }
-        
-        .body-text h1 {
-            color: #673ab7;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -88,21 +18,40 @@
         <div><a href="clientTicketsPreviewPage.html">Pregled karata</a></div>
         <div><a href="clientLinesRidesPreview.html">Pregled linija i vožnji</a></div>
         <div><a href="clientRailwayGridPage.html">Mreža linija</a></div>
-        <!-- <h2>Menadžer</h2>
-        <div><a href="managerRidesPage.html">Upravljanje redovima vožnji</a></div>
-        <div><a href="managerStationsPage.html">Upravljanje stanicama</a></div>
-        <div><a href="managerLinesPage.html">Upravljanje linijama</a></div>
-        <div><a href="managerTrainsPage.html">Upravljanje vozovima</a></div>
-        <div><a href="managerTicketsPage.html">Pregled prodatih karata</a></div> -->
     </div>
     <div class="body-text">
 
         <div>
-            <h1>Pregled klijentovih karata</h1>
+            <h1>Pregled karata</h1>
             <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor
-                sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                Stranici za pregled karata moguće je pristupiti klikom na dugme "Pregled mojih karata" na glavnoj stranici.
             </p>
+
+            <p>
+                U tabeli koja čini većinu stranice biće prikazane informacije o svim vašim kupljenim i rezervisanim kartama, kao što se vidi na slici ispod gde su karte označene brojem <span class="number">1</span>.
+            </p>
+            <div class="page-img-div">
+                <img class="page-img" src="img/client_tickets_preview_page/page.png">
+            </div>
+
+            <h2>Otkazivanje karata</h2>
+            <p>
+                Da biste mogli da otkažete kartu, potrebno je istu odabrati u tabeli, klikom na bilo koji deo odgovarajućeg reda u tabeli. Odabrani red će biti označen sivom bojom kao red na slici ispod označen brojem <span class="number">2</span>.
+            </p>
+            <p>
+                Zatim je potrebno kliknuti na dugme "Otkaži kartu", na slici označeno brojem <span class="number">3</span>.
+            </p>
+            <div class="page-img-div">
+                <img class="page-img" src="img/client_tickets_preview_page/page_selected.png">
+            </div>
+            <p>
+                Prikazaće se prozor koji će vam omogućiti da odobrite otkazivanje karte. Klikom na dugme "Yes", označeno brojem <span class="number">4</span> na slici ispod, karta se otkazuje. Dugme "No", pod broj <span class="number">5</span>, omogućava
+                odustajanje od otkazivanja.
+            </p>
+            <div class="page-img-div">
+                <img src="img/client_tickets_preview_page/delete_confirm.png">
+            </div>
+
         </div>
 
     </div>

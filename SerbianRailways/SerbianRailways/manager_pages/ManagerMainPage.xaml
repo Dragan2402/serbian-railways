@@ -51,7 +51,7 @@
             </Border>
         </DockPanel>
         
-        <Button x:Name="CRUDRidesBtn" Grid.Column="1" ToolTip="Alt+R" Grid.Row="0" VerticalAlignment="Bottom" HorizontalAlignment="Center" Click="ToggleRidesCRUDPageBTN" MinWidth="200" MinHeight="50" Height="50" Width="220">Upravljanje redovima vožnji
+        <Button x:Name="CRUDRidesBtn" Grid.Column="1" ToolTip="Alt+O" Grid.Row="0" VerticalAlignment="Bottom" HorizontalAlignment="Center" Click="ToggleRidesCRUDPageBTN" MinWidth="200" MinHeight="50" Height="50" Width="220">Upravljanje redovima vožnji
         </Button>
         <Button x:Name="CRUDStationsBtn" Grid.Column="1" ToolTip="Alt+S" Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Center" Click="ToggleStationsCRUDPageBTN" MinWidth="200" MinHeight="50" Height="50" Width="220">Upravljanje stanicama
         </Button>

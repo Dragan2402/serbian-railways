@@ -66,11 +66,13 @@ namespace SerbianRailways.client_pages
             main_frame = mainFrame;
             main_window = window;
             main_window.Title = "Srbija Voz-Kupovina/Rezervacija Karte";
-            window.CommandBindings.Clear();
+            //window.CommandBindings.Clear();
 
             RoutedCommand openHelpPage = new RoutedCommand();
-            openHelpPage.InputGestures.Add(new KeyGesture(Key.F1));
+            openHelpPage.InputGestures.Add(new KeyGesture(Key.F1, ModifierKeys.Control));
             window.CommandBindings.Add(new CommandBinding(openHelpPage, ToggleHelpPageSC));
+            ((MainWindow)System.Windows.Application.Current.MainWindow).HelpMenuItem.IsEnabled = true;
+            ((MainWindow)System.Windows.Application.Current.MainWindow).HelpMenuItem.Command = openHelpPage;
 
             ticketDatePicker.Text = "Datum";
             ticketDatePicker.ToolTip = "Odaberite datum vožnje";
