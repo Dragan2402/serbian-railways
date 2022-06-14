@@ -13,11 +13,6 @@
 
     <div class="sidebar">
         <img class="sidebar-img" src="../../logo.png" />
-        <!-- <h2>Klijent</h2>
-        <div><a href="clientBuyBookTicket.html">Kupovina i rezervacija karata</a></div>
-        <div><a href="clientTicketsPreviewPage.html">Pregled klijentovih karata</a></div>
-        <div><a href="clientLinesRidesPreview.html">Pregled linija i vožnji</a></div>
-        <div><a href="clientRailwayGridPage.html">Mreža linija</a></div> -->
         <h2>Menadžer</h2>
         <div><a href="managerRidesPage.html">Upravljanje redovima vožnji</a></div>
         <div><a href="managerStationsPage.html">Upravljanje stanicama</a></div>
@@ -30,9 +25,70 @@
         <div>
             <h1>Upravljanje redovima vožnji</h1>
             <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor
-                sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                Stranici za upravljanje redovima vožnji moguće je pristupiti klikom na dugme "Upravljanje redovima vožnji" na glavnoj stranici ili prečicom <em>Alt+O</em>.
             </p>
+
+            <h2>Prikaz reda vožnji</h2>
+            <p>
+                Na tabeli koja čini većinu ove stranice, označenoj brojem <span class="number">1</span>, prikazane su informacije o svim vožnjama koje trenutno postoje.
+            </p>
+            <div class="page-img-div">
+                <img class="page-img" src="img/manager_rides_page/page.png">
+            </div>
+
+            <h2>Dodavanje vožnji</h2>
+            <p>
+                Klikom na dugme "Dodaj Vožnju", na slici gore označeno brojem <span class="number">2</span>, ili prečicom <em>Ctrl+D</em>, otvara se prozor za kreiranje nove vožnje.
+            </p>
+            <p>
+                Da bi se vožnja mogla dodati, moraju se popuniti sva polja u formi sa slike ispod. U polja označena brojevima <span class="number">3</span> i <span class="number">4</span>, upisuju se vremena polaska i dolaska, respektivno. Koristeći padajući
+                meni <span class="number">5</span> bira se voz, a menijem <span class="number">6</span> linija. U polje označeno brojem <span class="number">7</span> unosi se cena karte za ovu vožnju. U kutijama označenim sa <span class="number">8</span>                potrebno je otkačiti dane u nedelji kojima će se obavljati ova vožnja. Kutija <span class="number">9</span> označava da li je potrebno automatski izgenerisati i povratnu vožnju. Ako je ova opcija izabrana, a ne postoji odgovarajuća linija,
+                i ona će biti izgenerisana.
+            </p>
+            <p>
+                Na kraju, dugmetom "Dodaj", pod <span class="number">10</span>, ili prečicom <em>Ctrl+D</em>, se potvrđuje dodavanje vožnje. Poruka o uspehu dodavanja će biti prikazana prilikom klika na ovo dugme. Alternativno, može se odustati od dodavanja
+                vožnje klikom na dugme "Odustani", označenim sa <span class="number">11</span>, ili prečicom <em>Ctrl+O</em>.
+            </p>
+            <div class="page-img-div">
+                <img src="img/manager_rides_page/create.png">
+            </div>
+
+            <h2>Izmena vožnji</h2>
+            <p>
+                Ukoliko je potrebno izmeniti numeričke podatke o vožnji, to je moguće učiniti u samoj tabeli. Klikom na kolonu koja obeležava vreme polaska, vreme dolaska ili cenu unutar reda koji predstavlja vožnju, pojaviće se polje koje omogućava unos nove vrednosti.
+                Primer je dat na slici ispod, obeležen brojem <span class="number">12</span>. Ako se unese odgovarajuća vrednost, pritiskom na dugme <em>Enter</em> ili klikom miša bilo gde van polja, čuva se nova vrednost.
+            </p>
+            <p>
+                Da bi se menjale druge vrednosti kao što je voz, linija i dani u nedelji kada se vožnja obavlja, potrebno je kliknuti na dugme "Izmena Linije i Voza", obeleženo brojem <span class="number">13</span>, ili iskoristiti prečicu <em>Ctrl+O</em>.
+                Ovim se otvara prozor u kom je moguće menjati ove podatke.
+            </p>
+            <div class="page-img-div">
+                <img src="img/manager_rides_page/update.png">
+            </div>
+            <p>
+                Koristeći padajući meni <span class="number">14</span> bira se voz, a menijem <span class="number">15</span> linija. U kutijama označenim sa <span class="number">16</span> potrebno je otkačiti dane u nedelji kojima će se obavljati ova
+                vožnja.
+            </p>
+            <p>
+                Na kraju, dugmetom "Izmeni", pod <span class="number">17</span>, ili prečicom <em>Alt+D</em>, se potvrđuje izmena. Poruka o uspehu dodavanja će biti prikazana prilikom klika na ovo dugme. Alternativno, može se odustati od dodavanja vožnje
+                klikom na dugme "Odustani", označenim sa <span class="number">18</span>, ili prečicom <em>Alt+O</em>.
+            </p>
+
+            <h2>Brisanje vožnji</h2>
+            <p>
+                Da bi se vožnja obrisala, potrebno ju je prethodno odabrati, što se vrši klikom na odgovarajući red. Ovako se može odabrati proizvoljan broj vožnji ukoliko se drži dugme <em>Ctrl</em>. Odabrani redovi će biti obeleženi kao na primeru obeleženim
+                sa <span class="number">19</span> na slici ispod.
+            </p>
+            <div class="page-img-div">
+                <img class="page-img" src="img/manager_rides_page/page_selected.png">
+            </div>
+            <p>
+                Zatim je potrebno kliknuti na dugme "Izbriši Vožnju", obeleženo iznad sa <span class="number">20</span>, ili iskoristiti prečicu <em>Ctrl+I</em>. Ovim se otvara prozor prikazan na slici ispod. Brisanje vožnji se mora potvrditi klikom na
+                dugme "Yes", obeleženo brojem <span class="number">21</span>. Alternativno, klikom na dugme "No", obeleženo sa <span class="number">22</span>, se odustaje od brisanja vožnji.
+            </p>
+            <div class="page-img-div">
+                <img src="img/manager_rides_page/delete_confirm.png">
+            </div>
         </div>
 
     </div>

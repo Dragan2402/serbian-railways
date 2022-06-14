@@ -17,30 +17,30 @@
 
     <DockPanel>
         <Menu DockPanel.Dock ="Top" FontSize="15" Name="managerMenuBar">
-            <MenuItem Header="_Aplikacija">
-                <MenuItem Header="_Glavni Meni" Name="MainMenuMenuItem"></MenuItem>
+            <MenuItem Header="Aplikacija">
+                <MenuItem Header="Glavni Meni" Name="MainMenuMenuItem"></MenuItem>
                 <Separator Name="MainMenuSeperator"></Separator>
-                <MenuItem Header="_Odjava" Name="LogoutMenuItem" ></MenuItem>
+                <MenuItem Header="Odjava" Name="LogoutMenuItem" ></MenuItem>
                 <Separator></Separator>
-                <MenuItem Header="_Izlaz" Name="ExitMenuItem"></MenuItem>
+                <MenuItem Header="Izlaz" Name="ExitMenuItem"></MenuItem>
             </MenuItem>
-            <MenuItem Header="_Upravljanje Entitetima" Name="CRUDEntitiesMenuItem">
-                <MenuItem Header="_Redovi vožnje" Name="RidesMenuItem" ></MenuItem>
+            <MenuItem Header="Upravljanje Entitetima" Name="CRUDEntitiesMenuItem">
+                <MenuItem Header="Redovi vožnje" Name="RidesMenuItem" ></MenuItem>
                 <Separator/>
-                <MenuItem Header="_Stanice" Name="StationsMenuItem" ></MenuItem>
+                <MenuItem Header="Stanice" Name="StationsMenuItem" ></MenuItem>
                 <Separator/>
-                <MenuItem Header="_Linije" Name="LinesMenuItem" ></MenuItem>
+                <MenuItem Header="Linije" Name="LinesMenuItem" ></MenuItem>
                 <Separator/>
-                <MenuItem Header="_Vozovi" Name="TrainsMenuItem" ></MenuItem>
+                <MenuItem Header="Vozovi" Name="TrainsMenuItem" ></MenuItem>
 
             </MenuItem>
-            <MenuItem Header="_Statistika" Name="StatisticsMenu">
-                <MenuItem Header="_Prodate karte" Name="TicketsMenuItem"></MenuItem>
+            <MenuItem Header="Statistika" Name="StatisticsMenu">
+                <MenuItem Header="Prodate karte" Name="TicketsMenuItem"></MenuItem>
             </MenuItem>
-            <MenuItem Header="_Pomoć" Name="HelpMenu">
-                <MenuItem Header="_Demo" Name="DemoMenuItem"></MenuItem>
+            <MenuItem Header="Pomoć" Name="HelpMenu">
+                <MenuItem Header="Demo" Name="DemoMenuItem"></MenuItem>
                 <Separator Name="HelpSeparator"></Separator>
-                <MenuItem Header="_Online pomoć" Name="HelpMenuItem"></MenuItem>
+                <MenuItem Header="Online pomoć" Name="HelpMenuItem"></MenuItem>
             </MenuItem>
         </Menu>
         <Grid>
