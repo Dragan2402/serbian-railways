@@ -1,0 +1,31 @@
+﻿<Window x:Class="SerbianRailways.manager_pages.UpdateRideWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SerbianRailways.manager_pages"
+        mc:Ignorable="d"
+        Title="Srbija Voz-Izmena vožnje" Icon="/icon.png" Height="500" Width="400" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <WrapPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Label VerticalAlignment="Center" Margin="0,50,0,20" HorizontalAlignment="Center">Odabir voza:</Label>
+            <ComboBox Name="trainsCMBX" Margin="0,20,0,20" HorizontalAlignment="Center"  VerticalAlignment="Center" ItemsSource="{Binding Path=Trains}" Width="300" />
+            <Label VerticalAlignment="Center" Margin="0,20,0,20" HorizontalAlignment="Center">Odabir linije:</Label>
+            <ComboBox Name="linesCMBX" Margin="0,20,0,20" HorizontalAlignment="Center"  VerticalAlignment="Center" ItemsSource="{Binding Path=Lines}" Width="300"/>
+            <Label VerticalAlignment="Center" Margin="0,10,0,10" HorizontalAlignment="Center">Dani kojima se obavlja vožnja:</Label>
+            <WrapPanel Margin="0,20,0,0" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <CheckBox Margin="0,0,10,0" x:Name="mondayCB" IsChecked="False">Pon</CheckBox>
+                <CheckBox Margin="0,0,10,0" x:Name="tuesdayCB" IsChecked="False">Uto</CheckBox>
+                <CheckBox Margin="0,0,10,0" x:Name="wednesdayCB" IsChecked="False">Sre</CheckBox>
+                <CheckBox Margin="0,0,10,0"  x:Name="thursdayCB" IsChecked="False">Čet</CheckBox>
+                <CheckBox Margin="0,0,10,0" x:Name="fridayCB" IsChecked="False">Pet</CheckBox>
+                <CheckBox Margin="0,0,10,0" x:Name="saturdayCB" IsChecked="False">Sub</CheckBox>
+                <CheckBox x:Name="sundayCB" IsChecked="False">Ned</CheckBox>
+            </WrapPanel>
+            <WrapPanel HorizontalAlignment="Center" Margin="0,40,0,0" >
+                <Button HorizontalAlignment="Left" Margin="0,0,30,0" MinHeight="40" ToolTip="Ctrl+D" MinWidth="100" Click="UpdateRideBtn" >Izmeni</Button>
+                <Button HorizontalAlignment="Right"  MinHeight="40" MinWidth="100"  ToolTip="Ctrl+O" Click="Cancel_Btn">Odustani</Button>
+            </WrapPanel>
+        </WrapPanel>
+    </Grid>
+</Window>

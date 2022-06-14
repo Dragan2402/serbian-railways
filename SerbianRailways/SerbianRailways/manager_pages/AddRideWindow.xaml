@@ -1,0 +1,64 @@
+﻿<Window x:Class="SerbianRailways.manager_pages.AddRideWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:val="clr-namespace:SerbianRailways.utility"
+        xmlns:local="clr-namespace:SerbianRailways.manager_pages"
+        mc:Ignorable="d"
+        Title="Srbija Voz-Dodavanje vožnje" Icon="/icon.png" Height="600" Width="400" WindowStartupLocation="CenterScreen">
+    
+        <Grid>
+            <WrapPanel Orientation="Vertical"  HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBox materialDesign:HintAssist.Hint="Vreme polaska" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Name="deparuteTime_tb" ToolTip="Unesite vreme polaska vožnje u formatu 'ss:mm','ss:mm:sc'." Margin="0,20,0,10" HorizontalAlignment="Center" MinWidth="70" Width="300" >
+                <TextBox.Text>
+                    <Binding Path="DepartureTime" UpdateSourceTrigger="PropertyChanged">
+                        <Binding.ValidationRules>
+                            <val:TimeSpanValidationRule ValidationStep="RawProposedValue"/>
+                            <val:MinMaxTimeSpanValidationRule ValidationStep="ConvertedProposedValue" />
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
+            <TextBox materialDesign:HintAssist.Hint="Vreme dolaska" Style="{StaticResource MaterialDesignFloatingHintTextBox}" x:Name="arrivalTime_tb"  Margin="0,20,0,10" ToolTip="Unesite vreme dolaska vožnje u formatu 'ss:mm','ss:mm:sc'." HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="70"  Width="300">
+                    <TextBox.Text>
+                    <Binding Path="ArrivalTime" UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <val:TimeSpanValidationRule ValidationStep="RawProposedValue"/>
+                                <val:MinMaxTimeSpanValidationRule ValidationStep="ConvertedProposedValue" />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+            </TextBox>
+                <ComboBox materialDesign:HintAssist.Hint="Odabir voza"  Name="trainsCMBX" Margin="0,20,0,10" HorizontalAlignment="Center"  VerticalAlignment="Center" ItemsSource="{Binding Path=Trains}" Width="300"/>
+                <ComboBox materialDesign:HintAssist.Hint="Odabir linije" Name="linesCMBX" Margin="0,20,0,10" HorizontalAlignment="Center"  VerticalAlignment="Center" ItemsSource="{Binding Path=Lines}" Width="300"/>
+            <TextBox materialDesign:HintAssist.Hint="Cena"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0,20,0,10" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="300" x:Name="price_tb" >
+                    <TextBox.Text>
+                        <Binding Path="Price" UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <val:StringToDoubleValidationRule ValidationStep="RawProposedValue"/>
+                                <val:MinMaxValidationRule ValidationStep="ConvertedProposedValue" Min="1" Max="100000"/>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>         
+                </TextBox>
+                <Label VerticalAlignment="Center" Margin="0,40,0,10" HorizontalAlignment="Center">Dani kojima se obavlja vožnja:</Label>
+                <WrapPanel Margin="0,10,0,0" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <CheckBox Margin="0,0,10,0" x:Name="mondayCB" IsChecked="True">Pon</CheckBox>
+                    <CheckBox Margin="0,0,10,0" x:Name="tuesdayCB" IsChecked="True">Uto</CheckBox>
+                    <CheckBox Margin="0,0,10,0" x:Name="wednesdayCB" IsChecked="True">Sre</CheckBox>
+                    <CheckBox Margin="0,0,10,0"  x:Name="thursdayCB" IsChecked="True">Čet</CheckBox>
+                    <CheckBox Margin="0,0,10,0" x:Name="fridayCB" IsChecked="True">Pet</CheckBox>
+                    <CheckBox Margin="0,0,10,0" x:Name="saturdayCB" IsChecked="True">Sub</CheckBox>
+                    <CheckBox x:Name="sundayCB" IsChecked="True">Ned</CheckBox>
+                </WrapPanel>
+                <CheckBox x:Name="returnRide" ToolTip="Izaberite za automatsko kreiranje povratne vožnje. Ako vožnja ne postoji kreiraće se i potrebna linija." VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,30,0,30">Povratna vožnja</CheckBox>
+                <WrapPanel HorizontalAlignment="Center" >
+                    <Button HorizontalAlignment="Left" Margin="0,0,30,0" ToolTip="Ctrl+D" MinHeight="40" MinWidth="100" Click="AddRideBtn" >Dodaj</Button>
+                    <Button HorizontalAlignment="Right"  MinHeight="40" MinWidth="100"  ToolTip="Ctrl+O" Click="Cancel_Btn">Odustani</Button>
+                </WrapPanel>
+            </WrapPanel>
+        </Grid>
+    
+</Window>

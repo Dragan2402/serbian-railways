@@ -1,0 +1,50 @@
+﻿<Window x:Class="SerbianRailways.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:SerbianRailways"
+        mc:Ignorable="d"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        Title="Srbija Voz" Height="600" Width="1200" Icon="/icon.png" WindowStartupLocation="CenterScreen">
+
+    <DockPanel>
+        <Menu DockPanel.Dock ="Top" FontSize="15" Name="managerMenuBar">
+            <MenuItem Header="Aplikacija">
+                <MenuItem Header="Glavni Meni" Name="MainMenuMenuItem"></MenuItem>
+                <Separator Name="MainMenuSeperator"></Separator>
+                <MenuItem Header="Odjava" Name="LogoutMenuItem" ></MenuItem>
+                <Separator></Separator>
+                <MenuItem Header="Izlaz" Name="ExitMenuItem"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Upravljanje Entitetima" Name="CRUDEntitiesMenuItem">
+                <MenuItem Header="Redovi vožnje" Name="RidesMenuItem" ></MenuItem>
+                <Separator/>
+                <MenuItem Header="Stanice" Name="StationsMenuItem" ></MenuItem>
+                <Separator/>
+                <MenuItem Header="Linije" Name="LinesMenuItem" ></MenuItem>
+                <Separator/>
+                <MenuItem Header="Vozovi" Name="TrainsMenuItem" ></MenuItem>
+
+            </MenuItem>
+            <MenuItem Header="Statistika" Name="StatisticsMenu">
+                <MenuItem Header="Prodate karte" Name="TicketsMenuItem"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Pomoć" Name="HelpMenu">
+                <MenuItem Header="Demo" Name="DemoMenuItem"></MenuItem>
+                <Separator Name="HelpSeparator"></Separator>
+                <MenuItem Header="Online pomoć" Name="HelpMenuItem"></MenuItem>
+            </MenuItem>
+        </Menu>
+        <Grid>
+            <Frame x:Name="Main" NavigationUIVisibility="Hidden"/>
+        </Grid>
+    </DockPanel>
+</Window>
