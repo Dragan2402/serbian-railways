@@ -26,8 +26,8 @@
         <DataGrid x:Name="dgStations" Grid.Column="1" Grid.Row="0"  Grid.RowSpan="2" AutoGenerateColumns="False"  Margin="10,10" HorizontalAlignment="Center" CanUserAddRows="False"  HorizontalScrollBarVisibility="Disabled "  ItemsSource="{Binding}"
                    PreviewMouseLeftButtonDown="DGStations_PreviewMouseLeftButtonDown" MouseMove="DGStations_MouseMove" CellEditEnding="CellEditEndingEvent">
             <DataGrid.Columns>
-                <DataGridTextColumn Header = "Id" CanUserResize="False" Binding="{Binding Id}" Width="1.2*" IsReadOnly="True" CanUserReorder="False"/>
-                <DataGridTextColumn Header = "Naziv" CanUserResize="False" Binding="{Binding Name}"  Width="3*" IsReadOnly="False"   CanUserReorder="False"/>
+                <DataGridTextColumn Header = "Id" Binding="{Binding Id}" Width="1.2*" IsReadOnly="True" CanUserReorder="False"/>
+                <DataGridTextColumn Header = "Naziv"  Binding="{Binding Name}"  Width="3*" IsReadOnly="False"   CanUserReorder="False"/>
             </DataGrid.Columns>
         </DataGrid>
         <Button Content="Izbriši Stanice" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="200" MinHeight="50" Click="DeleteStationsBtn" AllowDrop="True" DragEnter="DeleteBTN_DragEnter" Drop="DeleteBTN_Drop" ToolTip="Prevucite stanicu za brisanje ili odaberite više stanica pa pritisnite dugme, Ctrl+I." Height="50" Width="200"/>

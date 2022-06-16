@@ -22,15 +22,15 @@
         <DataGrid x:Name="dgRides" Grid.Column="0"  ColumnWidth="*" AutoGenerateColumns="False" Grid.Row="0" Margin="10,10,10,10" CanUserAddRows="False"  HorizontalScrollBarVisibility="Disabled "  ItemsSource="{Binding}"
                    PreviewMouseLeftButtonDown="DGRides_PreviewMouseLeftButtonDown" MouseMove="DGRides_MouseMove" Grid.ColumnSpan="2">
             <DataGrid.Columns>
-                <DataGridTextColumn Header = "Id" CanUserResize="False" Binding="{Binding Id}" Width="*" IsReadOnly="True" CanUserReorder="False"/>
-                <DataGridTextColumn Header = "Vreme polaska" CanUserResize="False" Binding="{Binding DepartureTime}"  Width="2*" IsReadOnly="False"   CanUserReorder="False"/>
-                <DataGridTextColumn Header = "Vreme dolaska" CanUserResize="False" Binding="{Binding ArrivalTime}"  Width="2*" IsReadOnly="False"   CanUserReorder="False"/>
-                <DataGridTextColumn Header = "Dani vožnje" CanUserResize="False" Binding="{Binding DaysThatRidesTable}"  Width="3.5*" IsReadOnly="True"   CanUserReorder="False"/>
-                <DataGridTextColumn Header = "Voz" CanUserResize="False" Binding="{Binding Train.Name}"  Width="1.3*" IsReadOnly="True"   CanUserReorder="False"/>
-                <DataGridTextColumn Header = "Id linije" CanUserResize="False" Binding="{Binding Line.Id}"  Width="1.2*" IsReadOnly="True"   CanUserReorder="False"/>
-                <DataGridTextColumn Header = "Polazište" CanUserResize="False" Binding="{Binding Line.DepartureStation.Name}"  Width="2*" IsReadOnly="True"   CanUserReorder="False"/>
-                <DataGridTextColumn Header = "Dolazište" CanUserResize="False" Binding="{Binding Line.ArrivalStation.Name}"  Width="2*" IsReadOnly="True"   CanUserReorder="False"/>
-                <DataGridTextColumn Header = "Cena" CanUserResize="False" Binding="{Binding Price}"  Width="1.5*" IsReadOnly="False"   CanUserReorder="False"/>
+                <DataGridTextColumn Header = "Id"  Binding="{Binding Id}" Width="*" IsReadOnly="True" CanUserReorder="False"/>
+                <DataGridTextColumn Header = "Vreme polaska"  Binding="{Binding DepartureTime}"  Width="2*" IsReadOnly="False"   CanUserReorder="False"/>
+                <DataGridTextColumn Header = "Vreme dolaska"  Binding="{Binding ArrivalTime}"  Width="2*" IsReadOnly="False"   CanUserReorder="False"/>
+                <DataGridTextColumn Header = "Dani vožnje"  Binding="{Binding DaysThatRidesTable}"  Width="3.5*" IsReadOnly="True"   CanUserReorder="False"/>
+                <DataGridTextColumn Header = "Voz" Binding="{Binding Train.Name}"  Width="1.3*" IsReadOnly="True"   CanUserReorder="False"/>
+                <DataGridTextColumn Header = "Id linije" Binding="{Binding Line.Id}"  Width="1.2*" IsReadOnly="True"   CanUserReorder="False"/>
+                <DataGridTextColumn Header = "Polazište"  Binding="{Binding Line.DepartureStation.Name}"  Width="2*" IsReadOnly="True"   CanUserReorder="False"/>
+                <DataGridTextColumn Header = "Dolazište"  Binding="{Binding Line.ArrivalStation.Name}"  Width="2*" IsReadOnly="True"   CanUserReorder="False"/>
+                <DataGridTextColumn Header = "Cena"  Binding="{Binding Price}"  Width="1.5*" IsReadOnly="False"   CanUserReorder="False"/>
             </DataGrid.Columns>
         </DataGrid>
         <Grid Grid.Row="1">
