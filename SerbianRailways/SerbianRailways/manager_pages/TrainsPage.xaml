@@ -16,14 +16,14 @@
             <RowDefinition Height="3*"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <DataGrid x:Name="dgTrains" Grid.Column="0"  ColumnWidth="*" AutoGenerateColumns="False" Grid.Row="0" Margin="10,10,10,10" CanUserAddRows="False"  HorizontalScrollBarVisibility="Disabled "  ItemsSource="{Binding}"
+        <DataGrid x:Name="dgTrains" Grid.Column="0"  ColumnWidth="*" AutoGenerateColumns="False" Grid.Row="0"  Margin="10,10,10,10" CanUserAddRows="False"  HorizontalScrollBarVisibility="Disabled "  ItemsSource="{Binding}"
                    PreviewMouseLeftButtonDown="DGTrains_PreviewMouseLeftButtonDown" MouseMove="DGTrains_MouseMove">
             <DataGrid.Columns>
-                <DataGridTextColumn Header = "Ser. broj" CanUserResize="False" Binding="{Binding SerialNumber}" Width="1.5*" IsReadOnly="True" CanUserReorder="False"/>
-                <DataGridTextColumn Header = "Naziv" CanUserResize="False" Binding="{Binding Name}"  Width="2.5*" IsReadOnly="False"   CanUserReorder="False"/>
-                <DataGridTextColumn Header = "Broj vagona" CanUserResize="False" Binding="{Binding PassengerCars}"  Width="2*" IsReadOnly="False"   CanUserReorder="False"/>
-                <DataGridTextColumn Header = "Mesta Razred I" CanUserResize="False" Binding="{Binding FirstGradeSeats}"  Width="2*" IsReadOnly="False"   CanUserReorder="False"/>
-                <DataGridTextColumn Header = "Mesta Razred II" CanUserResize="False" Binding="{Binding SecondGradeSeats}"  Width="2*" IsReadOnly="False"   CanUserReorder="False"/>
+                <DataGridTextColumn Header = "Ser. broj"  Binding="{Binding SerialNumber}" Width="1.5*" IsReadOnly="True" CanUserReorder="False"/>
+                <DataGridTextColumn Header = "Naziv"  Binding="{Binding Name}"  Width="2.5*" IsReadOnly="False"   CanUserReorder="False"/>
+                <DataGridTextColumn Header = "Broj vagona"  Binding="{Binding PassengerCars}"  Width="2*" IsReadOnly="False"   CanUserReorder="False"/>
+                <DataGridTextColumn Header = "Mesta Razred I"  Binding="{Binding FirstGradeSeats}"  Width="2*" IsReadOnly="False"   CanUserReorder="False"/>
+                <DataGridTextColumn Header = "Mesta Razred II"  Binding="{Binding SecondGradeSeats}"  Width="2*" IsReadOnly="False"   CanUserReorder="False"/>
                 
             </DataGrid.Columns>
         </DataGrid>

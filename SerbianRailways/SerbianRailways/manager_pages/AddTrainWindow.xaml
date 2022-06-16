@@ -6,7 +6,7 @@
         xmlns:val="clr-namespace:SerbianRailways.utility"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="Srbija Voz-Dodavanje voza" Icon="/icon.png" Height="450" Width="400" WindowStartupLocation="CenterScreen">
+        Title="Srbija Voz-Dodavanje voza" Icon="/icon.png" Height="550" Width="400" WindowStartupLocation="CenterScreen">
     <Grid>
         <WrapPanel VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Vertical" Width="300">
             <TextBox materialDesign:HintAssist.Hint="Serijski broj voza" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10, 20, 10, 10" Width="300" x:Name="SerialNumber_tb" ToolTip="Serijski broj se sastoji iz cifara. Mora biti unikatan." >
